@@ -5,4 +5,5 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
     QPushButton *button = new QPushButton("Hello, World!", this);
     layout->addWidget(button);
     setLayout(layout);
+    //ciao
 }
