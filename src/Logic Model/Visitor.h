@@ -14,16 +14,16 @@ class Podcast;
 class Music;
 
 class Visitor : QObject {
-public:
-    virtual ~Visitor() = default;
+    public:
+        virtual ~Visitor() = default;
 
-    virtual QJsonObject visit(MediaItem* media) = 0;
-    virtual QJsonObject visit(Readable* readable) = 0;
-    virtual QJsonObject visit(AudioVisual* audioVisual) = 0;
-    virtual QJsonObject visit(Article* articles) = 0;
-    virtual QJsonObject visit(Book* book) = 0;
-    virtual QJsonObject visit(Film* film) = 0;
-    virtual QJsonObject visit(Podcast* podcast) = 0;
-    virtual QJsonObject visit(Music* music) = 0;
+        virtual void visit(const MediaItem* media) = 0;
+        virtual void visit(const Readable* readable) = 0;
+        virtual void visit(const AudioVisual* audioVisual) = 0;
+        virtual void visit(const Article* articles) = 0;
+        virtual void visit(const Book* book) = 0;
+        virtual void visit(const Film* film) = 0;
+        virtual void visit(const Podcast* podcast) = 0;
+        virtual void visit(const Music* music) = 0;
 };
 #endif // !VISITOR_H

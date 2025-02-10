@@ -10,12 +10,15 @@
 int main() {
     JsonManager jsonManager("test.json");
     QVector<MediaItem*> objects = jsonManager.readJson();
-    std::vector<std::pair<std::string,std::string>> changes = {{"Title", "ChangedTitle"},{ "Author", "ChangedAuthor"}};
-    //jsonManager.ModifyObject(objects[1], changes);
+    if (objects.size() > 1) {
+        delete objects[1];
+        objects.erase(objects.begin() + 1);
+    }
     for (auto obj : objects) {
         std::cout<<obj->getTitle()<<"        ";    
         std::cout<<obj->getAuthor()<<std::endl;
         std::endl(std::cout);
     }
+    jsonManager.save(objects);
     return 0;
 }

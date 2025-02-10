@@ -2,9 +2,9 @@
 
 MediaItem::MediaItem(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
                 const std::string& genre, const std::vector<std::string>& tags, 
-                const std::string& format, const std::string& language, const std::string& used):
+                const std::string& format, const std::string& language, const std::string& used, const std::string& image):
                 title(title), author(author), releaseDate(releaseDate), productionHouse(productionHouse), genre(genre),
-                tags(tags), format(format), language(language), used(used) {}
+                tags(tags), format(format), language(language), used(used), image(image) {}
 
 MediaItem::~MediaItem() = default;
 
@@ -48,6 +48,10 @@ std::string MediaItem::getUsed() const {
     return used;
 }
 
+std::string MediaItem::getImage() const {
+    return image;
+}
+
 void MediaItem::setTitle(const std::string& title) {
     this->title = title;
 }
@@ -88,6 +92,11 @@ void MediaItem::setUsed(const std::string& used) {
     this->used = used;
 }
 
-QJsonObject MediaItem::accept(JsonVisitor* visitor) {
-    return visitor->visit(this);
+void MediaItem::setImage(const std::string& image) {
+    this->image = image;
 }
+
+void MediaItem::accept(JsonVisitor* visitor)const {
+    visitor->visit(this);
+}
+

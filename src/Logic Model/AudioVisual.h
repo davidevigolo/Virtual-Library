@@ -8,7 +8,7 @@ class AudioVisual : public MediaItem {
     public:
         AudioVisual(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
                 const std::string& genre, const std::vector<std::string>& tags, 
-                const std::string& format, const std::string& language, const std::string& used, const std::string& duration = "");
+                const std::string& format, const std::string& language, const std::string& used, const std::string& duration = "", const std::string& image = "");
         virtual ~AudioVisual();
 
         // Getters
@@ -16,7 +16,7 @@ class AudioVisual : public MediaItem {
         // Setters
         void setDuration(const std::string& duration);
 
-        QJsonObject accept(JsonVisitor *visitor) override;
+        void accept(JsonVisitor *visitor)  const override;
 };
 
 #endif // !AUDIOVISUAL_H

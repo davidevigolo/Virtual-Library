@@ -3,7 +3,7 @@
 
 #include <string>
 #include <vector>
-#include "JsonVisitor.h"
+#include "../Save/json/JsonVisitor.h"
 
 class MediaItem {
     private:
@@ -16,10 +16,11 @@ class MediaItem {
         std::string format;//phisical/digital
         std::string language;
         std::string used;//like seen =  read, etc
+        std::string image;
     public:
         MediaItem(const std::string& title  = "",const std::string& author = "", const std::string& releaseDate = "", const std::string& productionHouse = "", 
                 const std::string& genre = "", const std::vector<std::string>& tags = {""}, 
-                const std::string& format = "", const std::string& language = "", const std::string& used = "");
+                const std::string& format = "", const std::string& language = "", const std::string& used = "", const std::string& image = "");
         virtual ~MediaItem();
 
         // Getters
@@ -33,6 +34,7 @@ class MediaItem {
         std::string getFormat() const;
         std::string getLanguage() const;
         std::string getUsed() const;
+        std::string getImage() const;
         // Setters
         void setTitle(const std::string& title);
         void setAuthor(const std::string& author);
@@ -44,8 +46,9 @@ class MediaItem {
         void setFormat(const std::string& format);
         void setLanguage(const std::string& language);
         void setUsed(const std::string& used);
+        void setImage(const std::string& image);
 
-        virtual QJsonObject accept(JsonVisitor *visitor);
+        virtual void accept(JsonVisitor *visitor) const;
 
 
 };

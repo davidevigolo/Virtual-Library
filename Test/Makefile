@@ -61,7 +61,7 @@ SOURCES       = ../src/Logic\ Model/MediaItem.cpp \
 		../src/Logic\ Model/Music.cpp \
 		../src/Logic\ Model/Podcast.cpp \
 		TestMain.cpp \
-		../src/Logic\ Model/JsonVisitor.cpp \
+		../src/Save/json/JsonVisitor.cpp \
 		../src/Save/json/JsonManager.cpp 
 OBJECTS       = MediaItem.o \
 		AudioVisual.o \
@@ -159,7 +159,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../src/Logic\ Model/Article.h \
 		../src/Logic\ Model/Music.h \
 		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h \
+		../src/Save/json/Visitor.h \
 		../src/Save/json/JsonManager.h ../src/Logic\ Model/MediaItem.cpp \
 		../src/Logic\ Model/AudioVisual.cpp \
 		../src/Logic\ Model/Readable.cpp \
@@ -169,7 +169,7 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		../src/Logic\ Model/Music.cpp \
 		../src/Logic\ Model/Podcast.cpp \
 		TestMain.cpp \
-		../src/Logic\ Model/JsonVisitor.cpp \
+		../src/Save/json/JsonVisitor.cpp \
 		../src/Save/json/JsonManager.cpp
 QMAKE_TARGET  = test1
 DESTDIR       = 
@@ -354,8 +354,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/Logic\ Model/MediaItem.h ../src/Logic\ Model/Readable.h ../src/Logic\ Model/AudioVisual.h ../src/Logic\ Model/Book.h ../src/Logic\ Model/Film.h ../src/Logic\ Model/Article.h ../src/Logic\ Model/Music.h ../src/Logic\ Model/JsonVisitor.h ../src/Logic\ Model/Visitor.h ../src/Save/json/JsonManager.h $(DISTDIR)/
-	$(COPY_FILE) --parents ../src/Logic\ Model/MediaItem.cpp ../src/Logic\ Model/AudioVisual.cpp ../src/Logic\ Model/Readable.cpp ../src/Logic\ Model/Article.cpp ../src/Logic\ Model/Book.cpp ../src/Logic\ Model/Film.cpp ../src/Logic\ Model/Music.cpp ../src/Logic\ Model/Podcast.cpp TestMain.cpp ../src/Logic\ Model/JsonVisitor.cpp ../src/Save/json/JsonManager.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/Logic\ Model/MediaItem.h ../src/Logic\ Model/Readable.h ../src/Logic\ Model/AudioVisual.h ../src/Logic\ Model/Book.h ../src/Logic\ Model/Film.h ../src/Logic\ Model/Article.h ../src/Logic\ Model/Music.h ../src/Logic\ Model/JsonVisitor.h ../src/Save/json/Visitor.h ../src/Save/json/JsonManager.h $(DISTDIR)/
+	$(COPY_FILE) --parents ../src/Logic\ Model/MediaItem.cpp ../src/Logic\ Model/AudioVisual.cpp ../src/Logic\ Model/Readable.cpp ../src/Logic\ Model/Article.cpp ../src/Logic\ Model/Book.cpp ../src/Logic\ Model/Film.cpp ../src/Logic\ Model/Music.cpp ../src/Logic\ Model/Podcast.cpp TestMain.cpp ../src/Save/json/JsonVisitor.cpp ../src/Save/json/JsonManager.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -406,63 +406,54 @@ compiler_clean: compiler_moc_predefs_clean
 ####### Compile
 
 MediaItem.o: ../src/Logic\ Model/MediaItem.cpp ../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
+		../src/Save/json/JsonVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MediaItem.o ../src/Logic\ Model/MediaItem.cpp
 
 AudioVisual.o: ../src/Logic\ Model/AudioVisual.cpp ../src/Logic\ Model/AudioVisual.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
+		../src/Save/json/JsonVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AudioVisual.o ../src/Logic\ Model/AudioVisual.cpp
 
 Readable.o: ../src/Logic\ Model/Readable.cpp ../src/Logic\ Model/Readable.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
+		../src/Save/json/JsonVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Readable.o ../src/Logic\ Model/Readable.cpp
 
 Article.o: ../src/Logic\ Model/Article.cpp ../src/Logic\ Model/Article.h \
 		../src/Logic\ Model/Readable.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
+		../src/Save/json/JsonVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Article.o ../src/Logic\ Model/Article.cpp
 
 Book.o: ../src/Logic\ Model/Book.cpp ../src/Logic\ Model/Book.h \
 		../src/Logic\ Model/Readable.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
+		../src/Save/json/JsonVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Book.o ../src/Logic\ Model/Book.cpp
 
 Film.o: ../src/Logic\ Model/Film.cpp ../src/Logic\ Model/Film.h \
 		../src/Logic\ Model/AudioVisual.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
+		../src/Save/json/JsonVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Film.o ../src/Logic\ Model/Film.cpp
 
 Music.o: ../src/Logic\ Model/Music.cpp ../src/Logic\ Model/Music.h \
 		../src/Logic\ Model/AudioVisual.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
+		../src/Save/json/JsonVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Music.o ../src/Logic\ Model/Music.cpp
 
 Podcast.o: ../src/Logic\ Model/Podcast.cpp ../src/Logic\ Model/Podcast.h \
 		../src/Logic\ Model/AudioVisual.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
+		../src/Save/json/JsonVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Podcast.o ../src/Logic\ Model/Podcast.cpp
 
 TestMain.o: TestMain.cpp ../src/Save/json/JsonManager.h \
 		../src/Logic\ Model/Article.h \
 		../src/Logic\ Model/Readable.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h \
+		../src/Save/json/JsonVisitor.h \
 		../src/Logic\ Model/Book.h \
 		../src/Logic\ Model/Film.h \
 		../src/Logic\ Model/AudioVisual.h \
@@ -470,16 +461,14 @@ TestMain.o: TestMain.cpp ../src/Save/json/JsonManager.h \
 		../src/Logic\ Model/Podcast.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TestMain.o TestMain.cpp
 
-JsonVisitor.o: ../src/Logic\ Model/JsonVisitor.cpp ../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o JsonVisitor.o ../src/Logic\ Model/JsonVisitor.cpp
+JsonVisitor.o: ../src/Save/json/JsonVisitor.cpp ../src/Save/json/JsonVisitor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o JsonVisitor.o ../src/Save/json/JsonVisitor.cpp
 
 JsonManager.o: ../src/Save/json/JsonManager.cpp ../src/Save/json/JsonManager.h \
 		../src/Logic\ Model/Article.h \
 		../src/Logic\ Model/Readable.h \
 		../src/Logic\ Model/MediaItem.h \
-		../src/Logic\ Model/JsonVisitor.h \
-		../src/Logic\ Model/Visitor.h \
+		../src/Save/json/JsonVisitor.h \
 		../src/Logic\ Model/Book.h \
 		../src/Logic\ Model/Film.h \
 		../src/Logic\ Model/AudioVisual.h \

@@ -21,7 +21,7 @@ SOURCES += "../src/Logic Model/Film.cpp"
 SOURCES += "../src/Logic Model/Music.cpp"
 SOURCES += "../src/Logic Model/Podcast.cpp"
 SOURCES += "TestMain.cpp"
-SOURCES += "../src/Logic Model/JsonVisitor.cpp"
+SOURCES += "../src/Save/json/JsonVisitor.cpp"
 
 HEADERS += "../src/Logic Model/MediaItem.h"
 HEADERS += "../src/Logic Model/Readable.h"
@@ -32,7 +32,7 @@ HEADERS += "../src/Logic Model/Article.h"
 HEADERS += "../src/Logic Model/Music.h"
 SOURCES += "../src/Logic Model/Podcast.h"
 HEADERS += "../src/Logic Model/JsonVisitor.h"
-HEADERS += "../src/Logic Model/Visitor.h"
+HEADERS += "../src/Save/json/Visitor.h"
 
 # Save
 SOURCES += "../src/Save/json/JsonManager.cpp"

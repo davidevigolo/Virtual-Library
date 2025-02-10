@@ -15,7 +15,7 @@ public:
          const std::string& genre, const std::vector<std::string>& tags, 
          const std::string& format, const std::string& language, const std::string& used, 
          const std::string& duration, const std::string& tecnic, const double framerate,
-         const std::string& director);
+         const std::string& director, const std::string& image = "");
 
     ~Film();
 
@@ -29,7 +29,7 @@ public:
     void setFramerate(double framerate);
     void setDirector(const std::string& director);
 
-    QJsonObject accept(JsonVisitor *visitor) override;
+    void accept(JsonVisitor *visitor)const override;
 };
 
 #endif // FILM_H
