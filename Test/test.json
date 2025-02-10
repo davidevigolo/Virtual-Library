@@ -1,0 +1,168 @@
+[
+    {
+        "Author": "John Doe",
+        "Class": "Article",
+        "Edition": "1st",
+        "Format": "digital",
+        "Genre": "Technology",
+        "Language": "English",
+        "Pages": 10,
+        "ProductionHouse": "Tech Publishers",
+        "Publisher": "Tech Journal",
+        "ReleaseDate": "2023-10-01",
+        "Tags": [
+            "AI",
+            "Future",
+            "Technology"
+        ],
+        "Title": "The Future of AI",
+        "Used": "read"
+    },
+    {
+        "Author": "Various Artists",
+        "Class": "Music",
+        "Format": "CD",
+        "Genre": "Classical",
+        "Language": "Instrumental",
+        "ProductionHouse": "Classical Records",
+        "Publisher": "Classical Records",
+        "ReleaseDate": "2019-11-01",
+        "Tags": [
+            "Classical",
+            "Instrumental",
+            "Relaxing"
+        ],
+        "Title": "Classical Essentials",
+        "Tracks": 20,
+        "Used": "new"
+    },
+    {
+        "Author": "Emily White",
+        "Class": "Article",
+        "Edition": "1st",
+        "Format": "digital",
+        "Genre": "Science",
+        "Language": "English",
+        "Pages": 15,
+        "ProductionHouse": "Science Daily",
+        "Publisher": "Science Daily",
+        "ReleaseDate": "2023-08-10",
+        "Tags": [
+            "Quantum Computing",
+            "Technology",
+            "Science"
+        ],
+        "Title": "Quantum Computing Advances",
+        "Used": "read"
+    },
+    {
+        "Author": "Robert Brown",
+        "Class": "Book",
+        "Edition": "2nd",
+        "Format": "print",
+        "Genre": "Programming",
+        "Language": "English",
+        "Pages": 400,
+        "ProductionHouse": "Code Masters",
+        "Publisher": "Code Masters Press",
+        "ReleaseDate": "2021-03-22",
+        "Tags": [
+            "JavaScript",
+            "Programming",
+            "Web Development"
+        ],
+        "Title": "Mastering JavaScript",
+        "Used": "new"
+    },
+    {
+        "Class": "Film",
+        "Director": "The Wachowskis",
+        "Duration": "136 minutes",
+        "Format": "DVD",
+        "Genre": "Science Fiction",
+        "Language": "English",
+        "ProductionHouse": "Warner Bros.",
+        "Publisher": "Warner Bros.",
+        "ReleaseDate": "1999-03-31",
+        "Tags": [
+            "Sci-Fi",
+            "Action",
+            "Classic"
+        ],
+        "Title": "The Matrix",
+        "Used": "used"
+    },
+    {
+        "Class": "Podcast",
+        "Episodes": 30,
+        "Format": "audio",
+        "Genre": "History",
+        "Host": "Michael Green",
+        "Language": "English",
+        "ProductionHouse": "History Network",
+        "Publisher": "History Network",
+        "ReleaseDate": "2022-11-05",
+        "Tags": [
+            "History",
+            "Education",
+            "Stories"
+        ],
+        "Title": "History Uncovered",
+        "Used": "new"
+    },
+    {
+        "Author": "Various Artists",
+        "Class": "Music",
+        "Format": "Vinyl",
+        "Genre": "Rock",
+        "Language": "English",
+        "ProductionHouse": "Rock Records",
+        "Publisher": "Rock Records",
+        "ReleaseDate": "2018-06-15",
+        "Tags": [
+            "Rock",
+            "Hits",
+            "Compilation"
+        ],
+        "Title": "Rock Anthems",
+        "Tracks": 15,
+        "Used": "new"
+    },
+    {
+        "Author": "Sarah Green",
+        "Class": "Article",
+        "Edition": "1st",
+        "Format": "digital",
+        "Genre": "Environment",
+        "Language": "English",
+        "Pages": 12,
+        "ProductionHouse": "Eco Journal",
+        "Publisher": "Eco Journal",
+        "ReleaseDate": "2023-07-25",
+        "Tags": [
+            "Renewable Energy",
+            "Environment",
+            "Sustainability"
+        ],
+        "Title": "The Rise of Renewable Energy",
+        "Used": "read"
+    },
+    {
+        "Author": "Author",
+        "Class": "Article",
+        "Edition": "Content",
+        "Format": "Format",
+        "Genre": "Genre",
+        "Language": "Language",
+        "Pages": 45,
+        "ProductionHouse": "ProductionHouse",
+        "Publisher": "co",
+        "ReleaseDate": "ReleaseDate",
+        "Tags": [
+            "tag1",
+            "tag2"
+        ],
+        "Title": "Title",
+        "Used": "Used"
+    }
+]

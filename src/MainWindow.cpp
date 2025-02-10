@@ -6,4 +6,4 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
     layout->addWidget(button);
     setLayout(layout);
     //ciao
-}
+}   
