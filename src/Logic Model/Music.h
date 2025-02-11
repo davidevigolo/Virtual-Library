@@ -10,6 +10,7 @@ class  Music : public AudioVisual {
         Music(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
                 const std::string& genre, const std::vector<std::string>& tags, 
                 const std::string& format, const std::string& language, const std::string& used, const std::string& duration, const std::string& album = "");
+        Music(AudioVisual* media, const std::string& album) : AudioVisual(*media), album(album) {};
         virtual ~Music();
 
         // Getters
@@ -18,6 +19,7 @@ class  Music : public AudioVisual {
         void setAlbum(const std::string& album);
 
         QJsonObject accept(JsonVisitor *visitor) override;
+        void accept(XmlVisitor *visitor) override;
 };
 
 #endif // !MUSIC_H

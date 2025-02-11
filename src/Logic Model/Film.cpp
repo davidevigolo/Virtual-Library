@@ -42,3 +42,7 @@ void Film::setDirector(const std::string& director) {
 QJsonObject Film::accept(JsonVisitor *visitor) {
     return visitor->visit(this);
 }
+
+void Film::accept(XmlVisitor *visitor) {
+    visitor->visit(this);
+}

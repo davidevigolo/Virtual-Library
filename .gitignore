@@ -44,3 +44,6 @@ compile_commands.json
 *creator.user*
 
 *_qmlcache.qrc
+
+# Build folder
+build/

@@ -18,3 +18,7 @@ void Podcast::setEpisodes(unsigned episodes) {
 QJsonObject Podcast::accept(JsonVisitor *visitor){
     return visitor->visit(this);
 }
+
+void Podcast::accept(XmlVisitor *visitor){
+    visitor->visit(this);
+}

@@ -18,3 +18,7 @@ void Book::setISBN(unsigned int ISBN) {
 QJsonObject Book::accept(JsonVisitor *visitor) {
     return visitor->visit(this);
 }
+
+void Book::accept(XmlVisitor *visitor) {
+    visitor->visit(this);
+}

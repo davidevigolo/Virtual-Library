@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include "JsonVisitor.h"
+#include "XmlVisitor.h"
 
 class MediaItem {
     private:
@@ -46,6 +47,7 @@ class MediaItem {
         void setUsed(const std::string& used);
 
         virtual QJsonObject accept(JsonVisitor *visitor);
+        virtual void accept(XmlVisitor *visitor);
 
 
 };

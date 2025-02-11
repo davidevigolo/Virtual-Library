@@ -12,7 +12,7 @@ public:
     Podcast(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
                 const std::string& genre, const std::vector<std::string>& tags, 
                 const std::string& format, const std::string& language, const std::string& used, const std::string& duration, unsigned int episodes = 0);
-
+    Podcast(AudioVisual* media, unsigned int episodes) : AudioVisual(*media), episodes(episodes) {};
     ~Podcast();
 
     unsigned getEpisodes() const;
@@ -20,6 +20,7 @@ public:
     void setEpisodes(unsigned episodes);
 
     QJsonObject accept(JsonVisitor *visitor) override;
+    void accept(XmlVisitor *visitor) override;
 };
 
 #endif // PODCAST_H

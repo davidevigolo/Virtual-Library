@@ -91,3 +91,7 @@ void MediaItem::setUsed(const std::string& used) {
 QJsonObject MediaItem::accept(JsonVisitor* visitor) {
     return visitor->visit(this);
 }
+
+void MediaItem::accept(XmlVisitor* visitor) {
+    visitor->visit(this);
+}

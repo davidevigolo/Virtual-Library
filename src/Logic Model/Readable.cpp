@@ -26,3 +26,7 @@ void Readable::setPages(const unsigned int& pages) {
 QJsonObject Readable::accept(JsonVisitor *visitor) {
     return visitor->visit(this);
 }
+
+void Readable::accept(XmlVisitor *visitor) {
+    visitor->visit(this);
+}

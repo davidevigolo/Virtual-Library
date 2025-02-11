@@ -18,3 +18,7 @@ void Article::setPublisher(const std::string& publisher) {
 QJsonObject Article::accept(JsonVisitor *visitor){
     return visitor->visit(this);
 }
+
+void Article::accept(XmlVisitor *visitor){
+    visitor->visit(this);
+}

@@ -18,3 +18,7 @@ void Music::setAlbum(const std::string& album) {
 QJsonObject Music::accept(JsonVisitor *visitor){
     return visitor->visit(this);
 }
+
+void Music::accept(XmlVisitor *visitor){
+    visitor->visit(this);
+}

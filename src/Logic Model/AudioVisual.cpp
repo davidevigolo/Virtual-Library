@@ -18,3 +18,7 @@ void AudioVisual::setDuration(const std::string& duration) {
 QJsonObject AudioVisual::accept(JsonVisitor *visitor) {
     return visitor->visit(this);
 }
+
+void AudioVisual::accept(XmlVisitor *visitor) {
+    visitor->visit(this);
+}

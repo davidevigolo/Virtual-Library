@@ -16,7 +16,7 @@ public:
          const std::string& format, const std::string& language, const std::string& used, 
          const std::string& duration, const std::string& tecnic, const double framerate,
          const std::string& director);
-
+    Film(AudioVisual* media, const std::string& tecnic, const double framerate, const std::string& director) : AudioVisual(*media), tecnic(tecnic), framerate(framerate), director(director) {}
     ~Film();
 
     //Getters
@@ -30,6 +30,7 @@ public:
     void setDirector(const std::string& director);
 
     QJsonObject accept(JsonVisitor *visitor) override;
+    void accept(XmlVisitor *visitor) override;
 };
 
 #endif // FILM_H
