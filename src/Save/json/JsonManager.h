@@ -23,9 +23,8 @@ class JsonManager : public QObject {
         std::vector<std::string> JsonArrToVec(const QJsonArray &array) const;
         MediaItem* ObjectLoader(const QString& className, const QJsonObject& obj) const;
         QVector<MediaItem*> readJson() const;
-        void saveNewObject(MediaItem* item);
-        void DeleteObject(MediaItem* media);
-        void ModifyObject(MediaItem* media, std::vector<std::pair<std::string,std::string>>& changes);//the vector contains <name of the attribute, new value>
+        void save(QVector<MediaItem*> item) const;
+        
 };
 
 #endif // JSONMANAGER_H

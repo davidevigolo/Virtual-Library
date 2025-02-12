@@ -5,8 +5,8 @@ Film::Film(const std::string& title, const std::string& author, const std::strin
            const std::string& genre, const std::vector<std::string>& tags, 
            const std::string& format, const std::string& language, const std::string& used, 
            const std::string& duration, const std::string& tecnic, const double framerate,
-           const std::string& director)
-    : AudioVisual(title, author, releaseDate, productionHouse, genre, tags, format, language, used, duration),
+           const std::string& director, const std::string& image)
+    : AudioVisual(title, author, releaseDate, productionHouse, genre, tags, format, language, used, duration,image),
       tecnic(tecnic), framerate(framerate), director(director) {}
 
 // Destructor
@@ -39,8 +39,8 @@ void Film::setDirector(const std::string& director) {
 }
 
 
-QJsonObject Film::accept(JsonVisitor *visitor) {
-    return visitor->visit(this);
+void Film::accept(JsonVisitor *visitor) const{
+    visitor->visit(this);
 }
 
 void Film::accept(XmlVisitor *visitor) {

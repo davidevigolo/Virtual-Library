@@ -25,7 +25,8 @@ MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject
             obj["Used"].toString().toStdString(), 
             obj["Edition"].toString().toStdString(), 
             obj["Pages"].toInt(), 
-            obj["Publisher"].toString().toStdString()
+            obj["Publisher"].toString().toStdString(),
+            obj["Image"].toString().toStdString()
         );
     } else if (className == "Book") {
         media = new Book(
@@ -40,7 +41,8 @@ MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject
             obj["Used"].toString().toStdString(), 
             obj["Edition"].toString().toStdString(), 
             obj["Pages"].toInt(), 
-            obj["ISBN"].toInt()
+            obj["ISBN"].toInt(),
+            obj["Image"].toString().toStdString()
         );
     } else if (className == "Film") {
         media = new Film(
@@ -56,7 +58,8 @@ MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject
             obj["Duration"].toString().toStdString(), 
             obj["Tecnica"].toString().toStdString(), 
             obj["Framerate"].toDouble(), 
-            obj["Director"].toString().toStdString()
+            obj["Director"].toString().toStdString(),
+            obj["Image"].toString().toStdString()
         );
     } else if (className == "Music") {
         media = new Music(
@@ -70,7 +73,8 @@ MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject
             obj["Language"].toString().toStdString(), 
             obj["Used"].toString().toStdString(), 
             obj["Duration"].toString().toStdString(), 
-            obj["Album"].toString().toStdString()
+            obj["Album"].toString().toStdString(),
+            obj["Image"].toString().toStdString()
         );
     } else if (className == "Podcast") {
         media = new Podcast(
@@ -84,7 +88,8 @@ MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject
             obj["Language"].toString().toStdString(), 
             obj["Used"].toString().toStdString(), 
             obj["Duration"].toString().toStdString(), 
-            obj["Episodes"].toInt()
+            obj["Episodes"].toInt(),
+            obj["Image"].toString().toStdString()
         );
     }else {
         qWarning() << "Unrecognised class" << className;
@@ -124,121 +129,24 @@ QVector<MediaItem*> JsonManager::readJson() const {
     return Library;
 }
 
-void JsonManager::saveNewObject(MediaItem* media){
+void JsonManager::save(QVector<MediaItem*> Library) const{
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "Couldn't open file:" << filePath;
-        return;
+
+    JsonVisitor* visitor = new JsonVisitor();
+    QJsonArray jsonArray;
+
+    for(auto media : Library){
+        media->accept(visitor);
+        jsonArray.push_back(visitor->getObject());
     }
 
-    QByteArray data = file.readAll();
-    file.close();
-
-    QJsonParseError parseError; //to check parsin errors
-    QJsonDocument document = QJsonDocument::fromJson(data, &parseError); //to parse the data and save parsing errors
-
-    if (parseError.error != QJsonParseError::NoError) {
-        qWarning() << "JSON parse error:" << parseError.errorString();
-        return;
-    }
-
-    QJsonArray jsonArray = document.array();
-    QJsonObject obj = media->accept(new JsonVisitor());
-    jsonArray.push_back(obj);
     QJsonDocument newDocument(jsonArray);
+
     if (!file.open(QIODevice::WriteOnly)) {
         qWarning() << "Couldn't open file:" << filePath;
         return;
     }
-
     file.write(newDocument.toJson());
     file.close();
+    delete visitor;
 }
-
-void JsonManager::DeleteObject(MediaItem* media){
-    std::string title= media->getTitle();
-    QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "Couldn't open file:" << filePath;
-        return;
-    }
-
-    QByteArray data = file.readAll();
-    file.close();
-
-    QJsonParseError parseError; //to check parsin errors
-    QJsonDocument document = QJsonDocument::fromJson(data, &parseError); //to parse the data and save parsing errors
-
-    if (parseError.error != QJsonParseError::NoError) {
-        qWarning() << "JSON parse error:" << parseError.errorString();
-        return;
-    }
-
-    QJsonArray jsonArray = document.array();
-    for (int i = 0; i < jsonArray.size(); ++i) {
-        QJsonValue value = jsonArray.at(i);
-        if (value.isObject()) {
-            QJsonObject obj = value.toObject();
-            if (obj["Title"].toString().toStdString() == title) {//-----------------------------------------------------------------------------solo il titolo? (no per, ad esempio, episodi)
-                jsonArray.removeAt(i);
-                break;
-            }
-        }
-    }
-
-    QJsonDocument newDocument(jsonArray);
-    if (!file.open(QIODevice::WriteOnly)) {
-        qWarning() << "Couldn't open file:" << filePath;
-        return;
-    }
-
-    file.write(newDocument.toJson());
-    file.close();
-
-}
-
-void JsonManager::ModifyObject(MediaItem* media, std::vector<std::pair<std::string,std::string>>& changes){//check solo col titolo...TODO-----------------------------------------------------------------------------
-    std::string title= media->getTitle();
-    QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly)) {
-        qWarning() << "Couldn't open file:" << filePath;
-        return;
-    }
-
-    QByteArray data = file.readAll();
-    file.close();
-
-    QJsonParseError parseError; //to check parsin errors
-    QJsonDocument document = QJsonDocument::fromJson(data, &parseError); //to parse the data and save parsing errors
-
-    if (parseError.error != QJsonParseError::NoError) {
-        qWarning() << "JSON parse error:" << parseError.errorString();
-        return;
-    }
-
-    QJsonArray jsonArray = document.array();
-    for (int i = 0; i < jsonArray.size(); ++i) {
-        QJsonValue value = jsonArray.at(i);
-        if (value.isObject()) {
-            QJsonObject obj = value.toObject();
-            if (obj["Title"].toString().toStdString() == title) {
-                for(auto change : changes){
-                    obj[QString::fromStdString(change.first)] = QString::fromStdString(change.second);
-                }
-                jsonArray.replace(i, obj);
-            }
-            break;
-        }
-    }
-    
-
-    QJsonDocument newDocument(jsonArray);
-    if (!file.open(QIODevice::WriteOnly)) {
-        qWarning() << "Couldn't open file:" << filePath;
-        return;
-    }
-
-    file.write(newDocument.toJson());
-    file.close();
-}
-
