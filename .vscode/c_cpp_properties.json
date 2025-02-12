@@ -9,7 +9,8 @@
                 "/usr/include/x86_64-linux-gnu/qt5/QtCore",
                 "${workspaceFolder}/src/Logic Model",
                 "${workspaceFolder}/src/Save/xml",
-                "${workspaceFolder}/Test/XmlTests"
+                "${workspaceFolder}/Test/XmlTests",
+                "${workspaceFolder}/src/Save/json"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

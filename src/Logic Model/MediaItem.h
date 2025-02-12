@@ -4,6 +4,7 @@
 #include <string>
 #include <vector>
 #include <JsonVisitor.h>
+#include <XmlVisitor.h>
 
 class MediaItem {
     private:

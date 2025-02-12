@@ -16,6 +16,7 @@ CONFIG -= release
 INCLUDEPATH += "./src/Logic Model"
 INCLUDEPATH += "./src/Save/xml"
 INCLUDEPATH += "./src/Save/json"
+INCLUDEPATH += "./Test/XmlTests"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
@@ -27,7 +28,7 @@ SOURCES += "./src/Logic Model/Film.cpp"
 SOURCES += "./src/Logic Model/Music.cpp"
 SOURCES += "./src/Logic Model/Podcast.cpp"
 SOURCES += "./Test/XmlTests/XmlManagerTest.cpp"
-SOURCES += "./src/Logic Model/JsonVisitor.cpp"
+SOURCES += "./src/Save/json/JsonVisitor.cpp"
 SOURCES += "./src/Logic Model/XmlVisitor.cpp"
 
 HEADERS += "./src/Logic Model/MediaItem.h"
@@ -38,7 +39,8 @@ HEADERS += "./src/Logic Model/Film.h"
 HEADERS += "./src/Logic Model/Article.h"
 HEADERS += "./src/Logic Model/Music.h"
 HEADERS += "./src/Logic Model/Podcast.h"
-HEADERS += "./src/Logic Model/JsonVisitor.h"
+HEADERS += "./src/Save/json/JsonVisitor.h"
+HEADERS += "./Test/XmlTests/XmlManagerTest.h"
 HEADERS += "./src/Logic Model/Visitor.h"
 HEADERS += "./src/Logic Model/XmlVisitor.h"
 
@@ -50,3 +52,6 @@ HEADERS += "./src/Save/xml/XmlManager.h"
 SOURCES += "./src/Save/xml/XmlManager.cpp"
 HEADERS += "./src/Save/xml/XmlReader.h"
 SOURCES += "./src/Save/xml/XmlReader.cpp"
+
+# TestMain
+SOURCES += "./Test/TestMain.cpp"

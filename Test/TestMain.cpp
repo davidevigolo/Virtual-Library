@@ -6,6 +6,7 @@
 #include <../src/Logic Model/Music.h>
 #include <../src/Logic Model/Podcast.h>
 #include <typeinfo>
+#include <XmlManagerTest.h>
 
 int main() {
     JsonManager jsonManager("test.json");
@@ -20,5 +21,6 @@ int main() {
         std::endl(std::cout);
     }
     jsonManager.save(objects);
-    return 0;
+
+    XmlManagerTest::testSaveAndLoadMediaItems();
 }

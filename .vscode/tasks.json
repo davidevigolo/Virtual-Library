@@ -4,7 +4,7 @@
         {
             "label": "qmake build",
             "type": "shell",
-            "command": "clear && cd build && pwd && qmake -makefile ../Test/Virtual-Library.pro && make",
+            "command": "clear && cd build && pwd && qmake -makefile ../Virtual-Library.pro && make",
             "group": "build",
             "problemMatcher": []
         }

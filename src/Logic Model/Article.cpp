@@ -19,6 +19,6 @@ void Article::accept(JsonVisitor *visitor) const {
     visitor->visit(this);
 }
 
-void Article::accept(XmlVisitor *visitor) const{
+void Article::accept(XmlVisitor *visitor) {
     visitor->visit(this);
 }

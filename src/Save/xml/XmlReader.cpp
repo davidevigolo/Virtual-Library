@@ -12,7 +12,6 @@ MediaItem* XmlReader::readMediaItem(QXmlStreamReader& xmlReader) {
     std::string used;
 
     while (xmlReader.tokenType() != QXmlStreamReader::EndElement) {
-        qDebug() << xmlReader.name();
         if (xmlReader.tokenType() == QXmlStreamReader::StartElement) {
             if (xmlReader.name() == "Title") {
                 title = xmlReader.readElementText().toStdString();
