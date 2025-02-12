@@ -55,7 +55,7 @@ MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject
             obj["Format"].toString().toStdString(), 
             obj["Language"].toString().toStdString(), 
             obj["Used"].toString().toStdString(), 
-            obj["Duration"].toString().toStdString(), 
+            obj["Duration"].toString().toUInt(), 
             obj["Tecnica"].toString().toStdString(), 
             obj["Framerate"].toDouble(), 
             obj["Director"].toString().toStdString(),
@@ -72,7 +72,7 @@ MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject
             obj["Format"].toString().toStdString(), 
             obj["Language"].toString().toStdString(), 
             obj["Used"].toString().toStdString(), 
-            obj["Duration"].toString().toStdString(), 
+            obj["Duration"].toString().toUInt(), 
             obj["Album"].toString().toStdString(),
             obj["Image"].toString().toStdString()
         );
@@ -87,7 +87,7 @@ MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject
             obj["Format"].toString().toStdString(), 
             obj["Language"].toString().toStdString(), 
             obj["Used"].toString().toStdString(), 
-            obj["Duration"].toString().toStdString(), 
+            obj["Duration"].toString().toUInt(), 
             obj["Episodes"].toInt(),
             obj["Image"].toString().toStdString()
         );

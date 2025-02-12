@@ -20,26 +20,6 @@
         "Used": "read"
     },
     {
-        "Author": "David Black",
-        "Class": "Film",
-        "Duration": "120 minutes",
-        "Format": "Blu-ray",
-        "Framerate": 24,
-        "Genre": "Drama",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Drama Studios",
-        "ReleaseDate": "2019-11-20",
-        "Tags": [
-            "Drama",
-            "Award-Winning",
-            "Emotional"
-        ],
-        "Tecnic": "",
-        "Title": "A Life to Remember",
-        "Used": "new"
-    },
-    {
         "Author": "Anna Green",
         "Class": "Podcast",
         "Duration": "45 minutes",

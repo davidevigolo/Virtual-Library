@@ -54,6 +54,12 @@
         "streambuf": "cpp",
         "thread": "cpp",
         "typeinfo": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "codecvt": "cpp",
+        "cstring": "cpp",
+        "optional": "cpp",
+        "future": "cpp",
+        "iomanip": "cpp",
+        "sstream": "cpp"
     }
 }

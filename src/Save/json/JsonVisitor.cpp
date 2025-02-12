@@ -35,7 +35,7 @@ void JsonVisitor::visit(const Readable* readable){
 
 void JsonVisitor::visit(const AudioVisual* audioVisual){
     visit(static_cast<const MediaItem*>(audioVisual));
-    object["Duration"] = audioVisual->getDuration().c_str();
+    object["Duration"] = std::to_string(audioVisual->getDuration()).c_str();
     
 }
 

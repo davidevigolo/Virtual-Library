@@ -96,10 +96,10 @@ void MediaItem::setImage(const std::string& image) {
     this->image = image;
 }
 
-void MediaItem::accept(JsonVisitor* visitor)const {
+void MediaItem::accept(JsonVisitor* visitor) const{
     visitor->visit(this);
 }
 
-void MediaItem::accept(XmlVisitor* visitor) {
+void MediaItem::accept(XmlVisitor* visitor) const{
     visitor->visit(this);
 }

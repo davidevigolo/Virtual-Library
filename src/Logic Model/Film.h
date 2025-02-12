@@ -14,10 +14,9 @@ public:
     Film(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
          const std::string& genre, const std::vector<std::string>& tags, 
          const std::string& format, const std::string& language, const std::string& used, 
-         const std::string& duration, const std::string& tecnic, const double framerate,
+         const unsigned int duration, const std::string& tecnic, const double framerate,
          const std::string& director, const std::string& image = "");
-    Film(AudioVisual* media, const std::string& tecnic, const double framerate, const std::string& director) : AudioVisual(*media), tecnic(tecnic), framerate(framerate), director(director) {}
-    ~Film();
+    Film(AudioVisual* media, const std::string& tecnic, const double framerate, const std::string& director);
 
     //Getters
     std::string getTecnic() const;
@@ -29,8 +28,8 @@ public:
     void setFramerate(double framerate);
     void setDirector(const std::string& director);
 
-    void accept(JsonVisitor *visitor)const override;
-    void accept(XmlVisitor *visitor) override;
+    void accept(JsonVisitor *visitor) const override;
+    void accept(XmlVisitor *visitor) const override;
 };
 
 #endif // FILM_H

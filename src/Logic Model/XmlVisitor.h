@@ -6,6 +6,7 @@
 #include <utility>
 #include <QXmlStreamWriter>
 
+
 class MediaItem;
 class Readable;
 class AudioVisual;
@@ -22,14 +23,14 @@ public:
     XmlVisitor(QXmlStreamWriter& _writer) : writer(_writer) {};
     virtual ~XmlVisitor() = default;
 
-    void visit(MediaItem* media, bool onlyBody = false);
-    void visit(Readable* readable, bool onlyBody = false);
-    void visit(AudioVisual* audioVisual, bool onlyBody = false);
-    void visit(Article* articles, bool onlyBody = false);
-    void visit(Book* book, bool onlyBody = false);
-    void visit(Film* film, bool onlyBody = false);
-    void visit(Podcast* podcast, bool onlyBody = false);
-    void visit(Music* music, bool onlyBody = false);
+    void visit(const MediaItem* media, bool onlyBody = false);
+    void visit(const Readable* readable, bool onlyBody = false);
+    void visit(const AudioVisual* audioVisual, bool onlyBody = false);
+    void visit(const Article* articles, bool onlyBody = false);
+    void visit(const Book* book, bool onlyBody = false);
+    void visit(const Film* film, bool onlyBody = false);
+    void visit(const Podcast* podcast, bool onlyBody = false);
+    void visit(const Music* music, bool onlyBody = false);
 };
 
 #endif // !XML_VISITOR

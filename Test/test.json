@@ -20,29 +20,9 @@
         "Used": "read"
     },
     {
-        "Author": "Emily White",
-        "Class": "Article",
-        "Edition": "1st",
-        "Format": "digital",
-        "Genre": "Health",
-        "Image": "",
-        "Language": "English",
-        "Pages": 8,
-        "ProductionHouse": "Health Journal",
-        "Publisher": "Health Journal",
-        "ReleaseDate": "2022-12-01",
-        "Tags": [
-            "Wellness",
-            "Fitness",
-            "Health"
-        ],
-        "Title": "The Benefits of Yoga",
-        "Used": "read"
-    },
-    {
         "Author": "David Black",
         "Class": "Film",
-        "Duration": "120 minutes",
+        "Duration": "0",
         "Format": "Blu-ray",
         "Framerate": 24,
         "Genre": "Drama",
@@ -62,7 +42,7 @@
     {
         "Author": "Anna Green",
         "Class": "Podcast",
-        "Duration": "45 minutes",
+        "Duration": "0",
         "Episodes": 15,
         "Format": "audio",
         "Genre": "Science",
@@ -82,7 +62,7 @@
         "Album": "Greatest Hits",
         "Author": "The Legends",
         "Class": "Music",
-        "Duration": "60 minutes",
+        "Duration": "0",
         "Format": "CD",
         "Genre": "Pop",
         "Image": "",
@@ -140,7 +120,7 @@
     {
         "Author": "Tom White",
         "Class": "Film",
-        "Duration": "150 minutes",
+        "Duration": "0",
         "Format": "DVD",
         "Framerate": 30,
         "Genre": "Action",
@@ -160,7 +140,7 @@
     {
         "Author": "Nancy Brown",
         "Class": "Podcast",
-        "Duration": "30 minutes",
+        "Duration": "0",
         "Episodes": 25,
         "Format": "audio",
         "Genre": "Technology",
@@ -180,7 +160,7 @@
         "Album": "Top Hits",
         "Author": "Various Artists",
         "Class": "Music",
-        "Duration": "70 minutes",
+        "Duration": "0",
         "Format": "Vinyl",
         "Genre": "Pop",
         "Image": "",
@@ -238,7 +218,7 @@
     {
         "Author": "Sophia White",
         "Class": "Film",
-        "Duration": "110 minutes",
+        "Duration": "0",
         "Format": "Blu-ray",
         "Framerate": 24,
         "Genre": "Comedy",
@@ -258,7 +238,7 @@
     {
         "Author": "Daniel Blue",
         "Class": "Podcast",
-        "Duration": "50 minutes",
+        "Duration": "0",
         "Episodes": 20,
         "Format": "audio",
         "Genre": "Business",
@@ -278,7 +258,7 @@
         "Album": "Rock Classics",
         "Author": "Various Artists",
         "Class": "Music",
-        "Duration": "80 minutes",
+        "Duration": "0",
         "Format": "CD",
         "Genre": "Rock",
         "Image": "",
@@ -336,7 +316,7 @@
     {
         "Author": "Ava White",
         "Class": "Film",
-        "Duration": "130 minutes",
+        "Duration": "0",
         "Format": "DVD",
         "Framerate": 30,
         "Genre": "Fantasy",
@@ -356,7 +336,7 @@
     {
         "Author": "Ethan Green",
         "Class": "Podcast",
-        "Duration": "40 minutes",
+        "Duration": "0",
         "Episodes": 10,
         "Format": "audio",
         "Genre": "Health",
@@ -375,7 +355,7 @@
     {
         "Author": "",
         "Class": "Film",
-        "Duration": "136 minutes",
+        "Duration": "0",
         "Format": "DVD",
         "Framerate": 0,
         "Genre": "Science Fiction",
@@ -395,7 +375,7 @@
     {
         "Author": "",
         "Class": "Podcast",
-        "Duration": "",
+        "Duration": "0",
         "Episodes": 30,
         "Format": "audio",
         "Genre": "History",
@@ -415,7 +395,7 @@
         "Album": "",
         "Author": "Various Artists",
         "Class": "Music",
-        "Duration": "",
+        "Duration": "0",
         "Format": "Vinyl",
         "Genre": "Rock",
         "Image": "",

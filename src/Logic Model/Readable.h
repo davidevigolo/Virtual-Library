@@ -9,8 +9,8 @@ class Readable : public MediaItem {
     public:
         Readable(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
                 const std::string& genre, const std::vector<std::string>& tags, 
-                const std::string& format, const std::string& language, const std::string& used, const std::string& edition = "", const unsigned int& pages = 0, const std::string& image = "");
-        Readable(MediaItem* media, const std::string& edition = "", const unsigned int& pages = 0) : MediaItem(*media), edition(edition), pages(pages) {};
+                const std::string& format, const std::string& language, const std::string& used, const std::string& edition = "", const unsigned int pages = 0, const std::string& image = "");
+        Readable(MediaItem* media, const std::string& edition = "", unsigned int pages = 0);
         virtual ~Readable();
 
         // Getters
@@ -18,10 +18,10 @@ class Readable : public MediaItem {
         unsigned int getPages() const;
         // Setters
         void setEdition(const std::string& edition);
-        void setPages(const unsigned int& pages);
+        void setPages(unsigned int pages);
 
         void accept(JsonVisitor *visitor) const override;
-        void accept(XmlVisitor *visitor) override;
+        void accept(XmlVisitor *visitor) const override;
         
 };;
 

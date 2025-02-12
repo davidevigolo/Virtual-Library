@@ -50,7 +50,7 @@ class MediaItem {
         void setImage(const std::string& image);
 
         virtual void accept(JsonVisitor *visitor) const;
-        virtual void accept(XmlVisitor *visitor);
+        virtual void accept(XmlVisitor *visitor) const;
 
 
 };

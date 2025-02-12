@@ -117,7 +117,7 @@ Article* XmlReader::readArticle(QXmlStreamReader& xmlReader) {
 }
 
 AudioVisual* XmlReader::readAudioVisual(QXmlStreamReader& xmlReader) {
-    std::string duration;
+    unsigned int duration;
 
     MediaItem* media = readMediaItem(xmlReader);
     qDebug() << "Reading audiovisual";
@@ -126,7 +126,7 @@ AudioVisual* XmlReader::readAudioVisual(QXmlStreamReader& xmlReader) {
     while (xmlReader.tokenType() != QXmlStreamReader::EndElement) {
         if (xmlReader.tokenType() == QXmlStreamReader::StartElement) {
             if (xmlReader.name() == "Duration") {
-                duration = xmlReader.readElementText().toStdString();
+                duration = xmlReader.readElementText().toUInt();
             } else {
                 return new AudioVisual(media, duration);
             }
