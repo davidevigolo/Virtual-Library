@@ -5,18 +5,16 @@
 #include <QJsonArray>
 #include <utility>
 #include <QXmlStreamWriter>
+#include <MediaItem.h>
+#include <Readable.h>
+#include <AudioVisual.h>
+#include <Article.h>
+#include <Book.h>
+#include <Film.h>
+#include <Podcast.h>
+#include <Music.h>
 
-
-class MediaItem;
-class Readable;
-class AudioVisual;
-class Article;
-class Book;
-class Film;
-class Podcast;
-class Music;
-
-class XmlVisitor {
+class XmlVisitor : public ConstVisitor{
 private:
     QXmlStreamWriter& writer;
 public:
@@ -25,9 +23,6 @@ public:
 
     void visit(const MediaItem* media);
     void visit(const Readable* readable);
-    void visit(const AudioVisual* audioVisual);
-    void visit(const Article* articles);
-    void visit(const Book* book);adable);
     void visit(const AudioVisual* audioVisual);
     void visit(const Article* articles);
     void visit(const Book* book);

@@ -22,10 +22,12 @@ INCLUDEPATH += "./src/GUI"
 HEADERS += "./src/GUI/MainWindow.h"
 HEADERS += "./src/GUI/ScrollPanel.h"
 HEADERS += "./src/GUI/CustomScrollArea.h"
+HEADERS += "./src/GUI/LoadVisitor.h"
 
 SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/ScrollPanel.cpp"
 SOURCES += "./src/GUI/CustomScrollArea.cpp"
+SOURCES += "./src/GUI/LoadVisitor.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
@@ -38,7 +40,7 @@ SOURCES += "./src/Logic Model/Music.cpp"
 SOURCES += "./src/Logic Model/Podcast.cpp"
 SOURCES += "./Test/XmlTests/XmlManagerTest.cpp"
 SOURCES += "./src/Save/json/JsonVisitor.cpp"
-SOURCES += "./src/Logic Model/XmlVisitor.cpp"
+SOURCES += "./src/Save/xml/XmlVisitor.cpp"
 
 HEADERS += "./src/Logic Model/MediaItem.h"
 HEADERS += "./src/Logic Model/Readable.h"
@@ -51,7 +53,8 @@ HEADERS += "./src/Logic Model/Podcast.h"
 HEADERS += "./src/Save/json/JsonVisitor.h"
 HEADERS += "./Test/XmlTests/XmlManagerTest.h"
 HEADERS += "./src/Logic Model/Visitor.h"
-HEADERS += "./src/Logic Model/XmlVisitor.h"
+HEADERS += "./src/Save/xml/XmlVisitor.h"
+HEADERS += "./src/Logic Model/ConstVisitor.h"
 
 # Save
 SOURCES += "./src/Save/json/JsonManager.cpp"
@@ -64,6 +67,10 @@ SOURCES += "./src/Save/xml/XmlReader.cpp"
 
 #Test
 HEADERS += "./Test/jsonTests/JsonTest.h"
+#HEADERS += "./Test/GUITests/MainWindowTests/LoadFromFileTests.h"
+
 SOURCES += "./Test/jsonTests/JsonTest.cpp"
+#SOURCES += "./Test/GUITests/MainWindowTests/LoadFromFileTests.cpp"
+
 # TestMain
 SOURCES += "./Test/TestMain.cpp"

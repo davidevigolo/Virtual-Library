@@ -15,8 +15,8 @@ class Book : public Readable {
         ~Book();
         unsigned int getISBN() const;
         void setISBN(unsigned int ISBN);
-        void accept(JsonVisitor *visitor) const override;
-        void accept(XmlVisitor *visitor) const override;
+        void accept(ConstVisitor *visitor) const override;
+        void accept(Visitor *visitor) override;
 };
 
 #endif // !BOOK_H

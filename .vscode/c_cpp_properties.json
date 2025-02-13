@@ -10,7 +10,8 @@
                 "${workspaceFolder}/src/Logic Model",
                 "${workspaceFolder}/src/Save/xml",
                 "${workspaceFolder}/Test/XmlTests",
-                "${workspaceFolder}/src/Save/json"
+                "${workspaceFolder}/src/Save",
+                "/usr/include/x86_64-linux-gnu/qt5/QtGui"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

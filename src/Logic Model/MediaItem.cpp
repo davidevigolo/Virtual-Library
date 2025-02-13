@@ -1,4 +1,6 @@
 #include <MediaItem.h>
+#include <ConstVisitor.h>
+#include <Visitor.h>
 
 MediaItem::MediaItem(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
                 const std::string& genre, const std::vector<std::string>& tags, 
@@ -94,12 +96,4 @@ void MediaItem::setUsed(const std::string& used) {
 
 void MediaItem::setImage(const std::string& image) {
     this->image = image;
-}
-
-void MediaItem::accept(JsonVisitor* visitor) const{
-    visitor->visit(this);
-}
-
-void MediaItem::accept(XmlVisitor* visitor) const{
-    visitor->visit(this);
 }

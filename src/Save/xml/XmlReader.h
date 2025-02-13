@@ -10,12 +10,5 @@
 
 class XmlReader{
 public:
-    static MediaItem* readMediaItem(QXmlStreamReader& xmlReader);
-    static Book* readBook(QXmlStreamReader& xmlReader);
-    static Article* readArticle(QXmlStreamReader& xmlReader);
-    static Film* readFilm(QXmlStreamReader& xmlReader);
-    static Readable* readReadable(QXmlStreamReader& xmlReader);
-    static AudioVisual* readAudioVisual(QXmlStreamReader& xmlReader);
-    static Podcast* readPodcast(QXmlStreamReader& xmlReader);
-    static Music* readMusic(QXmlStreamReader& xmlReader);
+    static MediaItem* read(QXmlStreamReader& xmlReader);
 };

@@ -18,7 +18,7 @@ class Article : public Readable{
         // Setters
         void setPublisher(const std::string& publisher);
 
-        void accept(JsonVisitor *visitor) const override;
-        void accept(XmlVisitor *visitor) const override;
+        void accept(ConstVisitor *visitor) const override;
+        void accept(Visitor *visitor) override;
 };
 #endif // !ARTICLE_H

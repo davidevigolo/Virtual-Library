@@ -24,12 +24,12 @@ public:
     double getFramerate() const;
 
     //Setters
-    void setTecnica(const std::string& tecnica);
+    void setTecnic(const std::string& tecnica);
     void setFramerate(double framerate);
     void setDirector(const std::string& director);
 
-    void accept(JsonVisitor *visitor) const override;
-    void accept(XmlVisitor *visitor) const override;
+    void accept(ConstVisitor *visitor) const override;
+    void accept(Visitor *visitor) override;
 };
 
 #endif // FILM_H

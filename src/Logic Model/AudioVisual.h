@@ -17,8 +17,8 @@ class AudioVisual : public MediaItem {
         // Setters
         void setDuration(unsigned int duration);
 
-        void accept(JsonVisitor *visitor)  const override;
-        void accept(XmlVisitor *visitor) const override;
+        void accept(ConstVisitor *visitor) const = 0;
+        void accept(Visitor *visitor) = 0;
 };
 
 #endif // !AUDIOVISUAL_H

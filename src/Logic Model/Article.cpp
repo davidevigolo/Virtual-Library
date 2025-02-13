@@ -17,10 +17,10 @@ void Article::setPublisher(const std::string& publisher) {
     this->publisher = publisher;
 }
 
-void Article::accept(JsonVisitor *visitor) const {
+void Article::accept(ConstVisitor *visitor) const {
     visitor->visit(this);
 }
 
-void Article::accept(XmlVisitor *visitor) const{
+void Article::accept(Visitor *visitor){
     visitor->visit(this);
 }

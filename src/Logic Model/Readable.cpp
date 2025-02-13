@@ -22,11 +22,3 @@ void Readable::setEdition(const std::string& edition) {
 void Readable::setPages(unsigned int pages) {
     this->pages = pages;
 }
-
-void Readable::accept(JsonVisitor *visitor) const {
-    visitor->visit(this);
-}
-
-void Readable::accept(XmlVisitor *visitor) const{
-    visitor->visit(this);
-}

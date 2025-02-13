@@ -18,10 +18,10 @@ void Book::setISBN(unsigned int ISBN) {
     this->ISBN = ISBN;
 }
 
-void Book::accept(JsonVisitor *visitor) const {
+void Book::accept(ConstVisitor *visitor) const {
      visitor->visit(this);
 }
 
-void Book::accept(XmlVisitor *visitor) const {
+void Book::accept(Visitor *visitor) {
     visitor->visit(this);
 }

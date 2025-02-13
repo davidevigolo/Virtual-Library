@@ -16,11 +16,3 @@ unsigned int AudioVisual::getDuration() const {
 void AudioVisual::setDuration(unsigned int duration) {
     this->duration = duration;
 }
-
-void AudioVisual::accept(JsonVisitor *visitor) const{
-    visitor->visit(this);
-}
-
-void AudioVisual::accept(XmlVisitor *visitor) const {
-    visitor->visit(this);
-}

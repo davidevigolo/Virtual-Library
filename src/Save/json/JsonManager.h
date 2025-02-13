@@ -8,13 +8,13 @@
 #include <QJsonParseError>
 #include <QFile>
 #include <QVector>
-#include "../../Logic Model/Article.h"
-#include "../../Logic Model/Book.h"
-#include "../../Logic Model/Film.h"
-#include "../../Logic Model/Music.h"
-#include "../../Logic Model/Podcast.h"
+#include <Article.h>
+#include <Book.h>
+#include <Film.h>
+#include <Music.h>
+#include <Podcast.h>
 
-class JsonManager : public QObject {
+class JsonManager {
     private:
         QString filePath;
     public:

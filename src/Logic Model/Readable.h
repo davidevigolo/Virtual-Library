@@ -20,8 +20,8 @@ class Readable : public MediaItem {
         void setEdition(const std::string& edition);
         void setPages(unsigned int pages);
 
-        void accept(JsonVisitor *visitor) const override;
-        void accept(XmlVisitor *visitor) const override;
+        void accept(ConstVisitor *visitor) const = 0;
+        void accept(Visitor *visitor) = 0;
         
 };;
 

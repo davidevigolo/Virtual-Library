@@ -26,7 +26,7 @@ double Film::getFramerate() const {
 }
 
 // Setters
-void Film::setTecnica(const std::string& tecnic) {
+void Film::setTecnic(const std::string& tecnic) {
     this->tecnic = tecnic;
 }
 
@@ -39,10 +39,10 @@ void Film::setDirector(const std::string& director) {
 }
 
 
-void Film::accept(JsonVisitor *visitor) const{
+void Film::accept(ConstVisitor *visitor) const{
     visitor->visit(this);
 }
 
-void Film::accept(XmlVisitor *visitor) const{
+void Film::accept(Visitor *visitor) {
     visitor->visit(this);
 }

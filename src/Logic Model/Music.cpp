@@ -15,10 +15,10 @@ void Music::setAlbum(const std::string& album) {
     this->album = album;
 }
 
-void Music::accept(JsonVisitor *visitor) const{
+void Music::accept(ConstVisitor *visitor) const{
     visitor->visit(this);
 }
 
-void Music::accept(XmlVisitor *visitor) const{
+void Music::accept(Visitor *visitor){
     visitor->visit(this);
 }

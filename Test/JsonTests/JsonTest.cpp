@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <QFile>
-#include <XmlManager.h>
+#include <JsonManager.h>
 #include <MediaItem.h>
 #include <Book.h>
 #include <Article.h>
@@ -10,11 +10,13 @@
 #include <Music.h>
 #include <AudioVisual.h>
 #include <Readable.h>
-#include <XmlManagerTest.h>
+#include "JsonTest.h"
 
-std::vector<MediaItem*> XmlManagerTest::generateXmlSampleFile(){
-    XmlManager xmlManager("test.xml");
-    std::vector<MediaItem*> mediaItems;
+void JsonManagerTest::testSaveAndLoadMediaItems() {
+    JsonManager jsonManager("test.json");
+    QVector<MediaItem*> mediaItems;
+
+    // Create some test media items
     std::vector<std::string> tags = {"Classic", "Fiction"};
     Book* book = new Book(std::string("The Great Gatsby"), std::string("F. Scott Fitzgerald"), std::string("1925"), std::string("Scribner"), std::string("Classic"), tags, std::string("Paperback"), std::string("English"), std::string("No"), std::string("First"), 180, 978074u);
     Article* article = new Article(std::string("The Great Gatsby"), std::string("F. Scott Fitzgerald"), std::string("1925"), std::string("Scribner"), std::string("Classic"), tags, std::string("Paperback"), std::string("English"), std::string("No"), std::string("First"), 180, std::string("The New York Times"));
@@ -29,19 +31,10 @@ std::vector<MediaItem*> XmlManagerTest::generateXmlSampleFile(){
     mediaItems.push_back(music);
 
     // Save the media items to an XML file
-    xmlManager.save(mediaItems);
-
-    return mediaItems;
-}
-
-void XmlManagerTest::testSaveAndLoadMediaItems() {
-    XmlManager xmlManager("test.xml");
-
-    // Create some test media items
-    auto mediaItems = generateXmlSampleFile();
+    jsonManager.save(mediaItems);
 
     // // Load the media items from the XML file
-    QVector<MediaItem*> loadedMediaItems = xmlManager.load();
+    QVector<MediaItem*> loadedMediaItems = jsonManager.readJson();
     MediaItem* media0 = loadedMediaItems[0];
     MediaItem* media1 = loadedMediaItems[1];
     std::cout << loadedMediaItems.size() << std::endl;

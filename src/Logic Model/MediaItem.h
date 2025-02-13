@@ -3,8 +3,8 @@
 
 #include <string>
 #include <vector>
-#include <JsonVisitor.h>
-#include <XmlVisitor.h>
+#include <Visitor.h>
+#include <ConstVisitor.h>
 
 class MediaItem {
     private:
@@ -49,8 +49,8 @@ class MediaItem {
         void setUsed(const std::string& used);
         void setImage(const std::string& image);
 
-        virtual void accept(JsonVisitor *visitor) const;
-        virtual void accept(XmlVisitor *visitor) const;
+        virtual void accept(ConstVisitor *visitor) const = 0;
+        virtual void accept(Visitor *visitor) = 0;
 
 
 };

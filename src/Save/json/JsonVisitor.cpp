@@ -1,12 +1,4 @@
 #include "JsonVisitor.h"
-#include "../../Logic Model/MediaItem.h"
-#include "../../Logic Model/Readable.h"
-#include "../../Logic Model/AudioVisual.h"
-#include "../../Logic Model/Article.h"
-#include "../../Logic Model/Book.h"
-#include "../../Logic Model/Film.h"
-#include "../../Logic Model/Podcast.h"
-#include "../../Logic Model/Music.h"
 
 void JsonVisitor::visit(const MediaItem* media){
     QJsonObject obj;

@@ -18,8 +18,8 @@ class  Music : public AudioVisual {
         // Setters
         void setAlbum(const std::string& album);
 
-        void accept(JsonVisitor *visitor) const override;
-        void accept(XmlVisitor *visitor) const override;
+        void accept(ConstVisitor *visitor) const override;
+        void accept(Visitor *visitor) override;
 };
 
 #endif // !MUSIC_H

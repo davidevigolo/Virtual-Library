@@ -1,9 +1,18 @@
 #ifndef JSONVISITOR_H
 #define JSONVISITOR_H
 
-#include "../../Logic Model/Visitor.h"
+#include <ConstVisitor.h>
+#include <ConstVisitor.h>
+#include <MediaItem.h>
+#include <Readable.h>
+#include <AudioVisual.h>
+#include <Article.h>
+#include <Book.h>
+#include <Film.h>
+#include <Podcast.h>
+#include <Music.h>
 
-class JsonVisitor : public Visitor {
+class JsonVisitor : public ConstVisitor {
 private:
     QJsonObject object;
 public:

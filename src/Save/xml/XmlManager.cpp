@@ -2,12 +2,13 @@
 #include <qfile.h>
 #include <QXmlStreamWriter>
 #include "XmlReader.h"
+#include "XmlVisitor.h"
 
-
-void XmlManager::save(std::vector<MediaItem*>& media)
+void XmlManager::save(std::vector<MediaItem *> &media)
 {
     QFile file(filePath);
-    if (!file.open(QIODevice::WriteOnly)) {
+    if (!file.open(QIODevice::WriteOnly))
+    {
         throw std::runtime_error("Could not open file for writing");
     }
 
@@ -16,7 +17,8 @@ void XmlManager::save(std::vector<MediaItem*>& media)
     xmlWriter.writeStartDocument();
     xmlWriter.writeStartElement("MediaItems");
 
-    for (MediaItem* item : media) {
+    for (MediaItem *item : media)
+    {
         XmlVisitor xmlVisitor(xmlWriter);
         item->accept(&xmlVisitor);
     }
@@ -26,49 +28,36 @@ void XmlManager::save(std::vector<MediaItem*>& media)
     file.close();
 }
 
-QVector<MediaItem*> XmlManager::load()
+QVector<MediaItem *> XmlManager::load()
 {
-    QVector<MediaItem*> result;
+    QVector<MediaItem *> result;
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly)) {
+    if (!file.open(QIODevice::ReadOnly))
+    {
         throw std::runtime_error("Could not open file for reading");
     }
 
     QXmlStreamReader xmlReader(&file);
-    while (!xmlReader.atEnd() && !xmlReader.hasError()) {
+    while (!xmlReader.atEnd() && !xmlReader.hasError())
+    {
         QXmlStreamReader::TokenType token = xmlReader.readNext();
-        if (token == QXmlStreamReader::StartDocument) {
+        if (token == QXmlStreamReader::StartDocument)
+        {
             continue;
         }
 
-        if (token == QXmlStreamReader::StartElement) {
-            if (xmlReader.name() == "MediaItems") {
+        if (token == QXmlStreamReader::StartElement)
+        {
+            if (xmlReader.name() == "MediaItems")
+            {
                 continue;
             }
 
-            auto elementName = xmlReader.name();
-            xmlReader.readNextStartElement();
-            if (elementName == QStringLiteral("MediaItem")) {
-                result.push_back(XmlReader::readMediaItem(xmlReader));
-            } else if (elementName == QStringLiteral("Book")) {
-                result.push_back(XmlReader::readBook(xmlReader));
-            } else if (elementName == QStringLiteral("Article")) {
-                result.push_back(XmlReader::readArticle(xmlReader));
-            } else if (elementName == QStringLiteral("Film")) {
-                result.push_back(XmlReader::readFilm(xmlReader));
-            } else if (elementName == QStringLiteral("Podcast")) {
-                result.push_back(XmlReader::readPodcast(xmlReader));
-            } else if (elementName == QStringLiteral("Music")) {
-                result.push_back(XmlReader::readMusic(xmlReader));
-            } else if (elementName == QStringLiteral("AudioVisual")) {
-                result.push_back(XmlReader::readAudioVisual(xmlReader));
-            } else if (elementName == QStringLiteral("Readable")) {
-                result.push_back(XmlReader::readReadable(xmlReader));
-            }
-            
-            else {
-                throw std::runtime_error("Unknown element type"); //catch and display invalid file
-            }
+            result.push_back(XmlReader::read(xmlReader));
+        }
+        else
+        {
+            throw std::runtime_error("Unknown element type"); // catch and display invalid file
         }
     }
 
