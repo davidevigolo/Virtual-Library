@@ -11,88 +11,60 @@ std::vector<std::string> JsonManager::JsonArrToVec(const QJsonArray &array) cons
 }
 
 MediaItem* JsonManager::ObjectLoader(const QString& className, const QJsonObject& obj) const { //create a media item from a json object
-    MediaItem* media = nullptr;
-    if (className == "Article"){
-        media = new Article(
-            obj["Title"].toString().toStdString(), 
-            obj["Author"].toString().toStdString(), 
-            obj["ReleaseDate"].toString().toStdString(), 
-            obj["ProductionHouse"].toString().toStdString(), 
-            obj["Genre"].toString().toStdString(), 
-            JsonArrToVec(obj["Tags"].toArray()),
-            obj["Format"].toString().toStdString(), 
-            obj["Language"].toString().toStdString(), 
-            obj["Used"].toString().toStdString(), 
+        MediaItem* media = new MediaItem(
+        obj["Title"].toString().toStdString(), 
+        obj["Author"].toString().toStdString(), 
+        obj["ReleaseDate"].toString().toStdString(), 
+        obj["ProductionHouse"].toString().toStdString(), 
+        obj["Genre"].toString().toStdString(), 
+        JsonArrToVec(obj["Tags"].toArray()), 
+        obj["Format"].toString().toStdString(), 
+        obj["Language"].toString().toStdString(), 
+        obj["Used"].toString().toStdString(),
+        obj["Image"].toString().toStdString()
+        );
+    if (className == "Article" || className == "Book") {
+        media = new Readable(
+            media,
             obj["Edition"].toString().toStdString(), 
-            obj["Pages"].toInt(), 
-            obj["Publisher"].toString().toStdString(),
-            obj["Image"].toString().toStdString()
+            obj["Pages"].toInt()
         );
-    } else if (className == "Book") {
-        media = new Book(
-            obj["Title"].toString().toStdString(), 
-            obj["Author"].toString().toStdString(), 
-            obj["ReleaseDate"].toString().toStdString(), 
-            obj["ProductionHouse"].toString().toStdString(), 
-            obj["Genre"].toString().toStdString(), 
-            JsonArrToVec(obj["Tags"].toArray()),
-            obj["Format"].toString().toStdString(), 
-            obj["Language"].toString().toStdString(), 
-            obj["Used"].toString().toStdString(), 
-            obj["Edition"].toString().toStdString(), 
-            obj["Pages"].toInt(), 
-            obj["ISBN"].toInt(),
-            obj["Image"].toString().toStdString()
+        if(className == "Article") {
+            media = new Article(
+                static_cast<Readable*>(media),
+                obj["Publisher"].toString().toStdString()
+            );
+        }else{
+            media = new Book(
+                static_cast<Readable*>(media),
+                obj["ISBN"].toInt()
+            );
+        } 
+     }else{
+        media = new AudioVisual(
+            media,
+            obj["Duration"].toString().toUInt()
         );
-    } else if (className == "Film") {
-        media = new Film(
-            obj["Title"].toString().toStdString(), 
-            obj["Author"].toString().toStdString(), 
-            obj["ReleaseDate"].toString().toStdString(), 
-            obj["ProductionHouse"].toString().toStdString(), 
-            obj["Genre"].toString().toStdString(), 
-            JsonArrToVec(obj["Tags"].toArray()), 
-            obj["Format"].toString().toStdString(), 
-            obj["Language"].toString().toStdString(), 
-            obj["Used"].toString().toStdString(), 
-            obj["Duration"].toString().toUInt(), 
-            obj["Tecnica"].toString().toStdString(), 
-            obj["Framerate"].toDouble(), 
-            obj["Director"].toString().toStdString(),
-            obj["Image"].toString().toStdString()
-        );
-    } else if (className == "Music") {
-        media = new Music(
-            obj["Title"].toString().toStdString(), 
-            obj["Author"].toString().toStdString(), 
-            obj["ReleaseDate"].toString().toStdString(), 
-            obj["ProductionHouse"].toString().toStdString(), 
-            obj["Genre"].toString().toStdString(), 
-            JsonArrToVec(obj["Tags"].toArray()), 
-            obj["Format"].toString().toStdString(), 
-            obj["Language"].toString().toStdString(), 
-            obj["Used"].toString().toStdString(), 
-            obj["Duration"].toString().toUInt(), 
-            obj["Album"].toString().toStdString(),
-            obj["Image"].toString().toStdString()
-        );
-    } else if (className == "Podcast") {
-        media = new Podcast(
-            obj["Title"].toString().toStdString(), 
-            obj["Author"].toString().toStdString(), 
-            obj["ReleaseDate"].toString().toStdString(), 
-            obj["ProductionHouse"].toString().toStdString(), 
-            obj["Genre"].toString().toStdString(), 
-            JsonArrToVec(obj["Tags"].toArray()),
-            obj["Format"].toString().toStdString(), 
-            obj["Language"].toString().toStdString(), 
-            obj["Used"].toString().toStdString(), 
-            obj["Duration"].toString().toUInt(), 
-            obj["Episodes"].toInt(),
-            obj["Image"].toString().toStdString()
-        );
-    }else {
-        qWarning() << "Unrecognised class" << className;
+        if(className == "Film"){
+            media = new Film(
+                static_cast<AudioVisual*>(media),
+                obj["Tecnic"].toString().toStdString(), 
+                obj["Framerate"].toDouble(), 
+                obj["Director"].toString().toStdString()
+            );
+        } else if (className == "Music") {
+            media = new Music(
+                static_cast<AudioVisual*>(media),
+                obj["Album"].toString().toStdString()
+            );
+        } else if (className == "Podcast") {
+            media = new Podcast(
+                static_cast<AudioVisual*>(media),
+                obj["Episodes"].toInt()
+            );
+        } else {
+            qWarning() << "Unrecognised class" << className;
+        }
     }
     return media;
 }

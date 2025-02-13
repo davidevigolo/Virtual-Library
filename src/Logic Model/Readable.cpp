@@ -28,5 +28,5 @@ void Readable::accept(JsonVisitor *visitor) const {
 }
 
 void Readable::accept(XmlVisitor *visitor) const{
-    visitor->visit(this,false);
+    visitor->visit(this);
 }

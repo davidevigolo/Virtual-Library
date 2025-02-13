@@ -1,13 +1,11 @@
 #include <QApplication>
-#include "MainWindow.h"
+#include "GUI/MainWindow.h"
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
-    QMainWindow mainWindow;
-    mainWindow.setWindowTitle("Virtual Library");
-    mainWindow.resize(800, 600);
-    mainWindow.show();
+    MainWindow window;
+    window.show();
 
     return app.exec();
 }

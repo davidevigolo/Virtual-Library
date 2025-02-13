@@ -8,7 +8,6 @@ CONFIG += c++20
 TARGET = Virtual-Library
 TEMPLATE = app
 
-TARGET = test1
 CONFIG += console c++11
 CONFIG += debug
 CONFIG -= release
@@ -17,6 +16,16 @@ INCLUDEPATH += "./src/Logic Model"
 INCLUDEPATH += "./src/Save/xml"
 INCLUDEPATH += "./src/Save/json"
 INCLUDEPATH += "./Test/XmlTests"
+INCLUDEPATH += "./src/GUI"
+
+#GUI 
+HEADERS += "./src/GUI/MainWindow.h"
+HEADERS += "./src/GUI/ScrollPanel.h"
+HEADERS += "./src/GUI/CustomScrollArea.h"
+
+SOURCES += "./src/GUI/MainWindow.cpp"
+SOURCES += "./src/GUI/ScrollPanel.cpp"
+SOURCES += "./src/GUI/CustomScrollArea.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
@@ -53,5 +62,8 @@ SOURCES += "./src/Save/xml/XmlManager.cpp"
 HEADERS += "./src/Save/xml/XmlReader.h"
 SOURCES += "./src/Save/xml/XmlReader.cpp"
 
+#Test
+HEADERS += "./Test/jsonTests/JsonTest.h"
+SOURCES += "./Test/jsonTests/JsonTest.cpp"
 # TestMain
 SOURCES += "./Test/TestMain.cpp"
