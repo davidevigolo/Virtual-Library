@@ -2,6 +2,7 @@
 
 QT += core gui
 QT += widgets
+QT += xml
 
 CONFIG += c++20
 

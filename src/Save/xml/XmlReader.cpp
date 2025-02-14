@@ -1,122 +1,117 @@
 #include "XmlReader.h"
+#include <qdom.h>
 
-MediaItem *XmlReader::read(QXmlStreamReader* xmlReader)
+MediaItem *XmlReader::read(QDomNode &node)
 {
-    auto className = xmlReader->name();
-
+    auto className = node.nodeName();
+    auto attributes = node.toElement().childNodes();
+    qDebug() << attributes.size();
+    QMap<QString, QString> attributes_map;
     std::vector<std::string> tags;
-    QMap<QString, QString> *attributes = new QMap<QString, QString>();
-    while (xmlReader->tokenType() != QXmlStreamReader::EndElement)
+
+    for (int i = 0; i < attributes.size(); i++)
     {
-        xmlReader->readNext(); // Two times since each xml entry has also a closing tag
-        QString name = xmlReader->name().toString();
-        qDebug() << "Name: ";
-        qDebug() << name;
-        if (name == "Tags")
+        QDomNode attribute = attributes.at(i);
+        qDebug() << attribute.nodeName();
+        qDebug() << attribute.toElement().text();
+        if (attribute.nodeName() == "Tags")
         {
-            while (!(xmlReader->tokenType() == QXmlStreamReader::EndElement && xmlReader->name() == "Tags"))
+            auto childs = attribute.childNodes();
+            for (int j = 0; j < childs.size(); j++)
             {
-                xmlReader->readNext();
-                if (xmlReader->tokenType() == QXmlStreamReader::StartElement && xmlReader->name() == "Tag")
-                {
-                    tags.push_back(xmlReader->readElementText().toStdString());
-                }
+                QDomNode tag = childs.at(j);
+                qDebug() << tag.nodeValue();
+                tags.push_back(tag.toElement().text().toStdString());
             }
         }
         else
         {
-            if (xmlReader->tokenType() == QXmlStreamReader::StartElement)
-            {
-                QString value = xmlReader->readElementText();
-                attributes->insert(name, value);
-                qDebug() << "Value: " << value;
-            }
+            attributes_map.insert(attribute.nodeName(), attribute.toElement().text());
         }
     }
-        
 
     if (className == "Article")
     {
         return new Article(
-            attributes->value("Title").toStdString(),
-            attributes->value("Author").toStdString(),
-            attributes->value("ReleaseDate").toStdString(),
-            attributes->value("ProductionHouse").toStdString(),
-            attributes->value("Genre").toStdString(),
+            attributes_map["Title"].toStdString(),
+            attributes_map["Author"].toStdString(),
+            attributes_map["ReleaseDate"].toStdString(),
+            attributes_map["ProductionHouse"].toStdString(),
+            attributes_map["Genre"].toStdString(),
             tags,
-            attributes->value("Format").toStdString(),
-            attributes->value("Language").toStdString(),
-            attributes->value("Used").toStdString(),
-            attributes->value("Edition").toStdString(),
-            attributes->value("Pages").toUInt(),
-            attributes->value("Publisher").toStdString(),
-            attributes->value("Image").toStdString());
+            attributes_map["Format"].toStdString(),
+            attributes_map["Language"].toStdString(),
+            attributes_map["Used"].toStdString(),
+            attributes_map["Edition"].toStdString(),
+            attributes_map["Pages"].toUInt(),
+            attributes_map["Publisher"].toStdString(),
+            attributes_map["Image"].toStdString());
     }
     else if (className == "Book")
     {
         return new Book(
-            attributes->value("Title").toStdString(),
-            attributes->value("Author").toStdString(),
-            attributes->value("ReleaseDate").toStdString(),
-            attributes->value("ProductionHouse").toStdString(),
-            attributes->value("Genre").toStdString(),
+            attributes_map["Title"].toStdString(),
+            attributes_map["Author"].toStdString(),
+            attributes_map["ReleaseDate"].toStdString(),
+            attributes_map["ProductionHouse"].toStdString(),
+            attributes_map["Genre"].toStdString(),
             tags,
-            attributes->value("Format").toStdString(),
-            attributes->value("Language").toStdString(),
-            attributes->value("Used").toStdString(),
-            attributes->value("Edition").toStdString(),
-            attributes->value("Pages").toUInt(),
-            attributes->value("ISBN").toUInt(),
-            attributes->value("Image").toStdString());
+            attributes_map["Format"].toStdString(),
+            attributes_map["Language"].toStdString(),
+            attributes_map["Used"].toStdString(),
+            attributes_map["Edition"].toStdString(),
+            attributes_map["Pages"].toUInt(),
+            attributes_map["ISBN"].toUInt(),
+            attributes_map["Image"].toStdString());
     }
     else if (className == "Film")
     {
         return new Film(
-            attributes->value("Title").toStdString(),
-            attributes->value("Author").toStdString(),
-            attributes->value("ReleaseDate").toStdString(),
-            attributes->value("ProductionHouse").toStdString(),
-            attributes->value("Genre").toStdString(),
+            attributes_map["Title"].toStdString(),
+            attributes_map["Author"].toStdString(),
+            attributes_map["ReleaseDate"].toStdString(),
+            attributes_map["ProductionHouse"].toStdString(),
+            attributes_map["Genre"].toStdString(),
             tags,
-            attributes->value("Format").toStdString(),
-            attributes->value("Language").toStdString(),
-            attributes->value("Used").toStdString(),
-            attributes->value("Duration").toUInt(),
-            attributes->value("Tecnic").toStdString(),
-            attributes->value("Framerate").toDouble(),
-            attributes->value("Director").toStdString(),
-            attributes->value("Image").toStdString());
-    }
-    else if (className == "Music")
-    {
+            attributes_map["Format"].toStdString(),
+            attributes_map["Language"].toStdString(),
+            attributes_map["Used"].toStdString(),
+            attributes_map["Duration"].toUInt(),
+            attributes_map["Tecnic"].toStdString(),
+            attributes_map["Framerate"].toDouble(),
+            attributes_map["Director"].toStdString(),
+            attributes_map["Image"].toStdString());
+        }
+        else if (className == "Music")
+        {
         return new Music(
-            attributes->value("Title").toStdString(),
-            attributes->value("Author").toStdString(),
-            attributes->value("ReleaseDate").toStdString(),
-            attributes->value("ProductionHouse").toStdString(),
-            attributes->value("Genre").toStdString(),
+            attributes_map["Title"].toStdString(),
+            attributes_map["Author"].toStdString(),
+            attributes_map["ReleaseDate"].toStdString(),
+            attributes_map["ProductionHouse"].toStdString(),
+            attributes_map["Genre"].toStdString(),
             tags,
-            attributes->value("Format").toStdString(),
-            attributes->value("Language").toStdString(),
-            attributes->value("Used").toStdString(),
-            attributes->value("Duration").toUInt(),
-            attributes->value("Album").toStdString());
-    }
-    else if (className == "Podcast")
-    {
+            attributes_map["Format"].toStdString(),
+            attributes_map["Language"].toStdString(),
+            attributes_map["Used"].toStdString(),
+            attributes_map["Duration"].toUInt(),
+            attributes_map["Album"].toStdString());
+        }
+        else if (className == "Podcast")
+        {
         return new Podcast(
-            attributes->value("Title").toStdString(),
-            attributes->value("Author").toStdString(),
-            attributes->value("ReleaseDate").toStdString(),
-            attributes->value("ProductionHouse").toStdString(),
-            attributes->value("Genre").toStdString(),
+            attributes_map["Title"].toStdString(),
+            attributes_map["Author"].toStdString(),
+            attributes_map["ReleaseDate"].toStdString(),
+            attributes_map["ProductionHouse"].toStdString(),
+            attributes_map["Genre"].toStdString(),
             tags,
-            attributes->value("Format").toStdString(),
-            attributes->value("Language").toStdString(),
-            attributes->value("Used").toStdString(),
-            attributes->value("Duration").toUInt(),
-            attributes->value("Episodes").toUInt(),
-            attributes->value("Image").toStdString());
+            attributes_map["Format"].toStdString(),
+            attributes_map["Language"].toStdString(),
+            attributes_map["Used"].toStdString(),
+            attributes_map["Duration"].toUInt(),
+            attributes_map["Episodes"].toUInt(),
+            attributes_map["Image"].toStdString());
     }
     else
     {

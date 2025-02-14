@@ -35,17 +35,21 @@ void XmlVisitor::visit(const Readable *media)
 
 void XmlVisitor::visit(const Book *media)
 {
+    writer.writeStartElement("MediaItem");
     writer.writeStartElement("Book");
     visit(static_cast<const Readable *>(media));
     writer.writeTextElement("ISBN", std::to_string(media->getISBN()).c_str());
+    writer.writeEndElement();
     writer.writeEndElement();
 }
 
 void XmlVisitor::visit(const Article *media)
 {
+    writer.writeStartElement("MediaItem");
     writer.writeStartElement("Article");
     visit(static_cast<const Readable *>(media));
     writer.writeTextElement("Publisher", media->getPublisher().c_str());
+    writer.writeEndElement();
     writer.writeEndElement();
 }
 
@@ -57,26 +61,32 @@ void XmlVisitor::visit(const AudioVisual *media)
 
 void XmlVisitor::visit(const Film *media)
 {
+    writer.writeStartElement("MediaItem");
     writer.writeStartElement("Film");
     visit(static_cast<const AudioVisual *>(media));
     writer.writeTextElement("Tecnic", media->getTecnic().c_str());
     writer.writeTextElement("Framerate", std::to_string(media->getFramerate()).c_str());
     writer.writeTextElement("Director", media->getDirector().c_str());
     writer.writeEndElement();
+    writer.writeEndElement();
 }
 
 void XmlVisitor::visit(const Podcast *media)
 {
+    writer.writeStartElement("MediaItem");
     writer.writeStartElement("Podcast");
     visit(static_cast<const AudioVisual *>(media));
     writer.writeTextElement("Episodes", std::to_string(media->getEpisodes()).c_str());
+    writer.writeEndElement();
     writer.writeEndElement();
 }
 
 void XmlVisitor::visit(const Music *media)
 {
+    writer.writeStartElement("MediaItem");
     writer.writeStartElement("Music");
     visit(static_cast<const AudioVisual *>(media));
     writer.writeTextElement("Album", media->getAlbum().c_str());
+    writer.writeEndElement();
     writer.writeEndElement();
 }

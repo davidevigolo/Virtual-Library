@@ -11,7 +11,8 @@
                 "${workspaceFolder}/src/Save/xml",
                 "${workspaceFolder}/Test/XmlTests",
                 "${workspaceFolder}/src/Save",
-                "/usr/include/x86_64-linux-gnu/qt5/QtGui"
+                "/usr/include/x86_64-linux-gnu/qt5/QtGui",
+                "/usr/include/x86_64-linux-gnu/qt5/QtXml"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

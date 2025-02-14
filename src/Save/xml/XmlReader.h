@@ -1,4 +1,3 @@
-#include <qxmlstream.h>
 #include <MediaItem.h>
 #include <Readable.h>
 #include <Book.h>
@@ -7,8 +6,9 @@
 #include <AudioVisual.h>
 #include <Music.h>
 #include <Podcast.h>
+#include <QDomNode>
 
 class XmlReader{
 public:
-    static MediaItem* read(QXmlStreamReader* xmlReader);
+    static MediaItem* read(QDomNode& node);
 };

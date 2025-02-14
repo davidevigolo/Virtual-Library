@@ -1,87 +1,97 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MediaItems>
-    <Book>
-        <Title>The Great Gatsby</Title>
-        <Author>F. Scott Fitzgerald</Author>
-        <ReleaseDate>1925</ReleaseDate>
-        <ProductionHouse>Scribner</ProductionHouse>
-        <Genre>Classic</Genre>
-        <Tags>
-            <Tag>Classic</Tag>
-            <Tag>Fiction</Tag>
-        </Tags>
-        <Format>Paperback</Format>
-        <Language>English</Language>
-        <Used>No</Used>
-        <Edition>First</Edition>
-        <Pages>180</Pages>
-        <ISBN>978074</ISBN>
-    </Book>
-    <Article>
-        <Title>The Great Gatsby</Title>
-        <Author>F. Scott Fitzgerald</Author>
-        <ReleaseDate>1925</ReleaseDate>
-        <ProductionHouse>Scribner</ProductionHouse>
-        <Genre>Classic</Genre>
-        <Tags>
-            <Tag>Classic</Tag>
-            <Tag>Fiction</Tag>
-        </Tags>
-        <Format>Paperback</Format>
-        <Language>English</Language>
-        <Used>No</Used>
-        <Edition>First</Edition>
-        <Pages>180</Pages>
-        <Publisher>The New York Times</Publisher>
-    </Article>
-    <Film>
-        <Title>Mannaggia</Title>
-        <Author>Aldo Giovanni e Jack</Author>
-        <ReleaseDate>1999</ReleaseDate>
-        <ProductionHouse>Medusa</ProductionHouse>
-        <Genre>Comedy</Genre>
-        <Tags>
-            <Tag>Classic</Tag>
-            <Tag>Fiction</Tag>
-        </Tags>
-        <Format>DVD</Format>
-        <Language>Italian</Language>
-        <Used>No</Used>
-        <Duration>120</Duration>
-        <Tecnic>Digital</Tecnic>
-        <Framerate>24.000000</Framerate>
-        <Director>Aldo Giovanni e Jack</Director>
-    </Film>
-    <Podcast>
-        <Title>Mannaggia</Title>
-        <Author>Aldo Giovanni e Jack</Author>
-        <ReleaseDate>1999</ReleaseDate>
-        <ProductionHouse>Medusa</ProductionHouse>
-        <Genre>Comedy</Genre>
-        <Tags>
-            <Tag>Classic</Tag>
-            <Tag>Fiction</Tag>
-        </Tags>
-        <Format>DVD</Format>
-        <Language>Italian</Language>
-        <Used>No</Used>
-        <Duration>120</Duration>
-        <Episodes>24</Episodes>
-    </Podcast>
-    <Music>
-        <Title>Mannaggia</Title>
-        <Author>Aldo Giovanni e Jack</Author>
-        <ReleaseDate>1999</ReleaseDate>
-        <ProductionHouse>Medusa</ProductionHouse>
-        <Genre>Comedy</Genre>
-        <Tags>
-            <Tag>Classic</Tag>
-            <Tag>Fiction</Tag>
-        </Tags>
-        <Format>DVD</Format>
-        <Language>Italian</Language>
-        <Used>No</Used>
-        <Duration>120</Duration>
-        <Album>Aldo Giovanni e Jack</Album>
-    </Music>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <Publisher>The New York Times</Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Mannaggia</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Duration>120</Duration>
+            <Tecnic>Digital</Tecnic>
+            <Framerate>24.000000</Framerate>
+            <Director>Aldo Giovanni e Jack</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Mannaggia</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Duration>120</Duration>
+            <Episodes>24</Episodes>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Mannaggia</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Duration>120</Duration>
+            <Album>Aldo Giovanni e Jack</Album>
+        </Music>
+    </MediaItem>
 </MediaItems>
