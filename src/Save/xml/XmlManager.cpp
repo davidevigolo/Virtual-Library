@@ -41,6 +41,8 @@ QVector<MediaItem *> XmlManager::load()
     while (!xmlReader.atEnd() && !xmlReader.hasError())
     {
         QXmlStreamReader::TokenType token = xmlReader.readNext();
+        qDebug() << xmlReader.name();
+        qDebug() << xmlReader.readElementText();
         if (token == QXmlStreamReader::StartDocument)
         {
             continue;
@@ -53,11 +55,11 @@ QVector<MediaItem *> XmlManager::load()
                 continue;
             }
 
-            result.push_back(XmlReader::read(xmlReader));
+            result.push_back(XmlReader::read(&xmlReader));
         }
         else
         {
-            throw std::runtime_error("Unknown element type"); // catch and display invalid file
+            xmlReader.readNext();
         }
     }
 

@@ -8,9 +8,13 @@
 #include "typeinfo"
 #include "XmlManagerTest.h"
 #include "jsonTests/JsonTest.h"
+#include "GUITests/MainWindowTests/LoadFromFileTests.h"
 
 int main() {
-    JsonManagerTest::testSaveAndLoadMediaItems();
+    // JsonManagerTest::testSaveAndLoadMediaItems();
+    qDebug() << "JsonManagerTest::testSaveAndLoadMediaItems()";
+    XmlManagerTest::testSaveAndLoadMediaItems();
 
-    //XmlManagerTest::testSaveAndLoadMediaItems();
+    // std::cout<<"\n\n\n\nPORCODIO\n\n\n\n";
+    // assert(LoadFromFileTest::testLoadFromFile() == 0);
 }

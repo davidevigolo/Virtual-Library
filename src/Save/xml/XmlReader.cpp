@@ -1,36 +1,39 @@
 #include "XmlReader.h"
 
-MediaItem *XmlReader::read(QXmlStreamReader &xmlReader)
+MediaItem *XmlReader::read(QXmlStreamReader* xmlReader)
 {
-    auto className = xmlReader.name();
-    xmlReader.readNextStartElement();
+    auto className = xmlReader->name();
 
     std::vector<std::string> tags;
-    QMap<QString,
-         QString> *attributes = new QMap<QString,
-                                         QString>();
-    while (xmlReader.tokenType() != QXmlStreamReader::EndElement)
+    QMap<QString, QString> *attributes = new QMap<QString, QString>();
+    while (xmlReader->tokenType() != QXmlStreamReader::EndElement)
     {
-        QString name = xmlReader.name().toString();
+        xmlReader->readNext(); // Two times since each xml entry has also a closing tag
+        QString name = xmlReader->name().toString();
+        qDebug() << "Name: ";
+        qDebug() << name;
         if (name == "Tags")
         {
-            while (!(xmlReader.tokenType() == QXmlStreamReader::EndElement && xmlReader.name() == "Tags"))
+            while (!(xmlReader->tokenType() == QXmlStreamReader::EndElement && xmlReader->name() == "Tags"))
             {
-                xmlReader.readNext();
-                if (xmlReader.tokenType() == QXmlStreamReader::StartElement && xmlReader.name() == "Tag")
+                xmlReader->readNext();
+                if (xmlReader->tokenType() == QXmlStreamReader::StartElement && xmlReader->name() == "Tag")
                 {
-                    tags.push_back(xmlReader.readElementText().toStdString());
+                    tags.push_back(xmlReader->readElementText().toStdString());
                 }
             }
         }
         else
         {
-            QString value = xmlReader.readElementText();
-            attributes->insert(name, value);
+            if (xmlReader->tokenType() == QXmlStreamReader::StartElement)
+            {
+                QString value = xmlReader->readElementText();
+                attributes->insert(name, value);
+                qDebug() << "Value: " << value;
+            }
         }
-        xmlReader.readNext(); // Two times since each xml entry has also a closing tag
-        xmlReader.readNext();
     }
+        
 
     if (className == "Article")
     {
@@ -114,7 +117,9 @@ MediaItem *XmlReader::read(QXmlStreamReader &xmlReader)
             attributes->value("Duration").toUInt(),
             attributes->value("Episodes").toUInt(),
             attributes->value("Image").toStdString());
-    } else {
+    }
+    else
+    {
         qWarning() << "Unknown class name: " << className;
         return nullptr;
     }

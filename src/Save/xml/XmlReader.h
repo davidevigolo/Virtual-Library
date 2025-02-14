@@ -10,5 +10,5 @@
 
 class XmlReader{
 public:
-    static MediaItem* read(QXmlStreamReader& xmlReader);
+    static MediaItem* read(QXmlStreamReader* xmlReader);
 };

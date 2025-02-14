@@ -20,27 +20,29 @@ int LoadFromFileTest::testLoadFromFile()
 
         LoadVisitor jloadVisitor = LoadVisitor(jmap);
         for(auto item : jread){
-            item->accept(jloadVisitor);
+            item->accept(&jloadVisitor);
         }
 
         QMap<QString, QVector<MediaItem*>> xmap;
 
         LoadVisitor xloadVisitor = LoadVisitor(xmap);
         for(auto item : xread){
-            item->accept(xloadVisitor);
+            item->accept(&xloadVisitor);
         }
 
-        for(int i = 0; i < 5; i++){
-            std::cout<<i<<"\n\n";
-            for(auto item : jmap[i]){
-                std::cout<<item->getName().toStdString()<<"\n";
+        for(auto key : jmap.keys()){
+            std::cout<<key.toStdString()<<"\n\n";
+            for(auto item : jmap.value(key)){
+                std::cout<<item->getTitle()<<"\n";
+                std::cout<<"dine vector\n";
             }
         } 
 
-        for(int i = 0; i < 5; i++){
-            std::cout<<i<<"\n\n";
-            for(auto item : xmap[i]){
-                std::cout<<item->getName().toStdString()<<"\n";
+        for(auto key : xmap.keys()){
+            std::cout<<key.toStdString()<<"\n\n";
+            for(auto item : xmap.value(key)){
+                std::cout<<item->getTitle()<<"\n";
+                std::cout<<"dine vector\n";
             }
         } 
         return 0;

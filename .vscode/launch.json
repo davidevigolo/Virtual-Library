@@ -5,7 +5,7 @@
             "name": "Qt Debug",
             "type": "cppdbg",
             "request": "launch",
-            "program": "${workspaceFolder}/build/test1", 
+            "program": "${workspaceFolder}/build/Virtual-Library", 
             "args": [],
             "stopAtEntry": false,
             "cwd": "${workspaceFolder}",

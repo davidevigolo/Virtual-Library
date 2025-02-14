@@ -1,3 +1,4 @@
+#pragma once
 #include <string>
 #include <QtCore/qstring.h>
 #include "../../Logic Model/MediaItem.h"
