@@ -1,6 +1,6 @@
 #include "ScrollPanel.h"
 
-ScrollPanel::ScrollPanel(int index, QWidget *parent ) : QWidget(parent) {
+ScrollPanel::ScrollPanel(QWidget *parent) : QWidget(parent) {
     QVBoxLayout *layout = new QVBoxLayout(this); //verticale così il tag va sopra
 
     QHBoxLayout *panelLayout = new QHBoxLayout;

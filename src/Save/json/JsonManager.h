@@ -13,8 +13,9 @@
 #include <Film.h>
 #include <Music.h>
 #include <Podcast.h>
+#include <FileManager.h>
 
-class JsonManager {
+class JsonManager : public FileManager{
     private:
         QString filePath;
     public:
@@ -22,8 +23,8 @@ class JsonManager {
         ~JsonManager();
         std::vector<std::string> JsonArrToVec(const QJsonArray &array) const;
         MediaItem* ObjectLoader(const QString& className, const QJsonObject& obj) const;
-        QVector<MediaItem*> readJson() const;
-        void save(QVector<MediaItem*> item) const;
+        QVector<MediaItem*> load() const;
+        void save(QVector<MediaItem*>& item) const;
         
 };
 

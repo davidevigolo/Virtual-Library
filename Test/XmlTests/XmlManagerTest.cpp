@@ -11,8 +11,8 @@
 #include <Readable.h>
 #include <XmlManagerTest.h>
 
-std::vector<MediaItem*> XmlManagerTest::generateXmlSampleFile(XmlManager& xmlManager) {
-    std::vector<MediaItem*> mediaItems;
+QVector<MediaItem*> XmlManagerTest::generateXmlSampleFile(XmlManager& xmlManager) {
+    QVector<MediaItem*> mediaItems;
     std::vector<std::string> tags = {"Classic", "Fiction"};
     Book* book = new Book(std::string("The Great Gatsby"), std::string("F. Scott Fitzgerald"), std::string("1925"), std::string("Scribner"), std::string("Classic"), tags, std::string("Paperback"), std::string("English"), std::string("No"), std::string("First"), 180, 978074u);
     Article* article = new Article(std::string("The Great Gatsby"), std::string("F. Scott Fitzgerald"), std::string("1925"), std::string("Scribner"), std::string("Classic"), tags, std::string("Paperback"), std::string("English"), std::string("No"), std::string("First"), 180, std::string("The New York Times"));

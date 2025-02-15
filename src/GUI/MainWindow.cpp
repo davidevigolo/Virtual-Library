@@ -1,7 +1,10 @@
 #include <MainWindow.h>
+#include <QLayout>
+#include <QTextEdit>
+#include <XmlManager.h>
 
-
-MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
+MainWindow::MainWindow(QWidget *parent) : QWidget(parent), mainDisplay(this)
+{
     QMenuBar *menuBar = new QMenuBar(this);
     QMenu *fileMenu = new QMenu("File", menuBar);
     QAction *exitAction = new QAction("Exit", fileMenu);
@@ -11,32 +14,30 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent) {
     menuBar->addMenu(fileMenu);
 
     QObject::connect(exitAction, &QAction::triggered, qApp, &QApplication::quit);
+    QObject::connect(newAction, &QAction::triggered, this, &MainWindow::loadFromFile);
 
-    QVBoxLayout *mainLayout = new QVBoxLayout;
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setMenuBar(menuBar);
 
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    for (int i = 0; i < 5; ++i) {
-        QLabel *titleLabel = new QLabel(QString("Scroll Area %1").arg(i + 1));
-        titleLabel->setAlignment(Qt::AlignLeft);
-        layout->addWidget(titleLabel);
+    QHBoxLayout *searchLayout = new QHBoxLayout(this);
+    QTextEdit *searchTextEdit = new QTextEdit;
+    searchTextEdit->setPlaceholderText("Search...");
+    QPushButton *searchButton = new QPushButton("Search");
+    searchTextEdit->setFixedHeight(30);
+    searchLayout->addWidget(searchTextEdit);
+    searchLayout->addWidget(searchButton);
 
-        ScrollPanel *scrollPanel = new ScrollPanel(i);
-
-        CustomScrollArea *scrollArea = new CustomScrollArea;
-        scrollArea->setWidget(scrollPanel);
-        scrollArea->setWidgetResizable(true);
-        scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        
-
-        layout->addWidget(scrollArea);
-    }
-
-    
-    mainLayout->addLayout(layout);
+    mainLayout->addLayout(searchLayout);
+    mainLayout->addWidget(&mainDisplay);
     setLayout(mainLayout);
 
     setWindowTitle("Test Application");
     setStyleSheet("background-color: gray;");
+}
+
+void MainWindow::loadFromFile()
+{
+    FileManager *fileManager = new XmlManager("test.xml"); // This is made just for testing purposes
+    mediaItems = fileManager->load();
+    mainDisplay.setItems(mediaItems);
 }

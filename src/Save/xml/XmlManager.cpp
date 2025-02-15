@@ -5,7 +5,7 @@
 #include "XmlReader.h"
 #include "XmlVisitor.h"
 
-void XmlManager::save(std::vector<MediaItem *> &media)
+void XmlManager::save(QVector<MediaItem*>& media) const
 {
     QFile file(filePath);
     if (!file.open(QIODevice::WriteOnly))
@@ -29,7 +29,7 @@ void XmlManager::save(std::vector<MediaItem *> &media)
     file.close();
 }
 
-QVector<MediaItem *> XmlManager::load()
+QVector<MediaItem *> XmlManager::load() const
 {
     QVector<MediaItem *> result;
     QFile file(filePath);

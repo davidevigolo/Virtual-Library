@@ -26,5 +26,6 @@ class LoadVisitor : public Visitor {
         virtual void visit(Film* film);
         virtual void visit(Podcast* podcast);
         virtual void visit(Music* music);
+        
 };
 #endif // !LOADVISITOR_H

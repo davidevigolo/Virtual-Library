@@ -13,5 +13,5 @@
 
 class ScrollPanel : public QWidget {
 public:
-    ScrollPanel(int index, QWidget *parent = nullptr);
+    ScrollPanel(QWidget *parent = nullptr);
 };
