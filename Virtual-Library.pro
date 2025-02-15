@@ -27,12 +27,14 @@ HEADERS += "./src/GUI/ScrollPanel.h"
 HEADERS += "./src/GUI/CustomScrollArea.h"
 HEADERS += "./src/GUI/LoadVisitor.h"
 HEADERS += "./src/GUI/MainDisplay/MainDisplay.h"
+HEADERS += "./src/GUI/MainDisplay/ItemWidget.h"
 
 SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/ScrollPanel.cpp"
 SOURCES += "./src/GUI/CustomScrollArea.cpp"
 SOURCES += "./src/GUI/LoadVisitor.cpp"
 SOURCES += "./src/GUI/MainDisplay/MainDisplay.cpp"
+SOURCES += "./src/GUI/MainDisplay/ItemWidget.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"

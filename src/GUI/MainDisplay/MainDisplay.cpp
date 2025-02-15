@@ -33,5 +33,8 @@ void MainDisplay::setItems(QVector<MediaItem *> &items)
         scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         layout()->addWidget(scrollArea);
+        for(MediaItem* item : mediaItems[key]){
+            scrollPanel->addItem(item);
+        }
     }
 }
