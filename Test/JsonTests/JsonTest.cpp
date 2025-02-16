@@ -20,9 +20,9 @@ void JsonManagerTest::testSaveAndLoadMediaItems() {
     std::vector<std::string> tags = {"Classic", "Fiction"};
     Book* book = new Book(std::string("The Great Gatsby"), std::string("F. Scott Fitzgerald"), std::string("1925"), std::string("Scribner"), std::string("Classic"), tags, std::string("Paperback"), std::string("English"), std::string("No"), std::string("First"), 180, 978074u);
     Article* article = new Article(std::string("The Great Gatsby"), std::string("F. Scott Fitzgerald"), std::string("1925"), std::string("Scribner"), std::string("Classic"), tags, std::string("Paperback"), std::string("English"), std::string("No"), std::string("First"), 180, std::string("The New York Times"));
-    Film* film = new Film(std::string("Mannaggia"), std::string("Aldo Giovanni e Jack"), std::string("1999"), std::string("Medusa"), std::string("Comedy"), tags, std::string("DVD"), std::string("Italian"), std::string("No"), 120, std::string("Digital"), 24, std::string("Aldo Giovanni e Jack"));
-    Podcast* podcast = new Podcast(std::string("Mannaggia"), std::string("Aldo Giovanni e Jack"), std::string("1999"), std::string("Medusa"), std::string("Comedy"), tags, std::string("DVD"), std::string("Italian"), std::string("No"), 120, 24);
-    Music* music = new Music(std::string("Mannaggia"), std::string("Aldo Giovanni e Jack"), std::string("1999"), std::string("Medusa"), std::string("Comedy"), tags, std::string("DVD"), std::string("Italian"), std::string("No"), 120, std::string("Aldo Giovanni e Jack"));
+    Film* film = new Film(std::string("Mannaggia film"), std::string("Aldo Giovanni e Jack"), std::string("1999"), std::string("Medusa"), std::string("Comedy"), tags, std::string("DVD"), std::string("Italian"), std::string("No"), 120, std::string("Digital"), 24, std::string("Aldo Giovanni e Jack"));
+    Podcast* podcast = new Podcast(std::string("Mannaggia podcast"), std::string("Aldo Giovanni e Jack"), std::string("1999"), std::string("Medusa"), std::string("Comedy"), tags, std::string("DVD"), std::string("Italian"), std::string("No"), 120, 24);
+    Music* music = new Music(std::string("Mannaggia musica"), std::string("Aldo Giovanni e Jack"), std::string("1999"), std::string("Medusa"), std::string("Comedy"), tags, std::string("DVD"), std::string("Italian"), std::string("No"), 120, std::string("Aldo Giovanni e Jack"));
     
     mediaItems.push_back(book);
     mediaItems.push_back(article);

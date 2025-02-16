@@ -20,21 +20,24 @@ INCLUDEPATH += "./Test/XmlTests"
 INCLUDEPATH += "./src/GUI"
 INCLUDEPATH += "./src/GUI/MainDisplay"
 INCLUDEPATH += "./src/Save"
+INCLUDEPATH += "./src/GUI/Menu"
 
 #GUI 
-HEADERS += "./src/GUI/MainWindow.h"
-HEADERS += "./src/GUI/ScrollPanel.h"
-HEADERS += "./src/GUI/CustomScrollArea.h"
+#HEADERS += "./src/GUI/MainWindow.h"
+HEADERS += "./src/GUI/MainDisplay/ScrollPanel.h"
+HEADERS += "./src/GUI/MainDisplay/CustomScrollArea.h"
 HEADERS += "./src/GUI/LoadVisitor.h"
 HEADERS += "./src/GUI/MainDisplay/MainDisplay.h"
-HEADERS += "./src/GUI/MainDisplay/ItemWidget.h"
+HEADERS += "./src/GUI/MainDisplay/ButtonWidget.h"
+HEADERS += "./src/GUI/Menu/TopMenu.h"
 
-SOURCES += "./src/GUI/MainWindow.cpp"
-SOURCES += "./src/GUI/ScrollPanel.cpp"
-SOURCES += "./src/GUI/CustomScrollArea.cpp"
+#SOURCES += "./src/GUI/MainWindow.cpp"
+SOURCES += "./src/GUI/MainDisplay/ScrollPanel.cpp"
+SOURCES += "./src/GUI/MainDisplay/CustomScrollArea.cpp"
 SOURCES += "./src/GUI/LoadVisitor.cpp"
 SOURCES += "./src/GUI/MainDisplay/MainDisplay.cpp"
-SOURCES += "./src/GUI/MainDisplay/ItemWidget.cpp"
+SOURCES += "./src/GUI/MainDisplay/ButtonWidget.cpp"
+SOURCES += "./src/GUI/Menu/TopMenu.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
@@ -74,11 +77,15 @@ HEADERS += "./src/Save/xml/XmlReader.h"
 SOURCES += "./src/Save/xml/XmlReader.cpp"
 
 #Test
-HEADERS += "./Test/jsonTests/JsonTest.h"
-#HEADERS += "./Test/GUITests/MainWindowTests/LoadFromFileTests.h"
+HEADERS += "./Test/JsonTests/JsonTest.h"
+HEADERS += "./Test/GUITests/MainWindowTests/LoadFromFileTests.h"
 
-SOURCES += "./Test/jsonTests/JsonTest.cpp"
-#SOURCES += "./Test/GUITests/MainWindowTests/LoadFromFileTests.cpp"
+SOURCES += "./Test/JsonTests/JsonTest.cpp"
+SOURCES += "./Test/GUITests/MainWindowTests/LoadFromFileTests.cpp"
+
+#GUI
+#HEADERS += "./src/GUI/
 
 # TestMain
-SOURCES += "./src/main.cpp"
+SOURCES += "./Test/GUITests/MainWindowTests/GuiTest.cpp"
+#SOURCES += "./Test/TestMain.cpp"

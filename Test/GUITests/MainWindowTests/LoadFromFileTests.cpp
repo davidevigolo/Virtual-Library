@@ -9,11 +9,14 @@ int LoadFromFileTest::testLoadFromFile()
 {
         initLoadFromFileTest();
 
-        JsonManager json = JsonManager("Test/test.json");
+
+        XmlManager xml = XmlManager("test.xml");
+        QVector<MediaItem*> xread = xml.load();
+
+        JsonManager json = JsonManager("test.json");
         QVector<MediaItem*> jread = json.load();
 
-        XmlManager xml = XmlManager("Test/test.xml");
-        QVector<MediaItem*> xread = xml.load();
+        
 
 
         QMap<QString, QVector<MediaItem*>> jmap;
@@ -23,7 +26,7 @@ int LoadFromFileTest::testLoadFromFile()
             item->accept(&jloadVisitor);
         }
 
-        QMap<QString, QVector<MediaItem*>> xmap;
+        QMap<QString, QVector<MediaItem*>> xmap = {{"Article",{}},{"Book",{}},{"Film",{}},{"Music",{}},{"Podcast",{}}};
 
         LoadVisitor xloadVisitor = LoadVisitor(xmap);
         for(auto item : xread){
@@ -34,16 +37,16 @@ int LoadFromFileTest::testLoadFromFile()
             std::cout<<key.toStdString()<<"\n\n";
             for(auto item : jmap.value(key)){
                 std::cout<<item->getTitle()<<"\n";
-                std::cout<<"dine vector\n";
             }
+                std::cout<<"fine vector\n";
         } 
 
         for(auto key : xmap.keys()){
             std::cout<<key.toStdString()<<"\n\n";
             for(auto item : xmap.value(key)){
                 std::cout<<item->getTitle()<<"\n";
-                std::cout<<"dine vector\n";
             }
+                std::cout<<"fine vector\n";
         } 
         return 0;
 

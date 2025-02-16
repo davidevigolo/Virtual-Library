@@ -4,37 +4,33 @@
 #include <ScrollPanel.h>
 #include <CustomScrollArea.h>
 #include <LoadVisitor.h>
+#include <iostream>
 
-MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent)
-{
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    mediaItems = QMap<QString, QVector<MediaItem*>>();
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setContentsMargins(35, 35, 35, 35);
+MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent){}
 
-    mainLayout->addLayout(layout);
-    setLayout(mainLayout);
-
-    setStyleSheet("background-color: gray;");
-}
-
-void MainDisplay::setItems(QVector<MediaItem *> &items)
+void MainDisplay::setAreas(QVector<MediaItem *> &items)
 {
     LoadVisitor visitor(mediaItems);
+    
     for (MediaItem *item : items)
     {
         item->accept(&visitor);
     }
+    QVBoxLayout *mainLayout = new QVBoxLayout(this);
     for(auto key : mediaItems.keys()){
         CustomScrollArea *scrollArea = new CustomScrollArea(this);
-        ScrollPanel *scrollPanel = new ScrollPanel(this);
+        ScrollPanel *scrollPanel = new ScrollPanel();
+        scrollPanel->setItems(mediaItems[key]);
         scrollArea->setWidget(scrollPanel);
         scrollArea->setWidgetResizable(true);
         scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-        layout()->addWidget(scrollArea);
-        for(MediaItem* item : mediaItems[key]){
-            scrollPanel->addItem(item);
-        }
+        scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
+        scrollArea->setStyleSheet("background-color: gray;");
+        QLabel *label = new QLabel(key);
+        label->setStyleSheet("font-size: 20px; color: white;");
+        mainLayout->addWidget(label);
+        mainLayout->addWidget(scrollArea);
     }
+    setStyleSheet("background-color: black;");
+    setLayout(mainLayout);
 }

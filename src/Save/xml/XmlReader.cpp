@@ -116,7 +116,4 @@ MediaItem *XmlReader::read(QDomNode &node)
     else {
         qWarning() << "Unknown class name: " << className;
     }
-
-    delete attributes;
-    return result;
 }
