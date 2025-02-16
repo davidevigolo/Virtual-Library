@@ -95,7 +95,7 @@ MediaItem *JsonManager::ObjectLoader(const QString &className, const QJsonObject
     return media;
 }
 
-QVector<MediaItem *> JsonManager::readJson() const
+QVector<MediaItem *> JsonManager::load() const
 {
     QVector<MediaItem *> Library; // create the vector of readen objects
     QFile file(filePath);         // load the file
@@ -132,7 +132,7 @@ QVector<MediaItem *> JsonManager::readJson() const
     return Library;
 }
 
-void JsonManager::save(QVector<MediaItem *> Library) const
+void JsonManager::save(QVector<MediaItem*>& Library) const
 {
     QFile file(filePath);
 

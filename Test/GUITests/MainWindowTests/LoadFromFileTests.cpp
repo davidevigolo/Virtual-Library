@@ -2,7 +2,7 @@
 
 void initLoadFromFileTest()
 {
-    XmlManagerTest::generateXmlSampleFile(); 
+    //XmlManagerTest::generateXmlSampleFile(); 
 }
 
 int LoadFromFileTest::testLoadFromFile()
@@ -10,7 +10,7 @@ int LoadFromFileTest::testLoadFromFile()
         initLoadFromFileTest();
 
         JsonManager json = JsonManager("Test/test.json");
-        QVector<MediaItem*> jread = json.readJson();
+        QVector<MediaItem*> jread = json.load();
 
         XmlManager xml = XmlManager("Test/test.xml");
         QVector<MediaItem*> xread = xml.load();

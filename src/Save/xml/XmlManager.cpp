@@ -1,10 +1,11 @@
 #include "XmlManager.h"
 #include <qfile.h>
 #include <QXmlStreamWriter>
+#include <QDomDocument>
 #include "XmlReader.h"
 #include "XmlVisitor.h"
 
-void XmlManager::save(std::vector<MediaItem *> &media)
+void XmlManager::save(QVector<MediaItem*>& media) const
 {
     QFile file(filePath);
     if (!file.open(QIODevice::WriteOnly))
@@ -13,7 +14,7 @@ void XmlManager::save(std::vector<MediaItem *> &media)
     }
 
     QXmlStreamWriter xmlWriter(&file);
-    xmlWriter.setAutoFormatting(true);
+    xmlWriter.setAutoFormatting(true); // Set auto formatting to false
     xmlWriter.writeStartDocument();
     xmlWriter.writeStartElement("MediaItems");
 
@@ -28,40 +29,29 @@ void XmlManager::save(std::vector<MediaItem *> &media)
     file.close();
 }
 
-QVector<MediaItem *> XmlManager::load()
+QVector<MediaItem *> XmlManager::load() const
 {
     QVector<MediaItem *> result;
     QFile file(filePath);
-    if (!file.open(QIODevice::ReadOnly))
+    QDomDocument document;
+
+    if (!file.open(QIODevice::ReadOnly | QIODevice::Text))
     {
         throw std::runtime_error("Could not open file for reading");
     }
-
-    QXmlStreamReader xmlReader(&file);
-    while (!xmlReader.atEnd() && !xmlReader.hasError())
-    {
-        QXmlStreamReader::TokenType token = xmlReader.readNext();
-        qDebug() << xmlReader.name();
-        qDebug() << xmlReader.readElementText();
-        if (token == QXmlStreamReader::StartDocument)
-        {
-            continue;
-        }
-
-        if (token == QXmlStreamReader::StartElement)
-        {
-            if (xmlReader.name() == "MediaItems")
-            {
-                continue;
-            }
-
-            result.push_back(XmlReader::read(&xmlReader));
-        }
-        else
-        {
-            xmlReader.readNext();
-        }
+    if(!document.setContent(&file)){
+        throw std::runtime_error("Could not set content");
     }
+
+    QDomElement root =  document.firstChildElement();
+    QDomNodeList mediaItems = root.elementsByTagName("MediaItem");
+    for (int i = 0; i < mediaItems.size(); i++)
+    {
+        QDomNode node = mediaItems.at(i).firstChild();
+        XmlReader reader;
+        result.push_back(reader.read(node));
+    }
+
 
     file.close();
     return result;

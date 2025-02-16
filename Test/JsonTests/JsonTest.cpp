@@ -34,7 +34,7 @@ void JsonManagerTest::testSaveAndLoadMediaItems() {
     jsonManager.save(mediaItems);
 
     // // Load the media items from the XML file
-    QVector<MediaItem*> loadedMediaItems = jsonManager.readJson();
+    QVector<MediaItem*> loadedMediaItems = jsonManager.load();
     MediaItem* media0 = loadedMediaItems[0];
     MediaItem* media1 = loadedMediaItems[1];
     std::cout << loadedMediaItems.size() << std::endl;

@@ -2,6 +2,7 @@
 
 QT += core gui
 QT += widgets
+QT += xml
 
 CONFIG += c++20
 
@@ -17,17 +18,23 @@ INCLUDEPATH += "./src/Save/xml"
 INCLUDEPATH += "./src/Save/json"
 INCLUDEPATH += "./Test/XmlTests"
 INCLUDEPATH += "./src/GUI"
+INCLUDEPATH += "./src/GUI/MainDisplay"
+INCLUDEPATH += "./src/Save"
 
 #GUI 
 HEADERS += "./src/GUI/MainWindow.h"
 HEADERS += "./src/GUI/ScrollPanel.h"
 HEADERS += "./src/GUI/CustomScrollArea.h"
 HEADERS += "./src/GUI/LoadVisitor.h"
+HEADERS += "./src/GUI/MainDisplay/MainDisplay.h"
+HEADERS += "./src/GUI/MainDisplay/ItemWidget.h"
 
 SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/ScrollPanel.cpp"
 SOURCES += "./src/GUI/CustomScrollArea.cpp"
 SOURCES += "./src/GUI/LoadVisitor.cpp"
+SOURCES += "./src/GUI/MainDisplay/MainDisplay.cpp"
+SOURCES += "./src/GUI/MainDisplay/ItemWidget.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
@@ -59,6 +66,7 @@ HEADERS += "./src/Logic Model/ConstVisitor.h"
 # Save
 SOURCES += "./src/Save/json/JsonManager.cpp"
 HEADERS += "./src/Save/json/JsonManager.h"
+HEADERS += "./src/Save/FileManager.h"
 
 HEADERS += "./src/Save/xml/XmlManager.h"
 SOURCES += "./src/Save/xml/XmlManager.cpp"
@@ -73,4 +81,4 @@ SOURCES += "./Test/jsonTests/JsonTest.cpp"
 #SOURCES += "./Test/GUITests/MainWindowTests/LoadFromFileTests.cpp"
 
 # TestMain
-SOURCES += "./Test/TestMain.cpp"
+SOURCES += "./src/main.cpp"
