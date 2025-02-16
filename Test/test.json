@@ -1,452 +1,95 @@
 [
     {
-        "Author": "John Doe",
-        "Class": "Article",
-        "Edition": "1st",
-        "Format": "digital",
-        "Genre": "Technology",
-        "Image": "",
-        "Language": "English",
-        "Pages": 10,
-        "ProductionHouse": "Tech Publishers",
-        "Publisher": "Tech Journal",
-        "ReleaseDate": "2023-10-01",
-        "Tags": [
-            "AI",
-            "Future",
-            "Technology"
-        ],
-        "Title": "The Future of AI",
-        "Used": "read"
-    },
-    {
-        "Author": "David Black",
-        "Class": "Film",
-        "Duration": "0",
-        "Format": "Blu-ray",
-        "Framerate": 24,
-        "Genre": "Drama",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Drama Studios",
-        "ReleaseDate": "2019-11-20",
-        "Tags": [
-            "Drama",
-            "Award-Winning",
-            "Emotional"
-        ],
-        "Tecnic": "",
-        "Title": "A Life to Remember",
-        "Used": "new"
-    },
-    {
-        "Author": "Anna Green",
-        "Class": "Podcast",
-        "Duration": "0",
-        "Episodes": 15,
-        "Format": "audio",
-        "Genre": "Science",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Science Network",
-        "ReleaseDate": "2021-09-10",
-        "Tags": [
-            "Science",
-            "Education",
-            "Interviews"
-        ],
-        "Title": "Science Talks",
-        "Used": "new"
-    },
-    {
-        "Album": "Greatest Hits",
-        "Author": "The Legends",
-        "Class": "Music",
-        "Duration": "0",
-        "Format": "CD",
-        "Genre": "Pop",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Pop Records",
-        "ReleaseDate": "2017-04-25",
-        "Tags": [
-            "Pop",
-            "Hits",
-            "Compilation"
-        ],
-        "Title": "Pop Legends",
-        "Used": "new"
-    },
-    {
-        "Author": "Chris Blue",
-        "Class": "Article",
-        "Edition": "1st",
-        "Format": "digital",
-        "Genre": "Travel",
-        "Image": "",
-        "Language": "English",
-        "Pages": 15,
-        "ProductionHouse": "Travel Journal",
-        "Publisher": "Travel Journal",
-        "ReleaseDate": "2023-03-10",
-        "Tags": [
-            "Travel",
-            "Adventure",
-            "Guide"
-        ],
-        "Title": "Exploring the World",
-        "Used": "read"
-    },
-    {
-        "Author": "Laura Grey",
+        "Author": "F. Scott Fitzgerald",
         "Class": "Book",
-        "Edition": "3rd",
-        "Format": "hardcover",
-        "Genre": "Fantasy",
-        "ISBN": 0,
+        "Edition": "First",
+        "Format": "Paperback",
+        "Genre": "Classic",
+        "ISBN": 978074,
         "Image": "",
         "Language": "English",
-        "Pages": 400,
-        "ProductionHouse": "Fantasy House",
-        "ReleaseDate": "2018-07-22",
+        "Pages": 180,
+        "ProductionHouse": "Scribner",
+        "ReleaseDate": "1925",
         "Tags": [
-            "Fantasy",
-            "Magic",
-            "Adventure"
+            "Classic",
+            "Fiction"
         ],
-        "Title": "The Enchanted Forest",
-        "Used": "new"
+        "Title": "The Great Gatsby",
+        "Used": "No"
     },
     {
-        "Author": "Tom White",
+        "Author": "F. Scott Fitzgerald",
+        "Class": "Article",
+        "Edition": "First",
+        "Format": "Paperback",
+        "Genre": "Classic",
+        "Image": "",
+        "Language": "English",
+        "Pages": 180,
+        "ProductionHouse": "Scribner",
+        "Publisher": "The New York Times",
+        "ReleaseDate": "1925",
+        "Tags": [
+            "Classic",
+            "Fiction"
+        ],
+        "Title": "The Great Gatsby",
+        "Used": "No"
+    },
+    {
+        "Author": "Aldo Giovanni e Jack",
         "Class": "Film",
-        "Duration": "0",
+        "Duration": "120",
         "Format": "DVD",
-        "Framerate": 30,
-        "Genre": "Action",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Action Studios",
-        "ReleaseDate": "2020-02-14",
-        "Tags": [
-            "Action",
-            "Thriller",
-            "Blockbuster"
-        ],
-        "Tecnic": "",
-        "Title": "The Ultimate Chase",
-        "Used": "new"
-    },
-    {
-        "Author": "Nancy Brown",
-        "Class": "Podcast",
-        "Duration": "0",
-        "Episodes": 25,
-        "Format": "audio",
-        "Genre": "Technology",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Tech Network",
-        "ReleaseDate": "2022-05-18",
-        "Tags": [
-            "Technology",
-            "Innovation",
-            "Interviews"
-        ],
-        "Title": "Tech Innovations",
-        "Used": "new"
-    },
-    {
-        "Album": "Top Hits",
-        "Author": "Various Artists",
-        "Class": "Music",
-        "Duration": "0",
-        "Format": "Vinyl",
-        "Genre": "Pop",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Pop Records",
-        "ReleaseDate": "2019-08-30",
-        "Tags": [
-            "Pop",
-            "Hits",
-            "Compilation"
-        ],
-        "Title": "Pop Hits",
-        "Used": "new"
-    },
-    {
-        "Author": "Olivia Green",
-        "Class": "Article",
-        "Edition": "1st",
-        "Format": "digital",
-        "Genre": "Science",
-        "Image": "",
-        "Language": "English",
-        "Pages": 20,
-        "ProductionHouse": "Science Journal",
-        "Publisher": "Science Journal",
-        "ReleaseDate": "2023-01-15",
-        "Tags": [
-            "Science",
-            "Research",
-            "Innovation"
-        ],
-        "Title": "The Future of Space Exploration",
-        "Used": "read"
-    },
-    {
-        "Author": "James Black",
-        "Class": "Book",
-        "Edition": "1st",
-        "Format": "paperback",
-        "Genre": "History",
-        "ISBN": 0,
-        "Image": "",
-        "Language": "English",
-        "Pages": 300,
-        "ProductionHouse": "History House",
-        "ReleaseDate": "2019-10-05",
-        "Tags": [
-            "History",
-            "Biography",
-            "War"
-        ],
-        "Title": "The Great War",
-        "Used": "new"
-    },
-    {
-        "Author": "Sophia White",
-        "Class": "Film",
-        "Duration": "0",
-        "Format": "Blu-ray",
         "Framerate": 24,
         "Genre": "Comedy",
         "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Comedy Studios",
-        "ReleaseDate": "2021-06-25",
+        "Language": "Italian",
+        "ProductionHouse": "Medusa",
+        "ReleaseDate": "1999",
         "Tags": [
-            "Comedy",
-            "Family",
-            "Fun"
+            "Classic",
+            "Fiction"
         ],
-        "Tecnic": "",
-        "Title": "A Day to Remember",
-        "Used": "new"
+        "Tecnic": "Digital",
+        "Title": "Mannaggia",
+        "Used": "No"
     },
     {
-        "Author": "Daniel Blue",
+        "Author": "Aldo Giovanni e Jack",
         "Class": "Podcast",
-        "Duration": "0",
-        "Episodes": 20,
-        "Format": "audio",
-        "Genre": "Business",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Business Network",
-        "ReleaseDate": "2020-11-10",
-        "Tags": [
-            "Business",
-            "Finance",
-            "Interviews"
-        ],
-        "Title": "Business Insights",
-        "Used": "new"
-    },
-    {
-        "Album": "Rock Classics",
-        "Author": "Various Artists",
-        "Class": "Music",
-        "Duration": "0",
-        "Format": "CD",
-        "Genre": "Rock",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Rock Records",
-        "ReleaseDate": "2016-09-15",
-        "Tags": [
-            "Rock",
-            "Classics",
-            "Compilation"
-        ],
-        "Title": "Rock Classics",
-        "Used": "new"
-    },
-    {
-        "Author": "Emma Green",
-        "Class": "Article",
-        "Edition": "1st",
-        "Format": "digital",
-        "Genre": "Environment",
-        "Image": "",
-        "Language": "English",
-        "Pages": 18,
-        "ProductionHouse": "Eco Journal",
-        "Publisher": "Eco Journal",
-        "ReleaseDate": "2022-04-10",
-        "Tags": [
-            "Environment",
-            "Climate Change",
-            "Sustainability"
-        ],
-        "Title": "Climate Change and Its Impact",
-        "Used": "read"
-    },
-    {
-        "Author": "Liam Brown",
-        "Class": "Book",
-        "Edition": "2nd",
-        "Format": "hardcover",
-        "Genre": "Science Fiction",
-        "ISBN": 0,
-        "Image": "",
-        "Language": "English",
-        "Pages": 320,
-        "ProductionHouse": "Sci-Fi House",
-        "ReleaseDate": "2017-12-01",
-        "Tags": [
-            "Sci-Fi",
-            "Adventure",
-            "Future"
-        ],
-        "Title": "Journey to Mars",
-        "Used": "new"
-    },
-    {
-        "Author": "Ava White",
-        "Class": "Film",
-        "Duration": "0",
+        "Duration": "120",
+        "Episodes": 24,
         "Format": "DVD",
-        "Framerate": 30,
-        "Genre": "Fantasy",
+        "Genre": "Comedy",
         "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Fantasy Studios",
-        "ReleaseDate": "2018-03-22",
+        "Language": "Italian",
+        "ProductionHouse": "Medusa",
+        "ReleaseDate": "1999",
         "Tags": [
-            "Fantasy",
-            "Magic",
-            "Adventure"
+            "Classic",
+            "Fiction"
         ],
-        "Tecnic": "",
-        "Title": "The Magic Realm",
-        "Used": "new"
+        "Title": "Mannaggia",
+        "Used": "No"
     },
     {
-        "Author": "Ethan Green",
-        "Class": "Podcast",
-        "Duration": "0",
-        "Episodes": 10,
-        "Format": "audio",
-        "Genre": "Health",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Health Network",
-        "ReleaseDate": "2021-01-15",
-        "Tags": [
-            "Health",
-            "Wellness",
-            "Interviews"
-        ],
-        "Title": "Health Matters",
-        "Used": "new"
-    },
-    {
-        "Author": "",
-        "Class": "Film",
-        "Duration": "0",
-        "Format": "DVD",
-        "Framerate": 0,
-        "Genre": "Science Fiction",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Warner Bros.",
-        "ReleaseDate": "1999-03-31",
-        "Tags": [
-            "Sci-Fi",
-            "Action",
-            "Classic"
-        ],
-        "Tecnic": "",
-        "Title": "The Matrix",
-        "Used": "used"
-    },
-    {
-        "Author": "",
-        "Class": "Podcast",
-        "Duration": "0",
-        "Episodes": 30,
-        "Format": "audio",
-        "Genre": "History",
-        "Image": "",
-        "Language": "English",
-        "ProductionHouse": "History Network",
-        "ReleaseDate": "2022-11-05",
-        "Tags": [
-            "History",
-            "Education",
-            "Stories"
-        ],
-        "Title": "History Uncovered",
-        "Used": "new"
-    },
-    {
-        "Album": "",
-        "Author": "Various Artists",
+        "Album": "Aldo Giovanni e Jack",
+        "Author": "Aldo Giovanni e Jack",
         "Class": "Music",
-        "Duration": "0",
-        "Format": "Vinyl",
-        "Genre": "Rock",
+        "Duration": "120",
+        "Format": "DVD",
+        "Genre": "Comedy",
         "Image": "",
-        "Language": "English",
-        "ProductionHouse": "Rock Records",
-        "ReleaseDate": "2018-06-15",
+        "Language": "Italian",
+        "ProductionHouse": "Medusa",
+        "ReleaseDate": "1999",
         "Tags": [
-            "Rock",
-            "Hits",
-            "Compilation"
+            "Classic",
+            "Fiction"
         ],
-        "Title": "Rock Anthems",
-        "Used": "new"
-    },
-    {
-        "Author": "Sarah Green",
-        "Class": "Article",
-        "Edition": "1st",
-        "Format": "digital",
-        "Genre": "Environment",
-        "Image": "",
-        "Language": "English",
-        "Pages": 12,
-        "ProductionHouse": "Eco Journal",
-        "Publisher": "Eco Journal",
-        "ReleaseDate": "2023-07-25",
-        "Tags": [
-            "Renewable Energy",
-            "Environment",
-            "Sustainability"
-        ],
-        "Title": "The Rise of Renewable Energy",
-        "Used": "read"
-    },
-    {
-        "Author": "Author",
-        "Class": "Article",
-        "Edition": "Content",
-        "Format": "Format",
-        "Genre": "Genre",
-        "Image": "",
-        "Language": "Language",
-        "Pages": 45,
-        "ProductionHouse": "ProductionHouse",
-        "Publisher": "co",
-        "ReleaseDate": "ReleaseDate",
-        "Tags": [
-            "tag1",
-            "tag2"
-        ],
-        "Title": "Title",
-        "Used": "Used"
+        "Title": "Mannaggia",
+        "Used": "No"
     }
 ]

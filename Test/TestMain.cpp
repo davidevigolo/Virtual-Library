@@ -11,7 +11,7 @@
 #include "GUITests/MainWindowTests/LoadFromFileTests.h"
 
 int main() {
-    // JsonManagerTest::testSaveAndLoadMediaItems();
+    JsonManagerTest::testSaveAndLoadMediaItems();
     qDebug() << "JsonManagerTest::testSaveAndLoadMediaItems()";
     XmlManagerTest::testSaveAndLoadMediaItems();
 

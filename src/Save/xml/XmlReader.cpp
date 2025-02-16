@@ -1,43 +1,72 @@
 #include "XmlReader.h"
+#include <iostream>
 
 MediaItem *XmlReader::read(QXmlStreamReader* xmlReader)
 {
-    auto className = xmlReader->name();
-
+    // Dopo aver letto StartDocument, siamo pronti a lavorare con gli StartElement
+    QString className = xmlReader->name().toString();
     std::vector<std::string> tags;
     QMap<QString, QString> *attributes = new QMap<QString, QString>();
-    while (xmlReader->tokenType() != QXmlStreamReader::EndElement)
-    {
-        xmlReader->readNext(); // Two times since each xml entry has also a closing tag
-        QString name = xmlReader->name().toString();
-        qDebug() << "Name: ";
-        qDebug() << name;
-        if (name == "Tags")
-        {
-            while (!(xmlReader->tokenType() == QXmlStreamReader::EndElement && xmlReader->name() == "Tags"))
-            {
-                xmlReader->readNext();
-                if (xmlReader->tokenType() == QXmlStreamReader::StartElement && xmlReader->name() == "Tag")
-                {
-                    tags.push_back(xmlReader->readElementText().toStdString());
+
+    // Continua finché non troviamo l'elemento di chiusura per questa classe
+    if(xmlReader->hasError()) {
+        qWarning() << "Error occurred during XML parsing: " << xmlReader->errorString();
+        delete attributes;
+        return nullptr;
+    }   
+    if(xmlReader->atEnd()) {
+        qWarning() << "End of file reached";
+        delete attributes;
+        return nullptr;
+    }
+    while (!xmlReader->atEnd() && !xmlReader->hasError()) {
+        if (xmlReader->readNext() == QXmlStreamReader::StartElement) {
+            QString name = xmlReader->name().toString();
+            qDebug() << "Start element: " << name;
+
+            if (name == "Tags") {
+                // Gestiamo i tag all'interno di <Tags>
+                while (!(xmlReader->tokenType() == QXmlStreamReader::EndElement && xmlReader->name() == "Tags")) {
+                    xmlReader->readNext();
+                    if (xmlReader->tokenType() == QXmlStreamReader::StartElement && xmlReader->name() == "Tag") {
+                        // Legge il testo del tag <Tag>
+                        tags.push_back(xmlReader->readElementText().toStdString());
+                    }
+                }
+            } else {
+                // Gestiamo i tag con dati di testo
+                if (xmlReader->tokenType() == QXmlStreamReader::StartElement) {
+                    QString elementName = xmlReader->name().toString();
+                    xmlReader->readNext(); // Avanza al token successivo (probabilmente Characters)
+                    if (xmlReader->tokenType() == QXmlStreamReader::Characters) {
+                        // Memorizza i dati di testo per il tag
+                        qDebug() << elementName << ":" << xmlReader->text().toString();
+                        attributes->insert(elementName, xmlReader->text().toString());
+                    }
                 }
             }
         }
-        else
-        {
-            if (xmlReader->tokenType() == QXmlStreamReader::StartElement)
-            {
-                QString value = xmlReader->readElementText();
-                attributes->insert(name, value);
-                qDebug() << "Value: " << value;
-            }
+        else {
+            qDebug() << "Token type: " << xmlReader->tokenType();
+        }
+
+        // Aggiungi controllo per eventuali errori XML
+        if (xmlReader->hasError()) {
+            qWarning() << "Error occurred during XML parsing: " << xmlReader->errorString();
+            delete attributes;
+            return nullptr;
+        }
+
+        // Verifica se siamo all'elemento di chiusura per questa classe
+        if (xmlReader->tokenType() == QXmlStreamReader::EndElement && xmlReader->name() == className) {
+            break;
         }
     }
-        
 
-    if (className == "Article")
-    {
-        return new Article(
+    // Crea e restituisci l'oggetto corretto in base al nome della classe
+    MediaItem* result = nullptr;
+    if (className == "Article") {
+        result = new Article(
             attributes->value("Title").toStdString(),
             attributes->value("Author").toStdString(),
             attributes->value("ReleaseDate").toStdString(),
@@ -52,9 +81,8 @@ MediaItem *XmlReader::read(QXmlStreamReader* xmlReader)
             attributes->value("Publisher").toStdString(),
             attributes->value("Image").toStdString());
     }
-    else if (className == "Book")
-    {
-        return new Book(
+    else if (className == "Book") {
+        result = new Book(
             attributes->value("Title").toStdString(),
             attributes->value("Author").toStdString(),
             attributes->value("ReleaseDate").toStdString(),
@@ -69,9 +97,8 @@ MediaItem *XmlReader::read(QXmlStreamReader* xmlReader)
             attributes->value("ISBN").toUInt(),
             attributes->value("Image").toStdString());
     }
-    else if (className == "Film")
-    {
-        return new Film(
+    else if (className == "Film") {
+        result = new Film(
             attributes->value("Title").toStdString(),
             attributes->value("Author").toStdString(),
             attributes->value("ReleaseDate").toStdString(),
@@ -87,9 +114,8 @@ MediaItem *XmlReader::read(QXmlStreamReader* xmlReader)
             attributes->value("Director").toStdString(),
             attributes->value("Image").toStdString());
     }
-    else if (className == "Music")
-    {
-        return new Music(
+    else if (className == "Music") {
+        result = new Music(
             attributes->value("Title").toStdString(),
             attributes->value("Author").toStdString(),
             attributes->value("ReleaseDate").toStdString(),
@@ -102,9 +128,8 @@ MediaItem *XmlReader::read(QXmlStreamReader* xmlReader)
             attributes->value("Duration").toUInt(),
             attributes->value("Album").toStdString());
     }
-    else if (className == "Podcast")
-    {
-        return new Podcast(
+    else if (className == "Podcast") {
+        result = new Podcast(
             attributes->value("Title").toStdString(),
             attributes->value("Author").toStdString(),
             attributes->value("ReleaseDate").toStdString(),
@@ -118,9 +143,10 @@ MediaItem *XmlReader::read(QXmlStreamReader* xmlReader)
             attributes->value("Episodes").toUInt(),
             attributes->value("Image").toStdString());
     }
-    else
-    {
+    else {
         qWarning() << "Unknown class name: " << className;
-        return nullptr;
     }
+
+    delete attributes;
+    return result;
 }
