@@ -14,10 +14,10 @@ EQ            = =
 
 CC            = gcc
 CXX           = g++
-DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_CORE_LIB
+DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -Isrc/Logic\ Model -Isrc/Save/xml -Isrc/Save/json -ITest/XmlTests -Isrc/GUI -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I. -Isrc/Logic\ Model -Isrc/Save/xml -Isrc/Save/json -ITest/XmlTests -Isrc/GUI -Isrc/GUI/MainDisplay -Isrc/Save -Isrc/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -40,7 +40,7 @@ DISTNAME      = Virtual-Library1.0.0
 DISTDIR = /home/kevin/Desktop/OOProject/Virtual-Library/.tmp/Virtual-Library1.0.0
 LINK          = g++
 LFLAGS        = 
-LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
+LIBS          = $(SUBLIBS) /usr/lib/x86_64-linux-gnu/libQt5Widgets.so /usr/lib/x86_64-linux-gnu/libQt5Gui.so /usr/lib/x86_64-linux-gnu/libQt5Xml.so /usr/lib/x86_64-linux-gnu/libQt5Core.so -lGL -lpthread   
 AR            = ar cqs
 RANLIB        = 
 SED           = sed
@@ -53,8 +53,14 @@ OBJECTS_DIR   = ./
 ####### Files
 
 SOURCES       = src/GUI/MainWindow.cpp \
-		src/GUI/ScrollPanel.cpp \
-		src/GUI/CustomScrollArea.cpp \
+		src/GUI/MainDisplay/ScrollPanel.cpp \
+		src/GUI/MainDisplay/CustomScrollArea.cpp \
+		src/GUI/LoadVisitor.cpp \
+		src/GUI/MainDisplay/MainDisplay.cpp \
+		src/GUI/MainDisplay/ButtonWidget.cpp \
+		src/GUI/Menu/TopMenu.cpp \
+		src/GUI/SearchBar.cpp \
+		src/GUI/MainDisplay/ScrollWidget.cpp \
 		src/Logic\ Model/MediaItem.cpp \
 		src/Logic\ Model/AudioVisual.cpp \
 		src/Logic\ Model/Readable.cpp \
@@ -65,15 +71,29 @@ SOURCES       = src/GUI/MainWindow.cpp \
 		src/Logic\ Model/Podcast.cpp \
 		Test/XmlTests/XmlManagerTest.cpp \
 		src/Save/json/JsonVisitor.cpp \
-		src/Logic\ Model/XmlVisitor.cpp \
-		src/Save/json/JsonManager.cpp \
+		src/Save/xml/XmlVisitor.cpp \
 		src/Save/xml/XmlManager.cpp \
+		src/Save/json/JsonManager.cpp \
 		src/Save/xml/XmlReader.cpp \
-		Test/jsonTests/JsonTest.cpp \
-		Test/TestMain.cpp moc_MainWindow.cpp
+		src/Save/ManagerFactory.cpp \
+		Test/JsonTests/JsonTest.cpp \
+		Test/GUITests/MainWindowTests/LoadFromFileTests.cpp \
+		src/main.cpp moc_MainWindow.cpp \
+		moc_ScrollPanel.cpp \
+		moc_MainDisplay.cpp \
+		moc_ButtonWidget.cpp \
+		moc_TopMenu.cpp \
+		moc_SearchBar.cpp \
+		moc_ScrollWidget.cpp
 OBJECTS       = MainWindow.o \
 		ScrollPanel.o \
 		CustomScrollArea.o \
+		LoadVisitor.o \
+		MainDisplay.o \
+		ButtonWidget.o \
+		TopMenu.o \
+		SearchBar.o \
+		ScrollWidget.o \
 		MediaItem.o \
 		AudioVisual.o \
 		Readable.o \
@@ -85,12 +105,20 @@ OBJECTS       = MainWindow.o \
 		XmlManagerTest.o \
 		JsonVisitor.o \
 		XmlVisitor.o \
-		JsonManager.o \
 		XmlManager.o \
+		JsonManager.o \
 		XmlReader.o \
+		ManagerFactory.o \
 		JsonTest.o \
-		TestMain.o \
-		moc_MainWindow.o
+		LoadFromFileTests.o \
+		main.o \
+		moc_MainWindow.o \
+		moc_ScrollPanel.o \
+		moc_MainDisplay.o \
+		moc_ButtonWidget.o \
+		moc_TopMenu.o \
+		moc_SearchBar.o \
+		moc_ScrollWidget.o
 DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/unix.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/common/linux.conf \
@@ -169,8 +197,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
 		Virtual-Library.pro src/GUI/MainWindow.h \
-		src/GUI/ScrollPanel.h \
-		src/GUI/CustomScrollArea.h \
+		src/GUI/MainDisplay/ScrollPanel.h \
+		src/GUI/MainDisplay/CustomScrollArea.h \
+		src/GUI/LoadVisitor.h \
+		src/GUI/MainDisplay/MainDisplay.h \
+		src/GUI/MainDisplay/ButtonWidget.h \
+		src/GUI/Menu/TopMenu.h \
+		src/GUI/SearchBar.h \
+		src/GUI/MainDisplay/ScrollWidget.h \
 		src/Logic\ Model/MediaItem.h \
 		src/Logic\ Model/Readable.h \
 		src/Logic\ Model/AudioVisual.h \
@@ -182,13 +216,23 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/Save/json/JsonVisitor.h \
 		Test/XmlTests/XmlManagerTest.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h \
+		src/Save/xml/XmlVisitor.h \
+		src/Logic\ Model/ConstVisitor.h \
 		src/Save/json/JsonManager.h \
-		src/Save/xml/XmlManager.h \
+		src/Save/FileManager.h \
+		src/Save/ManagerFactory.h \
 		src/Save/xml/XmlReader.h \
-		Test/jsonTests/JsonTest.h src/GUI/MainWindow.cpp \
-		src/GUI/ScrollPanel.cpp \
-		src/GUI/CustomScrollArea.cpp \
+		src/Save/xml/XmlManager.h \
+		Test/JsonTests/JsonTest.h \
+		Test/GUITests/MainWindowTests/LoadFromFileTests.h src/GUI/MainWindow.cpp \
+		src/GUI/MainDisplay/ScrollPanel.cpp \
+		src/GUI/MainDisplay/CustomScrollArea.cpp \
+		src/GUI/LoadVisitor.cpp \
+		src/GUI/MainDisplay/MainDisplay.cpp \
+		src/GUI/MainDisplay/ButtonWidget.cpp \
+		src/GUI/Menu/TopMenu.cpp \
+		src/GUI/SearchBar.cpp \
+		src/GUI/MainDisplay/ScrollWidget.cpp \
 		src/Logic\ Model/MediaItem.cpp \
 		src/Logic\ Model/AudioVisual.cpp \
 		src/Logic\ Model/Readable.cpp \
@@ -199,12 +243,14 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/Logic\ Model/Podcast.cpp \
 		Test/XmlTests/XmlManagerTest.cpp \
 		src/Save/json/JsonVisitor.cpp \
-		src/Logic\ Model/XmlVisitor.cpp \
-		src/Save/json/JsonManager.cpp \
+		src/Save/xml/XmlVisitor.cpp \
 		src/Save/xml/XmlManager.cpp \
+		src/Save/json/JsonManager.cpp \
 		src/Save/xml/XmlReader.cpp \
-		Test/jsonTests/JsonTest.cpp \
-		Test/TestMain.cpp
+		src/Save/ManagerFactory.cpp \
+		Test/JsonTests/JsonTest.cpp \
+		Test/GUITests/MainWindowTests/LoadFromFileTests.cpp \
+		src/main.cpp
 QMAKE_TARGET  = Virtual-Library
 DESTDIR       = 
 TARGET        = Virtual-Library
@@ -388,8 +434,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/GUI/MainWindow.h src/GUI/ScrollPanel.h src/GUI/CustomScrollArea.h src/Logic\ Model/MediaItem.h src/Logic\ Model/Readable.h src/Logic\ Model/AudioVisual.h src/Logic\ Model/Book.h src/Logic\ Model/Film.h src/Logic\ Model/Article.h src/Logic\ Model/Music.h src/Logic\ Model/Podcast.h src/Save/json/JsonVisitor.h Test/XmlTests/XmlManagerTest.h src/Logic\ Model/Visitor.h src/Logic\ Model/XmlVisitor.h src/Save/json/JsonManager.h src/Save/xml/XmlManager.h src/Save/xml/XmlReader.h Test/jsonTests/JsonTest.h $(DISTDIR)/
-	$(COPY_FILE) --parents src/GUI/MainWindow.cpp src/GUI/ScrollPanel.cpp src/GUI/CustomScrollArea.cpp src/Logic\ Model/MediaItem.cpp src/Logic\ Model/AudioVisual.cpp src/Logic\ Model/Readable.cpp src/Logic\ Model/Article.cpp src/Logic\ Model/Book.cpp src/Logic\ Model/Film.cpp src/Logic\ Model/Music.cpp src/Logic\ Model/Podcast.cpp Test/XmlTests/XmlManagerTest.cpp src/Save/json/JsonVisitor.cpp src/Logic\ Model/XmlVisitor.cpp src/Save/json/JsonManager.cpp src/Save/xml/XmlManager.cpp src/Save/xml/XmlReader.cpp Test/jsonTests/JsonTest.cpp Test/TestMain.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/GUI/MainWindow.h src/GUI/MainDisplay/ScrollPanel.h src/GUI/MainDisplay/CustomScrollArea.h src/GUI/LoadVisitor.h src/GUI/MainDisplay/MainDisplay.h src/GUI/MainDisplay/ButtonWidget.h src/GUI/Menu/TopMenu.h src/GUI/SearchBar.h src/GUI/MainDisplay/ScrollWidget.h src/Logic\ Model/MediaItem.h src/Logic\ Model/Readable.h src/Logic\ Model/AudioVisual.h src/Logic\ Model/Book.h src/Logic\ Model/Film.h src/Logic\ Model/Article.h src/Logic\ Model/Music.h src/Logic\ Model/Podcast.h src/Save/json/JsonVisitor.h Test/XmlTests/XmlManagerTest.h src/Logic\ Model/Visitor.h src/Save/xml/XmlVisitor.h src/Logic\ Model/ConstVisitor.h src/Save/json/JsonManager.h src/Save/FileManager.h src/Save/ManagerFactory.h src/Save/xml/XmlReader.h src/Save/xml/XmlManager.h Test/JsonTests/JsonTest.h Test/GUITests/MainWindowTests/LoadFromFileTests.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/GUI/MainWindow.cpp src/GUI/MainDisplay/ScrollPanel.cpp src/GUI/MainDisplay/CustomScrollArea.cpp src/GUI/LoadVisitor.cpp src/GUI/MainDisplay/MainDisplay.cpp src/GUI/MainDisplay/ButtonWidget.cpp src/GUI/Menu/TopMenu.cpp src/GUI/SearchBar.cpp src/GUI/MainDisplay/ScrollWidget.cpp src/Logic\ Model/MediaItem.cpp src/Logic\ Model/AudioVisual.cpp src/Logic\ Model/Readable.cpp src/Logic\ Model/Article.cpp src/Logic\ Model/Book.cpp src/Logic\ Model/Film.cpp src/Logic\ Model/Music.cpp src/Logic\ Model/Podcast.cpp Test/XmlTests/XmlManagerTest.cpp src/Save/json/JsonVisitor.cpp src/Save/xml/XmlVisitor.cpp src/Save/xml/XmlManager.cpp src/Save/json/JsonManager.cpp src/Save/xml/XmlReader.cpp src/Save/ManagerFactory.cpp Test/JsonTests/JsonTest.cpp Test/GUITests/MainWindowTests/LoadFromFileTests.cpp src/main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -421,15 +467,66 @@ compiler_moc_predefs_clean:
 moc_predefs.h: /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 	g++ -pipe -g -std=gnu++11 -Wall -Wextra -dM -E -o moc_predefs.h /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp
 
-compiler_moc_header_make_all: moc_MainWindow.cpp
+compiler_moc_header_make_all: moc_MainWindow.cpp moc_ScrollPanel.cpp moc_MainDisplay.cpp moc_ButtonWidget.cpp moc_TopMenu.cpp moc_SearchBar.cpp moc_ScrollWidget.cpp
 compiler_moc_header_clean:
-	-$(DEL_FILE) moc_MainWindow.cpp
+	-$(DEL_FILE) moc_MainWindow.cpp moc_ScrollPanel.cpp moc_MainDisplay.cpp moc_ButtonWidget.cpp moc_TopMenu.cpp moc_SearchBar.cpp moc_ScrollWidget.cpp
 moc_MainWindow.cpp: src/GUI/MainWindow.h \
-		src/GUI/ScrollPanel.h \
-		src/GUI/CustomScrollArea.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/GUI/MainDisplay/ScrollPanel.h \
+		src/GUI/MainDisplay/CustomScrollArea.h \
+		src/GUI/MainDisplay/ButtonWidget.h \
+		src/Save/FileManager.h \
+		src/GUI/MainDisplay/MainDisplay.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainWindow.h -o moc_MainWindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainWindow.h -o moc_MainWindow.cpp
+
+moc_ScrollPanel.cpp: src/GUI/MainDisplay/ScrollPanel.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ScrollPanel.h -o moc_ScrollPanel.cpp
+
+moc_MainDisplay.cpp: src/GUI/MainDisplay/MainDisplay.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/MainDisplay.h -o moc_MainDisplay.cpp
+
+moc_ButtonWidget.cpp: src/GUI/MainDisplay/ButtonWidget.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ButtonWidget.h -o moc_ButtonWidget.cpp
+
+moc_TopMenu.cpp: src/GUI/Menu/TopMenu.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/Menu/TopMenu.h -o moc_TopMenu.cpp
+
+moc_SearchBar.cpp: src/GUI/SearchBar.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/SearchBar.h -o moc_SearchBar.cpp
+
+moc_ScrollWidget.cpp: src/GUI/MainDisplay/ScrollWidget.h \
+		src/GUI/MainDisplay/CustomScrollArea.h \
+		src/GUI/MainDisplay/ButtonWidget.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/GUI/MainDisplay/ScrollPanel.h \
+		moc_predefs.h \
+		/usr/lib/qt5/bin/moc
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ScrollWidget.h -o moc_ScrollWidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -448,81 +545,141 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 ####### Compile
 
 MainWindow.o: src/GUI/MainWindow.cpp src/GUI/MainWindow.h \
-		src/GUI/ScrollPanel.h \
-		src/GUI/CustomScrollArea.h
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/GUI/MainDisplay/ScrollPanel.h \
+		src/GUI/MainDisplay/CustomScrollArea.h \
+		src/GUI/MainDisplay/ButtonWidget.h \
+		src/Save/FileManager.h \
+		src/GUI/MainDisplay/MainDisplay.h \
+		src/Save/xml/XmlManager.h \
+		src/GUI/SearchBar.h \
+		src/GUI/Menu/TopMenu.h \
+		src/Save/ManagerFactory.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o src/GUI/MainWindow.cpp
 
-ScrollPanel.o: src/GUI/ScrollPanel.cpp src/GUI/ScrollPanel.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ScrollPanel.o src/GUI/ScrollPanel.cpp
+ScrollPanel.o: src/GUI/MainDisplay/ScrollPanel.cpp src/GUI/MainDisplay/ScrollPanel.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/GUI/MainDisplay/ButtonWidget.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ScrollPanel.o src/GUI/MainDisplay/ScrollPanel.cpp
 
-CustomScrollArea.o: src/GUI/CustomScrollArea.cpp src/GUI/CustomScrollArea.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CustomScrollArea.o src/GUI/CustomScrollArea.cpp
+CustomScrollArea.o: src/GUI/MainDisplay/CustomScrollArea.cpp src/GUI/MainDisplay/CustomScrollArea.h \
+		src/GUI/MainDisplay/ButtonWidget.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o CustomScrollArea.o src/GUI/MainDisplay/CustomScrollArea.cpp
+
+LoadVisitor.o: src/GUI/LoadVisitor.cpp src/GUI/LoadVisitor.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/Podcast.h \
+		src/Logic\ Model/Music.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LoadVisitor.o src/GUI/LoadVisitor.cpp
+
+MainDisplay.o: src/GUI/MainDisplay/MainDisplay.cpp src/GUI/MainDisplay/MainDisplay.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/GUI/MainDisplay/ScrollPanel.h \
+		src/GUI/MainDisplay/CustomScrollArea.h \
+		src/GUI/MainDisplay/ButtonWidget.h \
+		src/GUI/LoadVisitor.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/Podcast.h \
+		src/Logic\ Model/Music.h \
+		src/GUI/MainDisplay/ScrollWidget.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainDisplay.o src/GUI/MainDisplay/MainDisplay.cpp
+
+ButtonWidget.o: src/GUI/MainDisplay/ButtonWidget.cpp src/GUI/MainDisplay/ButtonWidget.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ButtonWidget.o src/GUI/MainDisplay/ButtonWidget.cpp
+
+TopMenu.o: src/GUI/Menu/TopMenu.cpp src/GUI/Menu/TopMenu.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TopMenu.o src/GUI/Menu/TopMenu.cpp
+
+SearchBar.o: src/GUI/SearchBar.cpp src/GUI/SearchBar.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SearchBar.o src/GUI/SearchBar.cpp
+
+ScrollWidget.o: src/GUI/MainDisplay/ScrollWidget.cpp src/GUI/MainDisplay/ScrollWidget.h \
+		src/GUI/MainDisplay/CustomScrollArea.h \
+		src/GUI/MainDisplay/ButtonWidget.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/GUI/MainDisplay/ScrollPanel.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ScrollWidget.o src/GUI/MainDisplay/ScrollWidget.cpp
 
 MediaItem.o: src/Logic\ Model/MediaItem.cpp src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h
+		src/Logic\ Model/ConstVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MediaItem.o src/Logic\ Model/MediaItem.cpp
 
 AudioVisual.o: src/Logic\ Model/AudioVisual.cpp src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h
+		src/Logic\ Model/ConstVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o AudioVisual.o src/Logic\ Model/AudioVisual.cpp
 
 Readable.o: src/Logic\ Model/Readable.cpp src/Logic\ Model/Readable.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h
+		src/Logic\ Model/ConstVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Readable.o src/Logic\ Model/Readable.cpp
 
 Article.o: src/Logic\ Model/Article.cpp src/Logic\ Model/Article.h \
 		src/Logic\ Model/Readable.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h
+		src/Logic\ Model/ConstVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Article.o src/Logic\ Model/Article.cpp
 
 Book.o: src/Logic\ Model/Book.cpp src/Logic\ Model/Book.h \
 		src/Logic\ Model/Readable.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h
+		src/Logic\ Model/ConstVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Book.o src/Logic\ Model/Book.cpp
 
 Film.o: src/Logic\ Model/Film.cpp src/Logic\ Model/Film.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h
+		src/Logic\ Model/ConstVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Film.o src/Logic\ Model/Film.cpp
 
 Music.o: src/Logic\ Model/Music.cpp src/Logic\ Model/Music.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h
+		src/Logic\ Model/ConstVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Music.o src/Logic\ Model/Music.cpp
 
 Podcast.o: src/Logic\ Model/Podcast.cpp src/Logic\ Model/Podcast.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h
+		src/Logic\ Model/ConstVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o Podcast.o src/Logic\ Model/Podcast.cpp
 
-XmlManagerTest.o: Test/XmlTests/XmlManagerTest.cpp src/Save/xml/XmlManager.h \
-		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
+XmlManagerTest.o: Test/XmlTests/XmlManagerTest.cpp src/Logic\ Model/MediaItem.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h \
+		src/Logic\ Model/ConstVisitor.h \
 		src/Logic\ Model/Book.h \
 		src/Logic\ Model/Readable.h \
 		src/Logic\ Model/Article.h \
@@ -530,13 +687,15 @@ XmlManagerTest.o: Test/XmlTests/XmlManagerTest.cpp src/Save/xml/XmlManager.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/Podcast.h \
 		src/Logic\ Model/Music.h \
-		Test/XmlTests/XmlManagerTest.h
+		Test/XmlTests/XmlManagerTest.h \
+		src/Save/xml/XmlManager.h \
+		src/Save/FileManager.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o XmlManagerTest.o Test/XmlTests/XmlManagerTest.cpp
 
 JsonVisitor.o: src/Save/json/JsonVisitor.cpp src/Save/json/JsonVisitor.h \
-		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Logic\ Model/XmlVisitor.h \
+		src/Logic\ Model/Visitor.h \
 		src/Logic\ Model/Readable.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/Article.h \
@@ -546,38 +705,24 @@ JsonVisitor.o: src/Save/json/JsonVisitor.cpp src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Music.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o JsonVisitor.o src/Save/json/JsonVisitor.cpp
 
-XmlVisitor.o: src/Logic\ Model/XmlVisitor.cpp src/Logic\ Model/XmlVisitor.h \
+XmlVisitor.o: src/Save/xml/XmlVisitor.cpp src/Save/xml/XmlVisitor.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/Book.h \
+		src/Logic\ Model/ConstVisitor.h \
 		src/Logic\ Model/Readable.h \
-		src/Logic\ Model/Film.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
 		src/Logic\ Model/Podcast.h \
 		src/Logic\ Model/Music.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o XmlVisitor.o src/Logic\ Model/XmlVisitor.cpp
-
-JsonManager.o: src/Save/json/JsonManager.cpp src/Save/json/JsonManager.h \
-		src/Logic\ Model/Article.h \
-		src/Logic\ Model/Readable.h \
-		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
-		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h \
-		src/Logic\ Model/Book.h \
-		src/Logic\ Model/Film.h \
-		src/Logic\ Model/AudioVisual.h \
-		src/Logic\ Model/Music.h \
-		src/Logic\ Model/Podcast.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o JsonManager.o src/Save/json/JsonManager.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o XmlVisitor.o src/Save/xml/XmlVisitor.cpp
 
 XmlManager.o: src/Save/xml/XmlManager.cpp src/Save/xml/XmlManager.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/Save/FileManager.h \
 		src/Save/xml/XmlReader.h \
 		src/Logic\ Model/Readable.h \
 		src/Logic\ Model/Book.h \
@@ -585,14 +730,29 @@ XmlManager.o: src/Save/xml/XmlManager.cpp src/Save/xml/XmlManager.h \
 		src/Logic\ Model/Film.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/Music.h \
-		src/Logic\ Model/Podcast.h
+		src/Logic\ Model/Podcast.h \
+		src/Save/xml/XmlVisitor.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o XmlManager.o src/Save/xml/XmlManager.cpp
+
+JsonManager.o: src/Save/json/JsonManager.cpp src/Save/json/JsonManager.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Music.h \
+		src/Logic\ Model/Podcast.h \
+		src/Save/FileManager.h \
+		src/Save/json/JsonVisitor.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o JsonManager.o src/Save/json/JsonManager.cpp
 
 XmlReader.o: src/Save/xml/XmlReader.cpp src/Save/xml/XmlReader.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h \
+		src/Logic\ Model/ConstVisitor.h \
 		src/Logic\ Model/Readable.h \
 		src/Logic\ Model/Book.h \
 		src/Logic\ Model/Article.h \
@@ -602,38 +762,86 @@ XmlReader.o: src/Save/xml/XmlReader.cpp src/Save/xml/XmlReader.h \
 		src/Logic\ Model/Podcast.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o XmlReader.o src/Save/xml/XmlReader.cpp
 
-JsonTest.o: Test/jsonTests/JsonTest.cpp src/Save/json/JsonManager.h \
+ManagerFactory.o: src/Save/ManagerFactory.cpp src/Save/ManagerFactory.h \
+		src/Save/FileManager.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/Save/xml/XmlManager.h \
+		src/Save/json/JsonManager.h \
 		src/Logic\ Model/Article.h \
 		src/Logic\ Model/Readable.h \
-		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
-		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h \
 		src/Logic\ Model/Book.h \
 		src/Logic\ Model/Film.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/Music.h \
-		src/Logic\ Model/Podcast.h \
-		Test/jsonTests/JsonTest.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o JsonTest.o Test/jsonTests/JsonTest.cpp
+		src/Logic\ Model/Podcast.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o ManagerFactory.o src/Save/ManagerFactory.cpp
 
-TestMain.o: Test/TestMain.cpp src/Save/json/JsonManager.h \
+JsonTest.o: Test/JsonTests/JsonTest.cpp src/Save/json/JsonManager.h \
 		src/Logic\ Model/Article.h \
 		src/Logic\ Model/Readable.h \
 		src/Logic\ Model/MediaItem.h \
-		src/Save/json/JsonVisitor.h \
 		src/Logic\ Model/Visitor.h \
-		src/Logic\ Model/XmlVisitor.h \
+		src/Logic\ Model/ConstVisitor.h \
 		src/Logic\ Model/Book.h \
 		src/Logic\ Model/Film.h \
 		src/Logic\ Model/AudioVisual.h \
 		src/Logic\ Model/Music.h \
 		src/Logic\ Model/Podcast.h \
+		src/Save/FileManager.h \
+		Test/JsonTests/JsonTest.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o JsonTest.o Test/JsonTests/JsonTest.cpp
+
+LoadFromFileTests.o: Test/GUITests/MainWindowTests/LoadFromFileTests.cpp Test/GUITests/MainWindowTests/LoadFromFileTests.h \
+		src/GUI/LoadVisitor.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/Podcast.h \
+		src/Logic\ Model/Music.h \
+		src/Save/json/JsonManager.h \
+		src/Save/FileManager.h \
+		src/Save/xml/XmlManager.h \
 		Test/XmlTests/XmlManagerTest.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TestMain.o Test/TestMain.cpp
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o LoadFromFileTests.o Test/GUITests/MainWindowTests/LoadFromFileTests.cpp
+
+main.o: src/main.cpp src/GUI/MainWindow.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/GUI/MainDisplay/ScrollPanel.h \
+		src/GUI/MainDisplay/CustomScrollArea.h \
+		src/GUI/MainDisplay/ButtonWidget.h \
+		src/Save/FileManager.h \
+		src/GUI/MainDisplay/MainDisplay.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
 moc_MainWindow.o: moc_MainWindow.cpp 
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainWindow.o moc_MainWindow.cpp
+
+moc_ScrollPanel.o: moc_ScrollPanel.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ScrollPanel.o moc_ScrollPanel.cpp
+
+moc_MainDisplay.o: moc_MainDisplay.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_MainDisplay.o moc_MainDisplay.cpp
+
+moc_ButtonWidget.o: moc_ButtonWidget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ButtonWidget.o moc_ButtonWidget.cpp
+
+moc_TopMenu.o: moc_TopMenu.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_TopMenu.o moc_TopMenu.cpp
+
+moc_SearchBar.o: moc_SearchBar.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_SearchBar.o moc_SearchBar.cpp
+
+moc_ScrollWidget.o: moc_ScrollWidget.cpp 
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o moc_ScrollWidget.o moc_ScrollWidget.cpp
 
 ####### Install
 

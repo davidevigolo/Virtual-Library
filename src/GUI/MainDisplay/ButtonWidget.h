@@ -1,3 +1,4 @@
+#pragma once
 #include <QWidget>
 #include <MediaItem.h>
 #include <qpushbutton.h>
@@ -10,9 +11,9 @@ class ButtonWidget : public QWidget
     Q_OBJECT
 private:
     MediaItem* mediaItem;
+    QVBoxLayout buttonLayout;
     QPushButton button;
     QLabel buttonLabel;
-    QVBoxLayout buttonLayout;
 public:
     ButtonWidget(MediaItem* mediaItem,QWidget *parent = nullptr);
     void resizeEvent(QResizeEvent *event) override;

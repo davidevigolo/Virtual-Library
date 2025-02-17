@@ -1,5 +1,4 @@
 #include "CustomScrollArea.h"
-#include <ButtonWidget.h>
 
 CustomScrollArea::CustomScrollArea(QWidget *parent) : QScrollArea(parent) {};
 
@@ -10,7 +9,7 @@ void CustomScrollArea::resizeEvent(QResizeEvent *event){
         QSize size = event->size();
         widget->setFixedHeight(size.height());
         for (auto button : widget->findChildren<ButtonWidget*>()) {
-            button->resizeEvent(event);
+            button->resize(button->size());
         }
     }
 }

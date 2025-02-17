@@ -13,4 +13,6 @@ public:
 
     void save(QVector<MediaItem*>& media) const override;
     QVector<MediaItem*> load() const override;
+    void setPath(const QString& path) override;
+    QString getPath() const override;
 };

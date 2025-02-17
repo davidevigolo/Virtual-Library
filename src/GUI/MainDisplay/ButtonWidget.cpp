@@ -3,12 +3,16 @@
 #include <QFontMetrics>
 #include <QResizeEvent>
 
-ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(parent), button(this), buttonLabel(this), buttonLayout(this)
+ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(parent), button(this), buttonLabel(this), buttonLayout(this), mediaItem(mediaItem)
 {
-    // button->setIcon(QIcon("../inception_prova.jpg"));
+    // Set initial button size ratio to 4:3
+    int buttonWidth = 200; // Example width
+    int buttonHeight = buttonWidth * 3 / 4;
+    button.setFixedSize(buttonWidth, buttonHeight);
+
     button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     button.setStyleSheet("background-color: white;");
-    button.setIcon(QIcon("../../../follia.jpeg"));
+    button.setIcon(QIcon(mediaItem->getImage().c_str()));
     buttonLayout.addWidget(&button, 0, Qt::AlignTop);
 
     connect(&button, &QPushButton::clicked, this, [this]() {
@@ -16,20 +20,27 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     });
 
     QFontMetrics metrics(buttonLabel.font());
-    QString elidedText = metrics.elidedText(QString(mediaItem->getTitle().c_str()), Qt::ElideRight, buttonLabel.width());
+    QString elidedText = metrics.elidedText(QString(mediaItem->getTitle().c_str()), Qt::ElideRight, button.width());
     buttonLabel.setText(elidedText);
     buttonLabel.setAlignment(Qt::AlignCenter);
-    buttonLabel.setStyleSheet("background-color: white; color: black");
-    buttonLabel.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    buttonLayout.addWidget(&buttonLabel, 1, Qt::AlignBottom);
+    buttonLabel.setStyleSheet("background-color: white;");
+    buttonLabel.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+    buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
+    buttonLayout.addWidget(&buttonLabel, 0, Qt::AlignBottom);
+
+    setLayout(&buttonLayout);
 }
 
-void ButtonWidget::resizeEvent(QResizeEvent *event){
-    buttonLabel.resize(event->size().width(), event->size().height() / 2);
-    button.resize(event->size().width(), event->size().height());
-    button.setIconSize(QSize(event->size().width(), event->size().height()));
-    QFontMetrics metrics(buttonLabel.font());
-    QString elidedText = metrics.elidedText(buttonLabel.text(), Qt::ElideRight, buttonLabel.width());
-    buttonLabel.setText(elidedText);
+void ButtonWidget::resizeEvent(QResizeEvent *event)
+{
     QWidget::resizeEvent(event);
+    int buttonHeight = event->size().height();
+    int buttonWidth = buttonHeight * 16 / 9 ;
+    button.setFixedSize(buttonWidth, buttonHeight);
+
+    QFontMetrics metrics(buttonLabel.font());
+    QString elidedText = metrics.elidedText(QString(mediaItem->getTitle().c_str()), Qt::ElideRight, button.width());
+    buttonLabel.setText(elidedText);
+    buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
+    button.setIconSize(QSize(button.width(), button.height()));
 }

@@ -6,18 +6,18 @@
 
 class Podcast : public AudioVisual {
 private:
-    unsigned int episodes;
+    unsigned int episode;
 
 public:
     Podcast(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
                 const std::string& genre, const std::vector<std::string>& tags, 
-                const std::string& format, const std::string& language, const std::string& used, const unsigned int duration, const unsigned int episodes = 0, const std::string& image = "");
-    Podcast(AudioVisual* media, unsigned int episodes);
+                const std::string& format, const std::string& language, const std::string& used, const unsigned int duration, const unsigned int episode = 0, const std::string& image = "");
+    Podcast(AudioVisual* media, unsigned int episode);
     ~Podcast();
 
-    unsigned getEpisodes() const;
+    unsigned getEpisode() const;
 
-    void setEpisodes(unsigned episodes);
+    void setEpisode(unsigned episode);
 
     void accept(ConstVisitor *visitor) const override;
     void accept(Visitor *visitor) override;

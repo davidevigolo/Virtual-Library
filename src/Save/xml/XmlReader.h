@@ -1,3 +1,4 @@
+#pragma once
 #include <MediaItem.h>
 #include <Readable.h>
 #include <Book.h>

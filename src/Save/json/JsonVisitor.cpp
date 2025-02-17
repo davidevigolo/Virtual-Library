@@ -55,7 +55,7 @@ void JsonVisitor::visit(const Film* film){
 
 void JsonVisitor::visit(const Podcast* podcast){
     visit(static_cast<const AudioVisual*>(podcast));
-    object["Episodes"] = static_cast<int>(podcast->getEpisodes());
+    object["Episodes"] = static_cast<int>(podcast->getEpisode());
     object["Class"] = "Podcast";
     
 }

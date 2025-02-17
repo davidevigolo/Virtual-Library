@@ -56,3 +56,11 @@ QVector<MediaItem *> XmlManager::load() const
     file.close();
     return result;
 }
+
+void XmlManager::setPath(const QString& path){
+    filePath = path;
+}
+
+QString XmlManager::getPath() const{
+    return filePath;
+}

@@ -1,3 +1,4 @@
+#pragma once
 #include <QApplication>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -9,6 +10,7 @@
 #include <QMenu>
 #include <QAction>
 #include <QLabel>
+#include <ButtonWidget.h>
 
 class CustomScrollArea : public QScrollArea {
 public:

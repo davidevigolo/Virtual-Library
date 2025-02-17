@@ -25,6 +25,8 @@ class JsonManager : public FileManager{
         MediaItem* ObjectLoader(const QString& className, const QJsonObject& obj) const;
         QVector<MediaItem*> load() const;
         void save(QVector<MediaItem*>& item) const;
+        void setPath(const QString& path);
+        QString getPath() const;
         
 };
 

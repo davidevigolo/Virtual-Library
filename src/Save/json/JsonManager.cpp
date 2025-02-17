@@ -155,3 +155,13 @@ void JsonManager::save(QVector<MediaItem*>& Library) const
     file.write(newDocument.toJson());
     file.close();
 }
+
+void JsonManager::setPath(const QString &path)
+{
+    filePath = path;
+}
+
+QString JsonManager::getPath() const
+{
+    return filePath;
+}

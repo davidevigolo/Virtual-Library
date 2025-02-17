@@ -15,9 +15,14 @@
 #include "CustomScrollArea.h"
 #include <FileManager.h>
 #include <MainDisplay.h>
+#include <SearchEngine.h>
 
 class MainWindow : public QWidget {
     Q_OBJECT
+private:
+    FileManager* fileManager;
+    QVector<MediaItem*> mediaItems;
+    SearchEngine searchEngine;
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow(){
@@ -25,13 +30,11 @@ public:
             delete item;
         }
     }
-private:
-    FileManager* fileManager;
-    QVector<MediaItem*> mediaItems;
-    MainDisplay mainDisplay;
 private slots:
     void loadFromFile();
+    void save();
     void saveToFile();
+    void search(QString query);
 signals:
     void itemsLoaded(QVector<MediaItem*>& items);
 };

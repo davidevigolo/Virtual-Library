@@ -1,3 +1,4 @@
+#pragma once
 #include <QWidget>
 #include <QVector>
 #include <MediaItem.h>
@@ -8,6 +9,5 @@ private:
     QMap<QString, QVector<MediaItem*>> mediaItems;
 public:
     MainDisplay(QWidget *parent = nullptr);
-public slots:
     void setAreas(QVector<MediaItem*>& items);
 };

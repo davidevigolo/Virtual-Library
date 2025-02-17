@@ -15,7 +15,9 @@
                 "/usr/include/x86_64-linux-gnu/qt5/QtXml",
                 "${workspaceFolder}/src/GUI/MainDisplay",
                 "${workspaceFolder}/src/GUI",
-                "${workspaceFolder}/src/Save/json"
+                "${workspaceFolder}/src/Save/json",
+                "${workspaceFolder}/src/Search Engine",
+                "${workspaceFolder}/src/SearchEngine"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

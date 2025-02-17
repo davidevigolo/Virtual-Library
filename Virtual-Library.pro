@@ -21,6 +21,16 @@ INCLUDEPATH += "./src/GUI"
 INCLUDEPATH += "./src/GUI/MainDisplay"
 INCLUDEPATH += "./src/Save"
 INCLUDEPATH += "./src/GUI/Menu"
+INCLUDEPATH += "./src/GUI/SearchBar"
+INCLUDEPATH += "./src/SearchEngine"
+
+#SEARCH ENGINE
+HEADERS += "./src/SearchEngine/SearchEngine.h"
+SOURCES += "./src/SearchEngine/SearchVisitor.h"
+
+SOURCES += "./src/SearchEngine/SearchEngine.cpp"
+SOURCES += "./src/SearchEngine/SearchVisitor.cpp"
+
 
 #GUI 
 HEADERS += "./src/GUI/MainWindow.h"
@@ -30,7 +40,8 @@ HEADERS += "./src/GUI/LoadVisitor.h"
 HEADERS += "./src/GUI/MainDisplay/MainDisplay.h"
 HEADERS += "./src/GUI/MainDisplay/ButtonWidget.h"
 HEADERS += "./src/GUI/Menu/TopMenu.h"
-HEADERS += "./src/GUI/SearchBar.h"
+HEADERS += "./src/GUI/SearchBar/SearchBar.h"
+HEADERS += "./src/GUI/MainDisplay/ScrollWidget.h"
 
 SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/MainDisplay/ScrollPanel.cpp"
@@ -39,7 +50,8 @@ SOURCES += "./src/GUI/LoadVisitor.cpp"
 SOURCES += "./src/GUI/MainDisplay/MainDisplay.cpp"
 SOURCES += "./src/GUI/MainDisplay/ButtonWidget.cpp"
 SOURCES += "./src/GUI/Menu/TopMenu.cpp"
-SOURCES += "./src/GUI/SearchBar.cpp"
+SOURCES += "./src/GUI/SearchBar/SearchBar.cpp"
+SOURCES += "./src/GUI/MainDisplay/ScrollWidget.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
