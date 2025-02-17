@@ -1,4 +1,5 @@
 #include <SearchVisitor.h>
+#include <iostream>
 
 SearchVisitor::SearchVisitor(const QString& query) : query(query), points(0), pointsValue{
         {"Title", 10},//mediaItem
@@ -46,8 +47,8 @@ void SearchVisitor::visit(const MediaItem* item) {
         points += pointsValue["Genre"];
     }
     for (const auto& tag : item->getTags()) {
-            points += pointsValue["Tags"];
         if (tag.find(query.toStdString()) != std::string::npos) {
+            points += pointsValue["Tags"];
         }
     }
 }

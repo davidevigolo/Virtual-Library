@@ -5,22 +5,18 @@ MediaItem *XmlReader::read(QDomNode &node)
 {
     auto className = node.nodeName();
     auto attributes = node.toElement().childNodes();
-    qDebug() << attributes.size();
     QMap<QString, QString> attributes_map;
     std::vector<std::string> tags;
 
     for (int i = 0; i < attributes.size(); i++)
     {
         QDomNode attribute = attributes.at(i);
-        qDebug() << attribute.nodeName();
-        qDebug() << attribute.toElement().text();
         if (attribute.nodeName() == "Tags")
         {
             auto childs = attribute.childNodes();
             for (int j = 0; j < childs.size(); j++)
             {
                 QDomNode tag = childs.at(j);
-                qDebug() << tag.nodeValue();
                 tags.push_back(tag.toElement().text().toStdString());
             }
         }

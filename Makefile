@@ -17,7 +17,7 @@ CXX           = g++
 DEFINES       = -DQT_WIDGETS_LIB -DQT_GUI_LIB -DQT_XML_LIB -DQT_CORE_LIB
 CFLAGS        = -pipe -g -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
 CXXFLAGS      = -pipe -g -std=gnu++11 -Wall -Wextra -D_REENTRANT -fPIC $(DEFINES)
-INCPATH       = -I. -Isrc/Logic\ Model -Isrc/Save/xml -Isrc/Save/json -ITest/XmlTests -Isrc/GUI -Isrc/GUI/MainDisplay -Isrc/Save -Isrc/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
+INCPATH       = -I. -Isrc/Logic\ Model -Isrc/Save/xml -Isrc/Save/json -ITest/XmlTests -Isrc/GUI -Isrc/GUI/MainDisplay -Isrc/Save -Isrc/GUI/Menu -Isrc/GUI/SearchBar -Isrc/SearchEngine -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I. -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++
 QMAKE         = /usr/lib/qt5/bin/qmake
 DEL_FILE      = rm -f
 CHK_DIR_EXISTS= test -d
@@ -52,14 +52,16 @@ OBJECTS_DIR   = ./
 
 ####### Files
 
-SOURCES       = src/GUI/MainWindow.cpp \
+SOURCES       = src/SearchEngine/SearchEngine.cpp \
+		src/SearchEngine/SearchVisitor.cpp \
+		src/GUI/MainWindow.cpp \
 		src/GUI/MainDisplay/ScrollPanel.cpp \
 		src/GUI/MainDisplay/CustomScrollArea.cpp \
 		src/GUI/LoadVisitor.cpp \
 		src/GUI/MainDisplay/MainDisplay.cpp \
 		src/GUI/MainDisplay/ButtonWidget.cpp \
 		src/GUI/Menu/TopMenu.cpp \
-		src/GUI/SearchBar.cpp \
+		src/GUI/SearchBar/SearchBar.cpp \
 		src/GUI/MainDisplay/ScrollWidget.cpp \
 		src/Logic\ Model/MediaItem.cpp \
 		src/Logic\ Model/AudioVisual.cpp \
@@ -85,7 +87,9 @@ SOURCES       = src/GUI/MainWindow.cpp \
 		moc_TopMenu.cpp \
 		moc_SearchBar.cpp \
 		moc_ScrollWidget.cpp
-OBJECTS       = MainWindow.o \
+OBJECTS       = SearchEngine.o \
+		SearchVisitor.o \
+		MainWindow.o \
 		ScrollPanel.o \
 		CustomScrollArea.o \
 		LoadVisitor.o \
@@ -176,7 +180,6 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -196,14 +199,15 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exceptions.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/yacc.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/lex.prf \
-		Virtual-Library.pro src/GUI/MainWindow.h \
+		Virtual-Library.pro src/SearchEngine/SearchEngine.h \
+		src/GUI/MainWindow.h \
 		src/GUI/MainDisplay/ScrollPanel.h \
 		src/GUI/MainDisplay/CustomScrollArea.h \
 		src/GUI/LoadVisitor.h \
 		src/GUI/MainDisplay/MainDisplay.h \
 		src/GUI/MainDisplay/ButtonWidget.h \
 		src/GUI/Menu/TopMenu.h \
-		src/GUI/SearchBar.h \
+		src/GUI/SearchBar/SearchBar.h \
 		src/GUI/MainDisplay/ScrollWidget.h \
 		src/Logic\ Model/MediaItem.h \
 		src/Logic\ Model/Readable.h \
@@ -224,14 +228,16 @@ DIST          = /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_pre.prf \
 		src/Save/xml/XmlReader.h \
 		src/Save/xml/XmlManager.h \
 		Test/JsonTests/JsonTest.h \
-		Test/GUITests/MainWindowTests/LoadFromFileTests.h src/GUI/MainWindow.cpp \
+		Test/GUITests/MainWindowTests/LoadFromFileTests.h src/SearchEngine/SearchEngine.cpp \
+		src/SearchEngine/SearchVisitor.cpp \
+		src/GUI/MainWindow.cpp \
 		src/GUI/MainDisplay/ScrollPanel.cpp \
 		src/GUI/MainDisplay/CustomScrollArea.cpp \
 		src/GUI/LoadVisitor.cpp \
 		src/GUI/MainDisplay/MainDisplay.cpp \
 		src/GUI/MainDisplay/ButtonWidget.cpp \
 		src/GUI/Menu/TopMenu.cpp \
-		src/GUI/SearchBar.cpp \
+		src/GUI/SearchBar/SearchBar.cpp \
 		src/GUI/MainDisplay/ScrollWidget.cpp \
 		src/Logic\ Model/MediaItem.cpp \
 		src/Logic\ Model/AudioVisual.cpp \
@@ -319,7 +325,6 @@ Makefile: Virtual-Library.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qm
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf \
-		.qmake.stash \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf \
 		/usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf \
@@ -398,7 +403,6 @@ Makefile: Virtual-Library.pro /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qm
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/qt_config.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++/qmake.conf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/spec_post.prf:
-.qmake.stash:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/exclusive_builds.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/toolchain.prf:
 /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/default_pre.prf:
@@ -434,8 +438,8 @@ distdir: FORCE
 	@test -d $(DISTDIR) || mkdir -p $(DISTDIR)
 	$(COPY_FILE) --parents $(DIST) $(DISTDIR)/
 	$(COPY_FILE) --parents /usr/lib/x86_64-linux-gnu/qt5/mkspecs/features/data/dummy.cpp $(DISTDIR)/
-	$(COPY_FILE) --parents src/GUI/MainWindow.h src/GUI/MainDisplay/ScrollPanel.h src/GUI/MainDisplay/CustomScrollArea.h src/GUI/LoadVisitor.h src/GUI/MainDisplay/MainDisplay.h src/GUI/MainDisplay/ButtonWidget.h src/GUI/Menu/TopMenu.h src/GUI/SearchBar.h src/GUI/MainDisplay/ScrollWidget.h src/Logic\ Model/MediaItem.h src/Logic\ Model/Readable.h src/Logic\ Model/AudioVisual.h src/Logic\ Model/Book.h src/Logic\ Model/Film.h src/Logic\ Model/Article.h src/Logic\ Model/Music.h src/Logic\ Model/Podcast.h src/Save/json/JsonVisitor.h Test/XmlTests/XmlManagerTest.h src/Logic\ Model/Visitor.h src/Save/xml/XmlVisitor.h src/Logic\ Model/ConstVisitor.h src/Save/json/JsonManager.h src/Save/FileManager.h src/Save/ManagerFactory.h src/Save/xml/XmlReader.h src/Save/xml/XmlManager.h Test/JsonTests/JsonTest.h Test/GUITests/MainWindowTests/LoadFromFileTests.h $(DISTDIR)/
-	$(COPY_FILE) --parents src/GUI/MainWindow.cpp src/GUI/MainDisplay/ScrollPanel.cpp src/GUI/MainDisplay/CustomScrollArea.cpp src/GUI/LoadVisitor.cpp src/GUI/MainDisplay/MainDisplay.cpp src/GUI/MainDisplay/ButtonWidget.cpp src/GUI/Menu/TopMenu.cpp src/GUI/SearchBar.cpp src/GUI/MainDisplay/ScrollWidget.cpp src/Logic\ Model/MediaItem.cpp src/Logic\ Model/AudioVisual.cpp src/Logic\ Model/Readable.cpp src/Logic\ Model/Article.cpp src/Logic\ Model/Book.cpp src/Logic\ Model/Film.cpp src/Logic\ Model/Music.cpp src/Logic\ Model/Podcast.cpp Test/XmlTests/XmlManagerTest.cpp src/Save/json/JsonVisitor.cpp src/Save/xml/XmlVisitor.cpp src/Save/xml/XmlManager.cpp src/Save/json/JsonManager.cpp src/Save/xml/XmlReader.cpp src/Save/ManagerFactory.cpp Test/JsonTests/JsonTest.cpp Test/GUITests/MainWindowTests/LoadFromFileTests.cpp src/main.cpp $(DISTDIR)/
+	$(COPY_FILE) --parents src/SearchEngine/SearchEngine.h src/GUI/MainWindow.h src/GUI/MainDisplay/ScrollPanel.h src/GUI/MainDisplay/CustomScrollArea.h src/GUI/LoadVisitor.h src/GUI/MainDisplay/MainDisplay.h src/GUI/MainDisplay/ButtonWidget.h src/GUI/Menu/TopMenu.h src/GUI/SearchBar/SearchBar.h src/GUI/MainDisplay/ScrollWidget.h src/Logic\ Model/MediaItem.h src/Logic\ Model/Readable.h src/Logic\ Model/AudioVisual.h src/Logic\ Model/Book.h src/Logic\ Model/Film.h src/Logic\ Model/Article.h src/Logic\ Model/Music.h src/Logic\ Model/Podcast.h src/Save/json/JsonVisitor.h Test/XmlTests/XmlManagerTest.h src/Logic\ Model/Visitor.h src/Save/xml/XmlVisitor.h src/Logic\ Model/ConstVisitor.h src/Save/json/JsonManager.h src/Save/FileManager.h src/Save/ManagerFactory.h src/Save/xml/XmlReader.h src/Save/xml/XmlManager.h Test/JsonTests/JsonTest.h Test/GUITests/MainWindowTests/LoadFromFileTests.h $(DISTDIR)/
+	$(COPY_FILE) --parents src/SearchEngine/SearchEngine.cpp src/SearchEngine/SearchVisitor.cpp src/GUI/MainWindow.cpp src/GUI/MainDisplay/ScrollPanel.cpp src/GUI/MainDisplay/CustomScrollArea.cpp src/GUI/LoadVisitor.cpp src/GUI/MainDisplay/MainDisplay.cpp src/GUI/MainDisplay/ButtonWidget.cpp src/GUI/Menu/TopMenu.cpp src/GUI/SearchBar/SearchBar.cpp src/GUI/MainDisplay/ScrollWidget.cpp src/Logic\ Model/MediaItem.cpp src/Logic\ Model/AudioVisual.cpp src/Logic\ Model/Readable.cpp src/Logic\ Model/Article.cpp src/Logic\ Model/Book.cpp src/Logic\ Model/Film.cpp src/Logic\ Model/Music.cpp src/Logic\ Model/Podcast.cpp Test/XmlTests/XmlManagerTest.cpp src/Save/json/JsonVisitor.cpp src/Save/xml/XmlVisitor.cpp src/Save/xml/XmlManager.cpp src/Save/json/JsonManager.cpp src/Save/xml/XmlReader.cpp src/Save/ManagerFactory.cpp Test/JsonTests/JsonTest.cpp Test/GUITests/MainWindowTests/LoadFromFileTests.cpp src/main.cpp $(DISTDIR)/
 
 
 clean: compiler_clean 
@@ -479,9 +483,18 @@ moc_MainWindow.cpp: src/GUI/MainWindow.h \
 		src/GUI/MainDisplay/ButtonWidget.h \
 		src/Save/FileManager.h \
 		src/GUI/MainDisplay/MainDisplay.h \
+		src/SearchEngine/SearchEngine.h \
+		src/SearchEngine/SearchVisitor.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Podcast.h \
+		src/Logic\ Model/Music.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainWindow.h -o moc_MainWindow.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/SearchBar -I/home/kevin/Desktop/OOProject/Virtual-Library/src/SearchEngine -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainWindow.h -o moc_MainWindow.cpp
 
 moc_ScrollPanel.cpp: src/GUI/MainDisplay/ScrollPanel.h \
 		src/Logic\ Model/MediaItem.h \
@@ -489,7 +502,7 @@ moc_ScrollPanel.cpp: src/GUI/MainDisplay/ScrollPanel.h \
 		src/Logic\ Model/ConstVisitor.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ScrollPanel.h -o moc_ScrollPanel.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/SearchBar -I/home/kevin/Desktop/OOProject/Virtual-Library/src/SearchEngine -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ScrollPanel.h -o moc_ScrollPanel.cpp
 
 moc_MainDisplay.cpp: src/GUI/MainDisplay/MainDisplay.h \
 		src/Logic\ Model/MediaItem.h \
@@ -497,7 +510,7 @@ moc_MainDisplay.cpp: src/GUI/MainDisplay/MainDisplay.h \
 		src/Logic\ Model/ConstVisitor.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/MainDisplay.h -o moc_MainDisplay.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/SearchBar -I/home/kevin/Desktop/OOProject/Virtual-Library/src/SearchEngine -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/MainDisplay.h -o moc_MainDisplay.cpp
 
 moc_ButtonWidget.cpp: src/GUI/MainDisplay/ButtonWidget.h \
 		src/Logic\ Model/MediaItem.h \
@@ -505,17 +518,17 @@ moc_ButtonWidget.cpp: src/GUI/MainDisplay/ButtonWidget.h \
 		src/Logic\ Model/ConstVisitor.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ButtonWidget.h -o moc_ButtonWidget.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/SearchBar -I/home/kevin/Desktop/OOProject/Virtual-Library/src/SearchEngine -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ButtonWidget.h -o moc_ButtonWidget.cpp
 
 moc_TopMenu.cpp: src/GUI/Menu/TopMenu.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/Menu/TopMenu.h -o moc_TopMenu.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/SearchBar -I/home/kevin/Desktop/OOProject/Virtual-Library/src/SearchEngine -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/Menu/TopMenu.h -o moc_TopMenu.cpp
 
-moc_SearchBar.cpp: src/GUI/SearchBar.h \
+moc_SearchBar.cpp: src/GUI/SearchBar/SearchBar.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/SearchBar.h -o moc_SearchBar.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/SearchBar -I/home/kevin/Desktop/OOProject/Virtual-Library/src/SearchEngine -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/SearchBar/SearchBar.h -o moc_SearchBar.cpp
 
 moc_ScrollWidget.cpp: src/GUI/MainDisplay/ScrollWidget.h \
 		src/GUI/MainDisplay/CustomScrollArea.h \
@@ -526,7 +539,7 @@ moc_ScrollWidget.cpp: src/GUI/MainDisplay/ScrollWidget.h \
 		src/GUI/MainDisplay/ScrollPanel.h \
 		moc_predefs.h \
 		/usr/lib/qt5/bin/moc
-	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ScrollWidget.h -o moc_ScrollWidget.cpp
+	/usr/lib/qt5/bin/moc $(DEFINES) --include /home/kevin/Desktop/OOProject/Virtual-Library/moc_predefs.h -I/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++ -I/home/kevin/Desktop/OOProject/Virtual-Library -I'/home/kevin/Desktop/OOProject/Virtual-Library/src/Logic Model' -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/xml -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save/json -I/home/kevin/Desktop/OOProject/Virtual-Library/Test/XmlTests -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/MainDisplay -I/home/kevin/Desktop/OOProject/Virtual-Library/src/Save -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/Menu -I/home/kevin/Desktop/OOProject/Virtual-Library/src/GUI/SearchBar -I/home/kevin/Desktop/OOProject/Virtual-Library/src/SearchEngine -I/usr/include/x86_64-linux-gnu/qt5 -I/usr/include/x86_64-linux-gnu/qt5/QtWidgets -I/usr/include/x86_64-linux-gnu/qt5/QtGui -I/usr/include/x86_64-linux-gnu/qt5/QtXml -I/usr/include/x86_64-linux-gnu/qt5/QtCore -I/usr/include/c++/11 -I/usr/include/x86_64-linux-gnu/c++/11 -I/usr/include/c++/11/backward -I/usr/lib/gcc/x86_64-linux-gnu/11/include -I/usr/local/include -I/usr/include/x86_64-linux-gnu -I/usr/include src/GUI/MainDisplay/ScrollWidget.h -o moc_ScrollWidget.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
@@ -544,6 +557,33 @@ compiler_clean: compiler_moc_predefs_clean compiler_moc_header_clean
 
 ####### Compile
 
+SearchEngine.o: src/SearchEngine/SearchEngine.cpp src/SearchEngine/SearchEngine.h \
+		src/SearchEngine/SearchVisitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Podcast.h \
+		src/Logic\ Model/Music.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SearchEngine.o src/SearchEngine/SearchEngine.cpp
+
+SearchVisitor.o: src/SearchEngine/SearchVisitor.cpp src/SearchEngine/SearchVisitor.h \
+		src/Logic\ Model/ConstVisitor.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/MediaItem.h \
+		src/Logic\ Model/Visitor.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Podcast.h \
+		src/Logic\ Model/Music.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SearchVisitor.o src/SearchEngine/SearchVisitor.cpp
+
 MainWindow.o: src/GUI/MainWindow.cpp src/GUI/MainWindow.h \
 		src/Logic\ Model/MediaItem.h \
 		src/Logic\ Model/Visitor.h \
@@ -553,8 +593,17 @@ MainWindow.o: src/GUI/MainWindow.cpp src/GUI/MainWindow.h \
 		src/GUI/MainDisplay/ButtonWidget.h \
 		src/Save/FileManager.h \
 		src/GUI/MainDisplay/MainDisplay.h \
+		src/SearchEngine/SearchEngine.h \
+		src/SearchEngine/SearchVisitor.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Podcast.h \
+		src/Logic\ Model/Music.h \
 		src/Save/xml/XmlManager.h \
-		src/GUI/SearchBar.h \
+		src/GUI/SearchBar/SearchBar.h \
 		src/GUI/Menu/TopMenu.h \
 		src/Save/ManagerFactory.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o MainWindow.o src/GUI/MainWindow.cpp
@@ -613,8 +662,8 @@ ButtonWidget.o: src/GUI/MainDisplay/ButtonWidget.cpp src/GUI/MainDisplay/ButtonW
 TopMenu.o: src/GUI/Menu/TopMenu.cpp src/GUI/Menu/TopMenu.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o TopMenu.o src/GUI/Menu/TopMenu.cpp
 
-SearchBar.o: src/GUI/SearchBar.cpp src/GUI/SearchBar.h
-	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SearchBar.o src/GUI/SearchBar.cpp
+SearchBar.o: src/GUI/SearchBar/SearchBar.cpp src/GUI/SearchBar/SearchBar.h
+	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o SearchBar.o src/GUI/SearchBar/SearchBar.cpp
 
 ScrollWidget.o: src/GUI/MainDisplay/ScrollWidget.cpp src/GUI/MainDisplay/ScrollWidget.h \
 		src/GUI/MainDisplay/CustomScrollArea.h \
@@ -819,7 +868,16 @@ main.o: src/main.cpp src/GUI/MainWindow.h \
 		src/GUI/MainDisplay/CustomScrollArea.h \
 		src/GUI/MainDisplay/ButtonWidget.h \
 		src/Save/FileManager.h \
-		src/GUI/MainDisplay/MainDisplay.h
+		src/GUI/MainDisplay/MainDisplay.h \
+		src/SearchEngine/SearchEngine.h \
+		src/SearchEngine/SearchVisitor.h \
+		src/Logic\ Model/Article.h \
+		src/Logic\ Model/Readable.h \
+		src/Logic\ Model/Book.h \
+		src/Logic\ Model/Film.h \
+		src/Logic\ Model/AudioVisual.h \
+		src/Logic\ Model/Podcast.h \
+		src/Logic\ Model/Music.h
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o main.o src/main.cpp
 
 moc_MainWindow.o: moc_MainWindow.cpp 

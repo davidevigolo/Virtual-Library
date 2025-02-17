@@ -6,6 +6,7 @@
 #include <TopMenu.h>
 #include <QFileDialog>
 #include <ManagerFactory.h>
+#include <iostream>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr), searchEngine()
 {

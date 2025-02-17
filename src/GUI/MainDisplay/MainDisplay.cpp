@@ -7,31 +7,37 @@
 #include <iostream>
 #include <ScrollWidget.h>
 
-MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent){}
+MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent) , 
+    scroll(
+        {
+        new ScrollWidget(this),
+        new ScrollWidget(this),
+        new ScrollWidget(this),
+        new ScrollWidget(this),
+        new ScrollWidget(this)
+        }
+    )
+{}
 
 void MainDisplay::setAreas(QVector<MediaItem *> &items)
 {
-    // Clear the existing layout if it exists
-    if (layout() != nullptr) {
-        for(auto child : findChildren<ScrollWidget*>()){
-            delete child;
-            std::cout << "Deleted child" << std::endl;
-        }
-        delete layout();
-    }
-
     LoadVisitor visitor(mediaItems);
+    for(auto key : mediaItems.keys()){
+        mediaItems[key].clear();
+    }
     
     for (MediaItem *item : items)
     {
         item->accept(&visitor);
     }
+    delete layout();
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    int i = 0;
     for(auto key : mediaItems.keys()){
-        ScrollWidget* scroll = new ScrollWidget(this);
-        scroll->setLabel(key);
-        scroll->setItems(mediaItems[key]);
-        mainLayout->addWidget(scroll);
+        scroll[i]->setLabel(key);
+        scroll[i]->setItems(mediaItems[key]);
+        mainLayout->addWidget(scroll[i]);
+        i++;
     }
     setStyleSheet("background-color: black;");
     setLayout(mainLayout);

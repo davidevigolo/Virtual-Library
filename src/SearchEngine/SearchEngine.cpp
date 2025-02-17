@@ -1,13 +1,21 @@
 #include <SearchEngine.h>
+#include <iostream>
 
 QVector<MediaItem*> SearchEngine::search(const QString& query, const QVector<MediaItem*>& items) {
     visitor = SearchVisitor(query);
     QVector<MediaItem*> result = items;
-    mergeSort(result,0,items.size()-1);
-    int i = result.size()-1;
-    while(result[i] == 0){
-        result.pop_back();
-        i--;
+    mergeSort(result, 0, items.size() - 1);
+
+    bool isZero = true; 
+    int i = result.size() - 1;
+    while(isZero && i >= 0){
+        result[i]->accept(&visitor);
+        if(visitor.getPoints() == 0){
+            result.pop_back();
+            i--;
+        } else {
+            isZero = false;
+        }
     }
     return result;
 }
