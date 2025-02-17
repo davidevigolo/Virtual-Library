@@ -13,8 +13,8 @@
 int main() {
     //JsonManagerTest::testSaveAndLoadMediaItems();
     qDebug() << "JsonManagerTest::testSaveAndLoadMediaItems()";
-    //XmlManagerTest::testSaveAndLoadMediaItems();
+    XmlManagerTest::testSaveAndLoadMediaItems();
 
     std::cout<<"\n\n\n\nPORCODIO\n\n\n\n";
-    assert(LoadFromFileTest::testLoadFromFile() == 0);
+    //assert(LoadFromFileTest::testLoadFromFile() == 0);
 }

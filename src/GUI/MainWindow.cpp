@@ -2,32 +2,26 @@
 #include <QLayout>
 #include <QTextEdit>
 #include <XmlManager.h>
+#include <SearchBar.h>
+#include <TopMenu.h>
+#include <QFileDialog>
+#include <ManagerFactory.h>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent), mainDisplay(this)
 {
-    QMenuBar *menuBar = new QMenuBar(this);
-    QMenu *fileMenu = new QMenu("File", menuBar);
-    QAction *exitAction = new QAction("Exit", fileMenu);
-    fileMenu->addAction(exitAction);
-    QAction *newAction = new QAction("New", fileMenu);
-    fileMenu->addAction(newAction);
-    menuBar->addMenu(fileMenu);
+    TopMenu *menuBar = new TopMenu(this);
 
-    QObject::connect(exitAction, &QAction::triggered, qApp, &QApplication::quit);
-    QObject::connect(newAction, &QAction::triggered, this, &MainWindow::loadFromFile);
+    QObject::connect(menuBar->getNewFileAction(), &QAction::triggered, this, &MainWindow::loadFromFile);
+    QObject::connect(menuBar->getExitAction(), &QAction::triggered, qApp, &QApplication::quit);
+    QObject::connect(menuBar->getSaveAsAction(), &QAction::triggered, this, &MainWindow::saveToFile);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
     mainLayout->setMenuBar(menuBar);
+    SearchBar *searchBar = new SearchBar(this);
 
-    QHBoxLayout *searchLayout = new QHBoxLayout(this);
-    QTextEdit *searchTextEdit = new QTextEdit;
-    searchTextEdit->setPlaceholderText("Search...");
-    QPushButton *searchButton = new QPushButton("Search");
-    searchTextEdit->setFixedHeight(30);
-    searchLayout->addWidget(searchTextEdit);
-    searchLayout->addWidget(searchButton);
+    connect(this, &MainWindow::itemsLoaded, &mainDisplay, &MainDisplay::setAreas); // Connect itemsLoaded signal to  mainDisplay setAreas to update the view
 
-    mainLayout->addLayout(searchLayout);
+    mainLayout->addWidget(searchBar);
     mainLayout->addWidget(&mainDisplay);
     setLayout(mainLayout);
 
@@ -37,7 +31,17 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent), mainDisplay(this)
 
 void MainWindow::loadFromFile()
 {
-    FileManager *fileManager = new XmlManager("test.xml"); // This is made just for testing purposes
-    mediaItems = fileManager->load();
-    mainDisplay.setItems(mediaItems);
+    QString filePath = QFileDialog::getOpenFileName(this, "Select File", "", "XML Files (*.xml);;JSON Files (*.json)");
+    if (!filePath.isEmpty())
+    {
+        FileManager *fileManager = ManagerFactory(filePath).create();
+        if (!fileManager) qErrnoWarning("Che cazzo è sto file porcoddio io accetto solo xml e json");
+        mediaItems = fileManager->load();
+        delete fileManager;
+        emit itemsLoaded(mediaItems);
+    }
+}
+
+void MainWindow::saveToFile()
+{
 }

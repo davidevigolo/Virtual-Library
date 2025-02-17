@@ -23,21 +23,23 @@ INCLUDEPATH += "./src/Save"
 INCLUDEPATH += "./src/GUI/Menu"
 
 #GUI 
-#HEADERS += "./src/GUI/MainWindow.h"
+HEADERS += "./src/GUI/MainWindow.h"
 HEADERS += "./src/GUI/MainDisplay/ScrollPanel.h"
 HEADERS += "./src/GUI/MainDisplay/CustomScrollArea.h"
 HEADERS += "./src/GUI/LoadVisitor.h"
 HEADERS += "./src/GUI/MainDisplay/MainDisplay.h"
 HEADERS += "./src/GUI/MainDisplay/ButtonWidget.h"
 HEADERS += "./src/GUI/Menu/TopMenu.h"
+HEADERS += "./src/GUI/SearchBar.h"
 
-#SOURCES += "./src/GUI/MainWindow.cpp"
+SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/MainDisplay/ScrollPanel.cpp"
 SOURCES += "./src/GUI/MainDisplay/CustomScrollArea.cpp"
 SOURCES += "./src/GUI/LoadVisitor.cpp"
 SOURCES += "./src/GUI/MainDisplay/MainDisplay.cpp"
 SOURCES += "./src/GUI/MainDisplay/ButtonWidget.cpp"
 SOURCES += "./src/GUI/Menu/TopMenu.cpp"
+SOURCES += "./src/GUI/SearchBar.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
@@ -67,14 +69,17 @@ HEADERS += "./src/Save/xml/XmlVisitor.h"
 HEADERS += "./src/Logic Model/ConstVisitor.h"
 
 # Save
-SOURCES += "./src/Save/json/JsonManager.cpp"
 HEADERS += "./src/Save/json/JsonManager.h"
 HEADERS += "./src/Save/FileManager.h"
-
-HEADERS += "./src/Save/xml/XmlManager.h"
-SOURCES += "./src/Save/xml/XmlManager.cpp"
+HEADERS += "./src/Save/ManagerFactory.h"
 HEADERS += "./src/Save/xml/XmlReader.h"
+HEADERS += "./src/Save/xml/XmlManager.h"
+
+
+SOURCES += "./src/Save/xml/XmlManager.cpp"
+SOURCES += "./src/Save/json/JsonManager.cpp"
 SOURCES += "./src/Save/xml/XmlReader.cpp"
+SOURCES += "./src/Save/ManagerFactory.cpp"
 
 #Test
 HEADERS += "./Test/JsonTests/JsonTest.h"
@@ -87,5 +92,5 @@ SOURCES += "./Test/GUITests/MainWindowTests/LoadFromFileTests.cpp"
 #HEADERS += "./src/GUI/
 
 # TestMain
-SOURCES += "./Test/GUITests/MainWindowTests/GuiTest.cpp"
-#SOURCES += "./Test/TestMain.cpp"
+SOURCES += "./src/main.cpp"
+#SOURCES += "./GUITests/MainWindowTests/GuiTest.cpp"

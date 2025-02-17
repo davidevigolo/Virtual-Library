@@ -1,3 +1,4 @@
+#pragma once
 #include <QApplication>
 #include <QPushButton>
 #include <QVBoxLayout>
@@ -28,5 +29,9 @@ private:
     FileManager* fileManager;
     QVector<MediaItem*> mediaItems;
     MainDisplay mainDisplay;
+private slots:
     void loadFromFile();
+    void saveToFile();
+signals:
+    void itemsLoaded(QVector<MediaItem*>& items);
 };

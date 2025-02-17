@@ -1,0 +1,455 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MediaItems>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>1984</Title>
+            <Author>George Orwell</Author>
+            <ReleaseDate>1949</ReleaseDate>
+            <ProductionHouse>Secker e Warburg</ProductionHouse>
+            <Genre>Dystopian</Genre>
+            <Tags>
+                <Tag>Dystopian</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>328</Pages>
+            <ISBN>9780451524935</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>The Shawshank Redemption</Title>
+            <Author>Frank Darabont</Author>
+            <ReleaseDate>1994</ReleaseDate>
+            <ProductionHouse>Columbia Pictures</ProductionHouse>
+            <Genre>Drama</Genre>
+            <Tags>
+                <Tag>Drama</Tag>
+                <Tag>Crime</Tag>
+            </Tags>
+            <Format>Blu-ray</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Duration>142</Duration>
+            <Tecnic>Digital</Tecnic>
+            <Framerate>23.976</Framerate>
+            <Director>Frank Darabont</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>The Joe Rogan Experience</Title>
+            <Author>Joe Rogan</Author>
+            <ReleaseDate>2009</ReleaseDate>
+            <ProductionHouse>Independent</ProductionHouse>
+            <Genre>Talk</Genre>
+            <Tags>
+                <Tag>Talk</Tag>
+                <Tag>Comedy</Tag>
+            </Tags>
+            <Format>Audio</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Duration>Varies</Duration>
+            <Episodes>1600+</Episodes>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Thriller</Title>
+            <Author>Michael Jackson</Author>
+            <ReleaseDate>1982</ReleaseDate>
+            <ProductionHouse>Epic</ProductionHouse>
+            <Genre>Pop</Genre>
+            <Tags>
+                <Tag>Pop</Tag>
+                <Tag>Dance</Tag>
+            </Tags>
+            <Format>Vinyl</Format>
+            <Language>English</Language>
+            <Used>Yes</Used>
+            <Duration>42:19</Duration>
+            <Album>Thriller</Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>To Kill a Mockingbird</Title>
+            <Author>Harper Lee</Author>
+            <ReleaseDate>1960</ReleaseDate>
+            <ProductionHouse>J. B. Lippincott e Co.</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>281</Pages>
+            <ISBN>9780061120084</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Pulp Fiction</Title>
+            <Author>Quentin Tarantino</Author>
+            <ReleaseDate>1994</ReleaseDate>
+            <ProductionHouse>Miramax</ProductionHouse>
+            <Genre>Crime</Genre>
+            <Tags>
+                <Tag>Crime</Tag>
+                <Tag>Drama</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Duration>154</Duration>
+            <Tecnic>35mm</Tecnic>
+            <Framerate>24.000000</Framerate>
+            <Director>Quentin Tarantino</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Serial</Title>
+            <Author>Sarah Koenig</Author>
+            <ReleaseDate>2014</ReleaseDate>
+            <ProductionHouse>This American Life</ProductionHouse>
+            <Genre>True Crime</Genre>
+            <Tags>
+                <Tag>True Crime</Tag>
+                <Tag>Investigative Journalism</Tag>
+            </Tags>
+            <Format>Audio</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Duration>Varies</Duration>
+            <Episodes>12</Episodes>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Abbey Road</Title>
+            <Author>The Beatles</Author>
+            <ReleaseDate>1969</ReleaseDate>
+            <ProductionHouse>Apple</ProductionHouse>
+            <Genre>Rock</Genre>
+            <Tags>
+                <Tag>Rock</Tag>
+                <Tag>Psychedelic</Tag>
+            </Tags>
+            <Format>CD</Format>
+            <Language>English</Language>
+            <Used>Yes</Used>
+            <Duration>47:26</Duration>
+            <Album>Abbey Road</Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Lord of the Rings</Title>
+            <Author>J.R.R. Tolkien</Author>
+            <ReleaseDate>1954</ReleaseDate>
+            <ProductionHouse>George Allen e Unwin</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Fantasy</Tag>
+                <Tag>Adventure</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>1178</Pages>
+            <ISBN>9780618640157</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>The Godfather</Title>
+            <Author>Francis Ford Coppola</Author>
+            <ReleaseDate>1972</ReleaseDate>
+            <ProductionHouse>Paramount Pictures</ProductionHouse>
+            <Genre>Crime</Genre>
+            <Tags>
+                <Tag>Crime</Tag>
+                <Tag>Drama</Tag>
+            </Tags>
+            <Format>Blu-ray</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Duration>175</Duration>
+            <Tecnic>35mm</Tecnic>
+            <Framerate>24.000000</Framerate>
+            <Director>Francis Ford Coppola</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Stuff You Should Know</Title>
+            <Author>Josh Clark and Chuck Bryant</Author>
+            <ReleaseDate>2008</ReleaseDate>
+            <ProductionHouse>iHeartRadio</ProductionHouse>
+            <Genre>Education</Genre>
+            <Tags>
+                <Tag>Education</Tag>
+                <Tag>Comedy</Tag>
+            </Tags>
+            <Format>Audio</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Duration>Varies</Duration>
+            <Episodes>1500+</Episodes>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>The Dark Side of the Moon</Title>
+            <Author>Pink Floyd</Author>
+            <ReleaseDate>1973</ReleaseDate>
+            <ProductionHouse>Harvest</ProductionHouse>
+            <Genre>Progressive Rock</Genre>
+            <Tags>
+                <Tag>Progressive Rock</Tag>
+                <Tag>Psychedelic</Tag>
+            </Tags>
+            <Format>Vinyl</Format>
+            <Language>English</Language>
+            <Used>Yes</Used>
+            <Duration>42:49</Duration>
+            <Album>The Dark Side of the Moon</Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <Publisher>The New York Times</Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Mannaggia</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Duration>120</Duration>
+            <Tecnic>Digital</Tecnic>
+            <Framerate>24.000000</Framerate>
+            <Director>Aldo Giovanni e Jack</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Mannaggia</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Duration>120</Duration>
+            <Episodes>24</Episodes>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Mannaggia</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Duration>120</Duration>
+            <Album>Aldo Giovanni e Jack</Album>
+        </Music>
+    </MediaItem>
+</MediaItems>

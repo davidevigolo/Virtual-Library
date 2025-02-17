@@ -15,4 +15,5 @@ private:
     QVBoxLayout buttonLayout;
 public:
     ButtonWidget(MediaItem* mediaItem,QWidget *parent = nullptr);
+    void resizeEvent(QResizeEvent *event) override;
 };

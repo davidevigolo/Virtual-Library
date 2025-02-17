@@ -8,5 +8,6 @@ private:
     QMap<QString, QVector<MediaItem*>> mediaItems;
 public:
     MainDisplay(QWidget *parent = nullptr);
+public slots:
     void setAreas(QVector<MediaItem*>& items);
 };
