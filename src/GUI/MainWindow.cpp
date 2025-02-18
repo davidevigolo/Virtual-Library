@@ -7,6 +7,7 @@
 #include <QFileDialog>
 #include <ManagerFactory.h>
 #include <iostream>
+#include <ItemDisplay.h>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr), searchEngine()
 {
@@ -15,6 +16,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr),
     SearchBar *searchBar = new SearchBar(this);
 
     MainDisplay *mainDisplay = new MainDisplay(this);
+    connect(mainDisplay, &MainDisplay::itemButtonClicked, this, &MainWindow::onButtonClicked);
 
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
 
@@ -77,3 +79,47 @@ void MainWindow::search(QString query)
     QVector<MediaItem*> filteredItems = searchEngine.search(query, mediaItems);
     emit itemsLoaded(filteredItems);   
 }   
+
+void MainWindow::onButtonClicked(MediaItem *item)
+{
+    MainDisplay* widget = findChild<MainDisplay*>();
+    layout()->removeWidget(widget);
+    delete widget;
+    ItemDisplay* itemDisplay = new ItemDisplay(item, this);
+
+    connect(itemDisplay, &ItemDisplay::itemChanged, this, &MainWindow::onItemChanged);
+    connect(itemDisplay, &ItemDisplay::itemDeleted, this, &MainWindow::onItemDeleted);
+    connect(itemDisplay, &ItemDisplay::itemDisplayClosed, this, &MainWindow::onItemDisplayClosed);
+
+    layout()->addWidget(itemDisplay);
+    SearchBar* searchBar = findChild<SearchBar*>();
+    layout()->removeWidget(searchBar);
+    delete searchBar;
+}
+
+void MainWindow::onItemDeleted(MediaItem *item)
+{
+    mediaItems.removeOne(item);
+    onItemDisplayClosed();
+    emit itemsLoaded(mediaItems);
+}
+
+void MainWindow::onItemChanged(MediaItem *item)
+{
+    mediaItems.replace(mediaItems.indexOf(item), item);
+}
+
+void MainWindow::onItemDisplayClosed()
+{
+    ItemDisplay* widget = findChild<ItemDisplay*>();
+    layout()->removeWidget(widget);
+    delete widget;
+    SearchBar* searchBar = new SearchBar(this);
+    connect(searchBar, &SearchBar::queryChanged, this, &MainWindow::search);
+    layout()->addWidget(searchBar);
+    MainDisplay* mainDisplay = new MainDisplay(this);
+    connect(mainDisplay, &MainDisplay::itemButtonClicked, this, &MainWindow::onButtonClicked);
+    connect(this, &MainWindow::itemsLoaded, mainDisplay, &MainDisplay::setAreas);
+    layout()->addWidget(mainDisplay);
+    emit itemsLoaded(mediaItems);
+}

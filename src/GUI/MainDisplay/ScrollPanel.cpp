@@ -9,6 +9,7 @@ ScrollPanel::ScrollPanel(QWidget *parent) : QWidget(parent), layout(this), panel
 
 void ScrollPanel::addItem(MediaItem *item) {
     ButtonWidget *button = new ButtonWidget(item,this);
+    connect(button, &ButtonWidget::itemButtonClicked, this, &ScrollPanel::onButtonClicked);
     panelLayout.addWidget(button);
 }
 
@@ -23,3 +24,7 @@ void ScrollPanel::setItems(QVector<MediaItem *> &items) {
         addItem(item);
     }
 }
+
+void ScrollPanel::onButtonClicked(MediaItem *item) {
+    emit itemButtonClicked(item);
+}   

@@ -22,4 +22,8 @@ public:
     ScrollPanel(QWidget *parent = nullptr);
     void addItem(MediaItem* item);
     void setItems(QVector<MediaItem*>& items);
+private slots:
+    void onButtonClicked(MediaItem* item);
+signals:
+    void itemButtonClicked(MediaItem* mediaItem);
 };

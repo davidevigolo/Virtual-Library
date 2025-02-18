@@ -2,6 +2,7 @@
 #include <qboxlayout.h>
 #include <QFontMetrics>
 #include <QResizeEvent>
+#include <MainWindow.h>
 
 ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(parent), button(this), buttonLabel(this), buttonLayout(this), mediaItem(mediaItem)
 {
@@ -15,9 +16,7 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     button.setIcon(QIcon(mediaItem->getImage().c_str()));
     buttonLayout.addWidget(&button, 0, Qt::AlignTop);
 
-    connect(&button, &QPushButton::clicked, this, [this]() {
-        button.setStyleSheet("background-color: red;");
-    });
+    connect(&button, &QPushButton::clicked, this, &ButtonWidget::onButtonClicked);
 
     QFontMetrics metrics(buttonLabel.font());
     QString elidedText = metrics.elidedText(QString(mediaItem->getTitle().c_str()), Qt::ElideRight, button.width());
@@ -43,4 +42,9 @@ void ButtonWidget::resizeEvent(QResizeEvent *event)
     buttonLabel.setText(elidedText);
     buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
     button.setIconSize(QSize(button.width(), button.height()));
+}
+
+void ButtonWidget::onButtonClicked()
+{
+    emit itemButtonClicked(mediaItem);
 }

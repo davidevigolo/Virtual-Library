@@ -35,6 +35,11 @@ private slots:
     void save();
     void saveToFile();
     void search(QString query);
+    
+    void onButtonClicked(MediaItem* item);
+    void onItemDeleted(MediaItem* item);
+    void onItemChanged(MediaItem* item);
+    void onItemDisplayClosed();
 signals:
     void itemsLoaded(QVector<MediaItem*>& items);
 };

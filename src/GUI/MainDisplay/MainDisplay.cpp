@@ -17,7 +17,13 @@ MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent) ,
         new ScrollWidget(this)
         }
     )
-{}
+{
+    connect(scroll[0], &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);
+    connect(scroll[1], &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);
+    connect(scroll[2], &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);
+    connect(scroll[3], &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);
+    connect(scroll[4], &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);
+}
 
 void MainDisplay::setAreas(QVector<MediaItem *> &items)
 {
@@ -41,4 +47,9 @@ void MainDisplay::setAreas(QVector<MediaItem *> &items)
     }
     setStyleSheet("background-color: black;");
     setLayout(mainLayout);
+}
+
+void MainDisplay::onButtonClicked(MediaItem *item)
+{
+    emit itemButtonClicked(item);
 }

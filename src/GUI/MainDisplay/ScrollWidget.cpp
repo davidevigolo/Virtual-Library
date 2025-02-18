@@ -5,6 +5,7 @@ ScrollWidget::ScrollWidget(QWidget *parent) : QWidget(parent) {
     label = new QLabel(this);
     layout->addWidget(label);
     scrollPanel = new ScrollPanel(this);
+    connect(scrollPanel, &ScrollPanel::itemButtonClicked, this, &ScrollWidget::onButtonClicked);
     scrollArea = new CustomScrollArea(this);
     layout->addWidget(scrollArea);
 }
@@ -23,4 +24,9 @@ void ScrollWidget::setItems(QVector<MediaItem *> &items)
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setStyleSheet("background-color: gray;");
+}
+
+void ScrollWidget::onButtonClicked(MediaItem *item)
+{
+    emit itemButtonClicked(item);
 }

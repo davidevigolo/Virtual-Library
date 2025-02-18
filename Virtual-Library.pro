@@ -22,6 +22,7 @@ INCLUDEPATH += "./src/GUI/MainDisplay"
 INCLUDEPATH += "./src/Save"
 INCLUDEPATH += "./src/GUI/Menu"
 INCLUDEPATH += "./src/GUI/SearchBar"
+INCLUDEPATH += "./src/GUI/ObjectDisplay"
 INCLUDEPATH += "./src/SearchEngine"
 
 #SEARCH ENGINE
@@ -42,6 +43,9 @@ HEADERS += "./src/GUI/MainDisplay/ButtonWidget.h"
 HEADERS += "./src/GUI/Menu/TopMenu.h"
 HEADERS += "./src/GUI/SearchBar/SearchBar.h"
 HEADERS += "./src/GUI/MainDisplay/ScrollWidget.h"
+HEADERS += "./src/GUI/ObjectDisplay/FieldWidget.h"
+HEADERS += "./src/GUI/ObjectDisplay/GridVisitor.h"
+HEADERS += "./src/GUI/ObjectDisplay/ItemDisplay.h"
 
 SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/MainDisplay/ScrollPanel.cpp"
@@ -52,6 +56,9 @@ SOURCES += "./src/GUI/MainDisplay/ButtonWidget.cpp"
 SOURCES += "./src/GUI/Menu/TopMenu.cpp"
 SOURCES += "./src/GUI/SearchBar/SearchBar.cpp"
 SOURCES += "./src/GUI/MainDisplay/ScrollWidget.cpp"
+SOURCES += "./src/GUI/ObjectDisplay/FieldWidget.cpp"
+SOURCES += "./src/GUI/ObjectDisplay/GridVisitor.cpp"
+SOURCES += "./src/GUI/ObjectDisplay/ItemDisplay.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"

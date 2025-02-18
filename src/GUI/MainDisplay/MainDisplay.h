@@ -12,4 +12,8 @@ private:
 public:
     MainDisplay(QWidget *parent = nullptr);
     void setAreas(QVector<MediaItem*>& items);
+private slots:
+    void onButtonClicked(MediaItem* item);
+signals:
+    void itemButtonClicked(MediaItem* item);
 };
