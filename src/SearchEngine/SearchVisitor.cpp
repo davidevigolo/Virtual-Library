@@ -130,7 +130,7 @@ void SearchVisitor::visit(const Film *item)
     {
         points += pointsValue["Director"];
     }
-    if (compare(item->getTecnic(), query))
+    if (compare(item->getTechnique(), query))
     {
         points += pointsValue["Tecnic"];
     }

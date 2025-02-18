@@ -59,7 +59,7 @@ MediaItem *JsonManager::ObjectLoader(const QString &className, const QJsonObject
             obj["Language"].toString().toStdString(),
             obj["Used"].toString().toStdString(),
             obj["Duration"].toInt(),
-            obj["Tecnic"].toString().toStdString(),
+            obj["Technique"].toString().toStdString(),
             obj["Framerate"].toDouble(),
             obj["Director"].toString().toStdString(),
             obj["Image"].toString().toStdString());

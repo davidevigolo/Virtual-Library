@@ -73,7 +73,7 @@ MediaItem *XmlReader::read(QDomNode &node)
             attributes_map["Language"].toStdString(),
             attributes_map["Used"].toStdString(),
             attributes_map["Duration"].toUInt(),
-            attributes_map["Tecnic"].toStdString(),
+            attributes_map["Technique"].toStdString(),
             attributes_map["Framerate"].toDouble(),
             attributes_map["Director"].toStdString(),
             attributes_map["Image"].toStdString());
@@ -91,7 +91,8 @@ MediaItem *XmlReader::read(QDomNode &node)
             attributes_map["Language"].toStdString(),
             attributes_map["Used"].toStdString(),
             attributes_map["Duration"].toUInt(),
-            attributes_map["Album"].toStdString());
+            attributes_map["Album"].toStdString(),
+            attributes_map["Image"].toStdString());
         }
         else if (className == "Podcast")
         {

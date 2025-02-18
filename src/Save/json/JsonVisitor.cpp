@@ -47,7 +47,7 @@ void JsonVisitor::visit(const Book* book){
 
 void JsonVisitor::visit(const Film* film){
     visit(static_cast<const AudioVisual*>(film));
-    object["Tecnic"] = film->getTecnic().c_str();
+    object["Technique"] = film->getTechnique().c_str();
     object["Framerate"] = static_cast<int>(film->getFramerate());
     object["Class"] = "Film";
     

@@ -4,7 +4,7 @@ Music::Music(const std::string& title, const std::string& author, const std::str
                 const std::string& genre, const std::vector<std::string>& tags, 
                 const std::string& format, const std::string& language, const std::string& used, const unsigned int duration, const std::string& album, const std::string& image) :
                 AudioVisual(title, author, releaseDate, productionHouse, genre, tags, format, language, used, duration,image), album(album) {}
-Music::Music(AudioVisual* media, const std::string& album) : AudioVisual(*media), album(album) {}
+
 Music::~Music() {}
 
 std::string Music::getAlbum() const {

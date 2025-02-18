@@ -12,7 +12,7 @@ private:
 public:
     SearchBar(QWidget *parent = nullptr);
 private slots:
-    void searchButtonClicked();
+    void searchEvent();
 signals:
     void queryChanged(QString query);
 };

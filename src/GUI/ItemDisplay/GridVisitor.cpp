@@ -78,11 +78,11 @@ void GridVisitor::visit(Music* music) {
 void GridVisitor::visit(Film* film) {
     visit(static_cast<AudioVisual*>(film));
     FieldWidget *director = new FieldWidget("Director", QString::fromStdString(film->getDirector()), widget);
-    FieldWidget *tecnic = new FieldWidget("Tecnic", QString::fromStdString(film->getTecnic()), widget);
+    FieldWidget *technique = new FieldWidget("Tecnic", QString::fromStdString(film->getTechnique()), widget);
     FieldWidget *framerate = new FieldWidget("Framerate", QString::fromStdString(std::to_string(film->getFramerate())), widget);
 
     grid->addWidget(director, 6, 0);
-    grid->addWidget(tecnic, 6, 1);
+    grid->addWidget(technique, 6, 1);
     grid->addWidget(framerate, 7, 0);
 }
 

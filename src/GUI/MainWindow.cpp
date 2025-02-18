@@ -106,7 +106,7 @@ void MainWindow::onItemDeleted(MediaItem *item)
 
 void MainWindow::onItemChanged(MediaItem *item)
 {
-    mediaItems.replace(mediaItems.indexOf(item), item);
+    //delete item;
 }
 
 void MainWindow::onItemDisplayClosed()

@@ -3,6 +3,7 @@
 #include <QFontMetrics>
 #include <QResizeEvent>
 #include <MainWindow.h>
+#include <QFile>
 
 ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(parent), button(this), buttonLabel(this), buttonLayout(this), mediaItem(mediaItem)
 {
@@ -13,7 +14,16 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
 
     button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     button.setStyleSheet("background-color: white; color: black;");
-    button.setIcon(QIcon(mediaItem->getImage().c_str()));
+
+    QFile image(mediaItem->getImage().c_str());
+    if (!image.exists()) {
+        qWarning() << "Image file does not exist:" << mediaItem->getImage().c_str();
+        QPixmap pixmap(":/images/resources/no_image.jpeg");
+        button.setIcon(pixmap); // Set a default or empty icon
+    } else {
+        button.setIcon(QIcon(image.fileName()));
+    }
+
     buttonLayout.addWidget(&button, 0, Qt::AlignTop);
 
     connect(&button, &QPushButton::clicked, this, &ButtonWidget::onButtonClicked);

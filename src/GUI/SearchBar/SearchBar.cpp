@@ -3,25 +3,20 @@
 
 SearchBar::SearchBar(QWidget *parent) : QWidget(parent)
 {
-    searchButton = new QPushButton("Search", this);
     searchTextEdit = new QLineEdit(this);
 
-    connect(searchTextEdit, &QLineEdit::textChanged, this, &SearchBar::searchButtonClicked);
-    connect(searchButton, &QPushButton::clicked, this, &SearchBar::searchButtonClicked);
+    connect(searchTextEdit, &QLineEdit::textChanged, this, &SearchBar::searchEvent);
 
     searchTextEdit->setPlaceholderText("Search...");
     searchTextEdit->setFixedHeight(30);
-    searchButton->setFixedHeight(30);
-    searchButton->setFixedWidth(100);
-    searchButton->setStyleSheet("background-color: white; color: black;");
+
     searchTextEdit->setStyleSheet("background-color: white; color: black;");
     QHBoxLayout *searchLayout = new QHBoxLayout(this);
     searchLayout->addWidget(searchTextEdit);
-    searchLayout->addWidget(searchButton);
     setLayout(searchLayout);
 }
 
-void SearchBar::searchButtonClicked()
+void SearchBar::searchEvent()
 {
     emit queryChanged(searchTextEdit->text());
 }

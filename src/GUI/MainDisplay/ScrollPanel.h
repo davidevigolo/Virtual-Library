@@ -16,8 +16,7 @@
 class ScrollPanel : public QWidget {
     Q_OBJECT
 private:
-    QVBoxLayout layout;
-    QHBoxLayout panelLayout;
+    QHBoxLayout* panelLayout;
 public:
     ScrollPanel(QWidget *parent = nullptr);
     void addItem(MediaItem* item);

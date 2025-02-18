@@ -4,23 +4,31 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <GridVisitor.h>
+#include <QMessageBox>
+#include <QFileInfo>
+
 
 ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
 {
     this->item = item;
 
-
     QLabel *imageLabel = new QLabel(this);
-    QPixmap image(item->getImage().c_str());
-    imageLabel->setPixmap(image);
 
+    QString path = item->getImage().c_str();
+    QPixmap image = QPixmap(path);
+    QFileInfo fileInfo(path);
+    if (fileInfo.exists()) {
+        imageLabel->setPixmap(image);
+    } else {
+        image = QPixmap(":/images/resources/no_image.jpeg");
+        imageLabel->setPixmap(image);
+    }
 
     QPushButton *goBackButton = new QPushButton("Go Back", this);
     goBackButton->setStyleSheet("background-color: red; color: black;");
     goBackButton->setFixedWidth(image.width() / 4);
 
     connect(goBackButton, &QPushButton::clicked, this, &ItemDisplay::onGoBack);
-    connect(this, &ItemDisplay::onGoBack, this, &ItemDisplay::itemDisplayClosed);
 
 
     QWidget *buttonWidget = new QWidget(this);
@@ -70,6 +78,11 @@ void ItemDisplay::onEdit()
 
 void ItemDisplay::onDeletion()
 {
+    QMessageBox::StandardButton reply;
+    reply = QMessageBox::question(this, "Delete", "Are you sure you want to delete this item?", QMessageBox::Yes|QMessageBox::No);
+    if (reply == QMessageBox::No) {
+        return;
+    }
     emit itemDeleted(item);
 }
 
