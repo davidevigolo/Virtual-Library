@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MediaItems>
+    <MediaItem>
+        <Podcast>
+            <Title>The Joe Rogan Experience</Title>
+            <Author>Joe Rogan</Author>
+            <ReleaseDate>2009</ReleaseDate>
+            <ProductionHouse>Independent</ProductionHouse>
+            <Genre>Talk</Genre>
+            <Tags>
+                <Tag>Talk</Tag>
+                <Tag>Comedy</Tag>
+            </Tags>
+            <Format>Audio</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Duration>0</Duration>
+            <Episodes>0</Episodes>
+        </Podcast>
+    </MediaItem>
+</MediaItems>

@@ -1,0 +1,31 @@
+{
+    "configurations": [
+        {
+            "name": "Linux",
+            "includePath": [
+                "${workspaceFolder}/**",
+                "/usr/include/x86_64-linux-gnu/qt5/QtWidgets",
+                "/usr/include/x86_64-linux-gnu/qt5",
+                "/usr/include/x86_64-linux-gnu/qt5/QtCore",
+                "${workspaceFolder}/src/Logic Model",
+                "${workspaceFolder}/src/Save/xml",
+                "${workspaceFolder}/Test/XmlTests",
+                "${workspaceFolder}/src/Save",
+                "/usr/include/x86_64-linux-gnu/qt5/QtGui",
+                "/usr/include/x86_64-linux-gnu/qt5/QtXml",
+                "${workspaceFolder}/src/GUI/MainDisplay",
+                "${workspaceFolder}/src/GUI",
+                "${workspaceFolder}/src/Save/json",
+                "${workspaceFolder}/src/Search Engine",
+                "${workspaceFolder}/src/SearchEngine",
+                "${workspaceFolder}/src/GUI/SearchBar"
+            ],
+            "defines": [],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "c17",
+            "cppStandard": "gnu++17",
+            "intelliSenseMode": "linux-gcc-x64"
+        }
+    ],
+    "version": 4
+}

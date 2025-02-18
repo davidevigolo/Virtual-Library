@@ -1,0 +1,12 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "qmake build",
+            "type": "shell",
+            "command": "clear && cd build && pwd && qmake -makefile ../Virtual-Library.pro && make",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}
