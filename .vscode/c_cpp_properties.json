@@ -17,7 +17,8 @@
                 "${workspaceFolder}/src/GUI",
                 "${workspaceFolder}/src/Save/json",
                 "${workspaceFolder}/src/Search Engine",
-                "${workspaceFolder}/src/SearchEngine"
+                "${workspaceFolder}/src/SearchEngine",
+                "${workspaceFolder}/src/GUI/SearchBar"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",

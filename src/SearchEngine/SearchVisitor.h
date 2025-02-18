@@ -15,6 +15,7 @@ private:
     int points;
     QString query;
     std::map<std::string,int> pointsValue;
+    bool compare(std::string str1, QString str2);
 public:
     SearchVisitor(const QString& query);
     virtual void visit(const MediaItem* media) override;
@@ -25,5 +26,8 @@ public:
     virtual void visit(const Film* film) override;
     virtual void visit(const Podcast* podcast) override;
     virtual void visit(const Music* music) override;
+    bool is_number(const std::string& s);
+    QString getQuery() const;
+    void setQuery(const QString &query);
     int getPoints() const;
 };

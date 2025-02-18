@@ -65,6 +65,8 @@ void MainWindow::saveToFile()
     QFileDialog dialog;
     dialog.setFileMode(QFileDialog::AnyFile);
     QString strFile = dialog.getSaveFileName(NULL, "Create New File", "", "");
+    if(strFile.isEmpty())
+        return;
     fileManager = ManagerFactory(strFile).create();
     fileManager->setPath(strFile);
     fileManager->save(mediaItems);

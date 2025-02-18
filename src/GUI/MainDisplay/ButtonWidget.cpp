@@ -11,7 +11,7 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     button.setFixedSize(buttonWidth, buttonHeight);
 
     button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    button.setStyleSheet("background-color: white;");
+    button.setStyleSheet("background-color: white; color: black;");
     button.setIcon(QIcon(mediaItem->getImage().c_str()));
     buttonLayout.addWidget(&button, 0, Qt::AlignTop);
 
@@ -23,7 +23,7 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     QString elidedText = metrics.elidedText(QString(mediaItem->getTitle().c_str()), Qt::ElideRight, button.width());
     buttonLabel.setText(elidedText);
     buttonLabel.setAlignment(Qt::AlignCenter);
-    buttonLabel.setStyleSheet("background-color: white;");
+    buttonLabel.setStyleSheet("background-color: white; color: black;");
     buttonLabel.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
     buttonLayout.addWidget(&buttonLabel, 0, Qt::AlignBottom);

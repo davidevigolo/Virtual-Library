@@ -20,7 +20,7 @@ void ScrollWidget::setItems(QVector<MediaItem *> &items)
     scrollPanel->setItems(items);
     scrollArea->setWidget(scrollPanel);
     scrollArea->setWidgetResizable(true);
-    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     scrollArea->setStyleSheet("background-color: gray;");
 }
