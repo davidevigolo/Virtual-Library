@@ -35,8 +35,8 @@ void GridVisitor::visit(MediaItem* media) {
     grid->addWidget(genre, 2, 1);
     grid->addWidget(tags, 3, 0);
     grid->addWidget(format, 3, 1);
-    grid->addWidget(language, 4, 1);
-    grid->addWidget(used, 5, 0);    
+    grid->addWidget(language, 4, 0);
+    grid->addWidget(used, 4, 1);    
 
 }
 
@@ -45,35 +45,35 @@ void GridVisitor::visit(Readable* readable) {
     FieldWidget *edition = new FieldWidget("Edition", QString::fromStdString(readable->getEdition()), widget);
     FieldWidget *pages = new FieldWidget("Pages", QString::fromStdString(std::to_string(readable->getPages())), widget);
 
-    grid->addWidget(edition, 5, 1);
-    grid->addWidget(pages, 6, 0);
+    grid->addWidget(edition, 5, 0);
+    grid->addWidget(pages, 5, 1);
 }
 
 void GridVisitor::visit(Book* book) {
     visit(static_cast<Readable*>(book));
     FieldWidget *isbn = new FieldWidget("ISBN", QString::fromStdString(std::to_string(book->getISBN())), widget);
 
-    grid->addWidget(isbn, 6, 1);
+    grid->addWidget(isbn, 6, 0);
 }
 
 void GridVisitor::visit(Article* article) {
     visit(static_cast<Readable*>(article));
     FieldWidget *publisher = new FieldWidget("Publisher", QString::fromStdString(article->getPublisher()), widget);
     
-    grid->addWidget(publisher, 6, 1);
+    grid->addWidget(publisher, 6, 0);
     
 }
 
 void GridVisitor::visit(AudioVisual* audioVisual) {
     visit(static_cast<MediaItem*>(audioVisual));
     FieldWidget *duration = new FieldWidget("Duration", QString::fromStdString(std::to_string(audioVisual->getDuration())), widget);
-    grid->addWidget(duration, 5, 1);
+    grid->addWidget(duration, 6, 0);
 }
 
 void GridVisitor::visit(Music* music) {
     visit(static_cast<AudioVisual*>(music));
     FieldWidget *album = new FieldWidget("Album", QString::fromStdString(music->getAlbum()), widget);
-    grid->addWidget(album, 6, 0);
+    grid->addWidget(album, 6, 1);
 }
 
 void GridVisitor::visit(Film* film) {
@@ -82,14 +82,14 @@ void GridVisitor::visit(Film* film) {
     FieldWidget *technique = new FieldWidget("Tecnic", QString::fromStdString(film->getTechnique()), widget);
     FieldWidget *framerate = new FieldWidget("Framerate", QString::fromStdString(std::to_string(film->getFramerate())), widget);
 
-    grid->addWidget(director, 6, 0);
-    grid->addWidget(technique, 6, 1);
-    grid->addWidget(framerate, 7, 0);
+    grid->addWidget(director, 6, 1);
+    grid->addWidget(technique, 7, 0);
+    grid->addWidget(framerate, 7, 1);
 }
 
 void GridVisitor::visit(Podcast* podcast) {
     visit(static_cast<AudioVisual*>(podcast));
     FieldWidget *episode = new FieldWidget("Episode", QString::fromStdString(std::to_string(podcast->getEpisode())), widget);
 
-    grid->addWidget(episode, 6, 0);
+    grid->addWidget(episode, 6, 1);
 }

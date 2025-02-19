@@ -34,8 +34,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr),
 
     setLayout(mainLayout);
 
-    setWindowTitle("Test Application");
-    setStyleSheet("background-color: gray;");
+    setWindowTitle("Virtual Library");
 }
 
 void MainWindow::loadFromFile()

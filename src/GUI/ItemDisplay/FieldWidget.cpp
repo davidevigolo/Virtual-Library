@@ -4,7 +4,6 @@
 
 FieldWidget::FieldWidget(const QString& fieldName, const QString& fieldValue, QWidget *parent) : QWidget(parent)
 {
-    setStyleSheet("border: 1px solid white; border-radius: 5px;");
     // Create the layout
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
@@ -20,6 +19,7 @@ FieldWidget::FieldWidget(const QString& fieldName, const QString& fieldValue, QW
     fieldLineEdit = new QLineEdit(this);
     fieldLineEdit->setStyleSheet("QLineEdit { color : white; }");
     fieldLineEdit->setText(QString(fieldValue));
+    fieldLineEdit->setStyleSheet("border: 1px solid #d1d1d1; border-radius: 5px;");
     layout->addWidget(fieldLineEdit, 0, Qt::AlignLeft);
     // Set the layout
     setLayout(layout);
@@ -27,7 +27,6 @@ FieldWidget::FieldWidget(const QString& fieldName, const QString& fieldValue, QW
 
 FieldWidget::FieldWidget(const QString& fieldName, const std::vector<std::string>& fieldValue, QWidget *parent) : QWidget(parent) //for the tags field
 {
-    setStyleSheet("border: 1px solid white; border-radius: 5px;");
     // Create the layout
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
@@ -54,6 +53,7 @@ FieldWidget::FieldWidget(const QString& fieldName, const std::vector<std::string
     fieldLineEdit = new QLineEdit(this);
     fieldLineEdit->setStyleSheet("QLineEdit { color : white; }");
     fieldLineEdit->setText(QString(concatenatedValues));
+    fieldLineEdit->setStyleSheet("border: 1px solid #d1d1d1; border-radius: 5px; ");
     layout->addWidget(fieldLineEdit, 0, Qt::AlignLeft);
     // Set the layout
     setLayout(layout);
