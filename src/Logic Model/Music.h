@@ -7,9 +7,9 @@ class  Music : public AudioVisual {
     private:
         std::string album;
     public:
-        Music(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
-                const std::string& genre, const std::vector<std::string>& tags, 
-                const std::string& format, const std::string& language, const std::string& used, const unsigned int duration, const std::string& album = "", const std::string& image = "");
+        Music(const std::string& title = "", const std::string& author = "", const std::string& releaseDate = "", const std::string& productionHouse = "", 
+                const std::string& genre = "", const std::vector<std::string>& tags = {}, 
+                const std::string& format = "", const std::string& language = "", const std::string& used = "", const unsigned int duration = 0, const std::string& album = "", const std::string& image = "");
         
         virtual ~Music();
 

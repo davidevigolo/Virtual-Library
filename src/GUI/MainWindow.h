@@ -23,6 +23,8 @@ private:
     FileManager* fileManager;
     QVector<MediaItem*> mediaItems;
     SearchEngine searchEngine;
+    void clearView();
+    void createHeader();
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow(){
@@ -38,8 +40,8 @@ private slots:
     
     void onButtonClicked(MediaItem* item);
     void onItemDeleted(MediaItem* item);
-    void onItemChanged(MediaItem* item);
     void onItemDisplayClosed();
+    void onNewItemButtonClicked();
 signals:
     void itemsLoaded(QVector<MediaItem*>& items);
 };

@@ -31,7 +31,6 @@ void MainDisplay::setAreas(QVector<MediaItem *> &items)
     for(auto key : mediaItems.keys()){
         mediaItems[key].clear();
     }
-    
     for (MediaItem *item : items)
     {
         item->accept(&visitor);

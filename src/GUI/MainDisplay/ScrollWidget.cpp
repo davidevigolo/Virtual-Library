@@ -13,7 +13,7 @@ ScrollWidget::ScrollWidget(QWidget *parent) : QWidget(parent) {
 void ScrollWidget::setLabel(QString text)
 {
     label->setText(text);
-    label->setStyleSheet("color: white;");
+    label->setStyleSheet("color: white; background-color: #282b30;");
 }
 
 void ScrollWidget::setItems(QVector<MediaItem *> &items)
@@ -23,7 +23,7 @@ void ScrollWidget::setItems(QVector<MediaItem *> &items)
     scrollArea->setWidgetResizable(true);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setStyleSheet("background-color: gray;");
+    scrollArea->setStyleSheet("background-color: #36393e;");
 }
 
 void ScrollWidget::onButtonClicked(MediaItem *item)

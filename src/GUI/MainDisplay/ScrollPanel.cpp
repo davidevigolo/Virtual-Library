@@ -3,7 +3,7 @@
 #include <iostream>
 
 ScrollPanel::ScrollPanel(QWidget *parent) : QWidget(parent), panelLayout(new QHBoxLayout(this)) {
-    setStyleSheet("background-color: black;");
+    setStyleSheet("background-color: #36393e");
 }
 
 void ScrollPanel::addItem(MediaItem *item) {

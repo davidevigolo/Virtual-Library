@@ -48,6 +48,8 @@ HEADERS += "./src/GUI/MainDisplay/ScrollWidget.h"
 HEADERS += "./src/GUI/ItemDisplay/FieldWidget.h"
 HEADERS += "./src/GUI/ItemDisplay/GridVisitor.h"
 HEADERS += "./src/GUI/ItemDisplay/ItemDisplay.h"
+HEADERS += "./src/GUI/ItemDisplay/EditFactory.h"
+HEADERS += "./src/GUI/ItemDisplay/ImageButton.h"
 
 SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/MainDisplay/ScrollPanel.cpp"
@@ -61,6 +63,8 @@ SOURCES += "./src/GUI/MainDisplay/ScrollWidget.cpp"
 SOURCES += "./src/GUI/ItemDisplay/FieldWidget.cpp"
 SOURCES += "./src/GUI/ItemDisplay/GridVisitor.cpp"
 SOURCES += "./src/GUI/ItemDisplay/ItemDisplay.cpp"
+SOURCES += "./src/GUI/ItemDisplay/EditFactory.cpp"
+SOURCES += "./src/GUI/ItemDisplay/ImageButton.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"

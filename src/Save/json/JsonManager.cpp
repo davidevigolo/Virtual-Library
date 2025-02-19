@@ -124,8 +124,16 @@ QVector<MediaItem *> JsonManager::load() const
         if (value.isObject())
         {
             QJsonObject obj = value.toObject();              // save the object information
-            QString className = obj["Class"].toString();     // save the class information
-            Library.push_back(ObjectLoader(className, obj)); // add the readen object to the vector (once created)
+            if (obj.contains("Class")) {
+                QString className = obj["Class"].toString();     // save the class information
+                MediaItem* media = ObjectLoader(className, obj); // create the media item
+                if (media != nullptr) {
+                    Library.push_back(media); // add the created object to the vector
+                }
+            } else {
+                qWarning() << "Object in JSON document missing 'Class' field";
+            }
+            
         }
     }
 

@@ -10,11 +10,11 @@ private:
     double framerate;
     std::string director;
 public:
-    Film(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
-         const std::string& genre, const std::vector<std::string>& tags, 
-         const std::string& format, const std::string& language, const std::string& used, 
-         const unsigned int duration, const std::string& technique, const double framerate,
-         const std::string& director, const std::string& image = "");
+    Film(const std::string& title = "", const std::string& author = "", const std::string& releaseDate = "", const std::string& productionHouse = "", 
+         const std::string& genre = "", const std::vector<std::string>& tags = {""}, 
+         const std::string& format = "", const std::string& language = "", const std::string& used = "", 
+         const unsigned int duration = 0, const std::string& technique = "", const double framerate = 0,
+         const std::string& director = "", const std::string& image = "");
 
     //Getters
     std::string getTechnique() const;

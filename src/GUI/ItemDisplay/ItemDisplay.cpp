@@ -1,51 +1,71 @@
 #include <ItemDisplay.h>
 #include <QGridLayout>
-#include <QPushButton>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <GridVisitor.h>
 #include <QMessageBox>
 #include <QFileInfo>
+#include "EditFactory.h"
+#include "FieldWidget.h"
+#include <qfiledialog.h>
+#include <QDebug>
 
 
 ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
 {
     this->item = item;
 
-    QLabel *imageLabel = new QLabel(this);
+    imagePath = QString::fromStdString(item->getImage());
+    imageButton = new ImageButton(this,imagePath);
 
-    QString path = item->getImage().c_str();
-    QPixmap image = QPixmap(path);
-    QFileInfo fileInfo(path);
+    QFileInfo fileInfo(imagePath);
     if (fileInfo.exists()) {
-        imageLabel->setPixmap(image);
+        imageButton->setIcon(imagePath);
     } else {
-        image = QPixmap(":/images/resources/no_image.jpeg");
-        imageLabel->setPixmap(image);
+        imageButton->setIcon(":/images/resources/no_image.jpeg");
     }
-
+    imageButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    
+    imageButton->setEnabled(false);
+    
     QPushButton *goBackButton = new QPushButton("Go Back", this);
     goBackButton->setStyleSheet("background-color: red; color: black;");
-    goBackButton->setFixedWidth(image.width() / 4);
+    goBackButton->setFixedWidth(imageButton->width());
 
     connect(goBackButton, &QPushButton::clicked, this, &ItemDisplay::onGoBack);
-
+    connect(imageButton, &ImageButton::imageButtonClicked, this, &ItemDisplay::onImageButtonClicked);
 
     QWidget *buttonWidget = new QWidget(this);
     QHBoxLayout *buttonsLayout = new QHBoxLayout();
 
 
-    QPushButton *editButton = new QPushButton("Edit", buttonWidget);
-    QPushButton *deleteButton = new QPushButton("Delete", buttonWidget);
+    editButton = new QPushButton("Edit", buttonWidget);
+    deleteButton = new QPushButton("Delete", buttonWidget);
 
     editButton->setStyleSheet("background-color: yellow; color: black;");
-    editButton->setFixedWidth(image.width() / 4);
+    editButton->setFixedWidth(imageButton->width());
     deleteButton->setStyleSheet("background-color: green; color: black;");
-    deleteButton->setFixedWidth(image.width() / 4);
+    deleteButton->setFixedWidth(imageButton->width());
 
+    saveButton = new QPushButton("Save",buttonWidget);
+    cancelButton = new QPushButton("Cancel",buttonWidget);
+
+    saveButton->setStyleSheet("background-color: yellow; color: black;");
+    saveButton->setFixedWidth(imageButton->width());
+    cancelButton->setStyleSheet("background-color: green; color: black;");
+    cancelButton->setFixedWidth(imageButton->width());
+
+    saveButton->hide();
+    cancelButton->hide();
+
+    connect(saveButton, &QPushButton::clicked, this, &ItemDisplay::onSave);
+    connect(cancelButton, &QPushButton::clicked, this, &ItemDisplay::onCancel);
+    
     buttonsLayout->addStretch(); // Add stretchable space before buttons
     buttonsLayout->addWidget(editButton);
     buttonsLayout->addWidget(deleteButton);
+    buttonsLayout->addWidget(saveButton);
+    buttonsLayout->addWidget(cancelButton);
 
     connect(editButton, &QPushButton::clicked, this, &ItemDisplay::onEdit);
     connect(deleteButton, &QPushButton::clicked, this, &ItemDisplay::onDeletion);
@@ -56,15 +76,18 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
     
 
     QWidget *fields = new QWidget(this);
-    fields->setFixedHeight(image.height());
+    fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     GridVisitor visitor(fields);
     item->accept(&visitor);
 
+    for(auto field : findChildren<FieldWidget*>()){
+        field->setReadOnly(true);
+    }
 
     QGridLayout *layout = new QGridLayout(this);
     layout->addWidget(goBackButton, 0, 0);
     layout->addWidget(buttonWidget, 0, 1);
-    layout->addWidget(imageLabel, 1, 0);
+    layout->addWidget(imageButton, 1, 0);
     layout->addWidget(fields, 1, 1);    
     
 
@@ -73,7 +96,52 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
 
 void ItemDisplay::onEdit()
 {
+    editButton->hide();
+    deleteButton->hide();
+    imageButton->setEnabled(true);
+    cancelButton->show();
+    saveButton->show();
+    //segnalare a fields che è stato premuto
+    for(auto field : findChildren<FieldWidget*>()){
+        field->setReadOnly(false);
+    }
     emit itemChanged(item);
+}
+
+void ItemDisplay::onCancel(){
+    editButton->show();
+    deleteButton->show();
+    imageButton->setEnabled(false);
+    cancelButton->hide();
+    saveButton->hide();
+    //segnalare a fields che è stato premuto
+    for(auto field : findChildren<FieldWidget*>()){
+        layout()->removeWidget(field);
+        delete field;
+    }
+    QWidget *fields = new QWidget(this);
+    fields->setFixedHeight(imageButton->height());
+    GridVisitor visitor(fields);
+    item->accept(&visitor);
+    static_cast<QGridLayout*>(layout())->addWidget(fields, 1, 1);
+}
+
+void ItemDisplay::onSave(){
+    editButton->show();
+    deleteButton->show();
+    cancelButton->hide();
+    saveButton->hide();
+    imageButton->setEnabled(false);
+    EditFactory editFactory;
+    for(auto field : findChildren<FieldWidget*>()){
+        editFactory.makeEdit(field, item);
+        field->setReadOnly(true);
+    }
+    if(imagePath.isEmpty()){
+        return;
+    }
+    item->setImage(imagePath.toStdString());
+    
 }
 
 void ItemDisplay::onDeletion()
@@ -89,4 +157,13 @@ void ItemDisplay::onDeletion()
 void ItemDisplay::onGoBack()
 {
     emit itemDisplayClosed();
+}
+
+void ItemDisplay::onImageButtonClicked()
+{
+    imagePath = QFileDialog::getOpenFileName(this, "Select Image", "", "Image Files (*.png *.jpg *.jpeg *.bmp *.gif *.pbm *.pgm *.ppm *.xbm *.xpm);;All Files (*)");
+    if(imagePath.isEmpty()){
+        return;
+    }
+    imageButton->setIcon(imagePath);
 }

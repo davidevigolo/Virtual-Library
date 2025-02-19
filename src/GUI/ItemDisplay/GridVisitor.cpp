@@ -17,6 +17,7 @@ void GridVisitor::visit(MediaItem* media) {
     FieldWidget *language = new FieldWidget("Language", QString::fromStdString(media->getLanguage()), widget);
     FieldWidget *used = new FieldWidget("Used", QString::fromStdString(media->getUsed()), widget);
 
+
     // title->setStyleSheet("border: 1px solid black");
     // author->setStyleSheet("border: 1px solid black");
     // releaseDate->setStyleSheet("border: 1px solid black");
@@ -32,8 +33,8 @@ void GridVisitor::visit(MediaItem* media) {
     grid->addWidget(releaseDate, 1, 1);
     grid->addWidget(productionHouse, 2, 0);
     grid->addWidget(genre, 2, 1);
-    grid->addWidget(tags, 3, 0, 1, 2);
-    grid->addWidget(format, 4, 0);
+    grid->addWidget(tags, 3, 0);
+    grid->addWidget(format, 3, 1);
     grid->addWidget(language, 4, 1);
     grid->addWidget(used, 5, 0);    
 

@@ -479,4 +479,962 @@
             <ISBN>978014</ISBN>
         </Book>
     </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Book2</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>Article 1</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <Publisher>The New York Times</Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>AGG FIlm</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Duration>0</Duration>
+            <Technique></Technique>
+            <Framerate>24,000000</Framerate>
+            <Director></Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Mannaggia Podcast</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Duration>0</Duration>
+            <Episodes>24</Episodes>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Mannaggia Musica</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Duration>0</Duration>
+            <Album>Aldo Giovanni e Jack</Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>1984</Title>
+            <Author>George Orwell</Author>
+            <ReleaseDate>1949</ReleaseDate>
+            <ProductionHouse>Secker &amp; Warburg</ProductionHouse>
+            <Genre>Dystopian</Genre>
+            <Tags>
+                <Tag>Dystopian</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>328</Pages>
+            <ISBN>978045</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Harry Potter and the Philosopher's Stone</Title>
+            <Author>J.K. Rowling</Author>
+            <ReleaseDate>1997</ReleaseDate>
+            <ProductionHouse>Bloomsbury</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Fantasy</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>309</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Fellowship of the Ring</Title>
+            <Author>J.R.R. Tolkien</Author>
+            <ReleaseDate>1954</ReleaseDate>
+            <ProductionHouse>George Allen &amp; Unwin</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Fantasy</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>423</Pages>
+            <ISBN>978026</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>To Kill a Mockingbird</Title>
+            <Author>Harper Lee</Author>
+            <ReleaseDate>1960</ReleaseDate>
+            <ProductionHouse>J.B. Lippincott &amp; Co.</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>281</Pages>
+            <ISBN>978006</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Pride and Prejudice</Title>
+            <Author>Jane Austen</Author>
+            <ReleaseDate>1813</ReleaseDate>
+            <ProductionHouse>T. Egerton</ProductionHouse>
+            <Genre>Romance</Genre>
+            <Tags>
+                <Tag>Romance</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>279</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Adventures of Huckleberry Finn</Title>
+            <Author>Mark Twain</Author>
+            <ReleaseDate>1884</ReleaseDate>
+            <ProductionHouse>Chatto &amp; Windus</ProductionHouse>
+            <Genre>Adventure</Genre>
+            <Tags>
+                <Tag>Adventure</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>366</Pages>
+            <ISBN>978048</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Frankenstein</Title>
+            <Author>Mary Shelley</Author>
+            <ReleaseDate>1818</ReleaseDate>
+            <ProductionHouse>Lackington, Hughes, Harding, Mavor &amp; Jones</ProductionHouse>
+            <Genre>Horror</Genre>
+            <Tags>
+                <Tag>Horror</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>280</Pages>
+            <ISBN>978048</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Moby-Dick</Title>
+            <Author>Herman Melville</Author>
+            <ReleaseDate>1851</ReleaseDate>
+            <ProductionHouse>Harper &amp; Brothers</ProductionHouse>
+            <Genre>Adventure</Genre>
+            <Tags>
+                <Tag>Adventure</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>635</Pages>
+            <ISBN>978150</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>War and Peace</Title>
+            <Author>Leo Tolstoy</Author>
+            <ReleaseDate>1869</ReleaseDate>
+            <ProductionHouse>The Russian Messenger</ProductionHouse>
+            <Genre>Historical</Genre>
+            <Tags>
+                <Tag>Historical</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>1225</Pages>
+            <ISBN>978019</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>A Tale of Two Cities</Title>
+            <Author>Charles Dickens</Author>
+            <ReleaseDate>1859</ReleaseDate>
+            <ProductionHouse>Chapman &amp; Hall</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>544</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Crime and Punishment</Title>
+            <Author>Fyodor Dostoevsky</Author>
+            <ReleaseDate>1866</ReleaseDate>
+            <ProductionHouse>The Russian Messenger</ProductionHouse>
+            <Genre>Philosophical</Genre>
+            <Tags>
+                <Tag>Philosophical</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>671</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>One Hundred Years of Solitude</Title>
+            <Author>Gabriel Garcia Marquez</Author>
+            <ReleaseDate>1967</ReleaseDate>
+            <ProductionHouse>Harper &amp; Row</ProductionHouse>
+            <Genre>Magical Realism</Genre>
+            <Tags>
+                <Tag>Magical Realism</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>417</Pages>
+            <ISBN>978006</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Odyssey</Title>
+            <Author>Homer</Author>
+            <ReleaseDate>800 BC</ReleaseDate>
+            <ProductionHouse>Penguin Classics</ProductionHouse>
+            <Genre>Epic</Genre>
+            <Tags>
+                <Tag>Epic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>560</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Don Quixote</Title>
+            <Author>Miguel de Cervantes</Author>
+            <ReleaseDate>1605</ReleaseDate>
+            <ProductionHouse>Francisco de Robles</ProductionHouse>
+            <Genre>Adventure</Genre>
+            <Tags>
+                <Tag>Adventure</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>1072</Pages>
+            <ISBN>978006</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Ulysses</Title>
+            <Author>James Joyce</Author>
+            <ReleaseDate>1922</ReleaseDate>
+            <ProductionHouse>Sylvia Beach</ProductionHouse>
+            <Genre>Modernist</Genre>
+            <Tags>
+                <Tag>Modernist</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>730</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Trial</Title>
+            <Author>Franz Kafka</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Kurt Wolff Verlag</ProductionHouse>
+            <Genre>Philosophical</Genre>
+            <Tags>
+                <Tag>Philosophical</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>201</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>To the Lighthouse</Title>
+            <Author>Virginia Woolf</Author>
+            <ReleaseDate>1927</ReleaseDate>
+            <ProductionHouse>Hogarth Press</ProductionHouse>
+            <Genre>Modernist</Genre>
+            <Tags>
+                <Tag>Modernist</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>209</Pages>
+            <ISBN>978015</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>In Search of Lost Time</Title>
+            <Author>Marcel Proust</Author>
+            <ReleaseDate>1913</ReleaseDate>
+            <ProductionHouse>Grasset</ProductionHouse>
+            <Genre>Modernist</Genre>
+            <Tags>
+                <Tag>Modernist</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>4215</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Great Gatsby</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Book2</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>Article 1</Title>
+            <Author>F. Scott Fitzgerald</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Scribner</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>180</Pages>
+            <Publisher>The New York Times</Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>AGG FIlm</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Duration>0</Duration>
+            <Technique></Technique>
+            <Framerate>24,000000</Framerate>
+            <Director></Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Mannaggia Podcast</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Duration>0</Duration>
+            <Episodes>24</Episodes>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Mannaggia Musica</Title>
+            <Author>Aldo Giovanni e Jack</Author>
+            <ReleaseDate>1999</ReleaseDate>
+            <ProductionHouse>Medusa</ProductionHouse>
+            <Genre>Comedy</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>Italian</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Duration>0</Duration>
+            <Album>Aldo Giovanni e Jack</Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>1984</Title>
+            <Author>George Orwell</Author>
+            <ReleaseDate>1949</ReleaseDate>
+            <ProductionHouse>Secker &amp; Warburg</ProductionHouse>
+            <Genre>Dystopian</Genre>
+            <Tags>
+                <Tag>Dystopian</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>328</Pages>
+            <ISBN>978045</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Harry Potter and the Philosopher's Stone</Title>
+            <Author>J.K. Rowling</Author>
+            <ReleaseDate>1997</ReleaseDate>
+            <ProductionHouse>Bloomsbury</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Fantasy</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>309</Pages>
+            <ISBN>978074</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Fellowship of the Ring</Title>
+            <Author>J.R.R. Tolkien</Author>
+            <ReleaseDate>1954</ReleaseDate>
+            <ProductionHouse>George Allen &amp; Unwin</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Fantasy</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>423</Pages>
+            <ISBN>978026</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>To Kill a Mockingbird</Title>
+            <Author>Harper Lee</Author>
+            <ReleaseDate>1960</ReleaseDate>
+            <ProductionHouse>J.B. Lippincott &amp; Co.</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>281</Pages>
+            <ISBN>978006</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Pride and Prejudice</Title>
+            <Author>Jane Austen</Author>
+            <ReleaseDate>1813</ReleaseDate>
+            <ProductionHouse>T. Egerton</ProductionHouse>
+            <Genre>Romance</Genre>
+            <Tags>
+                <Tag>Romance</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>279</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Adventures of Huckleberry Finn</Title>
+            <Author>Mark Twain</Author>
+            <ReleaseDate>1884</ReleaseDate>
+            <ProductionHouse>Chatto &amp; Windus</ProductionHouse>
+            <Genre>Adventure</Genre>
+            <Tags>
+                <Tag>Adventure</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>366</Pages>
+            <ISBN>978048</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Frankenstein</Title>
+            <Author>Mary Shelley</Author>
+            <ReleaseDate>1818</ReleaseDate>
+            <ProductionHouse>Lackington, Hughes, Harding, Mavor &amp; Jones</ProductionHouse>
+            <Genre>Horror</Genre>
+            <Tags>
+                <Tag>Horror</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>280</Pages>
+            <ISBN>978048</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Moby-Dick</Title>
+            <Author>Herman Melville</Author>
+            <ReleaseDate>1851</ReleaseDate>
+            <ProductionHouse>Harper &amp; Brothers</ProductionHouse>
+            <Genre>Adventure</Genre>
+            <Tags>
+                <Tag>Adventure</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>635</Pages>
+            <ISBN>978150</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>War and Peace</Title>
+            <Author>Leo Tolstoy</Author>
+            <ReleaseDate>1869</ReleaseDate>
+            <ProductionHouse>The Russian Messenger</ProductionHouse>
+            <Genre>Historical</Genre>
+            <Tags>
+                <Tag>Historical</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>1225</Pages>
+            <ISBN>978019</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>A Tale of Two Cities</Title>
+            <Author>Charles Dickens</Author>
+            <ReleaseDate>1859</ReleaseDate>
+            <ProductionHouse>Chapman &amp; Hall</ProductionHouse>
+            <Genre>Classic</Genre>
+            <Tags>
+                <Tag>Classic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>544</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Crime and Punishment</Title>
+            <Author>Fyodor Dostoevsky</Author>
+            <ReleaseDate>1866</ReleaseDate>
+            <ProductionHouse>The Russian Messenger</ProductionHouse>
+            <Genre>Philosophical</Genre>
+            <Tags>
+                <Tag>Philosophical</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>671</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>One Hundred Years of Solitude</Title>
+            <Author>Gabriel Garcia Marquez</Author>
+            <ReleaseDate>1967</ReleaseDate>
+            <ProductionHouse>Harper &amp; Row</ProductionHouse>
+            <Genre>Magical Realism</Genre>
+            <Tags>
+                <Tag>Magical Realism</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>417</Pages>
+            <ISBN>978006</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Odyssey</Title>
+            <Author>Homer</Author>
+            <ReleaseDate>800 BC</ReleaseDate>
+            <ProductionHouse>Penguin Classics</ProductionHouse>
+            <Genre>Epic</Genre>
+            <Tags>
+                <Tag>Epic</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>560</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Don Quixote</Title>
+            <Author>Miguel de Cervantes</Author>
+            <ReleaseDate>1605</ReleaseDate>
+            <ProductionHouse>Francisco de Robles</ProductionHouse>
+            <Genre>Adventure</Genre>
+            <Tags>
+                <Tag>Adventure</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>1072</Pages>
+            <ISBN>978006</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Ulysses</Title>
+            <Author>James Joyce</Author>
+            <ReleaseDate>1922</ReleaseDate>
+            <ProductionHouse>Sylvia Beach</ProductionHouse>
+            <Genre>Modernist</Genre>
+            <Tags>
+                <Tag>Modernist</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>730</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Trial</Title>
+            <Author>Franz Kafka</Author>
+            <ReleaseDate>1925</ReleaseDate>
+            <ProductionHouse>Kurt Wolff Verlag</ProductionHouse>
+            <Genre>Philosophical</Genre>
+            <Tags>
+                <Tag>Philosophical</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>201</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>To the Lighthouse</Title>
+            <Author>Virginia Woolf</Author>
+            <ReleaseDate>1927</ReleaseDate>
+            <ProductionHouse>Hogarth Press</ProductionHouse>
+            <Genre>Modernist</Genre>
+            <Tags>
+                <Tag>Modernist</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>209</Pages>
+            <ISBN>978015</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>In Search of Lost Time</Title>
+            <Author>Marcel Proust</Author>
+            <ReleaseDate>1913</ReleaseDate>
+            <ProductionHouse>Grasset</ProductionHouse>
+            <Genre>Modernist</Genre>
+            <Tags>
+                <Tag>Modernist</Tag>
+                <Tag>Fiction</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>No</Used>
+            <Image>follia.jpeg</Image>
+            <Edition>First</Edition>
+            <Pages>4215</Pages>
+            <ISBN>978014</ISBN>
+        </Book>
+    </MediaItem>
 </MediaItems>

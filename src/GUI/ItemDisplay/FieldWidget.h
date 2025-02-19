@@ -13,5 +13,7 @@ private:
 public:
     FieldWidget(const QString& fieldName, const QString& fieldValue, QWidget *parent = nullptr);
     FieldWidget(const QString& fieldName, const std::vector<std::string>& fieldValue, QWidget *parent = nullptr);//for the tags field
+    QString getFieldName() const;
+    QString getLineEditValue() const;
     void setReadOnly(bool);
 };
