@@ -12,6 +12,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr), searchEngine()
 {
+
     this->setStyleSheet("background-color: #1e2124; color: white;");
     TopMenu *menuBar = new TopMenu(this);
 

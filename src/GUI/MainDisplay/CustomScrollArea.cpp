@@ -8,8 +8,5 @@ void CustomScrollArea::resizeEvent(QResizeEvent *event){
     if (widget) {
         QSize size = event->size();
         widget->setFixedHeight(size.height());
-        for (auto button : widget->findChildren<ButtonWidget*>()) {
-            button->resize(button->size());
-        }
     }
 }

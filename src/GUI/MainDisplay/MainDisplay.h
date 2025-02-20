@@ -8,6 +8,7 @@ class MainDisplay : public QWidget {
     Q_OBJECT
 private:
     QMap<QString, QVector<MediaItem*>> mediaItems;
+    QScrollArea* mainScroll;
     QVector<ScrollWidget*> scroll;
 public:
     MainDisplay(QWidget *parent = nullptr);
