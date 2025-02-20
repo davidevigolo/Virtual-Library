@@ -24,6 +24,7 @@ Settings::Settings() {
 
     QJsonObject weightsObj = jsonObj["modifiedValues"].toObject();
     for (const QString& key : weightsObj.keys()) {
+        qDebug() << key << ": " << weightsObj[key].toInt();
         settings.weights[key.toStdString()] = weightsObj[key].toInt();
     }
     setSettings(settings);
@@ -31,4 +32,8 @@ Settings::Settings() {
 
 void Settings::setSettings(SettingsData newSettings) {
     settings = newSettings;
+}
+
+SettingsData Settings::getSettings() {
+    return settings;
 }

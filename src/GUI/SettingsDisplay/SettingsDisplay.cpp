@@ -12,17 +12,14 @@
 SettingsDisplay::SettingsDisplay(QWidget* parent, const bool& dark): QWidget(parent), darkMode(dark) {
     this->setWindowTitle("Settings");
     
+    auto settings = Settings::getSettings();
     QVBoxLayout *layout = new QVBoxLayout(this);
     QPushButton *theme = new QPushButton("Mode", this);
     theme->setObjectName("theme");
-    darkMode = false;
+    darkMode = !(settings.darkMode);
     onThemeChanged();
     connect(theme, &QPushButton::clicked, this, &SettingsDisplay::onThemeChanged);
     layout->addWidget(theme);
-
-    QPushButton *Back = new QPushButton("Back", this);
-    connect(Back, &QPushButton::clicked, this, &SettingsDisplay::onGoBack);
-    layout->addWidget(Back);
 
     QPushButton* apply = new QPushButton("Apply", this);
     connect(apply, &QPushButton::clicked, this, &SettingsDisplay::onApply);
@@ -36,7 +33,7 @@ SettingsDisplay::SettingsDisplay(QWidget* parent, const bool& dark): QWidget(par
         QLabel* lbl = new QLabel(label, this);
         QSpinBox* spinBox = new QSpinBox(this);
         spinBox->setRange(0, 100);
-        spinBox->setValue(weights[label.toStdString()]);
+        spinBox->setValue(settings.weights[label.toStdString()]);
         connect(spinBox, QOverload<int>::of(&QSpinBox::valueChanged), [this, label](int value) {
             weights[label.toStdString()] = value;
         });

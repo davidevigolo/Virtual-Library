@@ -14,4 +14,5 @@ class Settings{
     public:
         Settings();
         static void setSettings(SettingsData newSettings);
+        static SettingsData getSettings();
 };

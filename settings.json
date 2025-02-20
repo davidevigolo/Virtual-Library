@@ -20,7 +20,7 @@
     },
     "modifiedValues": {
         "Album": 0,
-        "Author": 0,
+        "Author": 8,
         "Director": 0,
         "Duration": 0,
         "Edition": 0,
@@ -34,6 +34,6 @@
         "Release Date": 0,
         "Tags": 0,
         "Tecnique": 0,
-        "Title": 0
+        "Title": 2
     }
 }

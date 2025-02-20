@@ -1,8 +1,9 @@
 #include <SearchEngine.h>
 #include <iostream>
+#include <Settings.h>
 
 QVector<MediaItem*> SearchEngine::search(const QString& query, const QVector<MediaItem*>& items) {
-    visitor = SearchVisitor("");
+    visitor = SearchVisitor("", Settings::getSettings().weights);
     QVector<MediaItem*> result = items;
     QVector<short int> points(items.size(),1) ;//to store the search  points for each item instead of re-visit it every time i need a check
 
