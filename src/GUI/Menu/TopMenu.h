@@ -10,6 +10,7 @@ class TopMenu : public QMenuBar {
     QAction* newFile;
     QAction* save;
     QAction* saveAs;
+    QAction* settings;
 public:
     TopMenu(QWidget *parent = 0);
     ~TopMenu() = default;
@@ -18,9 +19,11 @@ private slots:
     void NewFile();
     void Save();
     void SaveAs();
+    void Settings();
 signals:
     void NewFileSignal();
     void SaveSignal();
     void SaveAsSignal();
+    void SettingsSignal();
 };
     

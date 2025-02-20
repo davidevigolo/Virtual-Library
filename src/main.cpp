@@ -1,11 +1,13 @@
 #include <QApplication>
 #include "GUI/MainWindow.h"
+#include <Settings.h>
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 
     MainWindow window;
-    window.resize(600,800);
+    Settings settings; // Load settings from file
+    window.resize(1280,720);
     window.show();
 
     return app.exec();

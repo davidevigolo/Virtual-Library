@@ -11,7 +11,7 @@ ImageButton::ImageButton(QWidget *parent, QString imagePath) : QWidget(parent), 
     button.setFixedSize(QSize(1000,1000));
 
     button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    button.setStyleSheet("background-color: white; color: black;");
+    button.setStyleSheet("background-color: #1e2124; color: black;");
     button.setFocusPolicy(Qt::NoFocus);
     button.setEnabled(true);
 

@@ -42,7 +42,7 @@
     </MediaItem>
     <MediaItem>
         <Article>
-            <Title>Article 1</Title>
+            <Title>Streetsmart</Title>
             <Author>F. Scott Fitzgerald</Author>
             <ReleaseDate>1925</ReleaseDate>
             <ProductionHouse>Scribner</ProductionHouse>
@@ -54,7 +54,7 @@
             <Format>Paperback</Format>
             <Language>English</Language>
             <Used>No</Used>
-            <Image>follia.jpeg</Image>
+            <Image>/home/davide/Documenti/Progetti/Virtual-Library/follia.jpeg</Image>
             <Edition>First</Edition>
             <Pages>180</Pages>
             <Publisher>The New York Times</Publisher>
@@ -77,7 +77,7 @@
             <Image>follia.jpeg</Image>
             <Duration>0</Duration>
             <Technique></Technique>
-            <Framerate>24,000000</Framerate>
+            <Framerate>0,000000</Framerate>
             <Director></Director>
         </Film>
     </MediaItem>
@@ -556,7 +556,7 @@
             <Image>follia.jpeg</Image>
             <Duration>0</Duration>
             <Technique></Technique>
-            <Framerate>24,000000</Framerate>
+            <Framerate>0,000000</Framerate>
             <Director></Director>
         </Film>
     </MediaItem>
@@ -1035,7 +1035,7 @@
             <Image>follia.jpeg</Image>
             <Duration>0</Duration>
             <Technique></Technique>
-            <Framerate>24,000000</Framerate>
+            <Framerate>0,000000</Framerate>
             <Director></Director>
         </Film>
     </MediaItem>

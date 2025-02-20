@@ -26,6 +26,8 @@ INCLUDEPATH += "./src/GUI/Menu"
 INCLUDEPATH += "./src/GUI/SearchBar"
 INCLUDEPATH += "./src/GUI/ItemDisplay"
 INCLUDEPATH += "./src/SearchEngine"
+INCLUDEPATH += "./src/GUI/SettingsDisplay"
+INCLUDEPATH += "./src/Settings"
 
 #SEARCH ENGINE
 HEADERS += "./src/SearchEngine/SearchEngine.h"
@@ -50,6 +52,7 @@ HEADERS += "./src/GUI/ItemDisplay/GridVisitor.h"
 HEADERS += "./src/GUI/ItemDisplay/ItemDisplay.h"
 HEADERS += "./src/GUI/ItemDisplay/EditFactory.h"
 HEADERS += "./src/GUI/ItemDisplay/ImageButton.h"
+HEADERS += "./src/GUI/SettingsDisplay/SettingsDisplay.h"
 
 SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/MainDisplay/ScrollPanel.cpp"
@@ -65,6 +68,7 @@ SOURCES += "./src/GUI/ItemDisplay/GridVisitor.cpp"
 SOURCES += "./src/GUI/ItemDisplay/ItemDisplay.cpp"
 SOURCES += "./src/GUI/ItemDisplay/EditFactory.cpp"
 SOURCES += "./src/GUI/ItemDisplay/ImageButton.cpp"
+SOURCES += "./src/GUI/SettingsDisplay/SettingsDisplay.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
@@ -105,6 +109,10 @@ SOURCES += "./src/Save/xml/XmlManager.cpp"
 SOURCES += "./src/Save/json/JsonManager.cpp"
 SOURCES += "./src/Save/xml/XmlReader.cpp"
 SOURCES += "./src/Save/ManagerFactory.cpp"
+
+#Settings
+HEADERS += "./src/Settings/Settings.h"
+SOURCES += "./src/Settings/Settings.cpp"
 
 #Test
 HEADERS += "./Test/JsonTests/JsonTest.h"

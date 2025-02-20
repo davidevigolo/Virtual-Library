@@ -2,31 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-SearchVisitor::SearchVisitor(const QString &_query) : points(0),query(_query), pointsValue{
-                                                                                  {"Title", 10}, // mediaItem
-                                                                                  {"Author", 5},
-                                                                                  {"Release Date", 5},
-                                                                                  {"Production House", 5},
-                                                                                  {"Genre", 5},
-                                                                                  {"Tags", 5},
-                                                                                  {"Format", 5},
-                                                                                  {"Language", 5},
-                                                                                  
-                                                                                  {"Edition", 5}, // Readable
-
-                                                                                  {"Publisher", 5}, // Article
-
-                                                                                  {"ISBN", 5}, // Book
-
-                                                                                  {"Duration", 5}, // AudioVisual
-
-                                                                                  {"Director", 5}, // Film
-                                                                                  {"Tecnic", 5},
-
-                                                                                  {"Album", 5}, // Music
-
-                                                                                  {"Episode", 5} // Podcast
-                                                                              } {};
+SearchVisitor::SearchVisitor(const QString &_query, const std::map<std::string,int> weight) : points(0),query(_query), pointsValue(weight) {};
 
 int SearchVisitor::getPoints() const
 {
@@ -166,4 +142,12 @@ void SearchVisitor::setQuery(const QString &query)
 QString SearchVisitor::getQuery() const
 {
     return query;
+}
+
+void SearchVisitor::setWeight(std::map<std::string,int> newWeight){
+    pointsValue = newWeight;
+}
+
+std::map<std::string,int> SearchVisitor::getWeight() const{
+    return pointsValue;
 }

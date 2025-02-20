@@ -25,6 +25,7 @@ private:
     SearchEngine searchEngine;
     void clearView();
     void createHeader();
+    void addMainDisplay();
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow(){
@@ -36,6 +37,7 @@ private slots:
     void loadFromFile();
     void save();
     void saveToFile();
+    void onSettingsSignal();
     void search(QString query);
     
     void onButtonClicked(MediaItem* item);
@@ -44,4 +46,5 @@ private slots:
     void onNewItemButtonClicked();
 signals:
     void itemsLoaded(QVector<MediaItem*>& items);
+    void noResults(QString query);
 };

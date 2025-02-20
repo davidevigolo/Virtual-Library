@@ -7,22 +7,42 @@
 
 ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(parent), mediaItem(mediaItem), buttonLayout(this), button(this), buttonLabel(this)
 {
-    // Set initial button size ratio to 4:3
-    int buttonWidth = 200; // Example width
-    int buttonHeight = buttonWidth * 3 / 4;
+    // Set initial button size ratio to 5:3
+    int buttonWidth = 200;
+    int buttonHeight = buttonWidth * 3 / 5;
     button.setFixedSize(buttonWidth, buttonHeight);
 
     button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     button.setStyleSheet("background-color: white; color: black;");
 
+    QPixmap pixmap(":/images/resources/no_image.jpeg");
     QFile image(mediaItem->getImage().c_str());
-    if (!image.exists()) {
+    if (!image.exists())
+    {
         qWarning() << "Image file does not exist:" << mediaItem->getImage().c_str();
-        QPixmap pixmap(":/images/resources/no_image.jpeg");
-        button.setIcon(pixmap); // Set a default or empty icon
-    } else {
-        button.setIcon(QIcon(image.fileName()));
+        button.setIcon(pixmap); // Set default or empty icon
     }
+    else
+    {
+        pixmap = QPixmap(image.fileName());
+        if (pixmap.isNull())
+        {
+            qWarning() << "Failed to load image:" << image.fileName();
+            button.setIcon(pixmap); // Set a default image if the loading fails
+        }
+        else
+        {
+            button.setIcon(pixmap);
+        }
+    }
+
+    // Adjust icon size to fit button while maintaining aspect ratio
+    QSize iconSize = pixmap.size();
+    iconSize.scale(button.width(),button.width(), Qt::AspectRatioMode::KeepAspectRatio);
+    qDebug() << "Icon size:" << iconSize;
+    button.setIconSize(iconSize);
+    button.setStyleSheet("border: none; padding: 0px; margin: 0px;");
+
 
     buttonLayout.addWidget(&button, 0, Qt::AlignTop);
 
@@ -35,6 +55,7 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     buttonLabel.setStyleSheet("background-color: white; color: black;");
     buttonLabel.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
+    buttonLabel.setStyleSheet("border: none; padding: 0px; margin: 0px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);");
     buttonLayout.addWidget(&buttonLabel, 0, Qt::AlignBottom);
 
     setLayout(&buttonLayout);
@@ -44,14 +65,13 @@ void ButtonWidget::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
     int buttonHeight = event->size().height();
-    int buttonWidth = buttonHeight * 16 / 9 ;
+    int buttonWidth = buttonHeight * 16 / 9;
     button.setFixedSize(buttonWidth, buttonHeight);
 
     QFontMetrics metrics(buttonLabel.font());
     QString elidedText = metrics.elidedText(QString(mediaItem->getTitle().c_str()), Qt::ElideRight, button.width());
     buttonLabel.setText(elidedText);
     buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
-    button.setIconSize(QSize(button.width(), button.height()));
 }
 
 void ButtonWidget::onButtonClicked()

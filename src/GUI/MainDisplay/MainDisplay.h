@@ -9,12 +9,14 @@ class MainDisplay : public QWidget {
 private:
     QMap<QString, QVector<MediaItem*>> mediaItems;
     QScrollArea* mainScroll;
-    QVector<ScrollWidget*> scroll;
 public:
     MainDisplay(QWidget *parent = nullptr);
     void setAreas(QVector<MediaItem*>& items);
+    void clearAreas();
 private slots:
     void onButtonClicked(MediaItem* item);
+public slots:
+    void onNoResults(QString query);
 signals:
     void itemButtonClicked(MediaItem* item);
 };

@@ -1,0 +1,39 @@
+{
+    "darkMode": true,
+    "defaultValues": {
+        "Album": 5,
+        "Author": 5,
+        "Director": 5,
+        "Duration": 5,
+        "Edition": 5,
+        "Episode": 5,
+        "Format": 5,
+        "Genre": 5,
+        "ISBN": 5,
+        "Language": 5,
+        "Production House": 5,
+        "Publisher": 5,
+        "Release Date": 5,
+        "Tags": 5,
+        "Tecnique": 5,
+        "Title": 10
+    },
+    "modifiedValues": {
+        "Album": 0,
+        "Author": 0,
+        "Director": 0,
+        "Duration": 0,
+        "Edition": 0,
+        "Episode": 0,
+        "Format": 0,
+        "Genre": 0,
+        "ISBN": 0,
+        "Language": 0,
+        "Production House": 0,
+        "Publisher": 0,
+        "Release Date": 0,
+        "Tags": 0,
+        "Tecnique": 0,
+        "Title": 0
+    }
+}
