@@ -40,8 +40,6 @@ void XmlManagerTest::testSaveAndLoadMediaItems() {
 
     // // Load the media items from the XML file
     QVector<MediaItem*> loadedMediaItems = xmlManager.load();
-    MediaItem* media0 = loadedMediaItems[0];
-    MediaItem* media1 = loadedMediaItems[1];
     std::cout << loadedMediaItems.size() << std::endl;
 
     // Verify that the loaded media items match the original media items
@@ -50,7 +48,7 @@ void XmlManagerTest::testSaveAndLoadMediaItems() {
         return;
     }
 
-    for (size_t i = 0; i < mediaItems.size(); ++i) {
+    for (int i = 0; i < mediaItems.size(); ++i) {
         if (mediaItems[i]->getTitle() != loadedMediaItems[i]->getTitle() ||
             mediaItems[i]->getAuthor() != loadedMediaItems[i]->getAuthor() ||
             mediaItems[i]->getReleaseDate() != loadedMediaItems[i]->getReleaseDate() ||

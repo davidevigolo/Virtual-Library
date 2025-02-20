@@ -43,7 +43,7 @@ FieldWidget::FieldWidget(const QString& fieldName, const std::vector<std::string
     Tags are stored in a QVector<QString> so we need to concatenate them into a single string
     */
     QString concatenatedValues;
-    for (int i = 0; i < fieldValue.size(); ++i) {
+    for (size_t i = 0; i < fieldValue.size(); ++i) {
         concatenatedValues += QString(fieldValue[i].c_str());
         if (i != fieldValue.size() - 1) {
             concatenatedValues += QString(", ");

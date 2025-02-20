@@ -37,6 +37,7 @@ void MainDisplay::setAreas(QVector<MediaItem *> &items)
     }
     delete layout();
     QVBoxLayout *mainLayout = new QVBoxLayout(this);
+    Scroll
     int i = 0;
     for(auto key : mediaItems.keys()){
         scroll[i]->setLabel(key);

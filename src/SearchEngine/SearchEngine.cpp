@@ -10,7 +10,6 @@ QVector<MediaItem*> SearchEngine::search(const QString& query, const QVector<Med
         visitor.setQuery(word);
         for(int i = 0; i < items.size(); i++){
             items[i]->accept(&visitor);
-            auto point = visitor.getPoints();
             points[i] *= visitor.getPoints();
         }
     }

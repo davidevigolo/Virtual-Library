@@ -2,7 +2,7 @@
 #include <iostream>
 #include <algorithm>
 
-SearchVisitor::SearchVisitor(const QString &query) : query(query), points(0), pointsValue{
+SearchVisitor::SearchVisitor(const QString &_query) : points(0),query(_query), pointsValue{
                                                                                   {"Title", 10}, // mediaItem
                                                                                   {"Author", 5},
                                                                                   {"Release Date", 5},

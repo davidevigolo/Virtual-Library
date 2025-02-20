@@ -112,5 +112,6 @@ MediaItem *XmlReader::read(QDomNode &node)
     }
     else {
         qWarning() << "Unknown class name: " << className;
+        return nullptr;
     }
 }

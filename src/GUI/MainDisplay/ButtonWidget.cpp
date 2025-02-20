@@ -5,7 +5,7 @@
 #include <MainWindow.h>
 #include <QFile>
 
-ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(parent), button(this), buttonLabel(this), buttonLayout(this), mediaItem(mediaItem)
+ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(parent), mediaItem(mediaItem), buttonLayout(this), button(this), buttonLabel(this)
 {
     // Set initial button size ratio to 4:3
     int buttonWidth = 200; // Example width
