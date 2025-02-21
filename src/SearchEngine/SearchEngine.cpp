@@ -1,16 +1,20 @@
 #include <SearchEngine.h>
 #include <iostream>
+#include <Settings.h>
 
 QVector<MediaItem*> SearchEngine::search(const QString& query, const QVector<MediaItem*>& items) {
-    visitor = SearchVisitor("");
+    std::map<std::string, int> weights;
+    for (const auto& pair : Settings::getSettings().weights.toStdMap()) {
+        weights[pair.first.toStdString()] = pair.second;
+    }
+    visitor = SearchVisitor("", weights);
     QVector<MediaItem*> result = items;
-    QVector<short int> points(items.size(),1) ;//to store the search  points for each item instead of re-visit it every time i need a check
+    QVector<short int> points(items.size(), 1); //to store the search  points for each item instead of re-visit it every time i need a check
 
-    for(auto word : query.split(" ")){
+    for (auto word : query.split(" ")) {
         visitor.setQuery(word);
-        for(int i = 0; i < items.size(); i++){
+        for (int i = 0; i < items.size(); i++) {
             items[i]->accept(&visitor);
-            auto point = visitor.getPoints();
             points[i] *= visitor.getPoints();
         }
     }

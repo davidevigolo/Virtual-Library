@@ -6,8 +6,6 @@ Book::Book(const std::string& title, const std::string& author, const std::strin
                 const unsigned int pages, unsigned int ISBN, const std::string& image)
                 : Readable(title, author, releaseDate, productionHouse, genre, tags, format, language, used, edition, pages,image), ISBN(ISBN) {}
 
-Book::Book(Readable* media, unsigned int ISBN) : Readable(*media), ISBN(ISBN) {}
-
 Book::~Book() {}
 
 unsigned int Book::getISBN() const {

@@ -23,6 +23,10 @@ private:
     FileManager* fileManager;
     QVector<MediaItem*> mediaItems;
     SearchEngine searchEngine;
+    void clearView();
+    void createHeader();
+    void addMainDisplay();
+    void setAppStyleSheet();
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow(){
@@ -34,7 +38,15 @@ private slots:
     void loadFromFile();
     void save();
     void saveToFile();
+    void onSettingsSignal();
     void search(QString query);
+    
+    void onButtonClicked(MediaItem* item);
+    void onItemDeleted(MediaItem* item);
+    void onItemDisplayClosed();
+    void onNewItemButtonClicked();
+    void onSettingsChanged();
 signals:
     void itemsLoaded(QVector<MediaItem*>& items);
+    void noResults(QString query);
 };

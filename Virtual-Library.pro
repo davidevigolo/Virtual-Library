@@ -13,6 +13,8 @@ CONFIG += console c++11
 CONFIG += debug
 CONFIG -= release
 
+RESOURCES += ./resources.qrc
+
 INCLUDEPATH += "./src/Logic Model"
 INCLUDEPATH += "./src/Save/xml"
 INCLUDEPATH += "./src/Save/json"
@@ -22,7 +24,10 @@ INCLUDEPATH += "./src/GUI/MainDisplay"
 INCLUDEPATH += "./src/Save"
 INCLUDEPATH += "./src/GUI/Menu"
 INCLUDEPATH += "./src/GUI/SearchBar"
+INCLUDEPATH += "./src/GUI/ItemDisplay"
 INCLUDEPATH += "./src/SearchEngine"
+INCLUDEPATH += "./src/GUI/SettingsDisplay"
+INCLUDEPATH += "./src/Settings"
 
 #SEARCH ENGINE
 HEADERS += "./src/SearchEngine/SearchEngine.h"
@@ -42,6 +47,12 @@ HEADERS += "./src/GUI/MainDisplay/ButtonWidget.h"
 HEADERS += "./src/GUI/Menu/TopMenu.h"
 HEADERS += "./src/GUI/SearchBar/SearchBar.h"
 HEADERS += "./src/GUI/MainDisplay/ScrollWidget.h"
+HEADERS += "./src/GUI/ItemDisplay/FieldWidget.h"
+HEADERS += "./src/GUI/ItemDisplay/GridVisitor.h"
+HEADERS += "./src/GUI/ItemDisplay/ItemDisplay.h"
+HEADERS += "./src/GUI/ItemDisplay/EditFactory.h"
+HEADERS += "./src/GUI/ItemDisplay/ImageButton.h"
+HEADERS += "./src/GUI/SettingsDisplay/SettingsDisplay.h"
 
 SOURCES += "./src/GUI/MainWindow.cpp"
 SOURCES += "./src/GUI/MainDisplay/ScrollPanel.cpp"
@@ -52,6 +63,12 @@ SOURCES += "./src/GUI/MainDisplay/ButtonWidget.cpp"
 SOURCES += "./src/GUI/Menu/TopMenu.cpp"
 SOURCES += "./src/GUI/SearchBar/SearchBar.cpp"
 SOURCES += "./src/GUI/MainDisplay/ScrollWidget.cpp"
+SOURCES += "./src/GUI/ItemDisplay/FieldWidget.cpp"
+SOURCES += "./src/GUI/ItemDisplay/GridVisitor.cpp"
+SOURCES += "./src/GUI/ItemDisplay/ItemDisplay.cpp"
+SOURCES += "./src/GUI/ItemDisplay/EditFactory.cpp"
+SOURCES += "./src/GUI/ItemDisplay/ImageButton.cpp"
+SOURCES += "./src/GUI/SettingsDisplay/SettingsDisplay.cpp"
 
 # Logic Model
 SOURCES += "./src/Logic Model/MediaItem.cpp"
@@ -92,6 +109,10 @@ SOURCES += "./src/Save/xml/XmlManager.cpp"
 SOURCES += "./src/Save/json/JsonManager.cpp"
 SOURCES += "./src/Save/xml/XmlReader.cpp"
 SOURCES += "./src/Save/ManagerFactory.cpp"
+
+#Settings
+HEADERS += "./src/Settings/Settings.h"
+SOURCES += "./src/Settings/Settings.cpp"
 
 #Test
 HEADERS += "./Test/JsonTests/JsonTest.h"

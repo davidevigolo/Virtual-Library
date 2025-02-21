@@ -24,6 +24,7 @@ void XmlVisitor::visit(const MediaItem *media)
     writer.writeTextElement("Format", media->getFormat().c_str());
     writer.writeTextElement("Language", media->getLanguage().c_str());
     writer.writeTextElement("Used", media->getUsed().c_str());
+    writer.writeTextElement("Image", media->getImage().c_str());
 }
 
 void XmlVisitor::visit(const Readable *media)
@@ -64,8 +65,8 @@ void XmlVisitor::visit(const Film *media)
     writer.writeStartElement("MediaItem");
     writer.writeStartElement("Film");
     visit(static_cast<const AudioVisual *>(media));
-    writer.writeTextElement("Tecnic", media->getTecnic().c_str());
-    writer.writeTextElement("Framerate", std::to_string(media->getFramerate()).c_str());
+    writer.writeTextElement("Technique", media->getTechnique().c_str());
+    writer.writeTextElement("Framerate", QString::number(media->getFramerate()));
     writer.writeTextElement("Director", media->getDirector().c_str());
     writer.writeEndElement();
     writer.writeEndElement();

@@ -6,7 +6,6 @@
 void printMediaItems(const QString &filePath) {
     QFile file(filePath);
     if (!file.open(QIODevice::ReadOnly | QIODevice::Text)) {
-        qDebug() << "Failed to open file:" << filePath;
         return;
     }
 
@@ -14,7 +13,6 @@ void printMediaItems(const QString &filePath) {
     while (!xml.atEnd() && !xml.hasError()) {
         if (xml.readNext() == QXmlStreamReader::StartElement) {
             if (xml.name() == "Book" || xml.name() == "Article" || xml.name() == "Film" || xml.name() == "Podcast" || xml.name() == "Music") {
-                qDebug() << "Type:" << xml.name().toString();
                 while (!(xml.tokenType() == QXmlStreamReader::EndElement && (xml.name() == "Book" || xml.name() == "Article" || xml.name() == "Film" || xml.name() == "Podcast" || xml.name() == "Music"))) {
                     if (xml.tokenType() == QXmlStreamReader::StartElement) {
                         QString elementName = xml.name().toString();

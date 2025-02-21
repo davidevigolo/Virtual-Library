@@ -1,6 +1,5 @@
 #include "JsonManager.h"
 #include "JsonVisitor.h"
-
 JsonManager::~JsonManager() {}
 
 std::vector<std::string> JsonManager::JsonArrToVec(const QJsonArray &array) const
@@ -59,7 +58,7 @@ MediaItem *JsonManager::ObjectLoader(const QString &className, const QJsonObject
             obj["Language"].toString().toStdString(),
             obj["Used"].toString().toStdString(),
             obj["Duration"].toInt(),
-            obj["Tecnic"].toString().toStdString(),
+            obj["Technique"].toString().toStdString(),
             obj["Framerate"].toDouble(),
             obj["Director"].toString().toStdString(),
             obj["Image"].toString().toStdString());
@@ -124,8 +123,16 @@ QVector<MediaItem *> JsonManager::load() const
         if (value.isObject())
         {
             QJsonObject obj = value.toObject();              // save the object information
-            QString className = obj["Class"].toString();     // save the class information
-            Library.push_back(ObjectLoader(className, obj)); // add the readen object to the vector (once created)
+            if (obj.contains("Class")) {
+                QString className = obj["Class"].toString();     // save the class information
+                MediaItem* media = ObjectLoader(className, obj); // create the media item
+                if (media != nullptr) {
+                    Library.push_back(media); // add the created object to the vector
+                }
+            } else {
+                qWarning() << "Object in JSON document missing 'Class' field";
+            }
+            
         }
     }
 

@@ -7,38 +7,78 @@
 #include <iostream>
 #include <ScrollWidget.h>
 
-MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent) , 
-    scroll(
-        {
-        new ScrollWidget(this),
-        new ScrollWidget(this),
-        new ScrollWidget(this),
-        new ScrollWidget(this),
-        new ScrollWidget(this)
-        }
-    )
-{}
+MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent), mainScroll(new QScrollArea(this))
+{
+    setLayout(new QVBoxLayout(this));
+    layout()->addWidget(mainScroll);
+
+    QLabel *noResult = new QLabel("No results found",this);
+    noResult->setObjectName("noResultLabel");
+    noResult->setAlignment(Qt::AlignCenter | Qt::AlignTop);
+    layout()->addWidget(noResult);
+    noResult->hide();
+
+    mainScroll->setWidgetResizable(true);
+    mainScroll->hide();
+}
 
 void MainDisplay::setAreas(QVector<MediaItem *> &items)
 {
     LoadVisitor visitor(mediaItems);
-    for(auto key : mediaItems.keys()){
-        mediaItems[key].clear();
-    }
-    
+
+    clearAreas();
+
     for (MediaItem *item : items)
     {
         item->accept(&visitor);
     }
-    delete layout();
-    QVBoxLayout *mainLayout = new QVBoxLayout(this);
-    int i = 0;
-    for(auto key : mediaItems.keys()){
-        scroll[i]->setLabel(key);
-        scroll[i]->setItems(mediaItems[key]);
-        mainLayout->addWidget(scroll[i]);
-        i++;
+
+    mainScroll->show();
+    findChild<QLabel *>("noResultLabel")->hide();
+    
+    QVBoxLayout *mainLayout = new QVBoxLayout();
+    QWidget *container = new QWidget();
+    container->setObjectName("container");
+    container->setLayout(mainLayout);
+
+    for (auto key : mediaItems.keys())
+    {
+        ScrollWidget *scroll = new ScrollWidget(container);
+        connect(scroll, &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);
+        scroll->setLabel(key);
+        scroll->setItems(mediaItems[key]);
+        mainLayout->addWidget(scroll);
     }
-    setStyleSheet("background-color: black;");
-    setLayout(mainLayout);
+
+    mainScroll->setWidget(container);
+}
+
+void MainDisplay::clearAreas()
+{
+    for (auto key : mediaItems.keys())
+    {
+        mediaItems[key].clear();
+        mediaItems.remove(key);
+    }
+
+    auto scrolls = findChildren<ScrollWidget *>();
+    QWidget *_container = findChild<QWidget *>("container");
+    for (auto scroll : scrolls)
+    {
+        _container->layout()->removeWidget(scroll);
+        delete scroll;
+    }
+}
+
+void MainDisplay::onButtonClicked(MediaItem *item)
+{
+    emit itemButtonClicked(item);
+}
+
+void MainDisplay::onNoResults(QString query)
+{
+    mainScroll->hide();
+    QLabel* noResultLabel = findChild<QLabel *>("noResultLabel");
+    noResultLabel->setText("No results found for: " + query);
+    noResultLabel->show();
 }

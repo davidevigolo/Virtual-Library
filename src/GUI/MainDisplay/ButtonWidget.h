@@ -17,4 +17,8 @@ private:
 public:
     ButtonWidget(MediaItem* mediaItem,QWidget *parent = nullptr);
     void resizeEvent(QResizeEvent *event) override;
+private slots:
+    void onButtonClicked();
+signals:
+    void itemButtonClicked(MediaItem* mediaItem);
 };

@@ -1,0 +1,40 @@
+MainWindow {
+    background-color: #1e2124;
+    color: white;
+}
+
+QWidget#searchBar {
+    background-color: #36393e;
+    color: white;
+}
+
+QWidget#scrollArea{
+    background-color: #282b30;
+    color: white;
+}
+
+QWidget#scrollPanel{
+    background-color: #282b30;
+    color: white;
+}
+
+QWidget#itemButtonLabel{
+    background-color: #282b30;
+    color: white;
+}
+
+QWidget#scrollLabel{
+    background-color: #282b30;
+    color: white;
+}
+
+QWidget#container{
+    background-color: #1e2124;
+    color: white;
+}
+
+
+
+
+
+
