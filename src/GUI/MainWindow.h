@@ -26,6 +26,7 @@ private:
     void clearView();
     void createHeader();
     void addMainDisplay();
+    void setAppStyleSheet();
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow(){
@@ -44,6 +45,7 @@ private slots:
     void onItemDeleted(MediaItem* item);
     void onItemDisplayClosed();
     void onNewItemButtonClicked();
+    void onSettingsChanged();
 signals:
     void itemsLoaded(QVector<MediaItem*>& items);
     void noResults(QString query);

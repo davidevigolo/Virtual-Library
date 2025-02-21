@@ -39,7 +39,6 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     // Adjust icon size to fit button while maintaining aspect ratio
     QSize iconSize = pixmap.size();
     iconSize.scale(button.width(),button.width(), Qt::AspectRatioMode::KeepAspectRatio);
-    qDebug() << "Icon size:" << iconSize;
     button.setIconSize(iconSize);
     button.setStyleSheet("border: none; padding: 0px; margin: 0px;");
 
@@ -50,12 +49,13 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
 
     QFontMetrics metrics(buttonLabel.font());
     QString elidedText = metrics.elidedText(QString(mediaItem->getTitle().c_str()), Qt::ElideRight, button.width());
+    buttonLabel.setObjectName("itemButtonLabel");
     buttonLabel.setText(elidedText);
     buttonLabel.setAlignment(Qt::AlignCenter);
     buttonLabel.setStyleSheet("background-color: white; color: black;");
     buttonLabel.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
-    buttonLabel.setStyleSheet("border: none; padding: 0px; margin: 0px; box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);");
+    buttonLabel.setStyleSheet("border: none; padding: 0px; margin: 0px;");
     buttonLayout.addWidget(&buttonLabel, 0, Qt::AlignBottom);
 
     setLayout(&buttonLayout);

@@ -7,14 +7,16 @@
 class SettingsDisplay : public QWidget{
     Q_OBJECT
 private:
-    bool darkMode;
-    std::map<std::string,int> weights;
+    Theme selectedTheme;
+    QMap<QString,QColor> customPaletteData;
+    QMap<QString,int> weights;
 public:
-    SettingsDisplay(QWidget* parent = nullptr, const bool &dark = true);
+    SettingsDisplay(QWidget* parent = nullptr);
 signals:
     void settingsDisplayClosed();
+    void settingsChanged();
 private slots:
-    void onThemeChanged();
     void onGoBack();
     void onApply();
+    void onReset();
 };

@@ -3,11 +3,14 @@
 ScrollWidget::ScrollWidget(QWidget *parent) : QWidget(parent) {
     layout = new QVBoxLayout(this);
     label = new QLabel(this);
+    label->setObjectName("scrollLabel");
     layout->addWidget(label);
     scrollPanel = new ScrollPanel(this);
+    scrollPanel->setObjectName("scrollPanel");
     scrollPanel->hide();
     connect(scrollPanel, &ScrollPanel::itemButtonClicked, this, &ScrollWidget::onButtonClicked);
     scrollArea = new CustomScrollArea(this);
+    scrollArea->setObjectName("scrollArea");
     scrollArea->setWidget(scrollPanel);
     layout->addWidget(scrollArea);
     this->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
@@ -17,7 +20,6 @@ ScrollWidget::ScrollWidget(QWidget *parent) : QWidget(parent) {
 void ScrollWidget::setLabel(QString text)
 {
     label->setText(text);
-    label->setStyleSheet("color: white; background-color: #282b30;");
 }
 
 void ScrollWidget::setItems(QVector<MediaItem *> &items)
@@ -27,7 +29,6 @@ void ScrollWidget::setItems(QVector<MediaItem *> &items)
     scrollArea->setWidgetResizable(true);
     scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOn);
     scrollArea->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    scrollArea->setStyleSheet("background-color: #36393e;");
 }
 
 void ScrollWidget::onButtonClicked(MediaItem *item)

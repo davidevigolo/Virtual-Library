@@ -31,22 +31,22 @@ void EditFactory::makeEdit(FieldWidget* fieldWidget, MediaItem* item){
     }else if(fieldWidget->getFieldName() == "Edition"){
         static_cast<Readable*>(item)->setEdition(fieldWidget->getLineEditValue().toStdString());
     }else if(fieldWidget->getFieldName() == "Pages"){
-        static_cast<Readable*>(item)->setPages(fieldWidget->getLineEditValue().toInt());
+        static_cast<Readable*>(item)->setPages(fieldWidget->getSpinBoxValue());
     }else if(fieldWidget->getFieldName() == "Publisher"){
         static_cast<Article*>(item)->setPublisher(fieldWidget->getLineEditValue().toStdString());
     }else if(fieldWidget->getFieldName() == "ISBN"){
-        static_cast<Book*>(item)->setISBN(fieldWidget->getLineEditValue().toInt());
+        static_cast<Book*>(item)->setISBN(fieldWidget->getSpinBoxValue());
     }else if(fieldWidget->getFieldName() == "Duration"){
-        static_cast<AudioVisual*>(item)->setDuration(fieldWidget->getLineEditValue().toInt());
+        static_cast<AudioVisual*>(item)->setDuration(fieldWidget->getSpinBoxValue());
     }else if(fieldWidget->getFieldName() == "Technique"){
         static_cast<Film*>(item)->setTechnique(fieldWidget->getLineEditValue().toStdString());
     }else if(fieldWidget->getFieldName() == "Framerate"){
-        static_cast<Film*>(item)->setFramerate(fieldWidget->getLineEditValue().toDouble());
+        static_cast<Film*>(item)->setFramerate(fieldWidget->getDoubleSpinBoxValue());
     }else if(fieldWidget->getFieldName() == "Director"){
         static_cast<Film*>(item)->setDirector(fieldWidget->getLineEditValue().toStdString());
     }else if(fieldWidget->getFieldName() == "Album"){
         static_cast<Music*>(item)->setAlbum(fieldWidget->getLineEditValue().toStdString());
     }else if(fieldWidget->getFieldName() == "Episode"){
-        static_cast<Podcast*>(item)->setEpisode(fieldWidget->getLineEditValue().toInt());
+        static_cast<Podcast*>(item)->setEpisode(fieldWidget->getSpinBoxValue());
     }
 }

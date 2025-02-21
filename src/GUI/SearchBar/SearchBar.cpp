@@ -10,7 +10,6 @@ SearchBar::SearchBar(QWidget *parent) : QWidget(parent)
     searchTextEdit->setPlaceholderText("Search...");
     searchTextEdit->setFixedHeight(30);
 
-    searchTextEdit->setStyleSheet("background-color: white; color: black;");
     QHBoxLayout *searchLayout = new QHBoxLayout(this);
     searchLayout->addWidget(searchTextEdit);
     setLayout(searchLayout);

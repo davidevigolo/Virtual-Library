@@ -27,7 +27,7 @@ void JsonVisitor::visit(const Readable* readable){
 
 void JsonVisitor::visit(const AudioVisual* audioVisual){
     visit(static_cast<const MediaItem*>(audioVisual));
-    object["Duration"] = std::to_string(audioVisual->getDuration()).c_str();
+    object["Duration"] = static_cast<int>(audioVisual->getDuration());
     
 }
 
@@ -48,7 +48,8 @@ void JsonVisitor::visit(const Book* book){
 void JsonVisitor::visit(const Film* film){
     visit(static_cast<const AudioVisual*>(film));
     object["Technique"] = film->getTechnique().c_str();
-    object["Framerate"] = static_cast<int>(film->getFramerate());
+    object["Framerate"] = static_cast<double>(film->getFramerate());
+    object["Director"] = film->getDirector().c_str();   
     object["Class"] = "Film";
     
 }

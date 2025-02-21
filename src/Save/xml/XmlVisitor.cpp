@@ -66,7 +66,7 @@ void XmlVisitor::visit(const Film *media)
     writer.writeStartElement("Film");
     visit(static_cast<const AudioVisual *>(media));
     writer.writeTextElement("Technique", media->getTechnique().c_str());
-    writer.writeTextElement("Framerate", std::to_string(media->getFramerate()).c_str());
+    writer.writeTextElement("Framerate", QString::number(media->getFramerate()));
     writer.writeTextElement("Director", media->getDirector().c_str());
     writer.writeEndElement();
     writer.writeEndElement();

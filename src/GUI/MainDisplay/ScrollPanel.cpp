@@ -2,9 +2,7 @@
 #include "ButtonWidget.h"
 #include <iostream>
 
-ScrollPanel::ScrollPanel(QWidget *parent) : QWidget(parent), panelLayout(new QHBoxLayout(this)) {
-    setStyleSheet("background-color: #36393e");
-}
+ScrollPanel::ScrollPanel(QWidget *parent) : QWidget(parent), panelLayout(new QHBoxLayout(this)) {}
 
 void ScrollPanel::addItem(MediaItem *item) {
     ButtonWidget *button = new ButtonWidget(item,this);

@@ -1,11 +1,20 @@
 #pragma once
-#include <map>
+#include <QMap>
 #include <string>
+#include <QString>
+#include <QColor>
+
+enum Theme{
+    DARK,
+    LIGHT,
+    CUSTOM
+};
 
 typedef struct{
     public:
-        bool darkMode;
-        std::map<std::string,int> weights;
+        Theme selectedTheme;
+        QMap<QString,QColor> customPaletteData;
+        QMap<QString,int> weights;
 } SettingsData;
 
 class Settings{
@@ -15,4 +24,7 @@ class Settings{
         Settings();
         static void setSettings(SettingsData newSettings);
         static SettingsData getSettings();
+        static void saveSettings();
+        static QString themeToText(int);
+        static Theme textToTheme(QString);
 };

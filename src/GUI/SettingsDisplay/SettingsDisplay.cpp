@@ -8,23 +8,47 @@
 #include <QLabel>
 #include <QSpinBox>
 #include <QHBoxLayout>
+#include <qmessagebox.h>
+#include <QColorDialog>
+#include <qmenu.h>
+#include <qlineedit.h>
+#include <QComboBox>
 
-SettingsDisplay::SettingsDisplay(QWidget* parent, const bool& dark): QWidget(parent), darkMode(dark) {
+SettingsDisplay::SettingsDisplay(QWidget* parent): QWidget(parent) {
+    setObjectName("settingsDisplay");
+    selectedTheme = Settings::getSettings().selectedTheme;
+    customPaletteData = Settings::getSettings().customPaletteData;
+    weights = Settings::getSettings().weights;
+
     this->setWindowTitle("Settings");
     
     auto settings = Settings::getSettings();
     QVBoxLayout *layout = new QVBoxLayout(this);
     QPushButton *theme = new QPushButton("Mode", this);
     theme->setObjectName("theme");
-    darkMode = !(settings.darkMode);
-    onThemeChanged();
-    connect(theme, &QPushButton::clicked, this, &SettingsDisplay::onThemeChanged);
     layout->addWidget(theme);
 
     QPushButton* apply = new QPushButton("Apply", this);
     connect(apply, &QPushButton::clicked, this, &SettingsDisplay::onApply);
     layout->addWidget(apply);
 
+    QComboBox* themeComboBox = new QComboBox(this);
+    themeComboBox->addItem("Dark");
+    themeComboBox->addItem("Light");
+    themeComboBox->addItem("Custom");
+    themeComboBox->setCurrentText(Settings::themeToText(selectedTheme));
+    connect(themeComboBox, QOverload<const QString&>::of(&QComboBox::currentTextChanged), [this](const QString& theme) {
+        selectedTheme = Settings::textToTheme(theme); // Convert QString to Theme
+    });
+    layout->addWidget(themeComboBox);
+
+    QPushButton* reset = new QPushButton("Reset default weights", this);
+    connect(reset, &QPushButton::clicked, this, &SettingsDisplay::onReset);
+    layout->addWidget(reset);
+    
+
+    QHBoxLayout *containerLayout = new QHBoxLayout();
+    QVBoxLayout *themeLayout = new QVBoxLayout();
     QVBoxLayout* weightsLayout = new QVBoxLayout();
 
     QStringList labels = {"Title", "Author", "Release Date", "Production House", "Genre", "Tags", "Format", "Language", "Edition", "Publisher", "ISBN", "Duration", "Director", "Tecnique", "Album", "Episode"};
@@ -33,16 +57,37 @@ SettingsDisplay::SettingsDisplay(QWidget* parent, const bool& dark): QWidget(par
         QLabel* lbl = new QLabel(label, this);
         QSpinBox* spinBox = new QSpinBox(this);
         spinBox->setRange(0, 100);
-        spinBox->setValue(settings.weights[label.toStdString()]);
+        spinBox->setValue(settings.weights[label]);
         connect(spinBox, QOverload<int>::of(&QSpinBox::valueChanged), [this, label](int value) {
-            weights[label.toStdString()] = value;
+            weights[label] = value;
         });
         rowLayout->addWidget(lbl);
         rowLayout->addWidget(spinBox);
         weightsLayout->addLayout(rowLayout);
     }
 
-    layout->addLayout(weightsLayout);
+    QStringList paletteLabels = {"Window", "WindowText", "Base", "AlternateBase", "ToolTipBase", "ToolTipText", "Text", "Button", "ButtonText", "BrightText", "Link", "Highlight", "HighlightedText"};
+    for (const QString& label : paletteLabels) {
+        QHBoxLayout* rowLayout = new QHBoxLayout();
+        QLabel* lbl = new QLabel(label, this);
+        QColor color = settings.customPaletteData[label];
+        QPushButton* colorPicker = new QPushButton(this);
+        colorPicker->setObjectName(label);
+        colorPicker->setStyleSheet("background-color: " + color.name() + ";");
+        connect(colorPicker, &QPushButton::clicked, [this, label, colorPicker]() {
+            QColor color = QColorDialog::getColor(customPaletteData[label], this, "Select Color");
+            if (color.isValid()) {
+                customPaletteData[label] = color;
+                colorPicker->setStyleSheet("background-color: " + color.name() + ";");
+            }
+        });
+        rowLayout->addWidget(lbl);
+        rowLayout->addWidget(colorPicker);
+        themeLayout->addLayout(rowLayout);
+    }
+    containerLayout->addLayout(weightsLayout);
+    containerLayout->addLayout(themeLayout);
+    layout->addLayout(containerLayout);
 
 
     setLayout(layout);
@@ -51,82 +96,33 @@ SettingsDisplay::SettingsDisplay(QWidget* parent, const bool& dark): QWidget(par
 
 }
 
-void SettingsDisplay::onThemeChanged() {
-    auto theme = findChild<QPushButton*>("theme");
-    if (!darkMode) {
-        theme->setText("Dark Mode");
-        theme->setStyleSheet("background-color: black; color: white;");
-    } else {
-        theme->setText("Light Mode");
-        theme->setStyleSheet("background-color: white; color: black;");
-    }
-    darkMode = !darkMode;
-}
-
 void SettingsDisplay::onGoBack() {
     emit settingsDisplayClosed();
 }
 
 void SettingsDisplay::onApply() {
-    //save the weight change in a file
-    QFile file("settings.json");
-    if (file.open(QIODevice::WriteOnly)) {
-        QJsonObject settings;
-        settings["darkMode"] = darkMode;
-        
-        QJsonObject modifiedValues;
-
-        modifiedValues["Title"] = weights["Title"];
-        modifiedValues["Author"] = weights["Author"];
-        modifiedValues["Release Date"] = weights["Release Date"];
-        modifiedValues["Production House"] = weights["Production House"];
-        modifiedValues["Genre"] = weights["Genre"];
-        modifiedValues["Tags"] = weights["Tags"];
-        modifiedValues["Format"] = weights["Format"];
-        modifiedValues["Language"] = weights["Language"];
-        modifiedValues["Edition"] = weights["Edition"];
-        modifiedValues["Publisher"] = weights["Publisher"];
-        modifiedValues["ISBN"] = weights["ISBN"];
-        modifiedValues["Duration"] = weights["Duration"];
-        modifiedValues["Director"] = weights["Director"];
-        modifiedValues["Tecnique"] = weights["Tecnique"];
-        modifiedValues["Album"] = weights["Album"];
-        modifiedValues["Episode"] = weights["Episode"];
-
-        QJsonObject defaultValues;
-
-        defaultValues["Title"] = 10;
-        defaultValues["Author"] = 5;
-        defaultValues["Release Date"] = 5;
-        defaultValues["Production House"] = 5;
-        defaultValues["Genre"] = 5;
-        defaultValues["Tags"] = 5;
-        defaultValues["Format"] = 5;
-        defaultValues["Language"] = 5;
-        defaultValues["Edition"] = 5;
-        defaultValues["Publisher"] = 5;
-        defaultValues["ISBN"] = 5;
-        defaultValues["Duration"] = 5;
-        defaultValues["Director"] = 5;
-        defaultValues["Tecnique"] = 5;
-        defaultValues["Album"] = 5;
-        defaultValues["Episode"] = 5;
-        
-        settings["modifiedValues"] = modifiedValues;
-        settings["defaultValues"] = defaultValues;
-
-        QJsonDocument doc(settings);
-        file.write(doc.toJson());
-        file.close();
-    } else {
-        qWarning("Could not open Settings.json to apply the changes");
-    }
-
     SettingsData settingsData;
-    settingsData.darkMode = darkMode;
+    settingsData.selectedTheme = selectedTheme;
+    settingsData.customPaletteData = customPaletteData;
     settingsData.weights = weights;
     Settings::setSettings(settingsData);
+    Settings::saveSettings();
 
+    emit settingsChanged();
     emit settingsDisplayClosed();
 
+}
+
+void SettingsDisplay::onReset(){
+    QMessageBox* confirmReset = new QMessageBox(this);
+    confirmReset->setWindowTitle("Reset");
+    confirmReset->setText("Are you sure you want to reset the weights?");
+    confirmReset->setStandardButtons(QMessageBox::Yes | QMessageBox::No);
+    confirmReset->setDefaultButton(QMessageBox::No);
+    for (auto it = weights.begin(); it != weights.end(); ++it) {
+        it.value() = 5;
+        if (it.key() == "Title") {
+            it.value() = 10;
+        }
+    }
 }
