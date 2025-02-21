@@ -237,7 +237,6 @@ void MainWindow::onSettingsSignal()
 {
     SettingsDisplay *settingsDisplay = new SettingsDisplay;
     connect(settingsDisplay, &SettingsDisplay::settingsChanged, this, &MainWindow::onSettingsChanged);
-    connect(settingsDisplay, &SettingsDisplay::settingsDisplayClosed, this, &MainWindow::onSettingsClosed);
     settingsDisplay->setAttribute(Qt::WA_DeleteOnClose);
     settingsDisplay->show();
     settingsDisplay->resize(400, 400);
@@ -305,9 +304,4 @@ void MainWindow::setAppStyleSheet()
         palette.setColor(QPalette::HighlightedText, settings["HighlightedText"]);
     }
     qApp->setPalette(palette);
-}
-
-void MainWindow::onSettingsClosed()
-{
-    setAppStyleSheet();
 }

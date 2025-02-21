@@ -1,134 +1,34 @@
 [
     {
-        "Author": "F. Scott Fitzgerald",
+        "Author": "George Orwell",
         "Class": "Book",
         "Edition": "First",
         "Format": "Paperback",
-        "Genre": "Classic",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
+        "Genre": "Dystopian",
+        "ISBN": 9780451524935,
+        "Image": "1984.jpeg",
         "Language": "English",
-        "Pages": 180,
-        "ProductionHouse": "Scribner",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "The Great Gatsby",
-        "Used": "No"
-    },
-    {
-        "Author": "F. Scott Fitzgerald",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Classic",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 180,
-        "ProductionHouse": "Scribner",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Book2",
-        "Used": "No"
-    },
-    {
-        "Author": "F. Scott Fitzgerald",
-        "Class": "Article",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Classic",
-        "Image": "/home/davide/Documenti/Progetti/Virtual-Library/follia.jpeg",
-        "Language": "English",
-        "Pages": 110,
-        "ProductionHouse": "Scribner",
-        "Publisher": "The New York Times",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Streetsmart",
-        "Used": "No"
-    },
-    {
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Film",
-        "Director": "Gianlucaca",
-        "Duration": 8,
-        "Format": "DVD",
-        "Framerate": 11.01,
-        "Genre": "Follia",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Technique": "Diollaca",
-        "Title": "AGG FIlm",
-        "Used": "No"
-    },
-    {
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Podcast",
-        "Duration": 0,
-        "Episodes": 24,
-        "Format": "DVD",
-        "Genre": "Comedy",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Mannaggia Podcast",
-        "Used": "No"
-    },
-    {
-        "Album": "Aldo Giovanni e Jack",
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Music",
-        "Duration": 0,
-        "Format": "DVD",
-        "Genre": "Comedy",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Mannaggia Musica",
+        "Pages": 328,
+        "ProductionHouse": "Harcourt",
+        "ReleaseDate": "1949",
+        "Tags": ["Dystopian", "Political Fiction"],
+        "Title": "1984",
         "Used": "No"
     },
     {
         "Author": "George Orwell",
-        "Class": "Book",
+        "Class": "Article",
         "Edition": "First",
-        "Format": "Hardcover",
-        "Genre": "Dystopian",
-        "ISBN": 978045,
-        "Image": "follia.jpeg",
+        "Format": "Paperback",
+        "Genre": "Political",
+        "Image": "1984.jpeg",
         "Language": "English",
-        "Pages": 328,
-        "ProductionHouse": "Secker & Warburg",
+        "Pages": 40,
+        "ProductionHouse": "Harcourt",
+        "Publisher": "The Guardian",
         "ReleaseDate": "1949",
-        "Tags": [
-            "Dystopian",
-            "Fiction"
-        ],
-        "Title": "1984",
+        "Tags": ["Dystopian", "Political Fiction"],
+        "Title": "1984 Article",
         "Used": "No"
     },
     {
@@ -137,321 +37,30 @@
         "Edition": "First",
         "Format": "Hardcover",
         "Genre": "Fantasy",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
+        "ISBN": 9780747532743,
+        "Image": "harry_potter.jpeg",
         "Language": "English",
         "Pages": 309,
         "ProductionHouse": "Bloomsbury",
         "ReleaseDate": "1997",
-        "Tags": [
-            "Fantasy",
-            "Fiction"
-        ],
+        "Tags": ["Fantasy", "Adventure"],
         "Title": "Harry Potter and the Philosopher's Stone",
         "Used": "No"
     },
     {
-        "Author": "J.R.R. Tolkien",
-        "Class": "Book",
+        "Author": "J.K. Rowling",
+        "Class": "Article",
         "Edition": "First",
         "Format": "Paperback",
         "Genre": "Fantasy",
-        "ISBN": 978026,
-        "Image": "follia.jpeg",
+        "Image": "harry_potter.jpeg",
         "Language": "English",
-        "Pages": 423,
-        "ProductionHouse": "George Allen & Unwin",
-        "ReleaseDate": "1954",
-        "Tags": [
-            "Fantasy",
-            "Fiction"
-        ],
-        "Title": "The Fellowship of the Ring",
-        "Used": "No"
-    },
-    {
-        "Author": "Harper Lee",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Hardcover",
-        "Genre": "Classic",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 281,
-        "ProductionHouse": "J.B. Lippincott & Co.",
-        "ReleaseDate": "1960",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "To Kill a Mockingbird",
-        "Used": "No"
-    },
-    {
-        "Author": "Jane Austen",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Romance",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 279,
-        "ProductionHouse": "T. Egerton",
-        "ReleaseDate": "1813",
-        "Tags": [
-            "Romance",
-            "Fiction"
-        ],
-        "Title": "Pride and Prejudice",
-        "Used": "No"
-    },
-    {
-        "Author": "Mark Twain",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Adventure",
-        "ISBN": 978048,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 366,
-        "ProductionHouse": "Chatto & Windus",
-        "ReleaseDate": "1884",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Adventures of Huckleberry Finn",
-        "Used": "No"
-    },
-    {
-        "Author": "Mary Shelley",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Horror",
-        "ISBN": 978048,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 280,
-        "ProductionHouse": "Lackington, Hughes, Harding, Mavor & Jones",
-        "ReleaseDate": "1818",
-        "Tags": [
-            "Horror",
-            "Fiction"
-        ],
-        "Title": "Frankenstein",
-        "Used": "No"
-    },
-    {
-        "Author": "Herman Melville",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Adventure",
-        "ISBN": 978150,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 635,
-        "ProductionHouse": "Harper & Brothers",
-        "ReleaseDate": "1851",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Moby-Dick",
-        "Used": "No"
-    },
-    {
-        "Author": "Leo Tolstoy",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Historical",
-        "ISBN": 978019,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 1225,
-        "ProductionHouse": "The Russian Messenger",
-        "ReleaseDate": "1869",
-        "Tags": [
-            "Historical",
-            "Fiction"
-        ],
-        "Title": "War and Peace",
-        "Used": "No"
-    },
-    {
-        "Author": "Charles Dickens",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Classic",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 544,
-        "ProductionHouse": "Chapman & Hall",
-        "ReleaseDate": "1859",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "A Tale of Two Cities",
-        "Used": "No"
-    },
-    {
-        "Author": "Fyodor Dostoevsky",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Philosophical",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 671,
-        "ProductionHouse": "The Russian Messenger",
-        "ReleaseDate": "1866",
-        "Tags": [
-            "Philosophical",
-            "Fiction"
-        ],
-        "Title": "Crime and Punishment",
-        "Used": "No"
-    },
-    {
-        "Author": "Gabriel Garcia Marquez",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Magical Realism",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 417,
-        "ProductionHouse": "Harper & Row",
-        "ReleaseDate": "1967",
-        "Tags": [
-            "Magical Realism",
-            "Fiction"
-        ],
-        "Title": "One Hundred Years of Solitude",
-        "Used": "No"
-    },
-    {
-        "Author": "Homer",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Epic",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 560,
-        "ProductionHouse": "Penguin Classics",
-        "ReleaseDate": "800 BC",
-        "Tags": [
-            "Epic",
-            "Fiction"
-        ],
-        "Title": "The Odyssey",
-        "Used": "No"
-    },
-    {
-        "Author": "Miguel de Cervantes",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Adventure",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 1072,
-        "ProductionHouse": "Francisco de Robles",
-        "ReleaseDate": "1605",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Don Quixote",
-        "Used": "No"
-    },
-    {
-        "Author": "James Joyce",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 730,
-        "ProductionHouse": "Sylvia Beach",
-        "ReleaseDate": "1922",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "Ulysses",
-        "Used": "No"
-    },
-    {
-        "Author": "Franz Kafka",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Philosophical",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 201,
-        "ProductionHouse": "Kurt Wolff Verlag",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Philosophical",
-            "Fiction"
-        ],
-        "Title": "The Trial",
-        "Used": "No"
-    },
-    {
-        "Author": "Virginia Woolf",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978015,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 209,
-        "ProductionHouse": "Hogarth Press",
-        "ReleaseDate": "1927",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "To the Lighthouse",
-        "Used": "No"
-    },
-    {
-        "Author": "Marcel Proust",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 4215,
-        "ProductionHouse": "Grasset",
-        "ReleaseDate": "1913",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "In Search of Lost Time",
+        "Pages": 50,
+        "ProductionHouse": "Bloomsbury",
+        "Publisher": "The New York Times",
+        "ReleaseDate": "1997",
+        "Tags": ["Fantasy", "Adventure"],
+        "Title": "Harry Potter Article",
         "Used": "No"
     },
     {
@@ -460,36 +69,14 @@
         "Edition": "First",
         "Format": "Paperback",
         "Genre": "Classic",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
+        "ISBN": 9780743273565,
+        "Image": "gatsby.jpeg",
         "Language": "English",
         "Pages": 180,
         "ProductionHouse": "Scribner",
         "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
+        "Tags": ["Classic", "Fiction"],
         "Title": "The Great Gatsby",
-        "Used": "No"
-    },
-    {
-        "Author": "F. Scott Fitzgerald",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Classic",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 180,
-        "ProductionHouse": "Scribner",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Book2",
         "Used": "No"
     },
     {
@@ -498,168 +85,14 @@
         "Edition": "First",
         "Format": "Paperback",
         "Genre": "Classic",
-        "Image": "follia.jpeg",
+        "Image": "gatsby.jpeg",
         "Language": "English",
-        "Pages": 180,
+        "Pages": 25,
         "ProductionHouse": "Scribner",
         "Publisher": "The New York Times",
         "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Article 1",
-        "Used": "No"
-    },
-    {
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Film",
-        "Director": "",
-        "Duration": 0,
-        "Format": "DVD",
-        "Framerate": 0,
-        "Genre": "Comedy",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Technique": "",
-        "Title": "AGG FIlm",
-        "Used": "No"
-    },
-    {
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Podcast",
-        "Duration": 0,
-        "Episodes": 24,
-        "Format": "DVD",
-        "Genre": "Comedy",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Mannaggia Podcast",
-        "Used": "No"
-    },
-    {
-        "Album": "Aldo Giovanni e Jack",
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Music",
-        "Duration": 0,
-        "Format": "DVD",
-        "Genre": "Comedy",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Mannaggia Musica",
-        "Used": "No"
-    },
-    {
-        "Author": "George Orwell",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Hardcover",
-        "Genre": "Dystopian",
-        "ISBN": 978045,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 328,
-        "ProductionHouse": "Secker & Warburg",
-        "ReleaseDate": "1949",
-        "Tags": [
-            "Dystopian",
-            "Fiction"
-        ],
-        "Title": "1984",
-        "Used": "No"
-    },
-    {
-        "Author": "J.K. Rowling",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Hardcover",
-        "Genre": "Fantasy",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 309,
-        "ProductionHouse": "Bloomsbury",
-        "ReleaseDate": "1997",
-        "Tags": [
-            "Fantasy",
-            "Fiction"
-        ],
-        "Title": "Harry Potter and the Philosopher's Stone",
-        "Used": "No"
-    },
-    {
-        "Author": "J.R.R. Tolkien",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Fantasy",
-        "ISBN": 978026,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 423,
-        "ProductionHouse": "George Allen & Unwin",
-        "ReleaseDate": "1954",
-        "Tags": [
-            "Fantasy",
-            "Fiction"
-        ],
-        "Title": "The Fellowship of the Ring",
-        "Used": "No"
-    },
-    {
-        "Author": "Harper Lee",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Hardcover",
-        "Genre": "Classic",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 281,
-        "ProductionHouse": "J.B. Lippincott & Co.",
-        "ReleaseDate": "1960",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "To Kill a Mockingbird",
-        "Used": "No"
-    },
-    {
-        "Author": "Jane Austen",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Romance",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 279,
-        "ProductionHouse": "T. Egerton",
-        "ReleaseDate": "1813",
-        "Tags": [
-            "Romance",
-            "Fiction"
-        ],
-        "Title": "Pride and Prejudice",
+        "Tags": ["Classic", "Fiction"],
+        "Title": "The Great Gatsby Article",
         "Used": "No"
     },
     {
@@ -668,434 +101,62 @@
         "Edition": "First",
         "Format": "Paperback",
         "Genre": "Adventure",
-        "ISBN": 978048,
-        "Image": "follia.jpeg",
+        "ISBN": 9780486280615,
+        "Image": "huck_finn.jpeg",
         "Language": "English",
         "Pages": 366,
-        "ProductionHouse": "Chatto & Windus",
+        "ProductionHouse": "Dover Publications",
         "ReleaseDate": "1884",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Adventures of Huckleberry Finn",
+        "Tags": ["Adventure", "Classic"],
+        "Title": "The Adventures of Huckleberry Finn",
         "Used": "No"
     },
     {
-        "Author": "Mary Shelley",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Horror",
-        "ISBN": 978048,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 280,
-        "ProductionHouse": "Lackington, Hughes, Harding, Mavor & Jones",
-        "ReleaseDate": "1818",
-        "Tags": [
-            "Horror",
-            "Fiction"
-        ],
-        "Title": "Frankenstein",
-        "Used": "No"
-    },
-    {
-        "Author": "Herman Melville",
-        "Class": "Book",
+        "Author": "Mark Twain",
+        "Class": "Article",
         "Edition": "First",
         "Format": "Paperback",
         "Genre": "Adventure",
-        "ISBN": 978150,
-        "Image": "follia.jpeg",
+        "Image": "huck_finn.jpeg",
         "Language": "English",
-        "Pages": 635,
-        "ProductionHouse": "Harper & Brothers",
-        "ReleaseDate": "1851",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Moby-Dick",
+        "Pages": 40,
+        "ProductionHouse": "Dover Publications",
+        "Publisher": "The New York Times",
+        "ReleaseDate": "1884",
+        "Tags": ["Adventure", "Classic"],
+        "Title": "The Adventures of Huckleberry Finn Article",
         "Used": "No"
     },
     {
-        "Author": "Leo Tolstoy",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Historical",
-        "ISBN": 978019,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 1225,
-        "ProductionHouse": "The Russian Messenger",
-        "ReleaseDate": "1869",
-        "Tags": [
-            "Historical",
-            "Fiction"
-        ],
-        "Title": "War and Peace",
-        "Used": "No"
-    },
-    {
-        "Author": "Charles Dickens",
+        "Author": "Harper Lee",
         "Class": "Book",
         "Edition": "First",
         "Format": "Paperback",
         "Genre": "Classic",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
+        "ISBN": 9780061120084,
+        "Image": "mockingbird.jpeg",
         "Language": "English",
-        "Pages": 544,
-        "ProductionHouse": "Chapman & Hall",
-        "ReleaseDate": "1859",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "A Tale of Two Cities",
+        "Pages": 324,
+        "ProductionHouse": "J.B. Lippincott & Co.",
+        "ReleaseDate": "1960",
+        "Tags": ["Classic", "Fiction"],
+        "Title": "To Kill a Mockingbird",
         "Used": "No"
     },
     {
-        "Author": "Fyodor Dostoevsky",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Philosophical",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 671,
-        "ProductionHouse": "The Russian Messenger",
-        "ReleaseDate": "1866",
-        "Tags": [
-            "Philosophical",
-            "Fiction"
-        ],
-        "Title": "Crime and Punishment",
-        "Used": "No"
-    },
-    {
-        "Author": "Gabriel Garcia Marquez",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Magical Realism",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 417,
-        "ProductionHouse": "Harper & Row",
-        "ReleaseDate": "1967",
-        "Tags": [
-            "Magical Realism",
-            "Fiction"
-        ],
-        "Title": "One Hundred Years of Solitude",
-        "Used": "No"
-    },
-    {
-        "Author": "Homer",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Epic",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 560,
-        "ProductionHouse": "Penguin Classics",
-        "ReleaseDate": "800 BC",
-        "Tags": [
-            "Epic",
-            "Fiction"
-        ],
-        "Title": "The Odyssey",
-        "Used": "No"
-    },
-    {
-        "Author": "Miguel de Cervantes",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Adventure",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 1072,
-        "ProductionHouse": "Francisco de Robles",
-        "ReleaseDate": "1605",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Don Quixote",
-        "Used": "No"
-    },
-    {
-        "Author": "James Joyce",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 730,
-        "ProductionHouse": "Sylvia Beach",
-        "ReleaseDate": "1922",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "Ulysses",
-        "Used": "No"
-    },
-    {
-        "Author": "Franz Kafka",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Philosophical",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 201,
-        "ProductionHouse": "Kurt Wolff Verlag",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Philosophical",
-            "Fiction"
-        ],
-        "Title": "The Trial",
-        "Used": "No"
-    },
-    {
-        "Author": "Virginia Woolf",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978015,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 209,
-        "ProductionHouse": "Hogarth Press",
-        "ReleaseDate": "1927",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "To the Lighthouse",
-        "Used": "No"
-    },
-    {
-        "Author": "Marcel Proust",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 4215,
-        "ProductionHouse": "Grasset",
-        "ReleaseDate": "1913",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "In Search of Lost Time",
-        "Used": "No"
-    },
-    {
-        "Author": "F. Scott Fitzgerald",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Classic",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 180,
-        "ProductionHouse": "Scribner",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "The Great Gatsby",
-        "Used": "No"
-    },
-    {
-        "Author": "F. Scott Fitzgerald",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Classic",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 180,
-        "ProductionHouse": "Scribner",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Book2",
-        "Used": "No"
-    },
-    {
-        "Author": "F. Scott Fitzgerald",
+        "Author": "Harper Lee",
         "Class": "Article",
         "Edition": "First",
         "Format": "Paperback",
         "Genre": "Classic",
-        "Image": "follia.jpeg",
+        "Image": "mockingbird.jpeg",
         "Language": "English",
-        "Pages": 180,
-        "ProductionHouse": "Scribner",
-        "Publisher": "The New York Times",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Article 1",
-        "Used": "No"
-    },
-    {
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Film",
-        "Director": "",
-        "Duration": 0,
-        "Format": "DVD",
-        "Framerate": 0,
-        "Genre": "Comedy",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Technique": "",
-        "Title": "AGG FIlm",
-        "Used": "No"
-    },
-    {
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Podcast",
-        "Duration": 0,
-        "Episodes": 24,
-        "Format": "DVD",
-        "Genre": "Comedy",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Mannaggia Podcast",
-        "Used": "No"
-    },
-    {
-        "Album": "Aldo Giovanni e Jack",
-        "Author": "Aldo Giovanni e Jack",
-        "Class": "Music",
-        "Duration": 0,
-        "Format": "DVD",
-        "Genre": "Comedy",
-        "Image": "follia.jpeg",
-        "Language": "Italian",
-        "ProductionHouse": "Medusa",
-        "ReleaseDate": "1999",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "Mannaggia Musica",
-        "Used": "No"
-    },
-    {
-        "Author": "George Orwell",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Hardcover",
-        "Genre": "Dystopian",
-        "ISBN": 978045,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 328,
-        "ProductionHouse": "Secker & Warburg",
-        "ReleaseDate": "1949",
-        "Tags": [
-            "Dystopian",
-            "Fiction"
-        ],
-        "Title": "1984",
-        "Used": "No"
-    },
-    {
-        "Author": "J.K. Rowling",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Hardcover",
-        "Genre": "Fantasy",
-        "ISBN": 978074,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 309,
-        "ProductionHouse": "Bloomsbury",
-        "ReleaseDate": "1997",
-        "Tags": [
-            "Fantasy",
-            "Fiction"
-        ],
-        "Title": "Harry Potter and the Philosopher's Stone",
-        "Used": "No"
-    },
-    {
-        "Author": "J.R.R. Tolkien",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Fantasy",
-        "ISBN": 978026,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 423,
-        "ProductionHouse": "George Allen & Unwin",
-        "ReleaseDate": "1954",
-        "Tags": [
-            "Fantasy",
-            "Fiction"
-        ],
-        "Title": "The Fellowship of the Ring",
-        "Used": "No"
-    },
-    {
-        "Author": "Harper Lee",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Hardcover",
-        "Genre": "Classic",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 281,
+        "Pages": 45,
         "ProductionHouse": "J.B. Lippincott & Co.",
+        "Publisher": "The New York Times",
         "ReleaseDate": "1960",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
-        "Title": "To Kill a Mockingbird",
+        "Tags": ["Classic", "Fiction"],
+        "Title": "To Kill a Mockingbird Article",
         "Used": "No"
     },
     {
@@ -1104,93 +165,30 @@
         "Edition": "First",
         "Format": "Paperback",
         "Genre": "Romance",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
+        "ISBN": 9781853260001,
+        "Image": "pride_prejudice.jpeg",
         "Language": "English",
-        "Pages": 279,
-        "ProductionHouse": "T. Egerton",
+        "Pages": 416,
+        "ProductionHouse": "Penguin Classics",
         "ReleaseDate": "1813",
-        "Tags": [
-            "Romance",
-            "Fiction"
-        ],
+        "Tags": ["Romance", "Classic"],
         "Title": "Pride and Prejudice",
         "Used": "No"
     },
     {
-        "Author": "Mark Twain",
-        "Class": "Book",
+        "Author": "Jane Austen",
+        "Class": "Article",
         "Edition": "First",
         "Format": "Paperback",
-        "Genre": "Adventure",
-        "ISBN": 978048,
-        "Image": "follia.jpeg",
+        "Genre": "Romance",
+        "Image": "pride_prejudice.jpeg",
         "Language": "English",
-        "Pages": 366,
-        "ProductionHouse": "Chatto & Windus",
-        "ReleaseDate": "1884",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Adventures of Huckleberry Finn",
-        "Used": "No"
-    },
-    {
-        "Author": "Mary Shelley",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Horror",
-        "ISBN": 978048,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 280,
-        "ProductionHouse": "Lackington, Hughes, Harding, Mavor & Jones",
-        "ReleaseDate": "1818",
-        "Tags": [
-            "Horror",
-            "Fiction"
-        ],
-        "Title": "Frankenstein",
-        "Used": "No"
-    },
-    {
-        "Author": "Herman Melville",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Adventure",
-        "ISBN": 978150,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 635,
-        "ProductionHouse": "Harper & Brothers",
-        "ReleaseDate": "1851",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Moby-Dick",
-        "Used": "No"
-    },
-    {
-        "Author": "Leo Tolstoy",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Historical",
-        "ISBN": 978019,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 1225,
-        "ProductionHouse": "The Russian Messenger",
-        "ReleaseDate": "1869",
-        "Tags": [
-            "Historical",
-            "Fiction"
-        ],
-        "Title": "War and Peace",
+        "Pages": 55,
+        "ProductionHouse": "Penguin Classics",
+        "Publisher": "The New York Times",
+        "ReleaseDate": "1813",
+        "Tags": ["Romance", "Classic"],
+        "Title": "Pride and Prejudice Article",
         "Used": "No"
     },
     {
@@ -1198,170 +196,31 @@
         "Class": "Book",
         "Edition": "First",
         "Format": "Paperback",
-        "Genre": "Classic",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
+        "Genre": "Historical Fiction",
+        "ISBN": 9780140430547,
+        "Image": "dickens.jpeg",
         "Language": "English",
-        "Pages": 544,
-        "ProductionHouse": "Chapman & Hall",
+        "Pages": 489,
+        "ProductionHouse": "Penguin Classics",
         "ReleaseDate": "1859",
-        "Tags": [
-            "Classic",
-            "Fiction"
-        ],
+        "Tags": ["Historical Fiction", "Classic"],
         "Title": "A Tale of Two Cities",
         "Used": "No"
     },
     {
-        "Author": "Fyodor Dostoevsky",
-        "Class": "Book",
+        "Author": "Charles Dickens",
+        "Class": "Article",
         "Edition": "First",
         "Format": "Paperback",
-        "Genre": "Philosophical",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
+        "Genre": "Historical Fiction",
+        "Image": "dickens.jpeg",
         "Language": "English",
-        "Pages": 671,
-        "ProductionHouse": "The Russian Messenger",
-        "ReleaseDate": "1866",
-        "Tags": [
-            "Philosophical",
-            "Fiction"
-        ],
-        "Title": "Crime and Punishment",
-        "Used": "No"
-    },
-    {
-        "Author": "Gabriel Garcia Marquez",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Magical Realism",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 417,
-        "ProductionHouse": "Harper & Row",
-        "ReleaseDate": "1967",
-        "Tags": [
-            "Magical Realism",
-            "Fiction"
-        ],
-        "Title": "One Hundred Years of Solitude",
-        "Used": "No"
-    },
-    {
-        "Author": "Homer",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Epic",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 560,
+        "Pages": 60,
         "ProductionHouse": "Penguin Classics",
-        "ReleaseDate": "800 BC",
-        "Tags": [
-            "Epic",
-            "Fiction"
-        ],
-        "Title": "The Odyssey",
-        "Used": "No"
-    },
-    {
-        "Author": "Miguel de Cervantes",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Adventure",
-        "ISBN": 978006,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 1072,
-        "ProductionHouse": "Francisco de Robles",
-        "ReleaseDate": "1605",
-        "Tags": [
-            "Adventure",
-            "Fiction"
-        ],
-        "Title": "Don Quixote",
-        "Used": "No"
-    },
-    {
-        "Author": "James Joyce",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 730,
-        "ProductionHouse": "Sylvia Beach",
-        "ReleaseDate": "1922",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "Ulysses",
-        "Used": "No"
-    },
-    {
-        "Author": "Franz Kafka",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Philosophical",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 201,
-        "ProductionHouse": "Kurt Wolff Verlag",
-        "ReleaseDate": "1925",
-        "Tags": [
-            "Philosophical",
-            "Fiction"
-        ],
-        "Title": "The Trial",
-        "Used": "No"
-    },
-    {
-        "Author": "Virginia Woolf",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978015,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 209,
-        "ProductionHouse": "Hogarth Press",
-        "ReleaseDate": "1927",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "To the Lighthouse",
-        "Used": "No"
-    },
-    {
-        "Author": "Marcel Proust",
-        "Class": "Book",
-        "Edition": "First",
-        "Format": "Paperback",
-        "Genre": "Modernist",
-        "ISBN": 978014,
-        "Image": "follia.jpeg",
-        "Language": "English",
-        "Pages": 4215,
-        "ProductionHouse": "Grasset",
-        "ReleaseDate": "1913",
-        "Tags": [
-            "Modernist",
-            "Fiction"
-        ],
-        "Title": "In Search of Lost Time",
+        "Publisher": "The New York Times",
+        "ReleaseDate": "1859",
+        "Tags": ["Historical Fiction", "Classic"],
+        "Title": "A Tale of Two Cities Article",
         "Used": "No"
     }
 ]

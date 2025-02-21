@@ -13,7 +13,6 @@ private:
 public:
     SettingsDisplay(QWidget* parent = nullptr);
 signals:
-    void settingsDisplayClosed();
     void settingsChanged();
 private slots:
     void onApply();

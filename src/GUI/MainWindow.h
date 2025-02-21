@@ -46,7 +46,6 @@ private slots:
     void onItemDisplayClosed();
     void onNewItemButtonClicked();
     void onSettingsChanged();
-    void onSettingsClosed();
 signals:
     void itemsLoaded(QVector<MediaItem*>& items);
     void noResults(QString query);
