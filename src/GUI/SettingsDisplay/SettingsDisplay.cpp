@@ -57,6 +57,7 @@ SettingsDisplay::SettingsDisplay(QWidget* parent): QWidget(parent) {
         QLabel* lbl = new QLabel(label, this);
         QSpinBox* spinBox = new QSpinBox(this);
         spinBox->setRange(0, 100);
+        spinBox->setObjectName(label);//to find it later
         spinBox->setValue(settings.weights[label]);
         connect(spinBox, QOverload<int>::of(&QSpinBox::valueChanged), [this, label](int value) {
             weights[label] = value;
@@ -114,15 +115,19 @@ void SettingsDisplay::onApply() {
 }
 
 void SettingsDisplay::onReset(){
-    QMessageBox* confirmReset = new QMessageBox(this);
-    confirmReset->setWindowTitle("Reset");
-    confirmReset->setText("Are you sure you want to reset the weights?");
-    confirmReset->setStandardButtons(QMessageBox::Yes | QMessageBox::No);
-    confirmReset->setDefaultButton(QMessageBox::No);
+    QMessageBox::StandardButton reset;
+    reset = QMessageBox::question(this, "Reset", "Are you sure you want to reset weights to default values?", QMessageBox::Yes|QMessageBox::No);
+    if (reset == QMessageBox::No) {
+        return;
+    }
     for (auto it = weights.begin(); it != weights.end(); ++it) {
         it.value() = 5;
         if (it.key() == "Title") {
             it.value() = 10;
+        }
+        QSpinBox* spinBox = findChild<QSpinBox*>(it.key());
+        if (spinBox) {
+            spinBox->setValue(it.value());
         }
     }
 }
