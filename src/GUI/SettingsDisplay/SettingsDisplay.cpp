@@ -13,6 +13,7 @@
 #include <qmenu.h>
 #include <qlineedit.h>
 #include <QComboBox>
+#include <qapplication.h>
 
 SettingsDisplay::SettingsDisplay(QWidget* parent): QWidget(parent) {
     setObjectName("settingsDisplay");
@@ -24,23 +25,24 @@ SettingsDisplay::SettingsDisplay(QWidget* parent): QWidget(parent) {
     
     auto settings = Settings::getSettings();
     QVBoxLayout *layout = new QVBoxLayout(this);
-    QPushButton *theme = new QPushButton("Mode", this);
-    theme->setObjectName("theme");
-    layout->addWidget(theme);
 
     QPushButton* apply = new QPushButton("Apply", this);
     connect(apply, &QPushButton::clicked, this, &SettingsDisplay::onApply);
     layout->addWidget(apply);
 
+    QVBoxLayout* themeChangeLayout = new QVBoxLayout();
+    QLabel* themeLabel = new QLabel("Theme", this);
+    themeLabel->setAlignment(Qt::AlignCenter);
+    themeChangeLayout->addWidget(themeLabel);
     QComboBox* themeComboBox = new QComboBox(this);
     themeComboBox->addItem("Dark");
     themeComboBox->addItem("Light");
     themeComboBox->addItem("Custom");
+    themeComboBox->setObjectName("theme");
     themeComboBox->setCurrentText(Settings::themeToText(selectedTheme));
-    connect(themeComboBox, QOverload<const QString&>::of(&QComboBox::currentTextChanged), [this](const QString& theme) {
-        selectedTheme = Settings::textToTheme(theme); // Convert QString to Theme
-    });
-    layout->addWidget(themeComboBox);
+    connect(themeComboBox, &QComboBox::currentTextChanged, this, &SettingsDisplay::onChangeTheme);
+    themeChangeLayout->addWidget(themeComboBox);
+    layout->addLayout(themeChangeLayout);
 
     QPushButton* reset = new QPushButton("Reset default weights", this);
     connect(reset, &QPushButton::clicked, this, &SettingsDisplay::onReset);
@@ -68,6 +70,7 @@ SettingsDisplay::SettingsDisplay(QWidget* parent): QWidget(parent) {
     }
 
     QStringList paletteLabels = {"Window", "WindowText", "Base", "AlternateBase", "ToolTipBase", "ToolTipText", "Text", "Button", "ButtonText", "BrightText", "Link", "Highlight", "HighlightedText"};
+    
     for (const QString& label : paletteLabels) {
         QHBoxLayout* rowLayout = new QHBoxLayout();
         QLabel* lbl = new QLabel(label, this);
@@ -75,13 +78,7 @@ SettingsDisplay::SettingsDisplay(QWidget* parent): QWidget(parent) {
         QPushButton* colorPicker = new QPushButton(this);
         colorPicker->setObjectName(label);
         colorPicker->setStyleSheet("background-color: " + color.name() + ";");
-        connect(colorPicker, &QPushButton::clicked, [this, label, colorPicker]() {
-            QColor color = QColorDialog::getColor(customPaletteData[label], this, "Select Color");
-            if (color.isValid()) {
-                customPaletteData[label] = color;
-                colorPicker->setStyleSheet("background-color: " + color.name() + ";");
-            }
-        });
+        connect(colorPicker, &QPushButton::clicked, this, &SettingsDisplay::onChangeColor);
         rowLayout->addWidget(lbl);
         rowLayout->addWidget(colorPicker);
         themeLayout->addLayout(rowLayout);
@@ -97,10 +94,6 @@ SettingsDisplay::SettingsDisplay(QWidget* parent): QWidget(parent) {
 
 }
 
-void SettingsDisplay::onGoBack() {
-    emit settingsDisplayClosed();
-}
-
 void SettingsDisplay::onApply() {
     SettingsData settingsData;
     settingsData.selectedTheme = selectedTheme;
@@ -110,7 +103,6 @@ void SettingsDisplay::onApply() {
     Settings::saveSettings();
 
     emit settingsChanged();
-    emit settingsDisplayClosed();
 
 }
 
@@ -130,4 +122,94 @@ void SettingsDisplay::onReset(){
             spinBox->setValue(it.value());
         }
     }
+};
+void SettingsDisplay::onChangeColor() {
+    QMap<QString, QPalette::ColorRole> map = {
+        {"Window", QPalette::Window},
+        {"WindowText", QPalette::WindowText},
+        {"Base", QPalette::Base},
+        {"AlternateBase", QPalette::AlternateBase},
+        {"ToolTipBase", QPalette::ToolTipBase},
+        {"ToolTipText", QPalette::ToolTipText},
+        {"Text", QPalette::Text},
+        {"Button", QPalette::Button},
+        {"ButtonText", QPalette::ButtonText},
+        {"BrightText", QPalette::BrightText},
+        {"Link", QPalette::Link},
+        {"Highlight", QPalette::Highlight},
+        {"HighlightedText", QPalette::HighlightedText}
+    };
+    QPushButton* button = qobject_cast<QPushButton*>(sender());
+    if (button) {
+        QColor color = QColorDialog::getColor(customPaletteData[button->objectName()], this, "Select Color");
+        if (color.isValid()) {
+            customPaletteData[button->objectName()] = color;
+            button->setStyleSheet("background-color: " + color.name() + ";");
+            if(findChild<QComboBox*>("theme") && findChild<QComboBox*>("theme")->currentText() == "Custom") {
+                QPalette palette = this->palette();
+                palette.setColor(map[button->objectName()], color);
+                setPalette(palette);
+            }
+        }
+    }
+}
+
+void SettingsDisplay::onChangeTheme() {
+    QComboBox* themeComboBox = findChild<QComboBox*>("theme");
+    if (themeComboBox) {
+        selectedTheme = Settings::textToTheme(themeComboBox->currentText());
+    }
+    QPalette palette = this->palette();
+    if (selectedTheme == 0) //DARK
+    {
+        palette.setColor(QPalette::Window, QColor(30, 30, 30));
+        palette.setColor(QPalette::WindowText, Qt::white);
+        palette.setColor(QPalette::Base, QColor(50, 50, 50));
+        palette.setColor(QPalette::AlternateBase, QColor(50, 50, 50));
+        palette.setColor(QPalette::ToolTipBase, Qt::white);
+        palette.setColor(QPalette::ToolTipText, Qt::white);
+        palette.setColor(QPalette::Text, Qt::white);
+        palette.setColor(QPalette::Button, QColor(50, 50, 50));
+        palette.setColor(QPalette::ButtonText, Qt::white);
+        palette.setColor(QPalette::BrightText, Qt::red);
+        palette.setColor(QPalette::Link, QColor(42, 130, 218));
+        palette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+        palette.setColor(QPalette::HighlightedText, Qt::black);
+    }
+    else if (selectedTheme == 1) //LIGHT
+    {
+        palette.setColor(QPalette::Window, Qt::white);
+        palette.setColor(QPalette::WindowText, Qt::black);
+        palette.setColor(QPalette::Base, Qt::white);
+        palette.setColor(QPalette::AlternateBase, Qt::white);
+        palette.setColor(QPalette::ToolTipBase, Qt::white);
+        palette.setColor(QPalette::ToolTipText, Qt::black);
+        palette.setColor(QPalette::Text, Qt::black);
+        palette.setColor(QPalette::Button, Qt::white);
+        palette.setColor(QPalette::ButtonText, Qt::black);
+        palette.setColor(QPalette::BrightText, Qt::red);
+        palette.setColor(QPalette::Link, QColor(42, 130, 218));
+        palette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+        palette.setColor(QPalette::HighlightedText, Qt::white);
+    }
+    else 
+    {
+        qDebug() << "custom";
+        // Set palette based on settings value
+        auto settings = Settings::getSettings().customPaletteData;
+        palette.setColor(QPalette::Window, settings["Window"]);
+        palette.setColor(QPalette::WindowText, settings["WindowText"]);
+        palette.setColor(QPalette::Base, settings["Base"]);
+        palette.setColor(QPalette::AlternateBase, settings["AlternateBase"]);
+        palette.setColor(QPalette::ToolTipBase, settings["ToolTipBase"]);
+        palette.setColor(QPalette::ToolTipText, settings["ToolTipText"]);
+        palette.setColor(QPalette::Text, settings["Text"]);
+        palette.setColor(QPalette::Button, settings["Button"]);
+        palette.setColor(QPalette::ButtonText, settings["ButtonText"]);
+        palette.setColor(QPalette::BrightText, settings["BrightText"]);
+        palette.setColor(QPalette::Link, settings["Link"]);
+        palette.setColor(QPalette::Highlight, settings["Highlight"]);
+        palette.setColor(QPalette::HighlightedText, settings["HighlightedText"]);
+    }
+    setPalette(palette);
 }

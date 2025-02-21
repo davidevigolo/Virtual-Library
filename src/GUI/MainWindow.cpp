@@ -26,8 +26,9 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr),
                                      "<p>Once an item is created, you can view and edit its details in the item display.</p>"
                                      "<p>To delete an item, click on the 'Delete' button in the item display.</p>"
                                      "<p>Enjoy using Virtual Library!</p>"
-                                     "<p>Source code available <a href=\"https://github.com/davidevigolo/Virtual-Library\">here</a><!p>"
+                                     "<p>Source code available <a href=\"https://github.com/davidevigolo/Virtual-Library\">here</a></p>"
                                      "</body></html>");
+    welcomeText->setOpenExternalLinks(true);//to make the link clickable
     welcomeText->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     welcomeText->setObjectName("welcomeText");
 
@@ -236,6 +237,7 @@ void MainWindow::onSettingsSignal()
 {
     SettingsDisplay *settingsDisplay = new SettingsDisplay;
     connect(settingsDisplay, &SettingsDisplay::settingsChanged, this, &MainWindow::onSettingsChanged);
+    connect(settingsDisplay, &SettingsDisplay::settingsDisplayClosed, this, &MainWindow::onSettingsClosed);
     settingsDisplay->setAttribute(Qt::WA_DeleteOnClose);
     settingsDisplay->show();
     settingsDisplay->resize(400, 400);
@@ -303,4 +305,9 @@ void MainWindow::setAppStyleSheet()
         palette.setColor(QPalette::HighlightedText, settings["HighlightedText"]);
     }
     qApp->setPalette(palette);
+}
+
+void MainWindow::onSettingsClosed()
+{
+    setAppStyleSheet();
 }

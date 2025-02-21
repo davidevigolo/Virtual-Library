@@ -1,6 +1,5 @@
 #include "JsonManager.h"
 #include "JsonVisitor.h"
-
 JsonManager::~JsonManager() {}
 
 std::vector<std::string> JsonManager::JsonArrToVec(const QJsonArray &array) const

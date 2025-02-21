@@ -16,7 +16,8 @@ signals:
     void settingsDisplayClosed();
     void settingsChanged();
 private slots:
-    void onGoBack();
     void onApply();
     void onReset();
+    void onChangeColor();
+    void onChangeTheme();
 };
