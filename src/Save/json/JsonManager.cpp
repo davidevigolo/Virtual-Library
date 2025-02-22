@@ -26,7 +26,7 @@ MediaItem *JsonManager::ObjectLoader(const QString &className, const QJsonObject
             JsonArrToVec(obj["Tags"].toArray()),
             obj["Format"].toString().toStdString(),
             obj["Language"].toString().toStdString(),
-            obj["Used"].toString().toStdString(),
+            obj["Used"].toBool(),
             obj["Edition"].toString().toStdString(),
             obj["Pages"].toInt(),
             obj["Publisher"].toString().toStdString(),
@@ -41,7 +41,7 @@ MediaItem *JsonManager::ObjectLoader(const QString &className, const QJsonObject
             JsonArrToVec(obj["Tags"].toArray()),
             obj["Format"].toString().toStdString(),
             obj["Language"].toString().toStdString(),
-            obj["Used"].toString().toStdString(),
+            obj["Used"].toBool(),
             obj["Edition"].toString().toStdString(),
             obj["Pages"].toInt(),
             obj["ISBN"].toInt(),
@@ -56,7 +56,7 @@ MediaItem *JsonManager::ObjectLoader(const QString &className, const QJsonObject
             JsonArrToVec(obj["Tags"].toArray()),
             obj["Format"].toString().toStdString(),
             obj["Language"].toString().toStdString(),
-            obj["Used"].toString().toStdString(),
+            obj["Used"].toBool(),
             obj["Duration"].toInt(),
             obj["Technique"].toString().toStdString(),
             obj["Framerate"].toDouble(),
@@ -72,7 +72,7 @@ MediaItem *JsonManager::ObjectLoader(const QString &className, const QJsonObject
             JsonArrToVec(obj["Tags"].toArray()),
             obj["Format"].toString().toStdString(),
             obj["Language"].toString().toStdString(),
-            obj["Used"].toString().toStdString(),
+            obj["Used"].toBool(),
             obj["Duration"].toInt(),
             obj["Album"].toString().toStdString(),
             obj["Image"].toString().toStdString());
@@ -86,7 +86,7 @@ MediaItem *JsonManager::ObjectLoader(const QString &className, const QJsonObject
             JsonArrToVec(obj["Tags"].toArray()),
             obj["Format"].toString().toStdString(),
             obj["Language"].toString().toStdString(),
-            obj["Used"].toString().toStdString(),
+            obj["Used"].toBool(),
             obj["Duration"].toInt(),
             obj["Episodes"].toInt(),
             obj["Image"].toString().toStdString());
@@ -113,7 +113,7 @@ QVector<MediaItem *> JsonManager::load() const
 
     if (parseError.error != QJsonParseError::NoError)
     {
-        qWarning() << "JSON parse error:" << parseError.errorString();
+        throw std::runtime_error("File content is invalid or corrupted");
         return Library;
     }
 

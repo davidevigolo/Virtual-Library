@@ -9,7 +9,7 @@ void JsonVisitor::visit(const MediaItem* media){
     obj["Genre"] = media->getGenre().c_str();
     obj["Format"] = media->getFormat().c_str();
     obj["Language"] = media->getLanguage().c_str();
-    obj["Used"] = media->getUsed().c_str();
+    obj["Used"] = media->getUsed();
     obj["Image"] = media->getImage().c_str();
     QJsonArray tagsArray;
     for (const std::string& tag : media->getTags()) {

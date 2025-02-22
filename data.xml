@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MediaItems>
+    <MediaItem>
+        <Book>
+            <Title>Harry Potter and the Sorcerer's Stone</Title>
+            <Author>J.K. Rowling</Author>
+            <ReleaseDate>1997</ReleaseDate>
+            <ProductionHouse>Bloomsbury</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Magic</Tag>
+                <Tag>Wizards</Tag>
+                <Tag>Adventure</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/harry-potter.jpg</Image>
+            <Edition>3</Edition>
+            <Pages>99</Pages>
+            <ISBN>0</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Great Gatsby: A Critical Review</Title>
+            <Author>Unknown</Author>
+            <ReleaseDate>2020</ReleaseDate>
+            <ProductionHouse>Bloomsbury</ProductionHouse>
+            <Genre>Literary Review</Genre>
+            <Tags>
+                <Tag>Literature</Tag>
+                <Tag>Analysis</Tag>
+                <Tag>Classic</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/article.png</Image>
+            <Edition>1</Edition>
+            <Pages>5</Pages>
+            <Publisher>The New York Times</Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Inception</Title>
+            <Author>Christopher Nolan</Author>
+            <ReleaseDate>2010</ReleaseDate>
+            <ProductionHouse>Warner Bros</ProductionHouse>
+            <Genre>Sci-Fi</Genre>
+            <Tags>
+                <Tag>Mind-bending</Tag>
+                <Tag>Thriller</Tag>
+                <Tag>Dreams</Tag>
+            </Tags>
+            <Format>Blu-ray</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/inception.jpg</Image>
+            <Duration>99</Duration>
+            <Technique>IMAX</Technique>
+            <Framerate>24</Framerate>
+            <Director>Christopher Nolan</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>The Daily</Title>
+            <Author>The New York Times</Author>
+            <ReleaseDate>2024</ReleaseDate>
+            <ProductionHouse>NYT Audio</ProductionHouse>
+            <Genre>News</Genre>
+            <Tags>
+                <Tag>Current Events</Tag>
+                <Tag>Politics</Tag>
+                <Tag>Analysis</Tag>
+            </Tags>
+            <Format>Streaming</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/podcast.jpeg</Image>
+            <Duration>60</Duration>
+            <Episodes>6</Episodes>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Come Together</Title>
+            <Author>The Beatles</Author>
+            <ReleaseDate>1969</ReleaseDate>
+            <ProductionHouse>Apple Records</ProductionHouse>
+            <Genre>Rock</Genre>
+            <Tags>
+                <Tag>Classic Rock</Tag>
+                <Tag>The Beatles</Tag>
+                <Tag>Legendary</Tag>
+            </Tags>
+            <Format>Vinyl</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/beatles.jpg</Image>
+            <Duration>47</Duration>
+            <Album>Abbey Road</Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Hobbit</Title>
+            <Author>J.R.R. Tolkien</Author>
+            <ReleaseDate>1937</ReleaseDate>
+            <ProductionHouse>George Allen &amp; Unwin</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Adventure</Tag>
+                <Tag>Fantasy</Tag>
+                <Tag>Classic</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/hobbit.jpg</Image>
+            <Edition>1</Edition>
+            <Pages>310</Pages>
+            <ISBN>978-0-345-33968-3</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Interstellar</Title>
+            <Author>Christopher Nolan</Author>
+            <ReleaseDate>2014</ReleaseDate>
+            <ProductionHouse>Paramount Pictures</ProductionHouse>
+            <Genre>Sci-Fi</Genre>
+            <Tags>
+                <Tag>Space</Tag>
+                <Tag>Time Travel</Tag>
+                <Tag>Science</Tag>
+            </Tags>
+            <Format>Blu-ray</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/interstellar.jpeg</Image>
+            <Duration>169</Duration>
+            <Technique>IMAX</Technique>
+            <Framerate>24</Framerate>
+            <Director>Christopher Nolan</Director>
+        </Film>
+    </MediaItem>
+</MediaItems>

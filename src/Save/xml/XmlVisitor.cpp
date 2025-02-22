@@ -23,7 +23,7 @@ void XmlVisitor::visit(const MediaItem *media)
     writer.writeEndElement();
     writer.writeTextElement("Format", media->getFormat().c_str());
     writer.writeTextElement("Language", media->getLanguage().c_str());
-    writer.writeTextElement("Used", media->getUsed().c_str());
+    writer.writeTextElement("Used", media->getUsed() ? "true" : "false");
     writer.writeTextElement("Image", media->getImage().c_str());
 }
 

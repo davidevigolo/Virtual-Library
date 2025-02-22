@@ -56,6 +56,7 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     buttonLabel.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
     buttonLabel.setStyleSheet("border: none; padding: 0px; margin: 0px;");
+    buttonLabel.setStyleSheet("background-color: " + palette().window().color().name() + ";");
     buttonLayout.addWidget(&buttonLabel, 0, Qt::AlignBottom);
 
     setLayout(&buttonLayout);

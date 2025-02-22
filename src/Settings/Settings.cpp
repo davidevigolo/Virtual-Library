@@ -11,6 +11,40 @@ Settings::Settings() {
     QFile file("settings.json");
     if (!file.open(QIODevice::ReadOnly)) {
         qWarning("Couldn't open settings.json file.");
+        settings.selectedTheme = Theme::DARK;
+        settings.weights = {
+            {"Title", 10},
+            {"Author", 5},
+            {"Release Date", 5},
+            {"Production House", 5},
+            {"Genre", 5},
+            {"Tags", 5},
+            {"Format", 5},
+            {"Language", 5},
+            {"Edition", 5},
+            {"Publisher", 5},
+            {"ISBN", 5},
+            {"Duration", 5},
+            {"Director", 5},
+            {"Tecnique", 5},
+            {"Album", 5},
+            {"Episode", 5}
+        };
+        settings.customPaletteData = {
+            {"Window", QColor(30, 30, 30)},
+            {"WindowText", Qt::white},
+            {"Base", QColor(50, 50, 50)},
+            {"AlternateBase", QColor(50, 50, 50)},
+            {"ToolTipBase", Qt::white},
+            {"ToolTipText", Qt::white},
+            {"Text", Qt::white},
+            {"Button", QColor(50, 50, 50)},
+            {"ButtonText", Qt::white},
+            {"BrightText", Qt::red},
+            {"Link", QColor(42, 130, 218)},
+            {"Highlight", QColor(42, 130, 218)},
+            {"HighlightedText", Qt::black}
+        };
         return;
     }
 

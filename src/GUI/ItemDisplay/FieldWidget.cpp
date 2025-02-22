@@ -1,89 +1,41 @@
 #include <FieldWidget.h>
 #include <QVBoxLayout>
 #include <Settings.h>
+#include <qmessagebox.h>
+#include <QCheckBox>
 
-
-FieldWidget::FieldWidget(const QString& fieldName, const QString& fieldValue, QWidget *parent) : QWidget(parent)
-{
-    dNumberBox = nullptr;
-    uNumberBox = nullptr;
-    // Create the layout
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(0);
-
-    // Create the label
-    fieldLabel = new QLabel(this);
-    fieldLabel->setText(QString(fieldName));
-    layout->addWidget(fieldLabel, 0, Qt::AlignLeft);
-
-    // Create the field
-    fieldLineEdit = new QLineEdit(this);
-    fieldLineEdit->setText(QString(fieldValue));
-    layout->addWidget(fieldLineEdit, 0, Qt::AlignLeft);
-    // Set the layout
-    setLayout(layout);
-}
-
-FieldWidget::FieldWidget(const QString& fieldName, const std::vector<std::string>& fieldValue, QWidget *parent) : QWidget(parent) //for the tags field
-{
-    dNumberBox = nullptr;
-    uNumberBox = nullptr;
-    // Create the layout
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(0);
-
-    // Create the label
-    fieldLabel = new QLabel(this);
-    
-    fieldLabel->setText(QString(fieldName));
-    layout->addWidget(fieldLabel, 0, Qt::AlignLeft);
-
-    /*
-    Tags are stored in a QVector<QString> so we need to concatenate them into a single string
-    */
-    QString concatenatedValues;
-    for (size_t i = 0; i < fieldValue.size(); ++i) {
-        concatenatedValues += QString(fieldValue[i].c_str());
-        if (i != fieldValue.size() - 1) {
-            concatenatedValues += QString(", ");
+FieldWidget::FieldWidget(const QString& fieldName, const QVariant& fieldValue, FieldType fieldType, QWidget *parent) : QWidget(parent), fieldType(fieldType) {
+    if(fieldType == FieldType::TEXT){
+        QLineEdit* lineEdit = new QLineEdit(this);
+        lineEdit->setText(fieldValue.toString());
+        inputWidget = lineEdit;
+    }else if(fieldType == FieldType::INTEGER){
+        QSpinBox* uNumberSpinBox = new QSpinBox(this);
+        uNumberSpinBox->setValue(fieldValue.toInt());
+        uNumberSpinBox->setRange(0, INT32_MAX);
+        inputWidget = uNumberSpinBox;
+    }else if(fieldType == FieldType::DOUBLE){
+        QDoubleSpinBox* dNumberSpinBox = new QDoubleSpinBox(this);
+        dNumberSpinBox->setValue(fieldValue.toDouble());
+        dNumberSpinBox->setRange(0, 10000000);
+        inputWidget = dNumberSpinBox;
+    }else if(fieldType == FieldType::BOOL){
+        QCheckBox* checkBox = new QCheckBox(this);
+        checkBox->setChecked(fieldValue.toBool());
+        inputWidget = checkBox;
+    }else if(fieldType == FieldType::TAGS){
+        QLineEdit* lineEdit = new QLineEdit(this);
+        QString concatenatedValues;
+        QStringList tags = fieldValue.toStringList();
+        for (int i = 0; i < tags.size(); ++i) {
+            concatenatedValues += QString(tags[i]);
+            if (i != tags.size() - 1) {
+                concatenatedValues += QString(", ");
+            }
         }
+        lineEdit->setText(concatenatedValues);
+        inputWidget = lineEdit;
     }
-    // Create the field
-    fieldLineEdit = new QLineEdit(this);
-    fieldLineEdit->setText(QString(concatenatedValues));
-    layout->addWidget(fieldLineEdit, 0, Qt::AlignLeft);
-    // Set the layout
-    setLayout(layout);
-}
-
-FieldWidget::FieldWidget(const QString& fieldName, const unsigned int& fieldValue, QWidget *parent) : QWidget(parent) //for the tags field
-{
-    dNumberBox = nullptr;
-    fieldLineEdit = nullptr;
-    QVBoxLayout *layout = new QVBoxLayout(this);
-    layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(0);
-
-    // Create the label
-    fieldLabel = new QLabel(this);
-    fieldLabel->setText(QString(fieldName));
-    layout->addWidget(fieldLabel, 0, Qt::AlignLeft);
-
-    // Create the field
-    uNumberBox = new QSpinBox(this);
-    uNumberBox->setValue(fieldValue);
-    uNumberBox->setRange(0, 3000);
-    layout->addWidget(uNumberBox, 0, Qt::AlignLeft);
-    // Set the layout
-    setLayout(layout);
-}
-
-FieldWidget::FieldWidget(const QString& fieldName, const double& fieldValue, QWidget *parent) : QWidget(parent) //for the tags field
-{
-    uNumberBox = nullptr;
-    fieldLineEdit = nullptr;
 
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
@@ -93,44 +45,36 @@ FieldWidget::FieldWidget(const QString& fieldName, const double& fieldValue, QWi
     fieldLabel = new QLabel(this);
     fieldLabel->setText(QString(fieldName));
     layout->addWidget(fieldLabel, 0, Qt::AlignLeft);
+    layout->addWidget(inputWidget, 0, Qt::AlignLeft);
 
-    // Create the field
-    dNumberBox = new QDoubleSpinBox(this);
-    dNumberBox->setValue(fieldValue);
-    dNumberBox->setRange(0, 50);//for the framerate
-    layout->addWidget(dNumberBox, 0, Qt::AlignLeft);
     // Set the layout
     setLayout(layout);
 }
-
 
 QString FieldWidget::getFieldName() const
 {
     return fieldLabel->text();
 }
 
-QString FieldWidget::getLineEditValue() const
+QVariant FieldWidget::getFieldValue() const
 {
-    return fieldLineEdit->text();
-}
-
-unsigned int FieldWidget::getSpinBoxValue() const
-{
-    return uNumberBox->value();
-}
-
-double FieldWidget::getDoubleSpinBoxValue() const
-{
-    return dNumberBox->value();
+    switch (fieldType) {
+        case FieldType::TEXT:
+            return static_cast<QLineEdit*>(inputWidget)->text();
+        case FieldType::INTEGER:
+            return static_cast<QSpinBox*>(inputWidget)->value();
+        case FieldType::DOUBLE:
+            return static_cast<QDoubleSpinBox*>(inputWidget)->value();
+        case FieldType::BOOL:
+            return static_cast<QCheckBox*>(inputWidget)->isChecked();
+        case FieldType::TAGS:
+            return static_cast<QLineEdit*>(inputWidget)->text();
+    }
+    return QVariant();
 }
 
 
 void FieldWidget::setReadOnly(bool readOnly)
 {
-    if(dNumberBox != nullptr)
-        dNumberBox->setReadOnly(readOnly);
-    if(uNumberBox != nullptr)   
-        uNumberBox->setReadOnly(readOnly);
-    if(fieldLineEdit != nullptr)
-        fieldLineEdit->setReadOnly(readOnly);
+    inputWidget->setEnabled(!readOnly);
 }

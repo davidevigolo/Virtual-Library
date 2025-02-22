@@ -66,8 +66,16 @@ void MainWindow::loadFromFile()
             notSupported->setText("File computation gone wrong");
             notSupported->setStandardButtons(QMessageBox::Ok);
         }
+        try{
         mediaItems = fileManager->load();
         emit itemsLoaded(mediaItems);
+        } catch (std::runtime_error &e) {
+            QMessageBox *notSupported = new QMessageBox(this);
+            notSupported->setText(e.what());
+            notSupported->setStandardButtons(QMessageBox::Ok);
+            notSupported->exec();
+            return;
+        }
     }
 }
 
@@ -239,7 +247,7 @@ void MainWindow::onSettingsSignal()
     connect(settingsDisplay, &SettingsDisplay::settingsChanged, this, &MainWindow::onSettingsChanged);
     settingsDisplay->setAttribute(Qt::WA_DeleteOnClose);
     settingsDisplay->show();
-    settingsDisplay->resize(400, 400);
+    settingsDisplay->resize(600, 400);
 }
 
 void MainWindow::onSettingsChanged()

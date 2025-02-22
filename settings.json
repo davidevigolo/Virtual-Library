@@ -1,21 +1,21 @@
 {
     "customPaletteData": {
-        "AlternateBase": "#ffe01b24",
-        "Base": "#ffed333b",
+        "AlternateBase": "#ff57e389",
+        "Base": "#ff57e389",
         "BrightText": "#ff8ff0a4",
-        "Button": "#ffc01c28",
-        "ButtonText": "#ffe01b24",
-        "Highlight": "#ffa51d2d",
+        "Button": "#ff33d17a",
+        "ButtonText": "#ff000000",
+        "Highlight": "#ff57e389",
         "HighlightedText": "#ffffffff",
-        "Link": "#ff1a5fb4",
-        "Text": "#ff1c71d8",
-        "ToolTipBase": "#ffe01b24",
-        "ToolTipText": "#ffa51d2d",
-        "Window": "#ffe01b24",
-        "WindowText": "#fff66151"
+        "Link": "#ff26a269",
+        "Text": "#ff000000",
+        "ToolTipBase": "#ff57e389",
+        "ToolTipText": "#ff000000",
+        "Window": "#ff2ec27e",
+        "WindowText": "#ff000000"
     },
     "modifiedValues": {
-        "Author": 5,
+        "Author": 6,
         "Edition": 5,
         "Format": 5,
         "Genre": 5,
@@ -24,6 +24,6 @@
         "Publisher": 5,
         "Release Date": 5,
         "Tags": 5,
-        "Title": 10
+        "Title": 12
     }
 }

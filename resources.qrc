@@ -1,9 +1,12 @@
 <RCC>
     <qresource prefix="/images">
         <file>resources/no_image.jpeg</file>
-    </qresource>
-    <qresource prefix="/styles">
-        <file>resources/dark_theme.qss</file>
-        <file>resources/light_theme.qss</file>
+        <file>resources/article.png</file>
+        <file>resources/beatles.jpg</file>
+        <file>resources/harry-potter.jpg</file>
+        <file>resources/inception.jpg</file>
+        <file>resources/podcast.jpeg</file>
+        <file>resources/hobbit.jpg</file>
+        <file>resources/interstellar.jpeg</file>
     </qresource>
 </RCC>

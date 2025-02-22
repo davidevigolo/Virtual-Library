@@ -10,6 +10,8 @@ private:
     Theme selectedTheme;
     QMap<QString,QColor> customPaletteData;
     QMap<QString,int> weights;
+    void closeEvent(QCloseEvent *event) override;
+    void setAppPalette();
 public:
     SettingsDisplay(QWidget* parent = nullptr);
 signals:

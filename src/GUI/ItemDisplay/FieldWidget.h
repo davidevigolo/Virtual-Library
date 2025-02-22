@@ -5,22 +5,24 @@
 #include <QSpinBox>
 #include <QDoubleSpinBox>
 
+enum FieldType {
+    TEXT,
+    INTEGER,
+    DOUBLE,
+    BOOL,
+    TAGS
+};
+
 class FieldWidget : public QWidget
 {
     Q_OBJECT
 private:
     QLabel *fieldLabel;
-    QLineEdit *fieldLineEdit;
-    QSpinBox *uNumberBox;
-    QDoubleSpinBox *dNumberBox;
+    FieldType fieldType;
+    QWidget* inputWidget;
 public:
-    FieldWidget(const QString& fieldName, const QString& fieldValue, QWidget *parent = nullptr);
-    FieldWidget(const QString& fieldName, const std::vector<std::string>& fieldValue, QWidget *parent = nullptr);//for the tags field
-    FieldWidget(const QString& filedName, const unsigned int& fieldValue, QWidget *parent = nullptr);//for the integers values
-    FieldWidget(const QString& filedName, const double& fieldValue, QWidget *parent = nullptr);//for the integers values
+    FieldWidget(const QString& fieldName, const QVariant& fieldValue, FieldType fieldType, QWidget *parent = nullptr);
+    QVariant getFieldValue() const;
     QString getFieldName() const;
-    QString getLineEditValue() const;
-    unsigned int getSpinBoxValue() const;
-    double getDoubleSpinBoxValue() const;
     void setReadOnly(bool);
 };

@@ -4,7 +4,7 @@
 
 MediaItem::MediaItem(const std::string& title, const std::string& author, const std::string& releaseDate, const std::string& productionHouse, 
                 const std::string& genre, const std::vector<std::string>& tags, 
-                const std::string& format, const std::string& language, const std::string& used, const std::string& image):
+                const std::string& format, const std::string& language, const bool used, const std::string& image):
                 title(title), author(author), releaseDate(releaseDate), productionHouse(productionHouse), genre(genre),
                 tags(tags), format(format), language(language), used(used), image(image) {}
 
@@ -42,11 +42,7 @@ std::string MediaItem::getLanguage() const {
     return language;
 }
 
-std::string MediaItem::getStatus() const {
-    return used;
-}
-
-std::string MediaItem::getUsed() const {
+bool MediaItem::getUsed() const {
     return used;
 }
 
@@ -82,15 +78,11 @@ void MediaItem::setFormat(const std::string& format) {
     this->format = format;
 }
 
-void MediaItem::setStatus(const std::string& used) {
-    this->used = used;
-}
-
 void MediaItem::setLanguage(const std::string& language) {
     this->language = language;
 }
 
-void MediaItem::setUsed(const std::string& used) {
+void MediaItem::setUsed(const bool used) {
     this->used = used;
 }
 
