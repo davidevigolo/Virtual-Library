@@ -8,5 +8,6 @@
         <file>resources/podcast.jpeg</file>
         <file>resources/hobbit.jpg</file>
         <file>resources/interstellar.jpeg</file>
+        <file>resources/streetsmart.png</file>
     </qresource>
 </RCC>

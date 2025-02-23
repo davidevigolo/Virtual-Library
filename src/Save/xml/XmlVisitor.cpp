@@ -77,7 +77,7 @@ void XmlVisitor::visit(const Podcast *media)
     writer.writeStartElement("MediaItem");
     writer.writeStartElement("Podcast");
     visit(static_cast<const AudioVisual *>(media));
-    writer.writeTextElement("Episodes", std::to_string(media->getEpisode()).c_str());
+    writer.writeTextElement("Episode", std::to_string(media->getEpisode()).c_str());
     writer.writeEndElement();
     writer.writeEndElement();
 }

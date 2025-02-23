@@ -10,9 +10,8 @@ SearchBar::SearchBar(QWidget *parent) : QWidget(parent)
     searchTextEdit->setPlaceholderText("Search...");
     searchTextEdit->setFixedHeight(30);
 
-    QHBoxLayout *searchLayout = new QHBoxLayout(this);
-    searchLayout->addWidget(searchTextEdit);
-    setLayout(searchLayout);
+    setLayout(new QHBoxLayout(this));
+    layout()->addWidget(searchTextEdit);
 }
 
 void SearchBar::searchEvent()

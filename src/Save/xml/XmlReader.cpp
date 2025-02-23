@@ -107,7 +107,7 @@ MediaItem *XmlReader::read(QDomNode &node)
             attributes_map["Language"].toStdString(),
             attributes_map["Used"].toLower() == "true",
             attributes_map["Duration"].toUInt(),
-            attributes_map["Episodes"].toUInt(),
+            attributes_map["Episode"].toUInt(),
             attributes_map["Image"].toStdString());
     }
     else {

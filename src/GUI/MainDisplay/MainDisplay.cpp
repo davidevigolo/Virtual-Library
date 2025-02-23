@@ -19,7 +19,7 @@ MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent), mainScroll(new QScr
     noResult->hide();
 
     mainScroll->setWidgetResizable(true);
-    mainScroll->hide();
+    mainScroll->hide();//to ensure that the scroll is hidden until the items are set
 }
 
 void MainDisplay::setAreas(QVector<MediaItem *> &items)
@@ -41,7 +41,7 @@ void MainDisplay::setAreas(QVector<MediaItem *> &items)
     container->setObjectName("container");
     container->setLayout(mainLayout);
 
-    for (auto key : mediaItems.keys())
+    for (auto key : mediaItems.keys())//set the orizontal scrool areas
     {
         ScrollWidget *scroll = new ScrollWidget(container);
         connect(scroll, &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);

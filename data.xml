@@ -81,7 +81,7 @@
             <Used>false</Used>
             <Image>:/images/resources/podcast.jpeg</Image>
             <Duration>60</Duration>
-            <Episodes>6</Episodes>
+            <Episode>6</Episode>
         </Podcast>
     </MediaItem>
     <MediaItem>
@@ -146,5 +146,25 @@
             <Framerate>24</Framerate>
             <Director>Christopher Nolan</Director>
         </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Streetsmart</Title>
+            <Author>Dre &amp; Papi</Author>
+            <ReleaseDate>2024</ReleaseDate>
+            <ProductionHouse>Streetsmart</ProductionHouse>
+            <Genre>Commedy</Genre>
+            <Tags>
+                <Tag>Follia</Tag>
+                <Tag>Balordo</Tag>
+                <Tag>Sto facendo uno show</Tag>
+            </Tags>
+            <Format>Spotify-Youtube</Format>
+            <Language>Italian</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/streetsmart.png</Image>
+            <Duration>75</Duration>
+            <Episode>11</Episode>
+        </Podcast>
     </MediaItem>
 </MediaItems>

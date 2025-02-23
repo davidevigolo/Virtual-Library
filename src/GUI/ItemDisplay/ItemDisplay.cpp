@@ -10,24 +10,26 @@
 #include <qfiledialog.h>
 #include <QDebug>
 
-
-ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
+ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidget(parent), newItem(newItem)
 {
     this->item = item;
 
     imagePath = QString::fromStdString(item->getImage());
-    imageButton = new ImageButton(this,imagePath);
+    imageButton = new ImageButton(this, imagePath);
 
     QFileInfo fileInfo(imagePath);
-    if (fileInfo.exists()) {
+    if (fileInfo.exists())
+    {
         imageButton->setIcon(imagePath);
-    } else {
+    }
+    else
+    {
         imageButton->setIcon(":/images/resources/no_image.jpeg");
     }
     imageButton->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    
+
     imageButton->setEnabled(false);
-    
+
     QPushButton *goBackButton = new QPushButton("Go Back", this);
     goBackButton->setStyleSheet("background-color: red; color: black;");
     goBackButton->setFixedWidth(imageButton->width());
@@ -38,7 +40,6 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
     QWidget *buttonWidget = new QWidget(this);
     QHBoxLayout *buttonsLayout = new QHBoxLayout();
 
-
     editButton = new QPushButton("Edit", buttonWidget);
     deleteButton = new QPushButton("Delete", buttonWidget);
 
@@ -47,8 +48,8 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
     deleteButton->setStyleSheet("background-color: green; color: black;");
     deleteButton->setFixedWidth(imageButton->width());
 
-    saveButton = new QPushButton("Save",buttonWidget);
-    cancelButton = new QPushButton("Cancel",buttonWidget);
+    saveButton = new QPushButton("Save", buttonWidget);
+    cancelButton = new QPushButton("Cancel", buttonWidget);
 
     saveButton->setStyleSheet("background-color: yellow; color: black;");
     saveButton->setFixedWidth(imageButton->width());
@@ -60,7 +61,7 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
 
     connect(saveButton, &QPushButton::clicked, this, &ItemDisplay::onSave);
     connect(cancelButton, &QPushButton::clicked, this, &ItemDisplay::onCancel);
-    
+
     buttonsLayout->addStretch(); // Add stretchable space before buttons
     buttonsLayout->addWidget(editButton);
     buttonsLayout->addWidget(deleteButton);
@@ -69,18 +70,18 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
 
     connect(editButton, &QPushButton::clicked, this, &ItemDisplay::onEdit);
     connect(deleteButton, &QPushButton::clicked, this, &ItemDisplay::onDeletion);
-    
+
     buttonWidget->setLayout(buttonsLayout);
     buttonsLayout->addWidget(editButton);
     buttonsLayout->addWidget(deleteButton);
-    
 
     QWidget *fields = new QWidget(this);
     fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     GridVisitor visitor(fields);
     item->accept(&visitor);
 
-    for(auto field : findChildren<FieldWidget*>()){
+    for (auto field : findChildren<FieldWidget *>())
+    {
         field->setReadOnly(true);
     }
 
@@ -88,10 +89,12 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget* parent) : QWidget(parent)
     layout->addWidget(goBackButton, 0, 0);
     layout->addWidget(buttonWidget, 0, 1);
     layout->addWidget(imageButton, 1, 0);
-    layout->addWidget(fields, 1, 1);    
-    
+    layout->addWidget(fields, 1, 1);
 
     setLayout(layout);
+
+    if (newItem)
+        onEdit();
 }
 
 void ItemDisplay::onEdit()
@@ -101,54 +104,68 @@ void ItemDisplay::onEdit()
     imageButton->setEnabled(true);
     cancelButton->show();
     saveButton->show();
-    //segnalare a fields che è stato premuto
-    for(auto field : findChildren<FieldWidget*>()){
+    // segnalare a fields che è stato premuto
+    for (auto field : findChildren<FieldWidget *>())
+    {
         field->setReadOnly(false);
     }
     emit itemChanged(item);
 }
 
-void ItemDisplay::onCancel(){
+void ItemDisplay::onCancel()
+{
     editButton->show();
     deleteButton->show();
     imageButton->setEnabled(false);
     cancelButton->hide();
     saveButton->hide();
-    //segnalare a fields che è stato premuto
-    for(auto field : findChildren<FieldWidget*>()){
+    // segnalare a fields che è stato premuto
+    for (auto field : findChildren<FieldWidget *>())
+    {
         layout()->removeWidget(field);
         delete field;
+    }
+    if (newItem)
+    {
+        onGoBack();
+        return;
     }
     QWidget *fields = new QWidget(this);
     fields->setFixedHeight(imageButton->height());
     GridVisitor visitor(fields);
     item->accept(&visitor);
-    static_cast<QGridLayout*>(layout())->addWidget(fields, 1, 1);
+    static_cast<QGridLayout *>(layout())->addWidget(fields, 1, 1);
 }
 
-void ItemDisplay::onSave(){
+void ItemDisplay::onSave()
+{
     editButton->show();
     deleteButton->show();
     cancelButton->hide();
     saveButton->hide();
     imageButton->setEnabled(false);
     EditFactory editFactory;
-    for(auto field : findChildren<FieldWidget*>()){
+    for (auto field : findChildren<FieldWidget *>())
+    {
         editFactory.makeEdit(field, item);
         field->setReadOnly(true);
     }
-    if(imagePath.isEmpty()){
-        return;
+    if (!imagePath.isEmpty())
+    {
+        item->setImage(imagePath.toStdString());
     }
-    item->setImage(imagePath.toStdString());
-    
+    if(newItem){
+        newItem = false;
+        emit itemChanged(item);
+    }
 }
 
 void ItemDisplay::onDeletion()
 {
     QMessageBox::StandardButton reply;
-    reply = QMessageBox::question(this, "Delete", "Are you sure you want to delete this item?", QMessageBox::Yes|QMessageBox::No);
-    if (reply == QMessageBox::No) {
+    reply = QMessageBox::question(this, "Delete", "Are you sure you want to delete this item?", QMessageBox::Yes | QMessageBox::No);
+    if (reply == QMessageBox::No)
+    {
         return;
     }
     emit itemDeleted(item);
@@ -156,13 +173,18 @@ void ItemDisplay::onDeletion()
 
 void ItemDisplay::onGoBack()
 {
+    if(newItem){
+        emit itemDeleted(item);
+        return;
+    }
     emit itemDisplayClosed();
 }
 
 void ItemDisplay::onImageButtonClicked()
 {
     imagePath = QFileDialog::getOpenFileName(this, "Select Image", "", "Image Files (*.png *.jpg *.jpeg *.bmp *.gif *.pbm *.pgm *.ppm *.xbm *.xpm);;All Files (*)");
-    if(imagePath.isEmpty()){
+    if (imagePath.isEmpty())
+    {
         return;
     }
     imageButton->setIcon(imagePath);

@@ -1,5 +1,5 @@
 #include <ImageButton.h>
-#include <qboxlayout.h>
+#include <QBoxLayout>
 #include <QFontMetrics>
 #include <QResizeEvent>
 #include <MainWindow.h>
@@ -42,7 +42,6 @@ void ImageButton::setEnabled(bool _enabled)
 
 void ImageButton::onImageButtonClicked()
 {
-    qDebug() << "ImageButton clicked";
     if(!enabled)
         return;
     emit imageButtonClicked();

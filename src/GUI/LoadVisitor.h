@@ -13,6 +13,10 @@
 #include <Podcast.h>
 #include <Music.h>
 
+/**
+    * @brief LoadVisitor class is a concrete visitor class that is used to 
+    * insert mediaItems in the correct vector on the map.
+*/
 class LoadVisitor : public Visitor {
     private:
         QMap<QString, QVector<MediaItem*>>& mediaItems;

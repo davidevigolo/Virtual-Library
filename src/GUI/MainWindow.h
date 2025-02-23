@@ -17,6 +17,21 @@
 #include <MainDisplay.h>
 #include <SearchEngine.h>
 
+/**
+ * @class MainWindow
+ * @brief The MainWindow class represents the main window of the GUI application.
+ * 
+ * This class is responsible for managing the main user interface, including loading and saving files,
+ * handling user interactions, and displaying media items. It inherits from QWidget and uses Qt's 
+ * signal-slot mechanism to handle events.
+ * 
+ * @note The destructor ensures that all dynamically allocated MediaItem objects are properly deleted.
+ * 
+ * @signals
+ *   void itemsLoaded(QVector<MediaItem*>& items) - Emitted when media items are loaded for ssort them into a map.
+ *   void noResults(QString query) - Emitted when a search query returns no results to show a no result written.
+ * 
+ */
 class MainWindow : public QWidget {
     Q_OBJECT
 private:
@@ -26,7 +41,6 @@ private:
     void clearView();
     void createHeader();
     void addMainDisplay();
-    void setAppStyleSheet();
 public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow(){
@@ -45,7 +59,6 @@ private slots:
     void onItemDeleted(MediaItem* item);
     void onItemDisplayClosed();
     void onNewItemButtonClicked();
-    void onSettingsChanged();
 signals:
     void itemsLoaded(QVector<MediaItem*>& items);
     void noResults(QString query);

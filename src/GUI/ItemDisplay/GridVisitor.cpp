@@ -6,6 +6,10 @@
 
 GridVisitor::GridVisitor(QWidget* widget) : widget(widget) , grid(new QGridLayout(widget)){}
 
+/*
+    * This function is used to visit a MediaItem object and display its fields in the grid layout.
+    * @param media: the MediaItem object to be visited
+*/
 void GridVisitor::visit(MediaItem* media) {
     FieldWidget *title = new FieldWidget("Title", QString::fromStdString(media->getTitle()), TEXT, widget);
     FieldWidget *author = new FieldWidget("Author", QString::fromStdString(media->getAuthor()), TEXT, widget);

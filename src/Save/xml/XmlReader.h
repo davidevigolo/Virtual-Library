@@ -9,6 +9,8 @@
 #include <Podcast.h>
 #include <QDomNode>
 
+
+
 class XmlReader{
 public:
     static MediaItem* read(QDomNode& node);

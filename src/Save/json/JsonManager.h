@@ -15,6 +15,10 @@
 #include <Podcast.h>
 #include <FileManager.h>
 
+/*
+* JsonManager class is a classs that handles the saving and loading of media items in json format.
+*/
+
 class JsonManager : public FileManager{
     private:
         QString filePath;

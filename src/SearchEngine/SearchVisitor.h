@@ -10,6 +10,11 @@
 #include <string>
 #include <map>
 
+/**
+    * @brief SearchVisitor is a class that is used to give items a score 
+    * based on how well they match a search query based on weights given to the various fields of an item
+*/
+
 class SearchVisitor : public ConstVisitor {
 private:
     int points;
@@ -17,31 +22,7 @@ private:
     std::map<std::string,int> pointsValue;
     bool compare(std::string str1, QString str2);
 public:
-    SearchVisitor(const QString& query, std::map<std::string,int> pointsValue = {
-                                                                                  {"Title", 10}, // mediaItem
-                                                                                  {"Author", 5},
-                                                                                  {"Release Date", 5},
-                                                                                  {"Production House", 5},
-                                                                                  {"Genre", 5},
-                                                                                  {"Tags", 5},
-                                                                                  {"Format", 5},
-                                                                                  {"Language", 5},
-                                                                                  
-                                                                                  {"Edition", 5}, // Readable
-
-                                                                                  {"Publisher", 5}, // Article
-
-                                                                                  {"ISBN", 5}, // Book
-
-                                                                                  {"Duration", 5}, // AudioVisual
-
-                                                                                  {"Director", 5}, // Film
-                                                                                  {"Tecnic", 5},
-
-                                                                                  {"Album", 5}, // Music
-
-                                                                                  {"Episode", 5} // Podcast
-                                                                              });
+    SearchVisitor(const QString& query, std::map<std::string,int> pointsValue);
     virtual void visit(const MediaItem* media) override;
     virtual void visit(const Readable* readable) override;
     virtual void visit(const AudioVisual* audioVisual) override;

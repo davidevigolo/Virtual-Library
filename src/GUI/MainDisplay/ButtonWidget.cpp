@@ -62,11 +62,12 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     setLayout(&buttonLayout);
 }
 
+//Resize the button and label to fit the new size of the widget
 void ButtonWidget::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
     int buttonHeight = event->size().height();
-    int buttonWidth = buttonHeight * 16 / 9;
+    int buttonWidth = buttonHeight * 16 / 9; //always mantain 16:9 aspect ratio
     button.setFixedSize(buttonWidth, buttonHeight);
 
     QFontMetrics metrics(buttonLabel.font());

@@ -14,6 +14,10 @@
 #include <Podcast.h>
 #include <Music.h>
 
+/*
+* XML Visitor class is a concrete class that writes a media item's fields in a XML file .
+*/
+
 class XmlVisitor : public ConstVisitor{
 private:
     QXmlStreamWriter& writer;
