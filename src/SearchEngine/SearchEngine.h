@@ -19,6 +19,6 @@ private:
     void merge(QVector<MediaItem*>& items, QVector<short int>& points, int left, int mid, int right);
     void mergeSort(QVector<MediaItem*>& items, QVector<short int>& points, int left, int right);
 public:
-    SearchEngine() : visitor("") {};
+    SearchEngine();
     QVector<MediaItem*> search(const QString& query, const QVector<MediaItem*>& items);
 };

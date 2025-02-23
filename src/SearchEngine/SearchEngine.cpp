@@ -2,6 +2,16 @@
 #include <iostream>
 #include <Settings.h>
 
+SearchEngine::SearchEngine() : visitor("", std::map<std::string, int>()) {
+    SettingsData settings = Settings::getSettings();
+
+    std::map<std::string, int> weights;
+    for (const auto& pair : settings.weights.toStdMap()) {
+        weights[pair.first.toStdString()] = pair.second;
+    }
+    visitor = SearchVisitor("", weights);
+}
+
 QVector<MediaItem*> SearchEngine::search(const QString& query, const QVector<MediaItem*>& items) {
     std::map<std::string, int> weights;
     for (const auto& pair : Settings::getSettings().weights.toStdMap()) {
