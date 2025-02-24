@@ -16,8 +16,8 @@
 class SearchEngine{
     SearchVisitor visitor;
 private:
-    void merge(QVector<MediaItem*>& items, QVector<short int>& points, int left, int mid, int right);
-    void mergeSort(QVector<MediaItem*>& items, QVector<short int>& points, int left, int right);
+    void merge(QVector<MediaItem*>& items, QVector<unsigned long long int>& points, int left, int mid, int right);
+    void mergeSort(QVector<MediaItem*>& items, QVector<unsigned long long int>& points, int left, int right);
 public:
     SearchEngine();
     QVector<MediaItem*> search(const QString& query, const QVector<MediaItem*>& items);
