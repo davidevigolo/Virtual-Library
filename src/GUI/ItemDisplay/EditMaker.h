@@ -10,8 +10,8 @@
 /*This function save the changes done on the 
     field widget to the actual item*/
 
-class EditFactory{
+class EditMaker{
 public:
-    EditFactory();
+    EditMaker();
     void makeEdit(FieldWidget* fieldWidget, MediaItem* item);
 };

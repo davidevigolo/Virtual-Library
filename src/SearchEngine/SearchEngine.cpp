@@ -3,10 +3,10 @@
 #include <Settings.h>
 
 SearchEngine::SearchEngine() : visitor("", std::map<std::string, int>()) {
-    SettingsData settings = Settings::getSettings();
+    SettingsData* settings = SettingsData::getInstance();
 
     std::map<std::string, int> weights;
-    for (const auto& pair : settings.weights.toStdMap()) {
+    for (const auto& pair : settings->getWeights().toStdMap()) {
         weights[pair.first.toStdString()] = pair.second;
     }
     visitor = SearchVisitor("", weights);
@@ -14,7 +14,7 @@ SearchEngine::SearchEngine() : visitor("", std::map<std::string, int>()) {
 
 QVector<MediaItem*> SearchEngine::search(const QString& query, const QVector<MediaItem*>& items) {
     std::map<std::string, int> weights;
-    for (const auto& pair : Settings::getSettings().weights.toStdMap()) {
+    for (const auto& pair : SettingsData::getInstance()->getWeights().toStdMap()) {
         weights[pair.first.toStdString()] = pair.second;
     }
     visitor = SearchVisitor("", weights);

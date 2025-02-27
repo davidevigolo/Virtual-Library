@@ -5,7 +5,7 @@
 #include <GridVisitor.h>
 #include <QMessageBox>
 #include <QFileInfo>
-#include "EditFactory.h"
+#include "EditMaker.h"
 #include "FieldWidget.h"
 #include <qfiledialog.h>
 #include <QDebug>
@@ -76,13 +76,14 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidg
     buttonsLayout->addWidget(deleteButton);
 
     QWidget *fields = new QWidget(this);
-    fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     GridVisitor visitor(fields);
     item->accept(&visitor);
+    fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     for (auto field : findChildren<FieldWidget *>())
     {
         field->setReadOnly(true);
+        field->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     }
 
     QGridLayout *layout = new QGridLayout(this);
@@ -90,6 +91,7 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidg
     layout->addWidget(buttonWidget, 0, 1);
     layout->addWidget(imageButton, 1, 0);
     layout->addWidget(fields, 1, 1);
+    fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     setLayout(layout);
 
@@ -144,10 +146,10 @@ void ItemDisplay::onSave()
     cancelButton->hide();
     saveButton->hide();
     imageButton->setEnabled(false);
-    EditFactory editFactory;
+    EditMaker editMaker;
     for (auto field : findChildren<FieldWidget *>())
     {
-        editFactory.makeEdit(field, item);
+        editMaker.makeEdit(field, item);
         field->setReadOnly(true);
     }
     if (!imagePath.isEmpty())

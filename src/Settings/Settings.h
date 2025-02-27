@@ -4,50 +4,47 @@
 #include <QString>
 #include <QColor>
 
-
-/**
-    * @brief Enum to represent the different themes that the application can have
-    *
-*/
 enum Theme{
     DARK,
     LIGHT,
     CUSTOM
 };
 
-/**
-    * @brief Struct to represent the settings of the application
-    *
-    * @param selectedTheme The selected theme of the application
-    * @param customPaletteData The custom palette data of the application
-    * @param weights The weights of the search engine of the application
-*/
-
-typedef struct{
-    public:
+class SettingsData {
+    private:
+        static SettingsData* instance;
         Theme selectedTheme;
         QMap<QString,QColor> customPaletteData;
         QMap<QString,int> weights;
-} SettingsData;
+        
+        // Private constructor to prevent instantiation
+        SettingsData() = default;
 
-/**
- * @brief Class to manage the settings of the application
- * 
-* @param settings The settings of the application
-* @param setDefaultSettings Function to set the default settings of the application
+    public:
+        // Delete copy constructor and assignment operator
+        SettingsData(const SettingsData&) = delete;
+        SettingsData& operator=(const SettingsData&) = delete;
 
-*/
+        static SettingsData* getInstance();
 
-class Settings{
-    private:
-        static SettingsData settings;
-        static void setDefaultSettings();
+        // Getters and setters
+        Theme getSelectedTheme() const { return selectedTheme; }
+        void setSelectedTheme(Theme theme) { selectedTheme = theme; }
+        
+        QMap<QString,QColor>& getCustomPaletteData() { return customPaletteData; }
+        void setCustomPaletteData(const QMap<QString,QColor>& palette) { customPaletteData = palette; }
+        
+        QMap<QString,int>& getWeights() { return weights; }
+        void setWeights(const QMap<QString,int>& w) { weights = w; }
+
+        void setDefaultSettings();
+};
+
+class Settings {
     public:
         Settings();
-        static void setSettings(SettingsData newSettings);
-        static SettingsData getSettings();
-        static void saveSettings();
         static QString themeToText(int);
         static Theme textToTheme(QString);
         static void setAppPalette(QMap<QString,QColor>& customPaletteData,Theme selectedTheme);
+        static void saveSettings();
 };

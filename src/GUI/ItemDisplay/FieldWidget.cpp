@@ -3,6 +3,7 @@
 #include <Settings.h>
 #include <qmessagebox.h>
 #include <QCheckBox>
+#include <QSizePolicy>
 
 FieldWidget::FieldWidget(const QString& fieldName, const QVariant& fieldValue, FieldType fieldType, QWidget *parent) : QWidget(parent), fieldType(fieldType) {
     if(fieldType == FieldType::TEXT){
@@ -34,6 +35,7 @@ FieldWidget::FieldWidget(const QString& fieldName, const QVariant& fieldValue, F
             }
         }
         lineEdit->setText(concatenatedValues);
+        lineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         inputWidget = lineEdit;
     }
 

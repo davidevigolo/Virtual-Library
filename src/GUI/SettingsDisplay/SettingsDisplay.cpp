@@ -18,13 +18,13 @@
 SettingsDisplay::SettingsDisplay(QWidget *parent) : QWidget(parent)
 {
     setObjectName("settingsDisplay");
-    selectedTheme = Settings::getSettings().selectedTheme;
-    customPaletteData = Settings::getSettings().customPaletteData;
-    weights = Settings::getSettings().weights;
+    SettingsData* settings = SettingsData::getInstance();
+    selectedTheme = settings->getSelectedTheme();
+    customPaletteData = settings->getCustomPaletteData();
+    weights = settings->getWeights();
 
     this->setWindowTitle("Settings");
-
-    auto settings = Settings::getSettings();
+    
     QVBoxLayout *layout = new QVBoxLayout(this);
 
     QPushButton *apply = new QPushButton("Apply", this);
@@ -61,7 +61,7 @@ SettingsDisplay::SettingsDisplay(QWidget *parent) : QWidget(parent)
         QSpinBox *spinBox = new QSpinBox(this);
         spinBox->setRange(0, 100);
         spinBox->setObjectName(label); // to find it later
-        spinBox->setValue(settings.weights[label]);
+        spinBox->setValue(settings->getWeights()[label]);
         connect(spinBox, QOverload<int>::of(&QSpinBox::valueChanged), [this, label](int value)
                 { weights[label] = value; });
         rowLayout->addWidget(lbl);
@@ -75,7 +75,7 @@ SettingsDisplay::SettingsDisplay(QWidget *parent) : QWidget(parent)
     {
         QHBoxLayout *rowLayout = new QHBoxLayout();
         QLabel *lbl = new QLabel(label, this);
-        QColor color = settings.customPaletteData[label];
+        QColor color = settings->getCustomPaletteData()[label];
         QPushButton *colorPicker = new QPushButton(this);
         colorPicker->setObjectName(label);
         colorPicker->setStyleSheet("background-color: " + color.name() + ";");
@@ -93,11 +93,10 @@ SettingsDisplay::SettingsDisplay(QWidget *parent) : QWidget(parent)
 
 void SettingsDisplay::onApply()
 {
-    SettingsData settingsData;
-    settingsData.selectedTheme = selectedTheme;
-    settingsData.customPaletteData = customPaletteData;
-    settingsData.weights = weights;
-    Settings::setSettings(settingsData);
+    SettingsData* settings = SettingsData::getInstance();
+    settings->setSelectedTheme(selectedTheme);
+    settings->setCustomPaletteData(customPaletteData);
+    settings->setWeights(weights);
     Settings::saveSettings();
 }
 
@@ -154,8 +153,8 @@ void SettingsDisplay::onChangeTheme()
 
 void SettingsDisplay::closeEvent(QCloseEvent *event)
 {
-    selectedTheme = Settings::getSettings().selectedTheme;
-    customPaletteData = Settings::getSettings().customPaletteData;
+    selectedTheme = SettingsData::getInstance()->getSelectedTheme();
+    customPaletteData = SettingsData::getInstance()->getCustomPaletteData();
     setAppPalette();
 }
 

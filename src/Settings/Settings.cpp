@@ -1,17 +1,63 @@
-#include <Settings.h>
+#include "Settings.h"
 #include <QFile>
 #include <QJsonDocument>
 #include <QJsonObject>
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QPalette>
-#include <qapplication.h>
+#include <QApplication>
 
-SettingsData Settings::settings;
+SettingsData* SettingsData::instance = nullptr;
+
+SettingsData* SettingsData::getInstance() {
+    if (instance == nullptr) {
+        instance = new SettingsData();
+    }
+    return instance;
+}
+
+
+void SettingsData::setDefaultSettings() {
+    SettingsData* settings = SettingsData::getInstance();
+    settings->setSelectedTheme(Theme::DARK);
+    settings->setWeights({
+        {"Title", 10},
+        {"Author", 5},
+        {"Release Date", 5},
+        {"Production House", 5},
+        {"Genre", 5},
+        {"Tags", 5},
+        {"Format", 5},
+        {"Language", 5},
+        {"Edition", 5},
+        {"Publisher", 5},
+        {"ISBN", 5},
+        {"Duration", 5},
+        {"Director", 5},
+        {"Tecnique", 5},
+        {"Album", 5},
+        {"Episode", 5}
+    });
+    settings->setCustomPaletteData({
+        {"Window", QColor(30, 30, 30)},
+        {"WindowText", Qt::white},
+        {"Base", QColor(50, 50, 50)},
+        {"AlternateBase", QColor(50, 50, 50)},
+        {"ToolTipBase", Qt::white},
+        {"ToolTipText", Qt::white},
+        {"Text", Qt::white},
+        {"Button", QColor(50, 50, 50)},
+        {"ButtonText", Qt::white},
+        {"BrightText", Qt::red},
+        {"Link", QColor(42, 130, 218)},
+        {"Highlight", QColor(42, 130, 218)},
+        {"HighlightedText", Qt::black}
+    });
+}
 
 Settings::Settings() {
     QFile file("settings.json");
-    setDefaultSettings();
+    SettingsData::getInstance()->setDefaultSettings();
     if (!file.open(QIODevice::ReadOnly)) {
         qWarning("Couldn't open settings.json file.");
         return;
@@ -23,48 +69,37 @@ Settings::Settings() {
     QJsonDocument doc(QJsonDocument::fromJson(data));
     QJsonObject jsonObj = doc.object();
 
-    settings.selectedTheme = static_cast<Theme>(jsonObj["selectedTheme"].toInt());
+    SettingsData* settings = SettingsData::getInstance();
+    settings->setSelectedTheme(static_cast<Theme>(jsonObj["selectedTheme"].toInt()));
 
     QJsonObject weightsObj = jsonObj["modifiedValues"].toObject();
     for (const QString& key : weightsObj.keys()) {
-        settings.weights[key] = weightsObj[key].toInt();
+        settings->getWeights()[key] = weightsObj[key].toInt();
     }
 
     QJsonObject customPaletteDataObj = jsonObj["customPaletteData"].toObject();
     for (const QString& key : customPaletteDataObj.keys()) {
-        settings.customPaletteData[key] = QColor(customPaletteDataObj[key].toString());
+        settings->getCustomPaletteData()[key] = QColor(customPaletteDataObj[key].toString());
     }
-    setSettings(settings);
 }
 
-void Settings::setSettings(SettingsData newSettings) {
-    settings = newSettings;
-}
-
-SettingsData Settings::getSettings() {
-    return settings;
-}
 
 void Settings::saveSettings() {
-        //save the weight change in a file
+    SettingsData* settings = SettingsData::getInstance();
     QFile file("settings.json");
     if (file.open(QIODevice::WriteOnly)) {
         QJsonObject _settings;
         
         QJsonObject modifiedValues;
-
-        for(auto key : settings.weights.keys()) {
-            modifiedValues[key] = settings.weights.value(key);
+        for (auto key : settings->getWeights().keys()) {
+            modifiedValues[key] = settings->getWeights().value(key);
         }
-        
         _settings["modifiedValues"] = modifiedValues;
 
         QJsonObject modifiedCustomPaletteData;
-
-        for(auto key : settings.customPaletteData.keys()) {
-            modifiedCustomPaletteData[key] = settings.customPaletteData.value(key).name(QColor::HexArgb);
+        for (auto key : settings->getCustomPaletteData().keys()) {
+            modifiedCustomPaletteData[key] = settings->getCustomPaletteData().value(key).name(QColor::HexArgb);
         }
-
         _settings["customPaletteData"] = modifiedCustomPaletteData;
         
         QJsonDocument doc(_settings);
@@ -77,8 +112,7 @@ void Settings::saveSettings() {
 
 void Settings::setAppPalette(QMap<QString,QColor>& customPaletteData, Theme selectedTheme) {
     QPalette* palette = new QPalette();
-    if (selectedTheme == 0) // DARK
-    {
+    if (selectedTheme == Theme::DARK) {
         palette->setColor(QPalette::Window, QColor(30, 30, 30));
         palette->setColor(QPalette::WindowText, Qt::white);
         palette->setColor(QPalette::Base, QColor(50, 50, 50));
@@ -92,9 +126,7 @@ void Settings::setAppPalette(QMap<QString,QColor>& customPaletteData, Theme sele
         palette->setColor(QPalette::Link, QColor(42, 130, 218));
         palette->setColor(QPalette::Highlight, QColor(42, 130, 218));
         palette->setColor(QPalette::HighlightedText, Qt::black);
-    }
-    else if (selectedTheme == 1) // LIGHT
-    {
+    } else if (selectedTheme == Theme::LIGHT) {
         palette->setColor(QPalette::Window, Qt::white);
         palette->setColor(QPalette::WindowText, Qt::black);
         palette->setColor(QPalette::Base, Qt::white);
@@ -108,10 +140,7 @@ void Settings::setAppPalette(QMap<QString,QColor>& customPaletteData, Theme sele
         palette->setColor(QPalette::Link, QColor(42, 130, 218));
         palette->setColor(QPalette::Highlight, QColor(42, 130, 218));
         palette->setColor(QPalette::HighlightedText, Qt::white);
-    }
-    else
-    {
-        // Set palette based on settings value
+    } else {
         palette->setColor(QPalette::Window, customPaletteData["Window"]);
         palette->setColor(QPalette::WindowText, customPaletteData["WindowText"]);
         palette->setColor(QPalette::Base, customPaletteData["Base"]);
@@ -129,50 +158,13 @@ void Settings::setAppPalette(QMap<QString,QColor>& customPaletteData, Theme sele
     qApp->setPalette(*palette);
 }
 
-void Settings::setDefaultSettings(){
-    settings.selectedTheme = Theme::DARK;
-    settings.weights = {
-        {"Title", 10},
-        {"Author", 5},
-        {"Release Date", 5},
-        {"Production House", 5},
-        {"Genre", 5},
-        {"Tags", 5},
-        {"Format", 5},
-        {"Language", 5},
-        {"Edition", 5},
-        {"Publisher", 5},
-        {"ISBN", 5},
-        {"Duration", 5},
-        {"Director", 5},
-        {"Tecnique", 5},
-        {"Album", 5},
-        {"Episode", 5}
-    };
-    settings.customPaletteData = {
-        {"Window", QColor(30, 30, 30)},
-        {"WindowText", Qt::white},
-        {"Base", QColor(50, 50, 50)},
-        {"AlternateBase", QColor(50, 50, 50)},
-        {"ToolTipBase", Qt::white},
-        {"ToolTipText", Qt::white},
-        {"Text", Qt::white},
-        {"Button", QColor(50, 50, 50)},
-        {"ButtonText", Qt::white},
-        {"BrightText", Qt::red},
-        {"Link", QColor(42, 130, 218)},
-        {"Highlight", QColor(42, 130, 218)},
-        {"HighlightedText", Qt::black}
-    };
-}
-
 QString Settings::themeToText(int theme) {
     switch (theme) {
-    case 0:
+    case Theme::DARK:
         return "Dark";
-    case 1:
+    case Theme::LIGHT:
         return "Light";
-    case 2:
+    case Theme::CUSTOM:
         return "Custom";
     default:
         return "Unknown";

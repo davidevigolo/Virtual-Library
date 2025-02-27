@@ -1,10 +1,10 @@
-#include <EditFactory.h>
+#include <EditMaker.h>
 #include <iostream>
 #include <QDebug>
 
-EditFactory::EditFactory(){}
+EditMaker::EditMaker(){}
 
-void EditFactory::makeEdit(FieldWidget* fieldWidget, MediaItem* item){
+void EditMaker::makeEdit(FieldWidget* fieldWidget, MediaItem* item){
     if(fieldWidget->getFieldName() == "Title"){
         item->setTitle(fieldWidget->getFieldValue().toString().toStdString());
     }else if(fieldWidget->getFieldName() == "Author"){
