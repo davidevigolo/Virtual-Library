@@ -18,6 +18,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr),
     SettingsData* settings = SettingsData::getInstance();
     settings->setCustomPaletteData(settings->getCustomPaletteData());
     settings->setSelectedTheme(settings->getSelectedTheme());
+    Settings::setAppPalette();
     TopMenu *menuBar = new TopMenu(this);
 
     QLabel *welcomeText = new QLabel("<html><body><p><strong>Welcome to Virtual Library!</strong></p>"

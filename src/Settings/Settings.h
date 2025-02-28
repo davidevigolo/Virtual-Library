@@ -45,6 +45,7 @@ class Settings {
         Settings();
         static QString themeToText(int);
         static Theme textToTheme(QString);
-        static void setAppPalette(QMap<QString,QColor>& customPaletteData,Theme selectedTheme);
+        static void setAppPalette(QMap<QString,QColor>& customPaletteData = SettingsData::getInstance()->getCustomPaletteData(),
+                                    Theme selectedTheme = SettingsData::getInstance()->getSelectedTheme());
         static void saveSettings();
 };

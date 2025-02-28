@@ -19,7 +19,6 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     QFile image(mediaItem->getImage().c_str());
     if (!image.exists())
     {
-        qWarning() << "Image file does not exist:" << mediaItem->getImage().c_str();
         button.setIcon(pixmap); // Set default or empty icon
     }
     else
@@ -27,7 +26,6 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
         pixmap = QPixmap(image.fileName());
         if (pixmap.isNull())
         {
-            qWarning() << "Failed to load image:" << image.fileName();
             button.setIcon(pixmap); // Set a default image if the loading fails
         }
         else

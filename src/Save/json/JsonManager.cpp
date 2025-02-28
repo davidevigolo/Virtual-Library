@@ -101,7 +101,6 @@ QVector<MediaItem *> JsonManager::load() const
 
     if (!file.open(QIODevice::ReadOnly))
     {
-        qWarning() << "Couldn't open file:" << filePath;
         return Library;
     }
 

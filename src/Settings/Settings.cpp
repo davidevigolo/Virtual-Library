@@ -96,6 +96,8 @@ void Settings::saveSettings() {
         }
         _settings["modifiedValues"] = modifiedValues;
 
+        _settings["selectedTheme"] = static_cast<int>(settings->getSelectedTheme());
+
         QJsonObject modifiedCustomPaletteData;
         for (auto key : settings->getCustomPaletteData().keys()) {
             modifiedCustomPaletteData[key] = settings->getCustomPaletteData().value(key).name(QColor::HexArgb);
