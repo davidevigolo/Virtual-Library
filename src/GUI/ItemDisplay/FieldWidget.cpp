@@ -2,6 +2,7 @@
 #include <QVBoxLayout>
 #include <Settings.h>
 #include <qmessagebox.h>
+#include <QResizeEvent>
 #include <QCheckBox>
 #include <QSizePolicy>
 
@@ -35,13 +36,13 @@ FieldWidget::FieldWidget(const QString& fieldName, const QVariant& fieldValue, F
             }
         }
         lineEdit->setText(concatenatedValues);
-        lineEdit->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
         inputWidget = lineEdit;
     }
 
+    inputWidget->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
+
     QVBoxLayout *layout = new QVBoxLayout(this);
     layout->setContentsMargins(0, 0, 0, 0);
-    layout->setSpacing(0);
 
     // Create the label
     fieldLabel = new QLabel(this);
@@ -79,4 +80,10 @@ QVariant FieldWidget::getFieldValue() const
 void FieldWidget::setReadOnly(bool readOnly)
 {
     inputWidget->setEnabled(!readOnly);
+}
+
+void FieldWidget::resizeEvent(QResizeEvent* event)
+{
+    QWidget::resizeEvent(event);
+    inputWidget->setFixedWidth(event->size().width() - fieldLabel->sizeHint().width() - layout()->spacing());
 }

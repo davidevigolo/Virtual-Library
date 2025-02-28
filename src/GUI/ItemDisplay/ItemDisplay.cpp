@@ -78,12 +78,10 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidg
     QWidget *fields = new QWidget(this);
     GridVisitor visitor(fields);
     item->accept(&visitor);
-    fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
 
     for (auto field : findChildren<FieldWidget *>())
     {
         field->setReadOnly(true);
-        field->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
     }
 
     QGridLayout *layout = new QGridLayout(this);
@@ -91,7 +89,7 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidg
     layout->addWidget(buttonWidget, 0, 1);
     layout->addWidget(imageButton, 1, 0);
     layout->addWidget(fields, 1, 1);
-    fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
+    fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Policy::MinimumExpanding);
 
     setLayout(layout);
 

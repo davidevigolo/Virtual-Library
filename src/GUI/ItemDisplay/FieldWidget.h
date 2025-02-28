@@ -25,4 +25,6 @@ public:
     QVariant getFieldValue() const;
     QString getFieldName() const;
     void setReadOnly(bool);
+protected:
+    void resizeEvent(QResizeEvent* event) override;
 };
