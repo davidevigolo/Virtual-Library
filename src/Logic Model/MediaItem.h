@@ -21,7 +21,7 @@ class MediaItem {
     public:
         MediaItem(const std::string& title  = "",const std::string& author = "", const std::string& releaseDate = "", const std::string& productionHouse = "", 
                 const std::string& genre = "", const std::vector<std::string>& tags = {""}, 
-                const std::string& format = "", const std::string& language = "", const bool used = false, const std::string& image = "");
+                const std::string& format = "", const std::string& language = "", bool used = false, const std::string& image = "");
         
         virtual ~MediaItem();
 
@@ -45,7 +45,7 @@ class MediaItem {
         void setTags(const std::vector<std::string>& tags);
         void setFormat(const std::string& format);
         void setLanguage(const std::string& language);
-        void setUsed(const bool used);
+        void setUsed(bool used);
         void setImage(const std::string& image);
 
         virtual void accept(ConstVisitor *visitor) const = 0;

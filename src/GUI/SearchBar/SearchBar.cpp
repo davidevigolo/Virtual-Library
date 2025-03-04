@@ -1,7 +1,8 @@
 #include <SearchBar.h>
 #include <qboxlayout.h>
+#include <QTimer>
 
-SearchBar::SearchBar(QWidget *parent) : QWidget(parent)
+SearchBar::SearchBar(QWidget *parent) : QWidget(parent), searchLock(false)
 {
     searchTextEdit = new QLineEdit(this);
 
@@ -16,5 +17,12 @@ SearchBar::SearchBar(QWidget *parent) : QWidget(parent)
 
 void SearchBar::searchEvent()
 {
+    if(searchLock) return;
+    searchLock = true;
     emit queryChanged(searchTextEdit->text());
+    QTimer::singleShot(1000, this, [this](){
+        searchLock = false;
+        emit queryChanged(searchTextEdit->text());
+    });
+    // emit queryChanged(searchTextEdit->text());
 }

@@ -12,8 +12,8 @@ private:
 public:
     Film(const std::string& title = "", const std::string& author = "", const std::string& releaseDate = "", const std::string& productionHouse = "", 
          const std::string& genre = "", const std::vector<std::string>& tags = {""}, 
-         const std::string& format = "", const std::string& language = "", const bool used = false, 
-         const unsigned int duration = 0, const std::string& technique = "", const double framerate = 0,
+         const std::string& format = "", const std::string& language = "", bool used = false, 
+         unsigned int duration = 0, const std::string& technique = "", double framerate = 0,
          const std::string& director = "", const std::string& image = "");
 
     //Getters
@@ -22,7 +22,7 @@ public:
     double getFramerate() const;
 
     //Setters
-    void setTechnique(const std::string& tecnica);
+    void setTechnique(const std::string& technique);
     void setFramerate(double framerate);
     void setDirector(const std::string& director);
 
