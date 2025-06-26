@@ -22,11 +22,9 @@ class SearchBar : public QWidget
 private:
     QLineEdit *searchTextEdit;
     QPushButton *searchButton;
-    bool searchLock;
+    QTimer *searchTimer;
 public:
     SearchBar(QWidget *parent = nullptr);
-private slots:
-    void searchEvent();
 signals:
     void queryChanged(QString query);
 };
