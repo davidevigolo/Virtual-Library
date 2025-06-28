@@ -3,6 +3,13 @@
 #include <qbytearray.h>
 #include <MediaItem.h>
 
+/*
+    * @class FileManager
+    * @brief Common interface class for managing file operations related to media items.
+    *
+    * This class defines the interface for saving and loading media items from a file.
+    * It provides methods to set the file path and retrieve it.
+*/
 class FileManager {
 public:
     FileManager() {};

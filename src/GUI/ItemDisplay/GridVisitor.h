@@ -8,8 +8,7 @@
 #include <Music.h>
 
 /*
-    GridVisitor is a concrete visitor that is used to display the items in a grid layout.
-    It is used to display the items in the item window of the application.
+    GridVisitor is a concrete visitor that is used to display the MediaItem fields in a grid layout.
 */
 class GridVisitor : public Visitor {
     private:

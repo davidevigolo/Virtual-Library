@@ -5,11 +5,14 @@
 #include <Settings.h>
 
 /**
-    *A class that represents the settings display
-    *It allows the user to change the theme of the application
-    *It allows the user to change the weight of the search algorithm of the application
-*/
-
+ * @class SettingsDisplay
+ * @brief The SettingsDisplay class provides a user interface for configuring application settings.
+ * 
+ * A class that represents the settings display
+ * It allows the user to change the theme of the application
+ * It allows the user to change the weights of the search algorithm of the application
+ * 
+ */
 class SettingsDisplay : public QWidget{
     Q_OBJECT
 private:

@@ -9,7 +9,7 @@
  * @brief A widget that displays media items within a scrollable area.
  * 
  * The MainDisplay class provides functionality
- * to display and manage media items in a scrollable area. It includes
+ * to display and manage media items in multiple scrollable areas, each with its own category. It includes
  * methods to set and clear media items, and handles button click events
  * associated with the media items.
  * 
@@ -27,7 +27,6 @@
  * - void setAreas(QVector<MediaItem*>& items): Sets the media items to be displayed.
  * - void clearAreas(): Clears all the media items from the display.
  */
-
 class MainDisplay : public QWidget {
     Q_OBJECT
 private:

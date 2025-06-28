@@ -14,7 +14,6 @@
     * @brief SearchVisitor is a class that is used to give items a score 
     * based on how well they match a search query based on weights given to the various fields of an item
 */
-
 class SearchVisitor : public ConstVisitor {
 private:
     int points;

@@ -41,7 +41,7 @@ void MainDisplay::setAreas(QVector<MediaItem *> &items)
     container->setObjectName("container");
     container->setLayout(mainLayout);
 
-    for (auto key : mediaItems.keys())//set the orizontal scrool areas
+    for (auto key : mediaItems.keys())//set the orizontal scroll areas
     {
         ScrollWidget *scroll = new ScrollWidget(container);
         connect(scroll, &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);

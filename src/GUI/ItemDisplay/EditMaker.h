@@ -8,8 +8,8 @@
 #include <Podcast.h>
 
 /*This function save the changes done on the 
-    field widget to the actual item*/
-
+    field widget to the actual item
+*/
 class EditMaker{
 public:
     EditMaker();

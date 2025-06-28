@@ -9,10 +9,9 @@
 /**
  * @class ButtonWidget
  * @brief A custom widget that represents a button with an associated media item.
- * 
- * This class inherits from QWidget and provides a button with a label. When the button is clicked,
- * it emits a signal with the associated media item.
- * 
+ *
+ * This class inherits from QWidget and provides a button that represents a media item.
+ *
  * @param mediaItem A pointer to the MediaItem associated with this button.
  * @param parent The parent widget of this ButtonWidget.
  * 

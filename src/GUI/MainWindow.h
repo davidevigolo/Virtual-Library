@@ -22,8 +22,7 @@
  * @brief The MainWindow class represents the main window of the GUI application.
  * 
  * This class is responsible for managing the main user interface, including loading and saving files,
- * handling user interactions, and displaying media items. It inherits from QWidget and uses Qt's 
- * signal-slot mechanism to handle events.
+ * handling user interactions, and displaying media items.
  * 
  * @note The destructor ensures that all dynamically allocated MediaItem objects are properly deleted.
  * 

@@ -3,7 +3,7 @@
 #include "AudioVisual.h"
 
 
-class  Music : public AudioVisual {
+class Music : public AudioVisual {
     private:
         std::string album;
     public:

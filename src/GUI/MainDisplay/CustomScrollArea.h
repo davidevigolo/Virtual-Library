@@ -16,8 +16,8 @@
  * @class CustomScrollArea
  * @brief A custom scroll area that inherits from QScrollArea.
  *
- * This class provides a custom implementation of a scroll area making it 
- * call the rezieEvent function on its widget when the window is resized.
+ * This class provides a custom implementation of a scroll area making it
+ * call the resizeEvent function on its widget when the window is resized.
  *
  * @param parent The parent widget of the scroll area. Defaults to nullptr.
  *
