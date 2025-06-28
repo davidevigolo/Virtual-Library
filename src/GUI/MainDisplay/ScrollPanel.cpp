@@ -16,7 +16,7 @@ void ScrollPanel::setItems(QVector<MediaItem *> &items) {
         panelLayout->removeWidget(button);
         delete button;
     }
-
+    //put new items
     for (MediaItem *item : items) {
         addItem(item);
     }

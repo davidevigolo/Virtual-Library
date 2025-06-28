@@ -61,7 +61,9 @@
         "future": "cpp",
         "iomanip": "cpp",
         "sstream": "cpp",
-        "qstring": "cpp"
+        "qstring": "cpp",
+        "qcolor": "cpp",
+        "qmenubar": "cpp"
     },
     "C_Cpp.dimInactiveRegions": false,
     "C_Cpp.errorSquiggles": "enabled"

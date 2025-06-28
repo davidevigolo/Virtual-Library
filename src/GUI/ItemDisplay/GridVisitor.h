@@ -7,7 +7,9 @@
 #include <Podcast.h>
 #include <Music.h>
 
-
+/*
+    GridVisitor is a concrete visitor that is used to display the MediaItem fields in a grid layout.
+*/
 class GridVisitor : public Visitor {
     private:
         QWidget* widget;

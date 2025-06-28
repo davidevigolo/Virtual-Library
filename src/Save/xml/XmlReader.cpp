@@ -37,7 +37,7 @@ MediaItem *XmlReader::read(QDomNode &node)
             tags,
             attributes_map["Format"].toStdString(),
             attributes_map["Language"].toStdString(),
-            attributes_map["Used"].toStdString(),
+            attributes_map["Used"].toLower() == "true",
             attributes_map["Edition"].toStdString(),
             attributes_map["Pages"].toUInt(),
             attributes_map["Publisher"].toStdString(),
@@ -54,7 +54,7 @@ MediaItem *XmlReader::read(QDomNode &node)
             tags,
             attributes_map["Format"].toStdString(),
             attributes_map["Language"].toStdString(),
-            attributes_map["Used"].toStdString(),
+            attributes_map["Used"].toLower() == "true",
             attributes_map["Edition"].toStdString(),
             attributes_map["Pages"].toUInt(),
             attributes_map["ISBN"].toUInt(),
@@ -71,7 +71,7 @@ MediaItem *XmlReader::read(QDomNode &node)
             tags,
             attributes_map["Format"].toStdString(),
             attributes_map["Language"].toStdString(),
-            attributes_map["Used"].toStdString(),
+            attributes_map["Used"].toLower() == "true",
             attributes_map["Duration"].toUInt(),
             attributes_map["Technique"].toStdString(),
             attributes_map["Framerate"].toDouble(),
@@ -89,7 +89,7 @@ MediaItem *XmlReader::read(QDomNode &node)
             tags,
             attributes_map["Format"].toStdString(),
             attributes_map["Language"].toStdString(),
-            attributes_map["Used"].toStdString(),
+            attributes_map["Used"].toLower() == "true",
             attributes_map["Duration"].toUInt(),
             attributes_map["Album"].toStdString(),
             attributes_map["Image"].toStdString());
@@ -105,9 +105,9 @@ MediaItem *XmlReader::read(QDomNode &node)
             tags,
             attributes_map["Format"].toStdString(),
             attributes_map["Language"].toStdString(),
-            attributes_map["Used"].toStdString(),
+            attributes_map["Used"].toLower() == "true",
             attributes_map["Duration"].toUInt(),
-            attributes_map["Episodes"].toUInt(),
+            attributes_map["Episode"].toUInt(),
             attributes_map["Image"].toStdString());
     }
     else {

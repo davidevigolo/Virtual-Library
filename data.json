@@ -1,0 +1,500 @@
+[
+    {
+        "Author": "J.K. Rowling",
+        "Class": "Book",
+        "Edition": "3",
+        "Format": "Hardcover",
+        "Genre": "Fantasy",
+        "ISBN": 0,
+        "Image": ":/images/resources/harry-potter.jpg",
+        "Language": "English",
+        "Pages": 99,
+        "ProductionHouse": "Bloomsbury",
+        "ReleaseDate": "1997",
+        "Tags": [
+            "Magic",
+            "Wizards",
+            "Adventure"
+        ],
+        "Title": "Harry Potter and the Sorcerer's Stone",
+        "Used": false
+    },
+    {
+        "Author": "Unknown",
+        "Class": "Article",
+        "Edition": "1",
+        "Format": "Online",
+        "Genre": "Literary Review",
+        "Image": ":/images/resources/article.png",
+        "Language": "English",
+        "Pages": 5,
+        "ProductionHouse": "Bloomsbury",
+        "Publisher": "The New York Times",
+        "ReleaseDate": "2020",
+        "Tags": [
+            "Literature",
+            "Analysis",
+            "Classic"
+        ],
+        "Title": "The Great Gatsby: A Critical Review",
+        "Used": true
+    },
+    {
+        "Author": "Christopher Nolan",
+        "Class": "Film",
+        "Director": "Christopher Nolan",
+        "Duration": 99,
+        "Format": "Blu-ray",
+        "Framerate": 24,
+        "Genre": "Sci-Fi",
+        "Image": ":/images/resources/inception.jpg",
+        "Language": "English",
+        "ProductionHouse": "Warner Bros",
+        "ReleaseDate": "2010",
+        "Tags": [
+            "Mind-bending",
+            "Thriller",
+            "Dreams"
+        ],
+        "Technique": "IMAX",
+        "Title": "Inception",
+        "Used": false
+    },
+    {
+        "Author": "The New York Times",
+        "Class": "Podcast",
+        "Duration": 60,
+        "Episodes": 6,
+        "Format": "Streaming",
+        "Genre": "News",
+        "Image": ":/images/resources/podcast.jpeg",
+        "Language": "English",
+        "ProductionHouse": "NYT Audio",
+        "ReleaseDate": "2024",
+        "Tags": [
+            "Current Events",
+            "Politics",
+            "Analysis"
+        ],
+        "Title": "The Daily",
+        "Used": false
+    },
+    {
+        "Album": "Abbey Road",
+        "Author": "The Beatles",
+        "Class": "Music",
+        "Duration": 47,
+        "Format": "Vinyl",
+        "Genre": "Rock",
+        "Image": ":/images/resources/beatles.jpg",
+        "Language": "English",
+        "ProductionHouse": "Apple Records",
+        "ReleaseDate": "1969",
+        "Tags": [
+            "Classic Rock",
+            "The Beatles",
+            "Legendary"
+        ],
+        "Title": "Come Together",
+        "Used": true
+    },
+    {
+        "Author": "J.R.R. Tolkien",
+        "Class": "Book",
+        "Edition": "1",
+        "Format": "Paperback",
+        "Genre": "Fantasy",
+        "ISBN": 0,
+        "Image": ":/images/resources/hobbit.jpg",
+        "Language": "English",
+        "Pages": 310,
+        "ProductionHouse": "George Allen & Unwin",
+        "ReleaseDate": "1937",
+        "Tags": [
+            "Adventure",
+            "Fantasy",
+            "Classic"
+        ],
+        "Title": "The Hobbit",
+        "Used": false
+    },
+    {
+        "Author": "Christopher Nolan",
+        "Class": "Film",
+        "Director": "Christopher Nolan",
+        "Duration": 169,
+        "Format": "Blu-ray",
+        "Framerate": 24,
+        "Genre": "Sci-Fi",
+        "Image": ":/images/resources/interstellar.jpeg",
+        "Language": "English",
+        "ProductionHouse": "Paramount Pictures",
+        "ReleaseDate": "2014",
+        "Tags": [
+            "Space",
+            "Time Travel",
+            "Science"
+        ],
+        "Technique": "IMAX",
+        "Title": "Interstellar",
+        "Used": false
+    },
+    {
+        "Author": "Dre & Papi",
+        "Class": "Podcast",
+        "Duration": 75,
+        "Episodes": 11,
+        "Format": "Spotify-Youtube",
+        "Genre": "Commedy",
+        "Image": ":/images/resources/streetsmart.png",
+        "Language": "Italian",
+        "ProductionHouse": "Streetsmart",
+        "ReleaseDate": "2024",
+        "Tags": [
+            "Follia",
+            "Balordo",
+            "Sto facendo uno show"
+        ],
+        "Title": "Streetsmart",
+        "Used": false
+    },
+    {
+        "Author": "George Orwell",
+        "Class": "Book",
+        "Edition": "1",
+        "Format": "Paperback",
+        "Genre": "Dystopian",
+        "ISBN": 0,
+        "Image": ":/images/resources/1984.jpg",
+        "Language": "English",
+        "Pages": 328,
+        "ProductionHouse": "Secker & Warburg",
+        "ReleaseDate": "1949",
+        "Tags": [
+            "Totalitarianism",
+            "Surveillance",
+            "Freedom"
+        ],
+        "Title": "1984",
+        "Used": false
+    },
+    {
+        "Author": "Jane Austen",
+        "Class": "Book",
+        "Edition": "3",
+        "Format": "Hardcover",
+        "Genre": "Romance",
+        "ISBN": 0,
+        "Image": ":images/resources/pride_and_prejudice.jpg",
+        "Language": "English",
+        "Pages": 99,
+        "ProductionHouse": "T. Egerton",
+        "ReleaseDate": "1813",
+        "Tags": [
+            "Love",
+            "Society",
+            "Class"
+        ],
+        "Title": "Pride and Prejudice",
+        "Used": false
+    },
+    {
+        "Author": "Harper Lee",
+        "Class": "Book",
+        "Edition": "2",
+        "Format": "Paperback",
+        "Genre": "Historical Fiction",
+        "ISBN": 0,
+        "Image": ":/images/resources/to_kill_a_mockingbird.jpg",
+        "Language": "English",
+        "Pages": 336,
+        "ProductionHouse": "J.B. Lippincott & Co.",
+        "ReleaseDate": "1960",
+        "Tags": [
+            "Racism",
+            "Justice",
+            "Coming of Age"
+        ],
+        "Title": "To Kill a Mockingbird",
+        "Used": true
+    },
+    {
+        "Author": "Alfred Hitchcock",
+        "Class": "Film",
+        "Director": "Alfred Hitchcock",
+        "Duration": 120,
+        "Format": "DVD",
+        "Framerate": 24,
+        "Genre": "Thriller",
+        "Image": ":/images/resources/psycho.jpg",
+        "Language": "English",
+        "ProductionHouse": "Paramount Pictures",
+        "ReleaseDate": "1960",
+        "Tags": [
+            "Horror",
+            "Psychological Thriller",
+            "Suspense"
+        ],
+        "Technique": "Black & White",
+        "Title": "Psycho",
+        "Used": false
+    },
+    {
+        "Author": "Quentin Tarantino",
+        "Class": "Film",
+        "Director": "Quentin Tarantino",
+        "Duration": 154,
+        "Format": "Blu-ray",
+        "Framerate": 24,
+        "Genre": "Crime",
+        "Image": ":/images/resources/pulp_fiction.jpg",
+        "Language": "English",
+        "ProductionHouse": "Miramax",
+        "ReleaseDate": "1994",
+        "Tags": [
+            "Violence",
+            "Non-linear",
+            "Dark Comedy"
+        ],
+        "Technique": "Color",
+        "Title": "Pulp Fiction",
+        "Used": false
+    },
+    {
+        "Author": "Steven Spielberg",
+        "Class": "Film",
+        "Director": "Steven Spielberg",
+        "Duration": 126,
+        "Format": "Blu-ray",
+        "Framerate": 24,
+        "Genre": "Adventure",
+        "Image": ":/images/resources/indiana_jones.jpg",
+        "Language": "English",
+        "ProductionHouse": "Lucasfilm",
+        "ReleaseDate": "1981",
+        "Tags": [
+            "Action",
+            "Archaeology",
+            "Adventure"
+        ],
+        "Technique": "Color",
+        "Title": "Raiders of the Lost Ark",
+        "Used": false
+    },
+    {
+        "Album": "",
+        "Author": "Led Zeppelin",
+        "Class": "Music",
+        "Duration": 42,
+        "Format": "Vinyl",
+        "Genre": "Rock",
+        "Image": ":/images/resources/led_zeppelin.jpg",
+        "Language": "English",
+        "ProductionHouse": "Atlantic Records",
+        "ReleaseDate": "1971",
+        "Tags": [
+            "Classic Rock",
+            "Guitar",
+            "Legendary"
+        ],
+        "Title": "Stairway to Heaven",
+        "Used": true
+    },
+    {
+        "Album": "",
+        "Author": "Michael Jackson",
+        "Class": "Music",
+        "Duration": 42,
+        "Format": "Vinyl",
+        "Genre": "Pop",
+        "Image": ":/images/resources/thriller.jpg",
+        "Language": "English",
+        "ProductionHouse": "Epic Records",
+        "ReleaseDate": "1982",
+        "Tags": [
+            "Pop",
+            "Dance",
+            "Legendary"
+        ],
+        "Title": "Thriller",
+        "Used": false
+    },
+    {
+        "Author": "Joe Rogan",
+        "Class": "Podcast",
+        "Duration": 120,
+        "Episodes": 2000,
+        "Format": "Streaming",
+        "Genre": "Talk Show",
+        "Image": ":/images/resources/joe_rogan.jpg",
+        "Language": "English",
+        "ProductionHouse": "Joe Rogan Experience",
+        "ReleaseDate": "2009",
+        "Tags": [
+            "Comedy",
+            "Interviews",
+            "Debate"
+        ],
+        "Title": "The Joe Rogan Experience",
+        "Used": true
+    },
+    {
+        "Author": "Sarah Koenig",
+        "Class": "Podcast",
+        "Duration": 60,
+        "Episodes": 12,
+        "Format": "Streaming",
+        "Genre": "True Crime",
+        "Image": ":/images/resources/serial.png",
+        "Language": "English",
+        "ProductionHouse": "This American Life",
+        "ReleaseDate": "2014",
+        "Tags": [
+            "Mystery",
+            "Investigation",
+            "Crime"
+        ],
+        "Title": "Serial",
+        "Used": false
+    },
+    {
+        "Author": "Vogue Editors",
+        "Class": "Article",
+        "Edition": "1",
+        "Format": "Online",
+        "Genre": "Fashion",
+        "Image": ":/images/resources/trends.jpg",
+        "Language": "English",
+        "Pages": 10,
+        "ProductionHouse": "Vogue",
+        "Publisher": "",
+        "ReleaseDate": "2023",
+        "Tags": [
+            "Fashion",
+            "Trends",
+            "Celebrity Style"
+        ],
+        "Title": "The Top Fashion Trends of 2023",
+        "Used": false
+    },
+    {
+        "Author": "David Foster Wallace",
+        "Class": "Article",
+        "Edition": "1",
+        "Format": "Online",
+        "Genre": "Literary Criticism",
+        "Image": ":/images/resources/death.jpg",
+        "Language": "English",
+        "Pages": 25,
+        "ProductionHouse": "The New York Times",
+        "Publisher": "",
+        "ReleaseDate": "2008",
+        "Tags": [
+            "Literature",
+            "Review",
+            "Analysis"
+        ],
+        "Title": "The Death of the Novel?",
+        "Used": true
+    },
+    {
+        "Author": "The New York Times",
+        "Class": "Article",
+        "Edition": "2",
+        "Format": "Online",
+        "Genre": "Current Events",
+        "Image": ":/images/resources/nyt-political-article.jpg",
+        "Language": "English",
+        "Pages": 8,
+        "ProductionHouse": "The New York Times",
+        "Publisher": "",
+        "ReleaseDate": "2023",
+        "Tags": [
+            "Politics",
+            "Analysis",
+            "Current Affairs"
+        ],
+        "Title": "A Changing Political Landscape in 2023",
+        "Used": false
+    },
+    {
+        "Author": "Vogue Editors",
+        "Class": "Article",
+        "Edition": "3",
+        "Format": "Online",
+        "Genre": "Celebrity",
+        "Image": ":/images/resources/inside_vogue.jpg",
+        "Language": "English",
+        "Pages": 12,
+        "ProductionHouse": "Vogue",
+        "Publisher": "",
+        "ReleaseDate": "2023",
+        "Tags": [
+            "Celebrity",
+            "Glamour",
+            "Red Carpet"
+        ],
+        "Title": "Inside the Met Gala 2023: Fashion’s Biggest Night",
+        "Used": false
+    },
+    {
+        "Author": "Malala Yousafzai",
+        "Class": "Article",
+        "Edition": "1",
+        "Format": "Online",
+        "Genre": "Human Rights",
+        "Image": ":/images/resources/Malala.jpg",
+        "Language": "English",
+        "Pages": 15,
+        "ProductionHouse": "BBC",
+        "Publisher": "",
+        "ReleaseDate": "2021",
+        "Tags": [
+            "Education",
+            "Women's Rights",
+            "Activism"
+        ],
+        "Title": "The Fight for Girls' Education in the 21st Century",
+        "Used": true
+    },
+    {
+        "Author": "Naomi Wolf",
+        "Class": "Article",
+        "Edition": "1",
+        "Format": "Online",
+        "Genre": "Feminism",
+        "Image": ":/images/resources/Feminist.jpg",
+        "Language": "English",
+        "Pages": 10,
+        "ProductionHouse": "The Guardian",
+        "Publisher": "",
+        "ReleaseDate": "2022",
+        "Tags": [
+            "Feminism",
+            "Politics",
+            "Gender"
+        ],
+        "Title": "The Future of Feminism in a Digital World",
+        "Used": false
+    },
+    {
+        "Author": "Brene Brown",
+        "Class": "Article",
+        "Edition": "1",
+        "Format": "Online",
+        "Genre": "Psychology",
+        "Image": ":/images/resources/power_vuln.png",
+        "Language": "English",
+        "Pages": 12,
+        "ProductionHouse": "Harvard Business Review",
+        "Publisher": "",
+        "ReleaseDate": "2023",
+        "Tags": [
+            "Vulnerability",
+            "Leadership",
+            "Self-improvement"
+        ],
+        "Title": "The Power of Vulnerability in Leadership",
+        "Used": true
+    }
+]

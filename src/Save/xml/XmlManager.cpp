@@ -40,7 +40,7 @@ QVector<MediaItem *> XmlManager::load() const
         throw std::runtime_error("Could not open file for reading");
     }
     if(!document.setContent(&file)){
-        throw std::runtime_error("Could not set content");
+        throw std::runtime_error("File content is invalid or corrupted");
     }
 
     QDomElement root =  document.firstChildElement();

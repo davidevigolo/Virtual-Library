@@ -7,9 +7,11 @@
 #include <Music.h>
 #include <Podcast.h>
 
-
-class EditFactory{
+/*This function save the changes done on the 
+    field widget to the actual item
+*/
+class EditMaker{
 public:
-    EditFactory();
+    EditMaker();
     void makeEdit(FieldWidget* fieldWidget, MediaItem* item);
 };

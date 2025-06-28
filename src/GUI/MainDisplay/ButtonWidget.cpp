@@ -19,7 +19,6 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     QFile image(mediaItem->getImage().c_str());
     if (!image.exists())
     {
-        qWarning() << "Image file does not exist:" << mediaItem->getImage().c_str();
         button.setIcon(pixmap); // Set default or empty icon
     }
     else
@@ -27,7 +26,6 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
         pixmap = QPixmap(image.fileName());
         if (pixmap.isNull())
         {
-            qWarning() << "Failed to load image:" << image.fileName();
             button.setIcon(pixmap); // Set a default image if the loading fails
         }
         else
@@ -56,16 +54,18 @@ ButtonWidget::ButtonWidget(MediaItem *mediaItem, QWidget *parent) : QWidget(pare
     buttonLabel.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Fixed);
     buttonLabel.setFixedSize(button.width(), buttonLabel.sizeHint().height());
     buttonLabel.setStyleSheet("border: none; padding: 0px; margin: 0px;");
+    buttonLabel.setStyleSheet("background-color: " + palette().window().color().name() + ";");
     buttonLayout.addWidget(&buttonLabel, 0, Qt::AlignBottom);
 
     setLayout(&buttonLayout);
 }
 
+//Resize the button and label to fit the new size of the widget
 void ButtonWidget::resizeEvent(QResizeEvent *event)
 {
     QWidget::resizeEvent(event);
     int buttonHeight = event->size().height();
-    int buttonWidth = buttonHeight * 16 / 9;
+    int buttonWidth = buttonHeight * 16 / 9; //always mantain 16:9 aspect ratio
     button.setFixedSize(buttonWidth, buttonHeight);
 
     QFontMetrics metrics(buttonLabel.font());

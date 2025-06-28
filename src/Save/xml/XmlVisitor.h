@@ -14,6 +14,12 @@
 #include <Podcast.h>
 #include <Music.h>
 
+/*
+* @class XmlVisitor
+* @brief A visitor class that generates XML representation of media items.
+* This class inherits from ConstVisitor as it performs read-only operations and implements the visit methods for different media item types.
+* It uses QXmlStreamWriter to write the XML representation.
+*/
 class XmlVisitor : public ConstVisitor{
 private:
     QXmlStreamWriter& writer;

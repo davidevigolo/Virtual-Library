@@ -3,6 +3,10 @@
 #include <QtCore/qstring.h>
 #include "../../Logic Model/MediaItem.h"
 #include <FileManager.h>
+
+/*
+* XmlManager class is responsible for saving and loading data from xml file.
+*/
 class XmlManager : public FileManager
 {
 private:

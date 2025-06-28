@@ -2,6 +2,7 @@
 #include "GUI/MainWindow.h"
 #include <Settings.h>
 
+
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
 

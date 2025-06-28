@@ -1,5 +1,5 @@
 #include <ImageButton.h>
-#include <qboxlayout.h>
+#include <QBoxLayout>
 #include <QFontMetrics>
 #include <QResizeEvent>
 #include <MainWindow.h>
@@ -11,7 +11,7 @@ ImageButton::ImageButton(QWidget *parent, QString imagePath) : QWidget(parent), 
     button.setFixedSize(QSize(1000,1000));
 
     button.setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Expanding);
-    button.setStyleSheet("background-color: #1e2124; color: black;");
+    button.setStyleSheet("background-color: " + palette().window().color().name() + "; color: black; margin: 0px; padding: 0px; border: none;");
     button.setFocusPolicy(Qt::NoFocus);
     button.setEnabled(true);
 
@@ -29,10 +29,9 @@ void ImageButton::resizeEvent(QResizeEvent *event)
         button.setFixedSize(event->size().height(), event->size().height());
     else
         button.setFixedSize(event->size().width(), event->size().width());
-    
 
     // Set the icon size to the size of the button
-    button.setIconSize(QSize(button.width(), button.height()));
+    button.setIconSize(button.size());
 }
 
 void ImageButton::setEnabled(bool _enabled)
@@ -43,7 +42,6 @@ void ImageButton::setEnabled(bool _enabled)
 
 void ImageButton::onImageButtonClicked()
 {
-    qDebug() << "ImageButton clicked";
     if(!enabled)
         return;
     emit imageButtonClicked();

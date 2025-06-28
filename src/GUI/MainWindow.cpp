@@ -11,10 +11,14 @@
 #include <qmenu.h>
 #include <qmessagebox.h>
 #include <SettingsDisplay.h>
+#include <Settings.h>
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr), searchEngine()
 {
-    setAppStyleSheet();
+    SettingsData* settings = SettingsData::getInstance();
+    settings->setCustomPaletteData(settings->getCustomPaletteData());
+    settings->setSelectedTheme(settings->getSelectedTheme());
+    Settings::setAppPalette();
     TopMenu *menuBar = new TopMenu(this);
 
     QLabel *welcomeText = new QLabel("<html><body><p><strong>Welcome to Virtual Library!</strong></p>"
@@ -66,8 +70,16 @@ void MainWindow::loadFromFile()
             notSupported->setText("File computation gone wrong");
             notSupported->setStandardButtons(QMessageBox::Ok);
         }
+        try{
         mediaItems = fileManager->load();
         emit itemsLoaded(mediaItems);
+        } catch (std::runtime_error &e) {
+            QMessageBox *notSupported = new QMessageBox(this);
+            notSupported->setText(e.what());
+            notSupported->setStandardButtons(QMessageBox::Ok);
+            notSupported->exec();
+            return;
+        }
     }
 }
 
@@ -155,7 +167,7 @@ void MainWindow::onNewItemButtonClicked()
         mediaItems.append(item);
     clearView();
 
-    ItemDisplay *itemDisplay = new ItemDisplay(item, this);
+    ItemDisplay *itemDisplay = new ItemDisplay(item, this, true);
 
     connect(itemDisplay, &ItemDisplay::itemDeleted, this, &MainWindow::onItemDeleted);
     connect(itemDisplay, &ItemDisplay::itemDisplayClosed, this, &MainWindow::onItemDisplayClosed);
@@ -236,72 +248,7 @@ void MainWindow::addMainDisplay()
 void MainWindow::onSettingsSignal()
 {
     SettingsDisplay *settingsDisplay = new SettingsDisplay;
-    connect(settingsDisplay, &SettingsDisplay::settingsChanged, this, &MainWindow::onSettingsChanged);
     settingsDisplay->setAttribute(Qt::WA_DeleteOnClose);
     settingsDisplay->show();
-    settingsDisplay->resize(400, 400);
-}
-
-void MainWindow::onSettingsChanged()
-{
-    setAppStyleSheet();
-}
-
-void MainWindow::setAppStyleSheet()
-{
-    QPalette palette = this->palette();
-    if (Settings::getSettings().selectedTheme == 0) //DARK
-    {
-        palette.setColor(QPalette::Window, QColor(30, 30, 30));
-        palette.setColor(QPalette::WindowText, Qt::white);
-        palette.setColor(QPalette::Base, QColor(50, 50, 50));
-        palette.setColor(QPalette::AlternateBase, QColor(50, 50, 50));
-        palette.setColor(QPalette::ToolTipBase, Qt::white);
-        palette.setColor(QPalette::ToolTipText, Qt::white);
-        palette.setColor(QPalette::Text, Qt::white);
-        palette.setColor(QPalette::Button, QColor(50, 50, 50));
-        palette.setColor(QPalette::ButtonText, Qt::white);
-        palette.setColor(QPalette::BrightText, Qt::red);
-        palette.setColor(QPalette::Link, QColor(42, 130, 218));
-        palette.setColor(QPalette::Highlight, QColor(42, 130, 218));
-        palette.setColor(QPalette::HighlightedText, Qt::black);
-    }
-    else if (Settings::getSettings().selectedTheme == 1) //LIGHT
-    {
-        palette.setColor(QPalette::Window, Qt::white);
-        palette.setColor(QPalette::WindowText, Qt::black);
-        palette.setColor(QPalette::Base, Qt::white);
-        palette.setColor(QPalette::AlternateBase, Qt::white);
-        palette.setColor(QPalette::ToolTipBase, Qt::white);
-        palette.setColor(QPalette::ToolTipText, Qt::black);
-        palette.setColor(QPalette::Text, Qt::black);
-        palette.setColor(QPalette::Button, Qt::white);
-        palette.setColor(QPalette::ButtonText, Qt::black);
-        palette.setColor(QPalette::BrightText, Qt::red);
-        palette.setColor(QPalette::Link, QColor(42, 130, 218));
-        palette.setColor(QPalette::Highlight, QColor(42, 130, 218));
-        palette.setColor(QPalette::HighlightedText, Qt::white);
-    }
-    else 
-    {
-        // Set palette based on settings value
-        auto settings = Settings::getSettings().customPaletteData;
-        for (const auto& key : settings.keys()) {
-            qDebug() << key << ": " << settings[key];
-        }
-        palette.setColor(QPalette::Window, settings["Window"]);
-        palette.setColor(QPalette::WindowText, settings["WindowText"]);
-        palette.setColor(QPalette::Base, settings["Base"]);
-        palette.setColor(QPalette::AlternateBase, settings["AlternateBase"]);
-        palette.setColor(QPalette::ToolTipBase, settings["ToolTipBase"]);
-        palette.setColor(QPalette::ToolTipText, settings["ToolTipText"]);
-        palette.setColor(QPalette::Text, settings["Text"]);
-        palette.setColor(QPalette::Button, settings["Button"]);
-        palette.setColor(QPalette::ButtonText, settings["ButtonText"]);
-        palette.setColor(QPalette::BrightText, settings["BrightText"]);
-        palette.setColor(QPalette::Link, settings["Link"]);
-        palette.setColor(QPalette::Highlight, settings["Highlight"]);
-        palette.setColor(QPalette::HighlightedText, settings["HighlightedText"]);
-    }
-    qApp->setPalette(palette);
+    settingsDisplay->resize(600, 400);
 }

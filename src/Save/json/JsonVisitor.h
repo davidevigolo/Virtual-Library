@@ -12,6 +12,9 @@
 #include <Podcast.h>
 #include <Music.h>
 
+/* 
+    * JsonVisitor is a class that is used to create a JSON object from the data of a MediaItem object.
+*/
 class JsonVisitor : public ConstVisitor {
 private:
     QJsonObject object;

@@ -23,7 +23,7 @@ void XmlVisitor::visit(const MediaItem *media)
     writer.writeEndElement();
     writer.writeTextElement("Format", media->getFormat().c_str());
     writer.writeTextElement("Language", media->getLanguage().c_str());
-    writer.writeTextElement("Used", media->getUsed().c_str());
+    writer.writeTextElement("Used", media->getUsed() ? "true" : "false");
     writer.writeTextElement("Image", media->getImage().c_str());
 }
 
@@ -77,7 +77,7 @@ void XmlVisitor::visit(const Podcast *media)
     writer.writeStartElement("MediaItem");
     writer.writeStartElement("Podcast");
     visit(static_cast<const AudioVisual *>(media));
-    writer.writeTextElement("Episodes", std::to_string(media->getEpisode()).c_str());
+    writer.writeTextElement("Episode", std::to_string(media->getEpisode()).c_str());
     writer.writeEndElement();
     writer.writeEndElement();
 }

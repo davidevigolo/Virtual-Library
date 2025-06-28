@@ -6,6 +6,18 @@
 #include <qboxlayout.h>
 #include <qstring.h>
 
+/**
+ * @class ButtonWidget
+ * @brief A custom widget that represents a button with an associated media item.
+ *
+ * This class inherits from QWidget and provides a button that represents a media item.
+ *
+ * @param mediaItem A pointer to the MediaItem associated with this button.
+ * @param parent The parent widget of this ButtonWidget.
+ * 
+ * @signal itemButtonClicked(MediaItem* mediaItem) Emitted when the button is clicked, passing the associated media item 
+ * to make the item display appear.
+ */
 class ButtonWidget : public QWidget
 {
     Q_OBJECT

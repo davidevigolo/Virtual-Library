@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MediaItems>
+    <MediaItem>
+        <Book>
+            <Title>Harry Potter and the Sorcerer's Stone</Title>
+            <Author>J.K. Rowling</Author>
+            <ReleaseDate>1997</ReleaseDate>
+            <ProductionHouse>Bloomsbury</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Magic</Tag>
+                <Tag>Wizards</Tag>
+                <Tag>Adventure</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/harry-potter.jpg</Image>
+            <Edition>3</Edition>
+            <Pages>99</Pages>
+            <ISBN>0</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Great Gatsby: A Critical Review</Title>
+            <Author>Unknown</Author>
+            <ReleaseDate>2020</ReleaseDate>
+            <ProductionHouse>Bloomsbury</ProductionHouse>
+            <Genre>Literary Review</Genre>
+            <Tags>
+                <Tag>Literature</Tag>
+                <Tag>Analysis</Tag>
+                <Tag>Classic</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/article.png</Image>
+            <Edition>1</Edition>
+            <Pages>5</Pages>
+            <Publisher>The New York Times</Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Inception</Title>
+            <Author>Christopher Nolan</Author>
+            <ReleaseDate>2010</ReleaseDate>
+            <ProductionHouse>Warner Bros</ProductionHouse>
+            <Genre>Sci-Fi</Genre>
+            <Tags>
+                <Tag>Mind-bending</Tag>
+                <Tag>Thriller</Tag>
+                <Tag>Dreams</Tag>
+            </Tags>
+            <Format>Blu-ray</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/inception.jpg</Image>
+            <Duration>99</Duration>
+            <Technique>IMAX</Technique>
+            <Framerate>24</Framerate>
+            <Director>Christopher Nolan</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>The Daily</Title>
+            <Author>The New York Times</Author>
+            <ReleaseDate>2024</ReleaseDate>
+            <ProductionHouse>NYT Audio</ProductionHouse>
+            <Genre>News</Genre>
+            <Tags>
+                <Tag>Current Events</Tag>
+                <Tag>Politics</Tag>
+                <Tag>Analysis</Tag>
+            </Tags>
+            <Format>Streaming</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/podcast.jpeg</Image>
+            <Duration>60</Duration>
+            <Episode>6</Episode>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Come Together</Title>
+            <Author>The Beatles</Author>
+            <ReleaseDate>1969</ReleaseDate>
+            <ProductionHouse>Apple Records</ProductionHouse>
+            <Genre>Rock</Genre>
+            <Tags>
+                <Tag>Classic Rock</Tag>
+                <Tag>The Beatles</Tag>
+                <Tag>Legendary</Tag>
+            </Tags>
+            <Format>Vinyl</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/beatles.jpg</Image>
+            <Duration>47</Duration>
+            <Album>Abbey Road</Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>The Hobbit</Title>
+            <Author>J.R.R. Tolkien</Author>
+            <ReleaseDate>1937</ReleaseDate>
+            <ProductionHouse>George Allen &amp; Unwin</ProductionHouse>
+            <Genre>Fantasy</Genre>
+            <Tags>
+                <Tag>Adventure</Tag>
+                <Tag>Fantasy</Tag>
+                <Tag>Classic</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/hobbit.jpg</Image>
+            <Edition>1</Edition>
+            <Pages>310</Pages>
+            <ISBN>0</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Interstellar</Title>
+            <Author>Christopher Nolan</Author>
+            <ReleaseDate>2014</ReleaseDate>
+            <ProductionHouse>Paramount Pictures</ProductionHouse>
+            <Genre>Sci-Fi</Genre>
+            <Tags>
+                <Tag>Space</Tag>
+                <Tag>Time Travel</Tag>
+                <Tag>Science</Tag>
+            </Tags>
+            <Format>Blu-ray</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/interstellar.jpeg</Image>
+            <Duration>169</Duration>
+            <Technique>IMAX</Technique>
+            <Framerate>24</Framerate>
+            <Director>Christopher Nolan</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Streetsmart</Title>
+            <Author>Dre &amp; Papi</Author>
+            <ReleaseDate>2024</ReleaseDate>
+            <ProductionHouse>Streetsmart</ProductionHouse>
+            <Genre>Commedy</Genre>
+            <Tags>
+                <Tag>Follia</Tag>
+                <Tag>Balordo</Tag>
+                <Tag>Sto facendo uno show</Tag>
+            </Tags>
+            <Format>Spotify-Youtube</Format>
+            <Language>Italian</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/streetsmart.png</Image>
+            <Duration>75</Duration>
+            <Episode>11</Episode>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>1984</Title>
+            <Author>George Orwell</Author>
+            <ReleaseDate>1949</ReleaseDate>
+            <ProductionHouse>Secker &amp; Warburg</ProductionHouse>
+            <Genre>Dystopian</Genre>
+            <Tags>
+                <Tag>Totalitarianism</Tag>
+                <Tag>Surveillance</Tag>
+                <Tag>Freedom</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/1984.jpg</Image>
+            <Edition>1</Edition>
+            <Pages>328</Pages>
+            <ISBN>0</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>Pride and Prejudice</Title>
+            <Author>Jane Austen</Author>
+            <ReleaseDate>1813</ReleaseDate>
+            <ProductionHouse>T. Egerton</ProductionHouse>
+            <Genre>Romance</Genre>
+            <Tags>
+                <Tag>Love</Tag>
+                <Tag>Society</Tag>
+                <Tag>Class</Tag>
+            </Tags>
+            <Format>Hardcover</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:images/resources/pride_and_prejudice.jpg</Image>
+            <Edition>3</Edition>
+            <Pages>99</Pages>
+            <ISBN>0</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Book>
+            <Title>To Kill a Mockingbird</Title>
+            <Author>Harper Lee</Author>
+            <ReleaseDate>1960</ReleaseDate>
+            <ProductionHouse>J.B. Lippincott &amp; Co.</ProductionHouse>
+            <Genre>Historical Fiction</Genre>
+            <Tags>
+                <Tag>Racism</Tag>
+                <Tag>Justice</Tag>
+                <Tag>Coming of Age</Tag>
+            </Tags>
+            <Format>Paperback</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/to_kill_a_mockingbird.jpg</Image>
+            <Edition>2</Edition>
+            <Pages>336</Pages>
+            <ISBN>0</ISBN>
+        </Book>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Psycho</Title>
+            <Author>Alfred Hitchcock</Author>
+            <ReleaseDate>1960</ReleaseDate>
+            <ProductionHouse>Paramount Pictures</ProductionHouse>
+            <Genre>Thriller</Genre>
+            <Tags>
+                <Tag>Horror</Tag>
+                <Tag>Psychological Thriller</Tag>
+                <Tag>Suspense</Tag>
+            </Tags>
+            <Format>DVD</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/psycho.jpg</Image>
+            <Duration>120</Duration>
+            <Technique>Black &amp; White</Technique>
+            <Framerate>24</Framerate>
+            <Director>Alfred Hitchcock</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Pulp Fiction</Title>
+            <Author>Quentin Tarantino</Author>
+            <ReleaseDate>1994</ReleaseDate>
+            <ProductionHouse>Miramax</ProductionHouse>
+            <Genre>Crime</Genre>
+            <Tags>
+                <Tag>Violence</Tag>
+                <Tag>Non-linear</Tag>
+                <Tag>Dark Comedy</Tag>
+            </Tags>
+            <Format>Blu-ray</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/pulp_fiction.jpg</Image>
+            <Duration>154</Duration>
+            <Technique>Color</Technique>
+            <Framerate>24</Framerate>
+            <Director>Quentin Tarantino</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Film>
+            <Title>Raiders of the Lost Ark</Title>
+            <Author>Steven Spielberg</Author>
+            <ReleaseDate>1981</ReleaseDate>
+            <ProductionHouse>Lucasfilm</ProductionHouse>
+            <Genre>Adventure</Genre>
+            <Tags>
+                <Tag>Action</Tag>
+                <Tag>Archaeology</Tag>
+                <Tag>Adventure</Tag>
+            </Tags>
+            <Format>Blu-ray</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/indiana_jones.jpg</Image>
+            <Duration>126</Duration>
+            <Technique>Color</Technique>
+            <Framerate>24</Framerate>
+            <Director>Steven Spielberg</Director>
+        </Film>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Stairway to Heaven</Title>
+            <Author>Led Zeppelin</Author>
+            <ReleaseDate>1971</ReleaseDate>
+            <ProductionHouse>Atlantic Records</ProductionHouse>
+            <Genre>Rock</Genre>
+            <Tags>
+                <Tag>Classic Rock</Tag>
+                <Tag>Guitar</Tag>
+                <Tag>Legendary</Tag>
+            </Tags>
+            <Format>Vinyl</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/led_zeppelin.jpg</Image>
+            <Duration>42</Duration>
+            <Album></Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Music>
+            <Title>Thriller</Title>
+            <Author>Michael Jackson</Author>
+            <ReleaseDate>1982</ReleaseDate>
+            <ProductionHouse>Epic Records</ProductionHouse>
+            <Genre>Pop</Genre>
+            <Tags>
+                <Tag>Pop</Tag>
+                <Tag>Dance</Tag>
+                <Tag>Legendary</Tag>
+            </Tags>
+            <Format>Vinyl</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/thriller.jpg</Image>
+            <Duration>42</Duration>
+            <Album></Album>
+        </Music>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>The Joe Rogan Experience</Title>
+            <Author>Joe Rogan</Author>
+            <ReleaseDate>2009</ReleaseDate>
+            <ProductionHouse>Joe Rogan Experience</ProductionHouse>
+            <Genre>Talk Show</Genre>
+            <Tags>
+                <Tag>Comedy</Tag>
+                <Tag>Interviews</Tag>
+                <Tag>Debate</Tag>
+            </Tags>
+            <Format>Streaming</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/joe_rogan.jpg</Image>
+            <Duration>120</Duration>
+            <Episode>2000</Episode>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Podcast>
+            <Title>Serial</Title>
+            <Author>Sarah Koenig</Author>
+            <ReleaseDate>2014</ReleaseDate>
+            <ProductionHouse>This American Life</ProductionHouse>
+            <Genre>True Crime</Genre>
+            <Tags>
+                <Tag>Mystery</Tag>
+                <Tag>Investigation</Tag>
+                <Tag>Crime</Tag>
+            </Tags>
+            <Format>Streaming</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/serial.png</Image>
+            <Duration>60</Duration>
+            <Episode>12</Episode>
+        </Podcast>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Top Fashion Trends of 2023</Title>
+            <Author>Vogue Editors</Author>
+            <ReleaseDate>2023</ReleaseDate>
+            <ProductionHouse>Vogue</ProductionHouse>
+            <Genre>Fashion</Genre>
+            <Tags>
+                <Tag>Fashion</Tag>
+                <Tag>Trends</Tag>
+                <Tag>Celebrity Style</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/trends.jpg</Image>
+            <Edition>1</Edition>
+            <Pages>10</Pages>
+            <Publisher></Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Death of the Novel?</Title>
+            <Author>David Foster Wallace</Author>
+            <ReleaseDate>2008</ReleaseDate>
+            <ProductionHouse>The New York Times</ProductionHouse>
+            <Genre>Literary Criticism</Genre>
+            <Tags>
+                <Tag>Literature</Tag>
+                <Tag>Review</Tag>
+                <Tag>Analysis</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/death.jpg</Image>
+            <Edition>1</Edition>
+            <Pages>25</Pages>
+            <Publisher></Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>A Changing Political Landscape in 2023</Title>
+            <Author>The New York Times</Author>
+            <ReleaseDate>2023</ReleaseDate>
+            <ProductionHouse>The New York Times</ProductionHouse>
+            <Genre>Current Events</Genre>
+            <Tags>
+                <Tag>Politics</Tag>
+                <Tag>Analysis</Tag>
+                <Tag>Current Affairs</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/nyt-political-article.jpg</Image>
+            <Edition>2</Edition>
+            <Pages>8</Pages>
+            <Publisher></Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>Inside the Met Gala 2023: Fashion’s Biggest Night</Title>
+            <Author>Vogue Editors</Author>
+            <ReleaseDate>2023</ReleaseDate>
+            <ProductionHouse>Vogue</ProductionHouse>
+            <Genre>Celebrity</Genre>
+            <Tags>
+                <Tag>Celebrity</Tag>
+                <Tag>Glamour</Tag>
+                <Tag>Red Carpet</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/inside_vogue.jpg</Image>
+            <Edition>3</Edition>
+            <Pages>12</Pages>
+            <Publisher></Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Fight for Girls' Education in the 21st Century</Title>
+            <Author>Malala Yousafzai</Author>
+            <ReleaseDate>2021</ReleaseDate>
+            <ProductionHouse>BBC</ProductionHouse>
+            <Genre>Human Rights</Genre>
+            <Tags>
+                <Tag>Education</Tag>
+                <Tag>Women's Rights</Tag>
+                <Tag>Activism</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/Malala.jpg</Image>
+            <Edition>1</Edition>
+            <Pages>15</Pages>
+            <Publisher></Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Future of Feminism in a Digital World</Title>
+            <Author>Naomi Wolf</Author>
+            <ReleaseDate>2022</ReleaseDate>
+            <ProductionHouse>The Guardian</ProductionHouse>
+            <Genre>Feminism</Genre>
+            <Tags>
+                <Tag>Feminism</Tag>
+                <Tag>Politics</Tag>
+                <Tag>Gender</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>false</Used>
+            <Image>:/images/resources/Feminist.jpg</Image>
+            <Edition>1</Edition>
+            <Pages>10</Pages>
+            <Publisher></Publisher>
+        </Article>
+    </MediaItem>
+    <MediaItem>
+        <Article>
+            <Title>The Power of Vulnerability in Leadership</Title>
+            <Author>Brene Brown</Author>
+            <ReleaseDate>2023</ReleaseDate>
+            <ProductionHouse>Harvard Business Review</ProductionHouse>
+            <Genre>Psychology</Genre>
+            <Tags>
+                <Tag>Vulnerability</Tag>
+                <Tag>Leadership</Tag>
+                <Tag>Self-improvement</Tag>
+            </Tags>
+            <Format>Online</Format>
+            <Language>English</Language>
+            <Used>true</Used>
+            <Image>:/images/resources/power_vuln.png</Image>
+            <Edition>1</Edition>
+            <Pages>12</Pages>
+            <Publisher></Publisher>
+        </Article>
+    </MediaItem>
+</MediaItems>

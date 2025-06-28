@@ -1,9 +1,29 @@
 <RCC>
     <qresource prefix="/images">
         <file>resources/no_image.jpeg</file>
-    </qresource>
-    <qresource prefix="/styles">
-        <file>resources/dark_theme.qss</file>
-        <file>resources/light_theme.qss</file>
+        <file>resources/article.png</file>
+        <file>resources/beatles.jpg</file>
+        <file>resources/harry-potter.jpg</file>
+        <file>resources/inception.jpg</file>
+        <file>resources/podcast.jpeg</file>
+        <file>resources/hobbit.jpg</file>
+        <file>resources/interstellar.jpeg</file>
+        <file>resources/streetsmart.png</file>
+        <file>resources/trends.jpg</file>
+        <file>resources/1984.jpg</file>
+        <file>resources/pride_and_prejudice.jpg</file>
+        <file>resources/to_kill_a_mockingbird.jpg</file>
+        <file>resources/psycho.jpg</file>
+        <file>resources/pulp_fiction.jpg</file>
+        <file>resources/indiana_jones.jpg</file>
+        <file>resources/led_zeppelin.jpg</file>
+        <file>resources/thriller.jpg</file>
+        <file>resources/joe_rogan.jpg</file>
+        <file>resources/serial.png</file>
+        <file>resources/death.jpg</file>
+        <file>resources/inside_vogue.jpg</file>
+        <file>resources/Malala.jpg</file>
+        <file>resources/Feminism.jpg</file>
+        <file>resources/power_vuln.png</file>
     </qresource>
 </RCC>

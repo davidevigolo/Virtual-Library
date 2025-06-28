@@ -2,14 +2,24 @@
 #include <iostream>
 #include <Settings.h>
 
+SearchEngine::SearchEngine() : visitor("", std::map<std::string, int>()) {
+    SettingsData* settings = SettingsData::getInstance();
+
+    std::map<std::string, int> weights;
+    for (const auto& pair : settings->getWeights().toStdMap()) {
+        weights[pair.first.toStdString()] = pair.second;
+    }
+    visitor = SearchVisitor("", weights);
+}
+
 QVector<MediaItem*> SearchEngine::search(const QString& query, const QVector<MediaItem*>& items) {
     std::map<std::string, int> weights;
-    for (const auto& pair : Settings::getSettings().weights.toStdMap()) {
+    for (const auto& pair : SettingsData::getInstance()->getWeights().toStdMap()) {
         weights[pair.first.toStdString()] = pair.second;
     }
     visitor = SearchVisitor("", weights);
     QVector<MediaItem*> result = items;
-    QVector<short int> points(items.size(), 1); //to store the search  points for each item instead of re-visit it every time i need a check
+    QVector<unsigned long long int> points(items.size(), 1); //to store the search  points for each item instead of re-visit it every time i need a check
 
     for (auto word : query.split(" ")) {
         visitor.setQuery(word);
@@ -35,14 +45,14 @@ QVector<MediaItem*> SearchEngine::search(const QString& query, const QVector<Med
     return result;
 }
 
-void SearchEngine::merge(QVector<MediaItem*>& items, QVector<short int>& points, int left, int mid, int right) {
+void SearchEngine::merge(QVector<MediaItem*>& items, QVector<unsigned long long int>& points, int left, int mid, int right) {
     int n1 = mid - left + 1;
     int n2 = right - mid;
 
     QVector<MediaItem*> L(n1);
     QVector<MediaItem*> R(n2);
-    QVector<short int> points_l(n1);
-    QVector<short int> points_r(n2);
+    QVector<unsigned long long int> points_l(n1);
+    QVector<unsigned long long int> points_r(n2);
 
     for (int i = 0; i < n1; i++){
         L[i] = items[left + i];
@@ -82,7 +92,7 @@ void SearchEngine::merge(QVector<MediaItem*>& items, QVector<short int>& points,
     }
 }
 
-void SearchEngine::mergeSort(QVector<MediaItem*>& items, QVector<short int>& points, int left, int right) {
+void SearchEngine::mergeSort(QVector<MediaItem*>& items, QVector<unsigned long long int>& points, int left, int right) {
     if (left < right) {
         int mid = left + (right - left) / 2;
 
