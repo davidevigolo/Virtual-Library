@@ -15,7 +15,7 @@
 
 MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr), searchEngine()
 {
-    SettingsData* settings = SettingsData::getInstance();
+    SettingsData *settings = SettingsData::getInstance();
     settings->setCustomPaletteData(settings->getCustomPaletteData());
     settings->setSelectedTheme(settings->getSelectedTheme());
     Settings::setAppPalette();
@@ -32,7 +32,7 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr),
                                      "<p>Enjoy using Virtual Library!</p>"
                                      "<p>Source code available <a href=\"https://github.com/davidevigolo/Virtual-Library\">here</a></p>"
                                      "</body></html>");
-    welcomeText->setOpenExternalLinks(true);//to make the link clickable
+    welcomeText->setOpenExternalLinks(true); // to make the link clickable
     welcomeText->setAlignment(Qt::AlignCenter | Qt::AlignTop);
     welcomeText->setObjectName("welcomeText");
 
@@ -57,9 +57,6 @@ MainWindow::MainWindow(QWidget *parent) : QWidget(parent), fileManager(nullptr),
 
 void MainWindow::loadFromFile()
 {
-    clearView();
-    createHeader();
-    addMainDisplay();
     QString filePath = QFileDialog::getOpenFileName(this, "Select File", "", "Files (*.xml *.json);;All Files (*)");
     if (!filePath.isEmpty())
     {
@@ -70,10 +67,16 @@ void MainWindow::loadFromFile()
             notSupported->setText("File computation gone wrong");
             notSupported->setStandardButtons(QMessageBox::Ok);
         }
-        try{
-        mediaItems = fileManager->load();
-        emit itemsLoaded(mediaItems);
-        } catch (std::runtime_error &e) {
+        try
+        {
+            mediaItems = fileManager->load();
+            clearView();
+            createHeader();
+            addMainDisplay();
+            emit itemsLoaded(mediaItems);
+        }
+        catch (std::runtime_error &e)
+        {
             QMessageBox *notSupported = new QMessageBox(this);
             notSupported->setText(e.what());
             notSupported->setStandardButtons(QMessageBox::Ok);
