@@ -113,7 +113,11 @@ void Settings::saveSettings() {
 }
 
 void Settings::setAppPalette(QMap<QString,QColor>& customPaletteData, Theme selectedTheme) {
-    QPalette* palette = new QPalette();
+    #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
+    qApp->setStyle("Fusion");
+    #endif
+    QPalette _palette;
+    QPalette* palette = &_palette;
     if (selectedTheme == Theme::DARK) {
         palette->setColor(QPalette::Window, QColor(30, 30, 30));
         palette->setColor(QPalette::WindowText, Qt::white);
