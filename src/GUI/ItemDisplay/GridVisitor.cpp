@@ -4,7 +4,7 @@
 #include <QLabel>
 #include <FieldWidget.h>
 
-GridVisitor::GridVisitor(QWidget* widget) : widget(widget) , grid(new QGridLayout(widget)){}
+GridVisitor::GridVisitor(QWidget* widget, QGridLayout* grid) : widget(widget), grid(grid) {}
 
 /*
     * This function is used to visit a MediaItem object and display its fields in the grid layout.

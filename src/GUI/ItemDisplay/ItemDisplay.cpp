@@ -73,7 +73,8 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidg
 
     buttonWidget->setLayout(buttonsLayout);
 
-    GridVisitor visitor(fieldContainer);
+    fieldContainer->setLayout(new QGridLayout(fieldContainer));
+    GridVisitor visitor(fieldContainer, qobject_cast<QGridLayout *>(fieldContainer->layout()));
     item->accept(&visitor);
 
     for (auto field : findChildren<FieldWidget *>())
@@ -125,7 +126,7 @@ void ItemDisplay::onCancel()
         onGoBack();
         return;
     }
-    GridVisitor visitor(fieldContainer);
+    GridVisitor visitor(fieldContainer, qobject_cast<QGridLayout *>(fieldContainer->layout()));
     item->accept(&visitor);
 }
 

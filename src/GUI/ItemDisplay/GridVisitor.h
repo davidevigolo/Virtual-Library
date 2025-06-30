@@ -15,7 +15,7 @@ class GridVisitor : public Visitor {
         QWidget* widget;
         QGridLayout* grid;
     public:
-        GridVisitor(QWidget* widget);
+        GridVisitor(QWidget* widget, QGridLayout* grid);
         virtual void visit(MediaItem* media) override;
         virtual void visit(Readable* readable) override;
         virtual void visit(AudioVisual* audioVisual) override;
