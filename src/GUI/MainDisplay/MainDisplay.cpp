@@ -7,8 +7,12 @@
 #include <iostream>
 #include <ScrollWidget.h>
 
-MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent), mainScroll(new QScrollArea(this))
+MainDisplay::MainDisplay(QWidget *parent) : QWidget(parent), mainScroll(new QScrollArea(this)), container(new QWidget(this))
 {
+    container->setObjectName("container");
+    QVBoxLayout *mainLayout = new QVBoxLayout();
+    container->setLayout(mainLayout);
+
     setLayout(new QVBoxLayout(this));
     layout()->addWidget(mainScroll);
 
@@ -35,11 +39,6 @@ void MainDisplay::setAreas(QVector<MediaItem *> &items)
 
     mainScroll->show();
     findChild<QLabel *>("noResultLabel")->hide();
-    
-    QVBoxLayout *mainLayout = new QVBoxLayout();
-    QWidget *container = new QWidget();
-    container->setObjectName("container");
-    container->setLayout(mainLayout);
 
     for (auto key : mediaItems.keys())//set the orizontal scroll areas
     {
@@ -47,7 +46,7 @@ void MainDisplay::setAreas(QVector<MediaItem *> &items)
         connect(scroll, &ScrollWidget::itemButtonClicked, this, &MainDisplay::onButtonClicked);
         scroll->setLabel(key);
         scroll->setItems(mediaItems[key]);
-        mainLayout->addWidget(scroll);
+        container->layout()->addWidget(scroll);
     }
 
     mainScroll->setWidget(container);

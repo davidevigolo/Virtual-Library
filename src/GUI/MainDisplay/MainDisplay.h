@@ -32,6 +32,7 @@ class MainDisplay : public QWidget {
 private:
     QMap<QString, QVector<MediaItem*>> mediaItems;
     QScrollArea* mainScroll;
+    QWidget* container;
 public:
     MainDisplay(QWidget *parent = nullptr);
     void setAreas(QVector<MediaItem*>& items);
