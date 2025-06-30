@@ -5,12 +5,12 @@
 #include <GridVisitor.h>
 #include <QMessageBox>
 #include <QFileInfo>
-#include "EditMaker.h"
-#include "FieldWidget.h"
+#include <EditMaker.h>
+#include <FieldWidget.h>
 #include <qfiledialog.h>
 #include <QDebug>
 
-ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidget(parent), newItem(newItem)
+ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidget(parent), newItem(newItem), fieldContainer(new QWidget(this))
 {
     this->item = item;
 
@@ -72,11 +72,8 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidg
     connect(deleteButton, &QPushButton::clicked, this, &ItemDisplay::onDeletion);
 
     buttonWidget->setLayout(buttonsLayout);
-    buttonsLayout->addWidget(editButton);
-    buttonsLayout->addWidget(deleteButton);
 
-    QWidget *fields = new QWidget(this);
-    GridVisitor visitor(fields);
+    GridVisitor visitor(fieldContainer);
     item->accept(&visitor);
 
     for (auto field : findChildren<FieldWidget *>())
@@ -88,8 +85,8 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidg
     layout->addWidget(goBackButton, 0, 0);
     layout->addWidget(buttonWidget, 0, 1);
     layout->addWidget(imageButton, 1, 0);
-    layout->addWidget(fields, 1, 1);
-    fields->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Policy::MinimumExpanding);
+    layout->addWidget(fieldContainer, 1, 1);
+    fieldContainer->setSizePolicy(QSizePolicy::Expanding, QSizePolicy::Policy::MinimumExpanding);
 
     setLayout(layout);
 
@@ -104,7 +101,6 @@ void ItemDisplay::onEdit()
     imageButton->setEnabled(true);
     cancelButton->show();
     saveButton->show();
-    // segnalare a fields che è stato premuto
     for (auto field : findChildren<FieldWidget *>())
     {
         field->setReadOnly(false);
@@ -119,22 +115,18 @@ void ItemDisplay::onCancel()
     imageButton->setEnabled(false);
     cancelButton->hide();
     saveButton->hide();
-    // segnalare a fields che è stato premuto
     for (auto field : findChildren<FieldWidget *>())
     {
         layout()->removeWidget(field);
-        delete field;
+        field->deleteLater();
     }
     if (newItem)
     {
         onGoBack();
         return;
     }
-    QWidget *fields = new QWidget(this);
-    fields->setFixedHeight(imageButton->height());
-    GridVisitor visitor(fields);
+    GridVisitor visitor(fieldContainer);
     item->accept(&visitor);
-    static_cast<QGridLayout *>(layout())->addWidget(fields, 1, 1);
 }
 
 void ItemDisplay::onSave()

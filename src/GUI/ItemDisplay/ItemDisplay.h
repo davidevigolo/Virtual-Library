@@ -42,6 +42,7 @@ private:
     ImageButton* imageButton;
     bool newItem;
     QString imagePath;
+    QWidget* fieldContainer;
 public:
     ItemDisplay(MediaItem* item = nullptr, QWidget* parent = nullptr, bool newItem = false);
 private slots:

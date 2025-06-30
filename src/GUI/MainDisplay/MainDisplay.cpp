@@ -66,7 +66,7 @@ void MainDisplay::clearAreas()
     for (auto scroll : scrolls)
     {
         _container->layout()->removeWidget(scroll);
-        delete scroll;
+        scroll->deleteLater();
     }
 }
 

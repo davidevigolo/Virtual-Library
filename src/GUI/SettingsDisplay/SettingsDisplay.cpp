@@ -14,6 +14,7 @@
 #include <qlineedit.h>
 #include <QComboBox>
 #include <qapplication.h>
+#include <QCloseEvent>
 
 SettingsDisplay::SettingsDisplay(QWidget *parent) : QWidget(parent)
 {
@@ -134,7 +135,6 @@ void SettingsDisplay::onChangeColor()
             button->setStyleSheet("background-color: " + color.name() + ";");
             if (findChild<QComboBox *>("theme") && findChild<QComboBox *>("theme")->currentText() == "Custom")
             {
-                customPaletteData[button->objectName()] = color;
                 setAppPalette();
             }
         }
@@ -153,9 +153,14 @@ void SettingsDisplay::onChangeTheme()
 
 void SettingsDisplay::closeEvent(QCloseEvent *event)
 {
-    selectedTheme = SettingsData::getInstance()->getSelectedTheme();
-    customPaletteData = SettingsData::getInstance()->getCustomPaletteData();
-    setAppPalette();
+    //This is necessary since qApp->setPalette() causes problem applying the same palette twice
+    // Only revert theme if user made changes that weren't applied
+    SettingsData* settings = SettingsData::getInstance();
+    if (selectedTheme != settings->getSelectedTheme() || customPaletteData != settings->getCustomPaletteData()) {
+        // User made changes but didn't apply them, revert to saved settings
+        Settings::setAppPalette(settings->getCustomPaletteData(), settings->getSelectedTheme());
+    }
+    event->accept();
 }
 
 void SettingsDisplay::setAppPalette()
