@@ -126,6 +126,8 @@ void ItemDisplay::onCancel()
         onGoBack();
         return;
     }
+    imagePath = QString::fromStdString(item->getImage());
+    imageButton->setIcon(imagePath);
     GridVisitor visitor(fieldContainer, qobject_cast<QGridLayout *>(fieldContainer->layout()));
     item->accept(&visitor);
 }

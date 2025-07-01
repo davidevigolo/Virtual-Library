@@ -23,7 +23,7 @@
     </MediaItem>
     <MediaItem>
         <Article>
-            <Title>The Great Gatsby: A Critical Review</Title>
+            <Title>BALUARDOC</Title>
             <Author>Unknown</Author>
             <ReleaseDate>2020</ReleaseDate>
             <ProductionHouse>Bloomsbury</ProductionHouse>
@@ -520,63 +520,6 @@
             <Image>:/images/resources/power_vuln.png</Image>
             <Edition>1</Edition>
             <Pages>12</Pages>
-            <Publisher></Publisher>
-        </Article>
-    </MediaItem>
-    <MediaItem>
-        <Article>
-            <Title>caca</Title>
-            <Author>acac</Author>
-            <ReleaseDate></ReleaseDate>
-            <ProductionHouse></ProductionHouse>
-            <Genre></Genre>
-            <Tags>
-                <Tag></Tag>
-            </Tags>
-            <Format></Format>
-            <Language></Language>
-            <Used>false</Used>
-            <Image></Image>
-            <Edition></Edition>
-            <Pages>0</Pages>
-            <Publisher></Publisher>
-        </Article>
-    </MediaItem>
-    <MediaItem>
-        <Article>
-            <Title>acac</Title>
-            <Author>caca</Author>
-            <ReleaseDate></ReleaseDate>
-            <ProductionHouse></ProductionHouse>
-            <Genre></Genre>
-            <Tags>
-                <Tag></Tag>
-            </Tags>
-            <Format></Format>
-            <Language></Language>
-            <Used>false</Used>
-            <Image></Image>
-            <Edition></Edition>
-            <Pages>0</Pages>
-            <Publisher></Publisher>
-        </Article>
-    </MediaItem>
-    <MediaItem>
-        <Article>
-            <Title>ca</Title>
-            <Author></Author>
-            <ReleaseDate></ReleaseDate>
-            <ProductionHouse></ProductionHouse>
-            <Genre></Genre>
-            <Tags>
-                <Tag></Tag>
-            </Tags>
-            <Format></Format>
-            <Language></Language>
-            <Used>false</Used>
-            <Image>/home/student/Downloads/MediaManager/MediaManager/media/c36ad297-516a-4316-a2f3-f55467bea2b0.jpg</Image>
-            <Edition></Edition>
-            <Pages>0</Pages>
             <Publisher></Publisher>
         </Article>
     </MediaItem>

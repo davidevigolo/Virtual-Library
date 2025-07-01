@@ -20,6 +20,26 @@
         "Used": false
     },
     {
+        "Author": "Unknown",
+        "Class": "Article",
+        "Edition": "1",
+        "Format": "Online",
+        "Genre": "Literary Review",
+        "Image": ":/images/resources/article.png",
+        "Language": "English",
+        "Pages": 5,
+        "ProductionHouse": "Bloomsbury",
+        "Publisher": "The New York Times",
+        "ReleaseDate": "2020",
+        "Tags": [
+            "Literature",
+            "Analysis",
+            "Classic"
+        ],
+        "Title": "BALUARDO",
+        "Used": true
+    },
+    {
         "Author": "Christopher Nolan",
         "Class": "Film",
         "Director": "Christopher Nolan",
@@ -476,59 +496,5 @@
         ],
         "Title": "The Power of Vulnerability in Leadership",
         "Used": true
-    },
-    {
-        "Author": "acac",
-        "Class": "Article",
-        "Edition": "",
-        "Format": "",
-        "Genre": "",
-        "Image": "",
-        "Language": "",
-        "Pages": 0,
-        "ProductionHouse": "",
-        "Publisher": "",
-        "ReleaseDate": "",
-        "Tags": [
-            ""
-        ],
-        "Title": "caca",
-        "Used": false
-    },
-    {
-        "Author": "caca",
-        "Class": "Article",
-        "Edition": "",
-        "Format": "",
-        "Genre": "",
-        "Image": "",
-        "Language": "",
-        "Pages": 0,
-        "ProductionHouse": "",
-        "Publisher": "",
-        "ReleaseDate": "",
-        "Tags": [
-            ""
-        ],
-        "Title": "acac",
-        "Used": false
-    },
-    {
-        "Author": "",
-        "Class": "Article",
-        "Edition": "",
-        "Format": "",
-        "Genre": "",
-        "Image": "/home/student/Downloads/MediaManager/MediaManager/media/c36ad297-516a-4316-a2f3-f55467bea2b0.jpg",
-        "Language": "",
-        "Pages": 0,
-        "ProductionHouse": "",
-        "Publisher": "",
-        "ReleaseDate": "",
-        "Tags": [
-            ""
-        ],
-        "Title": "ca",
-        "Used": false
     }
 ]
