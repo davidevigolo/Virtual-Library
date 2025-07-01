@@ -18,7 +18,6 @@ RESOURCES += ./resources.qrc
 INCLUDEPATH += "./src/Logic Model"
 INCLUDEPATH += "./src/Save/xml"
 INCLUDEPATH += "./src/Save/json"
-INCLUDEPATH += "./Test/XmlTests"
 INCLUDEPATH += "./src/GUI"
 INCLUDEPATH += "./src/GUI/MainDisplay"
 INCLUDEPATH += "./src/Save"
@@ -79,7 +78,6 @@ SOURCES += "./src/Logic Model/Book.cpp"
 SOURCES += "./src/Logic Model/Film.cpp"
 SOURCES += "./src/Logic Model/Music.cpp"
 SOURCES += "./src/Logic Model/Podcast.cpp"
-SOURCES += "./Test/XmlTests/XmlManagerTest.cpp"
 SOURCES += "./src/Save/json/JsonVisitor.cpp"
 SOURCES += "./src/Save/xml/XmlVisitor.cpp"
 
@@ -92,7 +90,6 @@ HEADERS += "./src/Logic Model/Article.h"
 HEADERS += "./src/Logic Model/Music.h"
 HEADERS += "./src/Logic Model/Podcast.h"
 HEADERS += "./src/Save/json/JsonVisitor.h"
-HEADERS += "./Test/XmlTests/XmlManagerTest.h"
 HEADERS += "./src/Logic Model/Visitor.h"
 HEADERS += "./src/Save/xml/XmlVisitor.h"
 HEADERS += "./src/Logic Model/ConstVisitor.h"
@@ -114,16 +111,8 @@ SOURCES += "./src/Save/ManagerFactory.cpp"
 HEADERS += "./src/Settings/Settings.h"
 SOURCES += "./src/Settings/Settings.cpp"
 
-#Test
-HEADERS += "./Test/JsonTests/JsonTest.h"
-HEADERS += "./Test/GUITests/MainWindowTests/LoadFromFileTests.h"
-
-SOURCES += "./Test/JsonTests/JsonTest.cpp"
-SOURCES += "./Test/GUITests/MainWindowTests/LoadFromFileTests.cpp"
-
 #GUI
 #HEADERS += "./src/GUI/
 
 # TestMain
 SOURCES += "./src/main.cpp"
-#SOURCES += "./GUITests/MainWindowTests/GuiTest.cpp"

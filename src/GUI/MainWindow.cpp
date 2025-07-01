@@ -101,6 +101,11 @@ void MainWindow::saveToFile()
     QString strFile = dialog.getSaveFileName(NULL, "Create New File", "", "");
     if (strFile.isEmpty())
         return;
+    if (!strFile.endsWith(".xml", Qt::CaseInsensitive) && !strFile.endsWith(".json", Qt::CaseInsensitive))
+    {
+        QMessageBox::warning(this, "Invalid File Name", "The file name must contain .xml or .json");
+        return;
+    }
     fileManager = ManagerFactory(strFile).create();
     fileManager->setPath(strFile);
     fileManager->save(mediaItems);
@@ -184,19 +189,19 @@ void MainWindow::clearView()
     if (mainDisplay)
     {
         layout()->removeWidget(mainDisplay); // Remove the main display
-        mainDisplay->deleteLater();                 // Delete the main display
+        mainDisplay->deleteLater();          // Delete the main display
     }
     ItemDisplay *itemDisplay = findChild<ItemDisplay *>(); // Find the item display
     if (itemDisplay)
     {
         layout()->removeWidget(itemDisplay); // Remove the item display
-        itemDisplay->deleteLater();                // Delete the item display
+        itemDisplay->deleteLater();          // Delete the item display
     }
     QWidget *widget = findChild<QWidget *>("newItemWidget"); // Find the widget by object name
     if (widget)
     {
         layout()->removeWidget(widget); // Remove the widget
-        widget->deleteLater();                 // Delete the widget
+        widget->deleteLater();          // Delete the widget
     }
     auto welcomeText = findChild<QLabel *>("welcomeText");
     welcomeText->hide();

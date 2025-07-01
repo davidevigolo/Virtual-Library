@@ -77,10 +77,7 @@ ItemDisplay::ItemDisplay(MediaItem *item, QWidget *parent, bool newItem) : QWidg
     GridVisitor visitor(fieldContainer, qobject_cast<QGridLayout *>(fieldContainer->layout()));
     item->accept(&visitor);
 
-    for (auto field : findChildren<FieldWidget *>())
-    {
-        field->setReadOnly(true);
-    }
+    setFieldsReadOnly(true);
 
     QGridLayout *layout = new QGridLayout(this);
     layout->addWidget(goBackButton, 0, 0);
@@ -102,10 +99,7 @@ void ItemDisplay::onEdit()
     imageButton->setEnabled(true);
     cancelButton->show();
     saveButton->show();
-    for (auto field : findChildren<FieldWidget *>())
-    {
-        field->setReadOnly(false);
-    }
+    setFieldsReadOnly(false);
     emit itemChanged(item);
 }
 
@@ -130,6 +124,7 @@ void ItemDisplay::onCancel()
     imageButton->setIcon(imagePath);
     GridVisitor visitor(fieldContainer, qobject_cast<QGridLayout *>(fieldContainer->layout()));
     item->accept(&visitor);
+    setFieldsReadOnly(true);
 }
 
 void ItemDisplay::onSave()
@@ -183,4 +178,11 @@ void ItemDisplay::onImageButtonClicked()
         return;
     }
     imageButton->setIcon(imagePath);
+}
+
+void ItemDisplay::setFieldsReadOnly(bool value){
+    for (auto field : findChildren<FieldWidget *>())
+    {
+        field->setReadOnly(value);
+    }
 }

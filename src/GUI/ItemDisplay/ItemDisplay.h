@@ -45,6 +45,8 @@ private:
     QWidget* fieldContainer;
 public:
     ItemDisplay(MediaItem* item = nullptr, QWidget* parent = nullptr, bool newItem = false);
+private:
+    void setFieldsReadOnly(bool value);
 private slots:
     void onEdit();
     void onDeletion();
