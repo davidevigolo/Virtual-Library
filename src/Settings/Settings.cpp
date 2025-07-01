@@ -116,52 +116,53 @@ void Settings::setAppPalette(QMap<QString,QColor>& customPaletteData, Theme sele
     #if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
     qApp->setStyle("Fusion");
     #endif
-    QPalette _palette;
-    QPalette* palette = &_palette;
+    qApp->setPalette(QPalette());
+
+    QPalette palette;
     if (selectedTheme == Theme::DARK) {
-        palette->setColor(QPalette::Window, QColor(30, 30, 30));
-        palette->setColor(QPalette::WindowText, Qt::white);
-        palette->setColor(QPalette::Base, QColor(50, 50, 50));
-        palette->setColor(QPalette::AlternateBase, QColor(50, 50, 50));
-        palette->setColor(QPalette::ToolTipBase, Qt::white);
-        palette->setColor(QPalette::ToolTipText, Qt::white);
-        palette->setColor(QPalette::Text, Qt::white);
-        palette->setColor(QPalette::Button, QColor(50, 50, 50));
-        palette->setColor(QPalette::ButtonText, Qt::white);
-        palette->setColor(QPalette::BrightText, Qt::red);
-        palette->setColor(QPalette::Link, QColor(42, 130, 218));
-        palette->setColor(QPalette::Highlight, QColor(42, 130, 218));
-        palette->setColor(QPalette::HighlightedText, Qt::black);
+        palette.setColor(QPalette::Window, QColor(30, 30, 30));
+        palette.setColor(QPalette::WindowText, Qt::white);
+        palette.setColor(QPalette::Base, QColor(50, 50, 50));
+        palette.setColor(QPalette::AlternateBase, QColor(50, 50, 50));
+        palette.setColor(QPalette::ToolTipBase, Qt::white);
+        palette.setColor(QPalette::ToolTipText, Qt::white);
+        palette.setColor(QPalette::Text, Qt::white);
+        palette.setColor(QPalette::Button, QColor(50, 50, 50));
+        palette.setColor(QPalette::ButtonText, Qt::white);
+        palette.setColor(QPalette::BrightText, Qt::red);
+        palette.setColor(QPalette::Link, QColor(42, 130, 218));
+        palette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+        palette.setColor(QPalette::HighlightedText, Qt::black);
     } else if (selectedTheme == Theme::LIGHT) {
-        palette->setColor(QPalette::Window, Qt::white);
-        palette->setColor(QPalette::WindowText, Qt::black);
-        palette->setColor(QPalette::Base, Qt::white);
-        palette->setColor(QPalette::AlternateBase, Qt::white);
-        palette->setColor(QPalette::ToolTipBase, Qt::white);
-        palette->setColor(QPalette::ToolTipText, Qt::black);
-        palette->setColor(QPalette::Text, Qt::black);
-        palette->setColor(QPalette::Button, Qt::white);
-        palette->setColor(QPalette::ButtonText, Qt::black);
-        palette->setColor(QPalette::BrightText, Qt::red);
-        palette->setColor(QPalette::Link, QColor(42, 130, 218));
-        palette->setColor(QPalette::Highlight, QColor(42, 130, 218));
-        palette->setColor(QPalette::HighlightedText, Qt::white);
+        palette.setColor(QPalette::Window, Qt::white);
+        palette.setColor(QPalette::WindowText, Qt::black);
+        palette.setColor(QPalette::Base, Qt::white);
+        palette.setColor(QPalette::AlternateBase, Qt::white);
+        palette.setColor(QPalette::ToolTipBase, Qt::white);
+        palette.setColor(QPalette::ToolTipText, Qt::black);
+        palette.setColor(QPalette::Text, Qt::black);
+        palette.setColor(QPalette::Button, Qt::white);
+        palette.setColor(QPalette::ButtonText, Qt::black);
+        palette.setColor(QPalette::BrightText, Qt::red);
+        palette.setColor(QPalette::Link, QColor(42, 130, 218));
+        palette.setColor(QPalette::Highlight, QColor(42, 130, 218));
+        palette.setColor(QPalette::HighlightedText, Qt::white);
     } else {
-        palette->setColor(QPalette::Window, customPaletteData["Window"]);
-        palette->setColor(QPalette::WindowText, customPaletteData["WindowText"]);
-        palette->setColor(QPalette::Base, customPaletteData["Base"]);
-        palette->setColor(QPalette::AlternateBase, customPaletteData["AlternateBase"]);
-        palette->setColor(QPalette::ToolTipBase, customPaletteData["ToolTipBase"]);
-        palette->setColor(QPalette::ToolTipText, customPaletteData["ToolTipText"]);
-        palette->setColor(QPalette::Text, customPaletteData["Text"]);
-        palette->setColor(QPalette::Button, customPaletteData["Button"]);
-        palette->setColor(QPalette::ButtonText, customPaletteData["ButtonText"]);
-        palette->setColor(QPalette::BrightText, customPaletteData["BrightText"]);
-        palette->setColor(QPalette::Link, customPaletteData["Link"]);
-        palette->setColor(QPalette::Highlight, customPaletteData["Highlight"]);
-        palette->setColor(QPalette::HighlightedText, customPaletteData["HighlightedText"]);
+        palette.setColor(QPalette::Window, customPaletteData["Window"]);
+        palette.setColor(QPalette::WindowText, customPaletteData["WindowText"]);
+        palette.setColor(QPalette::Base, customPaletteData["Base"]);
+        palette.setColor(QPalette::AlternateBase, customPaletteData["AlternateBase"]);
+        palette.setColor(QPalette::ToolTipBase, customPaletteData["ToolTipBase"]);
+        palette.setColor(QPalette::ToolTipText, customPaletteData["ToolTipText"]);
+        palette.setColor(QPalette::Text, customPaletteData["Text"]);
+        palette.setColor(QPalette::Button, customPaletteData["Button"]);
+        palette.setColor(QPalette::ButtonText, customPaletteData["ButtonText"]);
+        palette.setColor(QPalette::BrightText, customPaletteData["BrightText"]);
+        palette.setColor(QPalette::Link, customPaletteData["Link"]);
+        palette.setColor(QPalette::Highlight, customPaletteData["Highlight"]);
+        palette.setColor(QPalette::HighlightedText, customPaletteData["HighlightedText"]);
     }
-    qApp->setPalette(*palette);
+    qApp->setPalette(palette);
 }
 
 QString Settings::themeToText(int theme) {
